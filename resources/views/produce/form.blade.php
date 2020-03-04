@@ -1,0 +1,61 @@
+@csrf
+ <div class="form-group">
+    <label for="farm_id">Farm:</label>
+    {!! Form::select('farm_id',  App\Farm::pluck('farm_name', 'id'), null, ["class"=>"form-control".($errors->has('farm_id')?" is-invalid":""), 'placeholder' => 'Choose Farm','required' =>'']) !!}
+    @if($errors->has('farm_id'))
+        <span class="invalid-feedback">{{ $errors->first('farm_id') }}</span>
+    @endif
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+     <label for="plant_id">Farm produce:</label>
+      <select name="plant_id" class="form-control"  required>
+        <option value="">--- Select Produce ---</option>
+              @foreach ($plants as $key => $value)
+              <option value="{{ $key }}" {{ $key == $produce->plant_id ? 'selected' : '' }}>{{ $value}}</option>
+              @endforeach
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="variety">Varieties:</label>
+      <select   name="variety"  class="form-control" required>
+        <option value="">--State Variety--</option>
+      </select>
+    </div>
+    </div>
+  <div class="form-row">
+     <div class="form-group col-md-6">
+       <label for="">Planting Date:</label>
+      <input id="start_date" type="date" name="start_date" value="{{ old('start_date',$produce->start_date) }}" class="form-control {{ $errors->has('start_date') ? 'is-invalid' : ' ' }}"  required>
+    @if($errors->has('start_date'))
+		<div class="invalid-feedback">
+		   <strong>{{ $errors->first('start_date') }}</strong>
+		</div>
+  	@endif
+    </div>
+    <div class="form-group col-md-6">
+   <label for="">Expected Date:</label>
+ <input id="end_date" type="date" name="end_date" value="{{ old('end_date',$produce->end_date) }}" class="form-control {{ $errors->has('end_date') ? 'is-invalid' : ' ' }}"  required>
+   @if($errors->has('end_date'))
+		<div class="invalid-feedback">
+		   <strong>{{ $errors->first('end_date') }}</strong>
+		</div>
+  	@endif
+    </div>
+  </div>
+    <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="farm_mode">Farming Mode:</label>
+   <select id="farm_mode" class="form-control" name="farm_mode" required>
+        <option value="">Choose...</option>
+      <option value="Mono-Cropin" {{ old('farm_mode',$produce->farm_mode ) == 'Mono-Cropin' ? 'selected' : '' }}>Mono-Cropin</option>
+      <option value="Inter-Croping" {{ old('farm_mode',$produce->farm_mode ) == 'Inter-Croping' ? 'selected' : '' }}>Inter-Croping</option>
+      </select>
+     </div><!-- /.form-group col-md-6 -->
+   <div class="form-group col-md-6">
+     </div><!-- /.form-group col-md-6 -->
+    </div>
+ <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $produce->exists ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('backend.produces.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
+    </div>
