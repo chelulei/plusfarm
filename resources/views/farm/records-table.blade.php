@@ -98,10 +98,11 @@
                         data-plantid="{{$planting->id}}" data-myremarks="{{$planting->remarks}}"  data-toggle="modal" data-target="#edit_plant">
                          <i class="fa fa-edit"></i>
                         EDIT</button>
-  <button class="btn btn-link"
-          onclick="return confirm('Are you sure you want to delete the record {{ $planting->id }} ?')">
-    DELETE
-  </button>
+ <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+ data-target="#exampleModal-{{$planting->id}}">
+ \<i class="fa fa-trash-o"></i>
+  DELETE
+</button>
             </td>
         </tr>
             @endforeach
@@ -229,3 +230,4 @@
     </div>
   </div>
 </div>
+ @include('planting.modal')
