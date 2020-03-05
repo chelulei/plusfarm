@@ -32,3 +32,4 @@ Route::get('/produces/create/{id}','ProduceController@myformAjax');
 Route::any('record/{id}','RecordsController@details')->name('record');
 
 
+

@@ -52,6 +52,7 @@
                         EDIT</button>
                          <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$preparation->id}})"
               data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
+              DELETE
               <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
               </a>
                        </div>
@@ -85,7 +86,7 @@
             <th>Settings</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="plantings-list" name="plantings-list">
          @foreach($plantings as $planting)
         <tr>
             <td>{{$planting->task}}</td>
@@ -93,16 +94,11 @@
             <td>{{$planting->details}}</td>
             <td>{{$planting->remarks}}</td>
             <td>
- <button type="button" class="btn btn-outline-primary" data-mytask="{{$planting->task}}"
-                        data-mycost="{{$planting->cost}}"  data-mydetails="{{$planting->details}}"
-                        data-plantid="{{$planting->id}}" data-myremarks="{{$planting->remarks}}"  data-toggle="modal" data-target="#edit_plant">
-                         <i class="fa fa-edit"></i>
-                        EDIT</button>
- <button type="button" class="btn btn-outline-danger" data-toggle="modal"
- data-target="#exampleModal-{{$planting->id}}">
- \<i class="fa fa-trash-o"></i>
-  DELETE
-</button>
+ <a href="#!" class="btn btn-md btn-danger delete"
+ data-url="{{ route('backend.plantings.destroy', $planting->id) }}" data-toggle="modal"  data-target="#exampleModal">
+    DELETE
+    <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+              </a>
             </td>
         </tr>
             @endforeach
@@ -230,4 +226,57 @@
     </div>
   </div>
 </div>
- @include('planting.modal')
+
+<!-- Edit Land preparations-->
+<div class="modal fade" id="edit_prep" tabindex="-1" role="dialog" aria-labelledby="edit_prepLabel" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"  id="edit_prepLabel">Update Activities</h4>
+      </div>
+      <form action="{{route('backend.preparations.update','test')}}" method="POST">
+              @method('put')
+      	    @csrf
+	      <div class="modal-body">
+	      		<input type="hidden" name="prep_id" id="prep_id" value="">
+				@include('preparation.edit_form')
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-primary">Save</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+ @include('preparation.script')
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header  bg-danger ">
+          <h5 class="modal-title text-white" id="exampleModalLabel">
+            We just want to confirm...
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST" id="deleteFormClient">
+            @csrf
+            @method('DELETE')
+          <h5 class="text-center">Are you sure you want to delete ... ?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+   @include('planting.script')

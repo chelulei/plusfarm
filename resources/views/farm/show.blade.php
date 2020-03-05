@@ -25,5 +25,5 @@
     </div>
 </div>
 @endsection
- @include('preparation.script')
+ @include('farm.script')
 

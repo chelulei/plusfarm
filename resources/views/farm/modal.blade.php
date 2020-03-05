@@ -119,19 +119,20 @@
   </div>
 </div>
 
-<!-- Edit Land preparations-->
-<div class="modal fade" id="edit_prep" tabindex="-1" role="dialog" aria-labelledby="editLabel" data-backdrop="static">
+
+<!-- Edit  plantings-->
+{{-- <div class="modal fade" id="edit-plant" tabindex="-1" role="dialog" aria-labelledby="edit-plantLabel" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title"  id="editLabel">Update Activities</h4>
+        <h4 class="modal-title"  id="edit-plantLabel">Update Activities</h4>
       </div>
-      <form action="{{route('backend.preparations.update','test')}}" method="POST">
+      <form action="{{route('backend.plantings.update','test')}}" method="POST">
               @method('put')
       	    @csrf
 	      <div class="modal-body">
-	      		<input type="hidden" name="prep_id" id="prep_id" value="">
-				@include('preparation.edit_form')
+	      		<input type="hidden" name="plant_id" id="plant_id" value="">
+				@include('planting.edit_form')
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
@@ -140,4 +141,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> --}}
+
+
+ <!-- Delete Modals -->

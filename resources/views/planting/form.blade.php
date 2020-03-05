@@ -48,7 +48,7 @@
                  @endif
         </div>
      </div>
-
+{{-- @include('planting.script') --}}
 
 
 

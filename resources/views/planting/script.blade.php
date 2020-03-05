@@ -1,25 +1,13 @@
-@section('script')
+ @section('script')
+<script>
+    jquery(document).ready(function () {
 
-    <script type="text/javascript">
+    jquery(document).on('click', '.delete', function(e) {
 
-//delete modal script
+     const url =  jquery(this).data('url');
+     jquery('#deleteFormClient').attr('action', url);
+    });
 
-    $('#edit_plant').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var task = button.data('mytask')
-      var cost = button.data('mycost')
-      var details = button.data('mydetails')
-      var remarks = button.data('myremarks')
-      var plant_id = button.data('plant')
-      var modal = $(this)
-      modal.find('.modal-body #task').val(task);
-      modal.find('.modal-body #cost').val(cost);
-      modal.find('.modal-body #details').val(details);
-      modal.find('.modal-body #remarks').val(remarks);
-      modal.find('.modal-body #plant_id').val(plant_id);
-
-   });
-
-    </script>
-
-    @endsection
+     });
+</script>
+@endsection

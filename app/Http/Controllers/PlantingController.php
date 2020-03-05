@@ -67,9 +67,12 @@ class PlantingController extends Controller
      * @param  \App\Planting  $planting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Planting $planting)
+    public function edit($id)
     {
         //
+    $plant = Planting::find($id);
+    return response()->json($plant);
+
     }
 
     /**
@@ -79,9 +82,10 @@ class PlantingController extends Controller
      * @param  \App\Planting  $planting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Planting $planting)
+    public function update(Request $request, $id)
     {
         //
+
     }
 
     /**

@@ -1,7 +1,6 @@
 @section('script')
-
-    <script type="text/javascript">
-
+<script>
+$(document).ready(function () {
 //delete modal script
 
      function deleteData(id)
@@ -16,12 +15,8 @@
      {
          $("#deleteForm").submit();
      }
-    $(document).ready(function() {
-        $('li').click(function() {
-            $('li.list-group-item.active').removeClass("active");
-            $(this).addClass("active");
-        });
-    });
+
+
     $('#edit_prep').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
       var task = button.data('mytask')
@@ -35,6 +30,9 @@
       modal.find('.modal-body #details').val(details);
       modal.find('.modal-body #remarks').val(remarks);
       modal.find('.modal-body #prep_id').val(prep_id);
+
+});
+
 
 });
     </script>

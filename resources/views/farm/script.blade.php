@@ -1,16 +1,11 @@
 @section('script')
-
     <script type="text/javascript">
 
-        $('#username').on('blur', function() {
-            var thename = this.value.toLowerCase().trim(),
-                slugInput = $('#slug'),
-                theSlug = thename.replace(/&/g, '-and-')
-                    .replace(/[^a-z0-9-]+/g, '-')
-                    .replace(/\-\-+/g, '-')
-                    .replace(/^-+|-+$/g, '');
-
-            slugInput.val(theSlug);
+    $(document).ready(function() {
+            $('li').click(function() {
+                $('li.list-group-item.active').removeClass("active");
+                $(this).addClass("active");
+            });
         });
 
 //delete modal script
