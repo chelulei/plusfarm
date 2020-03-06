@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Variety;
 use Illuminate\Http\Request;
 use DB;
+use Session;
 class VarietyController extends Controller
 {
 
@@ -16,15 +17,17 @@ class VarietyController extends Controller
 
         return json_encode($varieties);
     }
-    // /**
-    //  * Display a listing of the resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function index()
-    // {
-    //     //
-    // }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+        $crops = Variety::latest()->get();
+        return view('seeds.index', compact('crops'));
+    }
 
     // /**
     //  * Show the form for creating a new resource.
@@ -36,16 +39,27 @@ class VarietyController extends Controller
     //     //
     // }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+        try {
+
+            $crop = Variety::create($request->all());
+
+        } catch (\Exception $e) {
+
+            Session::flash('error', "Something wen't wrong! Please try again");
+        }
+
+        return redirect()->route('backend.seeds.index')
+            ->with('success', 'Seed has been added successfully');
+    }
 
     // /**
     //  * Display the specified resource.

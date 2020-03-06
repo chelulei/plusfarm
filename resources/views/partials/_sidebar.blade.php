@@ -58,6 +58,17 @@
         <span class="menu-title">Reports/Analytics </span>
       </a>
     </li>
-
+ <li class="nav-item">
+      <a class="nav-link" href="{{ route('backend.plants.index') }}">
+        <i class="menu-icon typcn typcn-th-large-outline"></i>
+        <span class="menu-title">Crops</span>
+      </a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{{ route('backend.seeds.index') }}">
+        <i class="menu-icon typcn typcn-th-large-outline"></i>
+        <span class="menu-title">Seeds</span>
+      </a>
+    </li>
   </ul>
 </nav>

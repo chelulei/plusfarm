@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Plant;
 use Illuminate\Http\Request;
-
+use Session;
 class PlantController extends Controller
 {
     /**
@@ -15,6 +15,8 @@ class PlantController extends Controller
     public function index()
     {
         //
+        $crops = Plant::with('varieties')->get();
+        return view('crops.index', compact('crops','varieties'));
     }
 
     /**
@@ -36,6 +38,18 @@ class PlantController extends Controller
     public function store(Request $request)
     {
         //
+        try {
+
+            $crop =  Plant::create($request->all());
+
+        } catch (\Exception $e) {
+
+            Session::flash('error', "Something wen't wrong! Please try again");
+        }
+
+
+        return redirect()->route('backend.plants.index')
+            ->with('success', 'Crop has been added successfully');
     }
 
     /**

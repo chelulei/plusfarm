@@ -21,6 +21,19 @@
                       </div>
                     </div>
                   </div>
+                  <div class="form-group">
+                            {{ Form::hidden('slug', null, array('id' => 'slug')) }}
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>{{ __('UserName') }}</label>
+                            <input id="username" type="text" class="au-input au-input--full{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="UserName" required autofocus>
+
+                            @if ($errors->has('username'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
                    <div class="form-group">
                     <div class="input-group">
                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
@@ -80,3 +93,4 @@
               </div>
             </div>
 @endsection
+@include('auth.script')

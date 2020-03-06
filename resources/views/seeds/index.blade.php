@@ -28,12 +28,12 @@
     </style>
 @endsection
 @section('content')
- <a href="{{ route('backend.farms.create') }}">
-        <button  type="button" class="btn btn-outline-primary">
-    <i class="fa fa-plus"></i>Add Farm</button>
-       </a>
+        <button  type="button" class="btn btn-outline-primary"
+         data-toggle="modal" data-target="#seedModal">
+    <i class="fa fa-plus"></i>Add Seeds
+</button>
    @include('partials.messages')
-    @if(! $farms->count())
+    @if(! $crops->count())
         <div class="alert alert-danger m-2">
             No Records
         </div>
@@ -43,17 +43,17 @@
             <div class="card-header bg-primary">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">LIST OF FARMS</a>
+                        <a class="nav-link active" href="#">LIST OF Seeds</a>
                     </li>
 
                 </ul>
             </div>
             <div class="card-body p-4">
                 <div class="table-responsive m-b-40">
-                   @include('farm.table')
+                   @include('seeds.table')
                 </div>
                 @endif
              </div>
          </div>
      @endsection
-     @include('farm.script')
+     @include('seeds.modal')
