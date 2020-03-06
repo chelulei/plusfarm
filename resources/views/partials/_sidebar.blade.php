@@ -58,7 +58,13 @@
         <span class="menu-title">Reports/Analytics </span>
       </a>
     </li>
- <li class="nav-item">
+     <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="menu-icon typcn typcn-th-large-outline"></i>
+        <span class="menu-title">Resources</span>
+      </a>
+    </li>
+ {{-- <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.plants.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Crops</span>
@@ -69,6 +75,6 @@
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Seeds</span>
       </a>
-    </li>
+    </li> --}}
   </ul>
 </nav>
