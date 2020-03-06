@@ -13,7 +13,8 @@
     @foreach ($users as $key => $user)
         <tr>
             <td>
-                <a data-toggle="tooltip" data-placement="top" title="View Details" class="btn  btn-md btn-outline-info" href="{{ route('backend.users.show',$user->id) }}">
+                <a data-toggle="tooltip" data-placement="top" title="View Details"
+                class="btn  btn-md btn-outline-info" href="{{ route('backend.users.show',$user->id) }}">
                     <i class="fa fa-search"></i>
                 </a>
                 <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.users.edit',$user->id)}}" class="btn btn-md  btn-outline-primary">

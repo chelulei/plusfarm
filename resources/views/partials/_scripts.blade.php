@@ -2,8 +2,11 @@
 
 
  <!-- plugins:js -->
-    <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
-    <script src="{{asset('vendors/js/vendor.bundle.addons.js')}}"></script>
+<script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
+<script src="{{asset('vendors/js/vendor.bundle.addons.js')}}"></script>
+<script src="{{asset('/backend/vendor/datetimepicker/moment.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/datetimepicker/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Bootstrap JS-->
 
 
     <!-- endinject -->
@@ -38,9 +41,10 @@
 
 <script>
 
-$(document).ready(function () {
+$(function () {
+
  $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
-});
+
 
 $('select').select2({
 
@@ -48,4 +52,18 @@ $('select').select2({
         width: 'resolve',
 
     });
+
+    $('#DataTable').DataTable( {
+            dom: 'lBfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+
+
+      $('#datetimepicker4').datetimepicker({
+          format: 'L'
+      });
+
+   });
 </script>

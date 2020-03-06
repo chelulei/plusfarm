@@ -8,6 +8,7 @@ class Produce extends Model
 {
     //
     protected $fillable=['user_id','farm_id','plant_id','variety','start_date','end_date','farm_mode'];
+    protected $dates= ['start_date','end_date'];
 
      public function user()
     {
@@ -24,4 +25,6 @@ class Produce extends Model
     {
         return $this->belongsTo(Farm::class);
     }
+
+
 }

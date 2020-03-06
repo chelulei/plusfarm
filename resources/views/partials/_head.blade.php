@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/ionicons/css/ionicons.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/typicons/src/font/typicons.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/flag-icon-css/css/flag-icon.min.css')}}">
+
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.addons.css')}}">
+    <link href="{{asset('/backend/vendor/datetimepicker/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" media="all">
     <!-- endinject -->
 
     <!-- plugin css for this page -->

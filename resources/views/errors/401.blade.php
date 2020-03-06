@@ -1,5 +1,5 @@
 
-@extends('layouts.backend.main')
+@extends('layouts.main')
 @section('content')
 <div class='col-lg-4 col-lg-offset-4' style="height: 500px">
 

@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('permissions.index') }}">All permissions</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('backend.permissions.index') }}">All permissions</a></li>
         </ol>
     </nav>
     <div class="row mb-10">

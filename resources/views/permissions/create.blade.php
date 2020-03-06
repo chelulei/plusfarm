@@ -26,11 +26,12 @@
                 </h1>
             </div>
         </div>
-        <div class="float-right pr-2">
+        <div class="">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.permissions.index') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                        <a href="{{ route('backend.permissions.index') }}">
+                            <button class="btn btn-outline-primary">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>ALL PERMISSIONS</button></a>
                     </li>
                 </ol>
@@ -52,7 +53,7 @@
                                         'id'     => 'user-form'
                                     ]) !!}
                     @csrf
-                    @include('backend.permissions.form')
+                    @include('permissions.form')
 
                     {!! Form::close() !!}
                 </div>

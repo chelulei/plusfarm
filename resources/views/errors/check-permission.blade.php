@@ -1,5 +1,5 @@
-@extends('layouts.backend.main')
-@section('title', 'Clinic | Errors')
+@extends('layouts.main')
+@section('title', 'Plusfarm | Errors')
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">

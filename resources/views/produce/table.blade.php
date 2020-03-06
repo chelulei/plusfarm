@@ -18,8 +18,8 @@
                               <td>{{$produce->farm->farm_name}}</td>
                               <td>{{$produce->plant->name}}</td>
                                <td>{{$produce->variety}}</td>
-                               <td>{{$produce->start_date}}</td>
-                               <td>{{$produce->end_date}}</td>
+                               <td>{{$produce->start_date->format('d M Y')}}</td>
+                               <td>{{$produce->end_date->format('d M Y')}}</td>
                               <td>{{$produce->farm_mode}}</td>
                               <td>
                 <a data-toggle="tooltip" data-placement="top" title="Edit"

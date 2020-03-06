@@ -22,6 +22,7 @@ Route::get('/', [
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'PagesController@admin')->name('admin');
 Route::resource('/farms', 'FarmController', ['as'=>'backend']);
 Route::resource('/produces', 'ProduceController', ['as'=>'backend']);
 Route::resource('/preparations', 'PreparationController', ['as'=>'backend']);

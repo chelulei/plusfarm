@@ -23,26 +23,25 @@
       </select>
     </div>
     </div>
+
   <div class="form-row">
      <div class="form-group col-md-6">
        <label for="">Planting Date:</label>
-      <input id="start_date" type="date" name="start_date" value="{{ old('start_date',$produce->start_date) }}" class="form-control {{ $errors->has('start_date') ? 'is-invalid' : ' ' }}"  required>
-    @if($errors->has('start_date'))
-		<div class="invalid-feedback">
-		   <strong>{{ $errors->first('start_date') }}</strong>
-		</div>
-  	@endif
+ <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
+                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
     </div>
     <div class="form-group col-md-6">
    <label for="">Expected Date:</label>
- <input id="end_date" type="date" name="end_date" value="{{ old('end_date',$produce->end_date) }}" class="form-control {{ $errors->has('end_date') ? 'is-invalid' : ' ' }}"  required>
-   @if($errors->has('end_date'))
-		<div class="invalid-feedback">
-		   <strong>{{ $errors->first('end_date') }}</strong>
-		</div>
-  	@endif
+
+
     </div>
   </div>
+
+
     <div class="form-row">
    <div class="form-group col-md-6">
       <label for="farm_mode">Farming Mode:</label>

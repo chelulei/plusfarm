@@ -5,50 +5,50 @@
 @endsection
 @section('content')
 
-                     @include('partials.messages')
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="bg-primary p-2 mb-2 text-white text-center">
-                                        Profile
-                                    </div>
-                                </div>
-                                <!-- /.col-md-12 -->
-                                <div class="col-md-3 col-lg-3 " align="center">
-                                    <img src="{{ $user->image_url}}" alt="" class="img-thumbnail mt-4" style="width:150px; height:150px;">
-                                    {{-- @include('backend.account.image') --}}
-                                </div>
-                                <!-- /.col-m-3 -->
-                                <div class="col-md-4">
-                                    <br>
-                                     Username: <strong>{{$user->username}}</strong><hr>
-                                    Name: <strong>{{$user->name}}</strong><hr>
-                                    Email: <strong>{{$user->email}}</strong><hr>
-                                </div>
-                                <div class="col-md-4">
+  @include('partials.messages')
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bg-primary p-2 mb-2 text-white text-center">
+                    Profile
+                </div>
+            </div>
+            <!-- /.col-md-12 -->
+            <div class="col-md-3 col-lg-3 " align="center">
+                <img src="{{ $user->image_url}}" alt="" class="img-thumbnail mt-4" style="width:150px; height:150px;">
+                {{-- @include('account.image') --}}
+            </div>
+            <!-- /.col-m-3 -->
+            <div class="col-md-4">
+                <br>
+                Username: <strong>{{$user->username}}</strong><hr>
+                Name: <strong>{{$user->name}}</strong><hr>
+                Email: <strong>{{$user->email}}</strong><hr>
+            </div>
+            <div class="col-md-4">
 
-                                </div>
-                            </div>
-                            <br>
-                            <!-- /.div -->
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                                 <i class="fa fa-edit"></i>
-                            change Image
-                            </button>
-                            <div class="float-right">
-                                 <button class="btn btn-info" data-myuname="{{$user->username}}"
-                        data-myname="{{$user->name}}"  data-myemail="{{$user->email}}"  data-userid={{$user->id}} data-toggle="modal" data-target="#edit_user">
-                         <i class="fa fa-edit"></i>
-                        EDIT</button>
-                       </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <br>
+        <!-- /.div -->
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+              <i class="fa fa-edit"></i>
+        change Image
+        </button>
+
+        <div class="float-right">
+              <button class="btn btn-outline-primary" data-myuname="{{$user->username}}"
+    data-myname="{{$user->name}}"  data-myemail="{{$user->email}}"  data-userid={{$user->id}} data-toggle="modal" data-target="#edit_user">
+      <i class="fa fa-edit"></i>
+    EDIT</button>
+    </div>
+        </div>
+    </div>
 
 @endsection
 @include('account.script')
 
-@section('modal')
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-md" role="document">
@@ -88,5 +88,5 @@
     </div>
   </div>
 </div>
-@endsection
+
 

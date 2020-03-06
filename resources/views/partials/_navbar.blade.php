@@ -132,7 +132,7 @@
             <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name }}</p>
             <p class="font-weight-light text-muted mb-0">{{ Auth::user()->email }}</p>
           </div>
-          <a   href="{{route('backend.account.index')}}" class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
+          <a   href="{{route('backend.account.index')}}" class="dropdown-item">My Profile <i class="dropdown-item-icon ti-dashboard"></i></a>
              <?php $user = Auth::user(); ?>
            <a href="{{ route('profile-edit', ['user' => $user]) }}" class="dropdown-item">
                Edit Password

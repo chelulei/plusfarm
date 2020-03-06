@@ -23,11 +23,12 @@
                 </h1>
             </div>
         </div>
-        <div class="float-right pr-2">
+        <div class="">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.permissions.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                        <a href="{{ route('backend.permissions.create') }}">
+                            <button class="btn btn-outline-primary">
                                 <i class="zmdi zmdi-plus"></i>Add Permissions</button></a>
                     </li>
                 </ol>

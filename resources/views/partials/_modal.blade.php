@@ -24,6 +24,30 @@
    </div>
   </div>
 
+<!-- Edit User -->
+<!-- Modal -->
+<div class="modal fade" id="edit_user" tabindex="-1" role="dialog" aria-labelledby="editLabel" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"  id="editLabel">Update Details</h4>
+      </div>
+
+      <form action="{{route('backend.account.update','test')}}" method="post">
+              @method('put')
+      	    @csrf
+	      <div class="modal-body">
+	      		<input type="hidden" name="user_id" id="us_id" value="">
+				@include('account.form')
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-primary">Save</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 

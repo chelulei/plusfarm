@@ -15,7 +15,7 @@
     </li>
     <li class="nav-item nav-category">Main Menu</li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('admin') }}">
         <i class="menu-icon typcn typcn-document-text"></i>
         <span class="menu-title">Dashboard</span>
       </a>
@@ -32,10 +32,10 @@
             <a class="nav-link" href="{{ route('backend.users.index') }}">Users</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Roles</a>
+            <a class="nav-link" href="{{ route('backend.roles.index') }}">Roles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Permissions</a>
+            <a class="nav-link" href="{{ route('backend.permissions.index') }}">Permissions</a>
           </li>
         </ul>
       </div>
@@ -64,7 +64,7 @@
         <span class="menu-title">Resources</span>
       </a>
     </li>
- {{-- <li class="nav-item">
+ <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.plants.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Crops</span>
@@ -75,6 +75,6 @@
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Seeds</span>
       </a>
-    </li> --}}
+    </li>
   </ul>
 </nav>
