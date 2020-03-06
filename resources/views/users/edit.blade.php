@@ -1,4 +1,4 @@
-@extends('layouts.backend.main')
+@extends('layouts.main')
 
 @section('title', 'Plusfarm | Edit user')
 
@@ -36,8 +36,7 @@
             </nav>
         </div>
     </div>
-    <div class="row mb-10">
-        <div class="col-lg-12">
+
             <div class="card card">
                 <div class="card-header">
                     <strong>Edit Form</strong>
@@ -51,17 +50,16 @@
                                  ]) !!}
 
 
-                    @include('backend.users.form2')
+                    @include('users.form2')
 
                     {!! Form::close() !!}
                 </div>
             </div>
-        </div>
-    </div>
+
     <br><br>
     <!-- /.row -->
 @endsection
-@include('backend.users.script')
+@include('users.script')
 
 
 

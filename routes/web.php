@@ -35,7 +35,7 @@ Route::resource('/seeds', 'VarietyController', ['as' => 'backend']);
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::resource('/account', 'AccountController', ['as' => 'backend'])->except(['store']);
 Route::post('/uploadfile', 'ImageController@upload');
-
+Route::resource('/users', 'UsersController',['as'=>'backend']);
 Route::get('/profile/{user}/edit', [
     'uses' => 'ProfileController@edit',
     'as'   => 'profile-edit'

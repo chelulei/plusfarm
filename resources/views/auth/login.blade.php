@@ -6,10 +6,10 @@
              <form method="POST" action="{{ route('login') }}">
                  @csrf
                   <div class="form-group">
-                    <label class="label">{{ __('E-Mail Address') }}</label>
+                    <label class="label">{{ __('Username') }}</label>
                     <div class="input-group">
-                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  placeholder="Email"  required autocomplete="email" autofocus>
-                         @error('email')
+                      <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}"  placeholder="username"  required autocomplete="username" autofocus>
+                         @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

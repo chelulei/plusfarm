@@ -40,7 +40,7 @@
         <br>
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new" style="width: 200px; height: 150px;">
-                <img src="{{($user->image_url) ? $user->image_url : asset('img/noimage.png')}}" alt="">
+                <img src="{{($user->image_url) ? $user->image_url : asset('images/noimage.png')}}" alt="">
             </div>
             <div class="fileinput-preview fileinput-exists" style="max-width: 200px; max-height: 150px;"></div>
             <div>

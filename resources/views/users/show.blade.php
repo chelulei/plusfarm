@@ -5,25 +5,22 @@
 @section('content')
 
     <div class="breadcrumbs">
-        <div class="page-header float-left pl-2">
+        <div class="page-header">
             <div class="page-title">
                 <h1 class="bread-head"> <i class="fas fa-tachometer-alt"></i> Dashboard</h1>
             </div>
         </div>
-        <div class="float-right pr-2">
+        <div class="">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.users.index') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                        <a href="{{ route('backend.users.index') }}"><button class="btn btn-primary">
                                 <i class="zmdi zmdi-arrow-left"></i>BACK</button></a>
                     </li>
                 </ol>
             </nav>
         </div>
     </div>
-    <div class="content mt-3">
-        <div class="row">
-            <div class="col-sm-12">
 
                     <div class="card">
                         <div class="row">
@@ -64,10 +61,6 @@
 
                     </div>
 
-            </div> <!-- /.12 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.content mt-3 -->
+
 @endsection
 

@@ -3,19 +3,19 @@
     <li class="nav-item nav-profile">
       <a href="#" class="nav-link">
         <div class="profile-image">
-          <img class="img-xs rounded-circle" src=" {{asset('images/faces/face8.jpg ')}}" alt="profile image">
+          <img class="img-xs rounded-circle" src="{{ Auth::user()->image_url}}" alt="{{ Auth::user()->name }}">
 
           <div class="dot-indicator bg-success"></div>
         </div>
         <div class="text-wrapper">
-          <p class="profile-name">Allen Moreno</p>
-          <p class="designation">Premium user</p>
+          <p class="profile-name">{{ Auth::user()->name }}</p>
+          {{-- <p class="designation">Premium user</p> --}}
         </div>
       </a>
     </li>
     <li class="nav-item nav-category">Main Menu</li>
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="#">
         <i class="menu-icon typcn typcn-document-text"></i>
         <span class="menu-title">Dashboard</span>
       </a>
@@ -23,19 +23,19 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <i class="menu-icon typcn typcn-coffee"></i>
-        <span class="menu-title">Drop Down Menu</span>
+        <span class="menu-title">UserManagement</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+            <a class="nav-link" href="{{ route('backend.users.index') }}">Users</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
+            <a class="nav-link" href="#">Roles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+            <a class="nav-link" href="#">Permissions</a>
           </li>
         </ul>
       </div>
@@ -53,7 +53,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('backend.produces.index') }}">
+      <a class="nav-link" href="#">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Reports/Analytics </span>
       </a>

@@ -2,7 +2,6 @@
     <thead>
     <tr>
         <th>Name</th>
-        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -11,10 +10,6 @@
             <td>
                 {{ $crop->name}}
             </td>
-             <td>
-                DElete
-            </td>
-
             @endforeach
         </tr>
     </tbody>

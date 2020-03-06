@@ -32,6 +32,7 @@
          data-toggle="modal" data-target="#seedModal">
     <i class="fa fa-plus"></i>Add Seeds
 </button>
+<br>
    @include('partials.messages')
     @if(! $crops->count())
         <div class="alert alert-danger m-2">
@@ -39,7 +40,7 @@
         </div>
         <!-- /.alert alert-danger -->
      @else
-     <div class="card">
+     <div class="card mt-4">
             <div class="card-header bg-primary">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">

@@ -16,7 +16,7 @@ class PlantController extends Controller
     {
         //
         $crops = Plant::with('varieties')->get();
-        return view('crops.index', compact('crops','varieties'));
+        return view('crops.index', compact('crops'));
     }
 
     /**

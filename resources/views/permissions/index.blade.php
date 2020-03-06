@@ -37,7 +37,7 @@
     <div class="content mt-3">
         <div class="row">
             <div class="col-sm-12">
-    @include('backend_partials.messages')
+    @include('partials.messages')
 
     @if(! $permissions->count())
         <div class="alert alert-danger m-2">
@@ -58,7 +58,7 @@
 
                 <!-- DATA TABLE-->
                 <div class="table-responsive m-b-40">
-                    @include('backend.permissions.table')
+                    @include('permissions.table')
                 </div>
                 @endif
 
@@ -69,4 +69,4 @@
         <!-- /.row -->
     </div>
 @endsection
-@include('backend.permissions.script')
+@include('permissions.script')

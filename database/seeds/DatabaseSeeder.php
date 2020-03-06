@@ -14,9 +14,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
         // $this->call(UsersTableSeeder::class);
+             RolesTableSeeder::class,
+             PermissionTableSeeder::class,
+             AdminTableSeeder::class,
              PlantsTableSeeder::class,
              VarietyTableSeeder::class,
-             AdminTableSeeder::class
+
               ]);
     }
 }

@@ -1,21 +1,21 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-    <a class="navbar-brand brand-logo" href="index.html">
-      <img src="{{asset('images/logo.svg')}}" alt="logo" /> </a>
-    <a class="navbar-brand brand-logo-mini" href="index.html">
-      <img src="{{asset('images/logo-mini.svg')}}" alt="logo" /> </a>
-  </div>
+    {{-- <a class="navbar-brand brand-logo" href="index.html">
+      <img src="{{asset('images/Pluslogo.png')}}" alt="logo" width="30" height="30"/> </a>
+    <a class="navbar-brand brand-logo-mini" href="#">
+    <img src="{{asset('images/Pluslogo.png')}}" alt="logo" width="30" height="30"/> </a> --}}
+   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center">
     <ul class="navbar-nav">
-      <li class="nav-item font-weight-semibold d-none d-lg-block">Help : +050 2992 709</li>
+      {{-- <li class="nav-item font-weight-semibold d-none d-lg-block">Help : +050 2992 709</li> --}}
       <li class="nav-item dropdown language-dropdown">
-        <a class="nav-link dropdown-toggle px-2 d-flex align-items-center" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+        {{-- <a class="nav-link dropdown-toggle px-2 d-flex align-items-center" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> --}}
           <div class="d-inline-flex mr-0 mr-md-3">
             <div class="flag-icon-holder">
-              <i class="flag-icon flag-icon-us"></i>
+              {{-- <i class="flag-icon flag-icon-us"></i> --}}
             </div>
           </div>
-          <span class="profile-text font-weight-medium d-none d-md-block">English</span>
+          {{-- <span class="profile-text font-weight-medium d-none d-md-block">English</span> --}}
         </a>
         <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
           <a class="dropdown-item">
@@ -132,7 +132,7 @@
             <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name }}</p>
             <p class="font-weight-light text-muted mb-0">{{ Auth::user()->email }}</p>
           </div>
-          <a   href="{{route('account.index')}}" class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
+          <a   href="{{route('backend.account.index')}}" class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
              <?php $user = Auth::user(); ?>
            <a href="{{ route('profile-edit', ['user' => $user]) }}" class="dropdown-item">
                Edit Password
@@ -141,10 +141,13 @@
           <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
           <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
           <a class="dropdown-item" href="{{ route('logout') }}"
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
+                onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
             Sign Out
             <i class="dropdown-item-icon ti-power-off"></i></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                 @csrf
+             </form>
         </div>
       </li>
     </ul>

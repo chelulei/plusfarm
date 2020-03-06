@@ -1,6 +1,6 @@
-@extends('layouts.backend.main')
+@extends('layouts.main')
 
-@section('title', 'Clinic | Add new user')
+@section('title', 'Plusfarm | Add new user')
 
 @section('content')
     <div class="breadcrumbs">
@@ -62,6 +62,6 @@
     <br><br>
     <!-- /.row -->
 @endsection
-@include('backend.users.script')
+@include('users.script')
 
 

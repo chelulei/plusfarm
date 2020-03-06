@@ -13,7 +13,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->uploadPath =public_path('img');
+        $this->uploadPath =public_path('images');
     }
     /**
      * Display a listing of the resource.
@@ -40,7 +40,7 @@ class UsersController extends Controller
 
         $roles = Role::pluck('name','name')->all();
 
-        return view('backend.users.create',compact('roles','user'));
+        return view('users.create',compact('roles','user'));
     }
 
     /**
@@ -69,7 +69,7 @@ class UsersController extends Controller
             return redirect()->route('users.index');
 
         }
-        return redirect()->route('users.index')->with('success', 'User created successfully');
+        return redirect()->route('backend.users.index')->with('success', 'User created successfully');
 
 
     }
@@ -158,7 +158,7 @@ class UsersController extends Controller
      } catch (\Exception $e) {
 
             Session::flash('error',"Something wen't wrong! Please try again");
-            return redirect()->route('users.index');
+            return redirect()->route('backend.users.index');
 
         }
         return redirect()->route('backend.users.index')->with('success', 'User updated successfully');
