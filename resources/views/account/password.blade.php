@@ -1,4 +1,4 @@
-@extends('layouts.backend.main')
+@extends('layouts.main')
 
 @section('title', 'Plusfarm | users index')
 
@@ -18,7 +18,7 @@
     </nav> --}}
 
     <div class="content mt-3">
-        @include('backend_partials.messages')
+        @include('partials.messages')
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

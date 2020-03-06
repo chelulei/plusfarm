@@ -4,9 +4,7 @@
 @section('css')
 @endsection
 @section('content')
-    <div class="content mt-3">
-            <div class="row">
-                <div class="col-md-12">
+
                      @include('partials.messages')
                     <div class="card">
                         <div class="card-body">
@@ -46,11 +44,7 @@
                        </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-            </div>
-    </div><!-- .content -->
 @endsection
 @include('account.script')
 
