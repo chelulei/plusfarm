@@ -41,7 +41,7 @@
         <!-- /.alert alert-danger -->
      @else
   {{-- <div class="card mt-4"> --}}
-            <div class="card-header bg-primary">
+            <div class="card-header bg-primary mt-4">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">LIST OF PRODUCE</a>

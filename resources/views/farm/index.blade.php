@@ -39,7 +39,7 @@
         </div>
         <!-- /.alert alert-danger -->
      @else
-     <div class="card">
+     <div class="card mt-4">
             <div class="card-header bg-primary">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
