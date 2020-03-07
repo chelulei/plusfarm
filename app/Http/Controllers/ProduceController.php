@@ -6,6 +6,7 @@ use App\Produce;
 use App\Farm;
 use App\Plant;
 use App\Variety;
+use App\Intercrop;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -46,18 +47,29 @@ class ProduceController extends Controller
      */
     public function store(Request $request)
     {
-        //
-         try {
-             $input = $request->all();
-             $request->user()->produces()->create($input);
-           } catch (\Exception $e) {
+            //
+        $input = $request->all();
+        $farm = Farm::findOrFail($request->farm_id);
+        if ($request->size < $farm->size){
+            $prod_id = $request->user()->produces()->create($input);
+            $farm->size -= $request->size;
+            $farm->save();
+        }else {
+         return redirect()->route('backend.produces.index')
+        ->with('error','No more Farm for Planting');
+        }
 
-              Session::flash('error',"Something wen't wrong! Please try again");
-          }
+         if ($farm->save() && $request->farm_mode == 'Inter-Croping'){
+            $inter = new Intercrop;
+            $inter->produce_id = $prod_id->id;
+            $inter->plant_id2 = $request->input('plant_id2');
+            $inter->variety2 = $request->input('variety2');
+            $inter->save();
+        }
 
-            return redirect()->route('backend.produces.index')
-            ->with('success','Produce has been added successfully');
-    }
+        return redirect()->route('backend.produces.index')
+        ->with('success','Produce has been added successfully');
+        }
 
     /**
      * Display the specified resource.

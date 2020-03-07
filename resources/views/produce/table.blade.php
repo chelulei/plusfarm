@@ -9,6 +9,7 @@
                           <th> Planting Date</th>
                           <th> Epecting Date </th>
                           <th> Farm Mode </th>
+                           <th>Size </th>
                            <th>Settings </th>
                         </tr>
                       </thead>
@@ -18,9 +19,10 @@
                               <td>{{$produce->farm->farm_name}}</td>
                               <td>{{$produce->plant->name}}</td>
                                <td>{{$produce->variety}}</td>
-                               <td>{{$produce->start_date->format('d M Y')}}</td>
-                               <td>{{$produce->end_date->format('d M Y')}}</td>
+                               <td>{{$produce->start_date}}</td>
+                               <td>{{$produce->end_date}}</td>
                               <td>{{$produce->farm_mode}}</td>
+                              <td>{{$produce->size}}</td>
                               <td>
                 <a data-toggle="tooltip" data-placement="top" title="Edit"
  href="{{ route('backend.produces.edit',$produce->id)}}" class="btn btn-md  btn-outline-primary">

@@ -2,7 +2,7 @@
 
 @section('title', 'Plus Farm | Add new farm')
 @section('content')
- <div class="card card">
+ <div class="card card  border-success">
             <div class="card-header">
                 <strong>Farm Form</strong>
             </div>

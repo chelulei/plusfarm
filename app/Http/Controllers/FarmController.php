@@ -63,11 +63,19 @@ class FarmController extends Controller
      * @param  \App\Farm  $farm
      * @return \Illuminate\Http\Response
      */
-    public function show(Farm $farm)
+    public function show($id)
     {
         //
-           return view("farm.show",
-            compact('farm'));
+        $preparations = Farm::with('preparations')->find($id)->preparations;
+        $storages = Farm::with('storages')->find($id)->storages;
+        $plantings = Farm::with('plantings')->find($id)->plantings;
+        $harvestings = Farm::with('harvestings')->find($id)->harvestings;
+        $activities = Farm::with('activities')->find($id)->activities;
+        $farm = Farm::select('farm_name','size')
+            ->where('id','=',$id)->first();
+
+        return view('farm.show',compact('farm','harvestings','plantings','storages','preparations','activities'));
+
     }
 
     /**

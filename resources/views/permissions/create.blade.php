@@ -31,7 +31,7 @@
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('backend.permissions.index') }}">
-                            <button class="btn btn-outline-primary">
+                            <button class="btn btn-outline-success">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>ALL PERMISSIONS</button></a>
                     </li>
                 </ol>

@@ -1,9 +1,9 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-    {{-- <a class="navbar-brand brand-logo" href="index.html">
-      <img src="{{asset('images/Pluslogo.png')}}" alt="logo" width="30" height="30"/> </a>
+    <a class="navbar-brand brand-logo" href="index.html">
+      <img src="{{asset('images/Plusfarm.png')}}" alt="Plusfarm" width="30" height="30"/> </a>
     <a class="navbar-brand brand-logo-mini" href="#">
-    <img src="{{asset('images/Pluslogo.png')}}" alt="logo" width="30" height="30"/> </a> --}}
+    <img src="{{asset('images/Plusfarm.png')}}" alt="Plusfarm" width="30" height="30"/> </a>
    </div>
   <div class="navbar-menu-wrapper d-flex align-items-center">
     <ul class="navbar-nav">

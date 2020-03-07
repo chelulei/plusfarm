@@ -109,4 +109,15 @@ class User extends Authenticatable
 
         return $this->hasMany(Planting::class);
     }
+
+
+    public  function php(){
+
+         if (isset($filterConfig) && isset($filterConfig['show']['all'])) {
+        $showAll = true;
+        } else {
+        $showAll = false;
+        }
+    }
+
 }

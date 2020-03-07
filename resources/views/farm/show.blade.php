@@ -5,7 +5,7 @@
 @section('content')
  @include('partials.messages')
  <div class="card">
-    <div class="card-header bg-primary">
+    <div class="card-header bg-success">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="#">

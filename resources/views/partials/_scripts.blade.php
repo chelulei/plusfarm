@@ -47,6 +47,7 @@ $('select').select2({
 
         theme: "classic",
         width: 'resolve',
+        width: '100%'
 
     });
 

@@ -28,8 +28,8 @@
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('backend.permissions.create') }}">
-                            <button class="btn btn-outline-primary">
-                                <i class="zmdi zmdi-plus"></i>Add Permissions</button></a>
+                            <button class="btn btn-outline-success">
+                                <i class="fa fa-plus-circle"></i>Add Permissions</button></a>
                     </li>
                 </ol>
             </nav>
@@ -47,7 +47,7 @@
         <!-- /.alert alert-danger -->
     @else
         <div class="card">
-            <div class="card-header bg-primary">
+            <div class="card-header bg-success">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" href="#"><i class="zmdi zmdi-format-align-justify"></i>

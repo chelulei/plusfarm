@@ -3,7 +3,7 @@
 @section('title', 'Plus Farm | Add new produce')
 
 @section('content')
-<div class="card card">
+<div class="card card  border-success">
             <div class="card-header">
                 <strong>Production Form</strong>
             </div>
@@ -21,4 +21,7 @@
 @endsection
 
 @include('produce.script')
+
+@section('script')
+
 

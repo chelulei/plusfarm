@@ -15,10 +15,11 @@
     </div> --}}
 
   </div>
+
  <div class="form-row">
      <div class="form-group col-md-6">
        <label for="size">Size(ha):</label>
-      <input id="size" type="text" name="size" value="{{ old('size',$farm->size) }}" class="form-control {{ $errors->has('size') ? 'is-invalid' : ' ' }}"  required>
+      <input id="size" type="number" name="size" value="{{ old('size',$farm->size) }}" class="form-control {{ $errors->has('size') ? 'is-invalid' : ' ' }}"  required>
     @if($errors->has('size'))
 		<div class="invalid-feedback">
 		   <strong>{{ $errors->first('size') }}</strong>
@@ -58,6 +59,7 @@
 		</div>
   	@endif
     </div>
+
     <div class="form-group col-md-6">
    <label for="">Soil Ph:</label>
  <input id="soilph" type="text" name="soilph" value="{{ old('soilph',$farm->soilph) }}" class="form-control {{ $errors->has('soilph') ? 'is-invalid' : ' ' }}"  required>
@@ -67,7 +69,9 @@
 		</div>
   	@endif
     </div>
+
   </div>
+
   <div class="form-row">
      <div class="form-group col-md-6">
        <label for="">Humidity:</label>

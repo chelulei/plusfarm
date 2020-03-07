@@ -17,7 +17,8 @@ class CreateProducesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->unsignedBigInteger('farm_id')->unsigned()->nullable();
-             $table->unsignedBigInteger('plant_id')->unsigned()->nullable();
+            $table->string('size');
+            $table->unsignedBigInteger('plant_id')->unsigned()->nullable();
             $table->string('variety');
             $table->string('start_date');
             $table->string('end_date');

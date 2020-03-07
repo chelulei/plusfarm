@@ -7,8 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Produce extends Model
 {
     //
-    protected $fillable=['user_id','farm_id','plant_id','variety','start_date','end_date','farm_mode'];
-    protected $dates= ['start_date','end_date'];
+    protected $fillable=[
+      'user_id',
+      'farm_id',
+       'size',
+      'plant_id',
+      'variety',
+      'start_date',
+      'end_date',
+      'farm_mode'
+    ];
+
+    // protected $dates= ['start_date','end_date'];
 
      public function user()
     {

@@ -1,7 +1,7 @@
 
 @extends('layouts.main')
 
-@section('title', 'Clinic | Add new role')
+@section('title', 'Plusfarm | Add new role')
 
 @section('content')
     <div class="breadcrumbs">
@@ -31,7 +31,7 @@
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('backend.roles.index') }}">
-                            <button class="btn btn-outline-primary">
+                            <button class="btn btn-outline-success">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>ALL ROLES</button></a>
                     </li>
                 </ol>
