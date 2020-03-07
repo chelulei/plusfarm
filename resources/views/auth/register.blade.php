@@ -1,5 +1,11 @@
 @extends('layouts.front')
 @section('content')
+@if ($errors->any())
+<div class="alert alert-danger">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	<ul>{!! implode('', $errors->all()) !!}</ul>
+</div>
+@endif
    <div class="col-lg-4 mx-auto">
               <h2 class="text-center mb-4">{{ __('Register') }}</h2>
               <div class="auto-form-wrapper">
@@ -21,6 +27,9 @@
                       </div>
                     </div>
                   </div>
+                  <div class="form-group">
+                      <input type="hidden" name="slug" id="slug">
+                        </div>
                <div class="form-group">
                     <div class="input-group">
                       <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="UserName" required autocomplete="name" autofocus>

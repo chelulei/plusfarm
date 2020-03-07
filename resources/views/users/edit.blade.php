@@ -30,14 +30,14 @@
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{route('backend.users.index')}}">
-                            <button class="btn btn-outline-primary">
+                            <button class="btn btn-success">
                                 <i class="fa fa-arrow-left"></i>ALL USERS</button></a>
                     </li>
                 </ol>
             </nav>
         </div>
     </div>
-            <div class="card card">
+            <div class="card card border-success">
                 <div class="card-header">
                     <strong>Edit Form</strong>
                 </div>

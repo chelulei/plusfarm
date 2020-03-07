@@ -4,10 +4,7 @@
  <!-- plugins:js -->
 <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
 <script src="{{asset('vendors/js/vendor.bundle.addons.js')}}"></script>
-<script src="{{asset('/backend/vendor/datetimepicker/moment.min.js')}}"></script>
-<script src="{{asset('/backend/vendor/datetimepicker/tempusdominus-bootstrap-4.min.js')}}"></script>
-<!-- Bootstrap JS-->
-
+<script src="{{asset('js/jquery-ui.js')}}"></script>
 
     <!-- endinject -->
     <!-- Plugin js for this page-->
@@ -41,7 +38,7 @@
 
 <script>
 
-$(function () {
+$(document).ready(function() {
 
  $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
 
@@ -61,9 +58,15 @@ $('select').select2({
         } );
 
 
-      $('#datetimepicker4').datetimepicker({
-          format: 'L'
-      });
 
-   });
+    // ------- Datepicker  js --------//
+
+      $( function() {
+        $( "#datepicker1" ).datepicker();
+        $( "#datepicker2" ).datepicker();
+      } );
+
+
+
+});
 </script>

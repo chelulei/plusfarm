@@ -6,8 +6,6 @@
     <!-- dataTables-->
 <link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/buttons.bootstrap4.min.css') }}">
-<link href="{{asset('/backend/vendor/datetimepicker/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" media="all">
-
 
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
@@ -16,8 +14,9 @@
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/flag-icon-css/css/flag-icon.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
+
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.addons.css')}}">
-    <link href="{{asset('/backend/vendor/datetimepicker/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" media="all">
+	<link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
     <!-- endinject -->
 
     <!-- plugin css for this page -->

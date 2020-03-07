@@ -27,17 +27,13 @@
   <div class="form-row">
      <div class="form-group col-md-6">
        <label for="">Planting Date:</label>
- <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
-                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div>
-    </div>
+<input id="datepicker1" name="dop" class="dates form-control"  placeholder="Planting Date" type="text">
+     </div>
+
     <div class="form-group col-md-6">
    <label for="">Expected Date:</label>
-
-
+   <input id="datepicker2" name="dop" class="dates form-control"
+   placeholder="Expected Date" type="text">
     </div>
   </div>
 
