@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Variety;
+use App\Plant;
 class VarietyTableSeeder extends Seeder
 {
     /**
@@ -27,5 +28,15 @@ class VarietyTableSeeder extends Seeder
         foreach ($varieties as $variety) {
             Variety::create(['name' => $variety]);
         }
+
+
+    foreach (Variety::pluck('id') as $vId)
+       {
+           $plants = Plant::pluck('id');
+
+           $pId = $plants[rand(0, $plants->count()-1)];
+            Variety::where('id', $vId)
+               ->update(['plant_id' => $pId]);
+       }
     }
 }
