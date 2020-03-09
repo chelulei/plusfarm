@@ -36,18 +36,16 @@ class HarvestingController extends Controller
     public function store(Request $request)
     {
         //
-          try {
+        $input = $request->all();
 
-             $input = $request->all();
-            $request->user()->harvestings()->create($input);
+       $ok = $request->user()->harvestings()->create($input);
+         if ($ok) {
+            return back()->with('success', 'Added successfully');
+         }else {
+            return back()->with('error',"Something wen't wrong! Please try again");
+         }
 
-           } catch (\Exception $e) {
 
-              Session::flash('error',"Something wen't wrong! Please try again");
-          }
-
-
-             return back()->with('success','Added successfully');
     }
 
     /**
@@ -79,9 +77,22 @@ class HarvestingController extends Controller
      * @param  \App\Harvesting  $harvesting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Harvesting $harvesting)
+    public function update(Request $request)
     {
         //
+          //
+          $data = $request->all();
+         $update = Harvesting::findOrFail($request->harvest_id);
+         $data = $request->all();
+         $ok=$update->update($data);
+
+     if($ok){
+            return back()->with('success', "Activity updated successfully");
+     }else {
+            return back()->with('error', "Something wen't wrong! Please try again");
+
+     }
+
     }
 
     /**

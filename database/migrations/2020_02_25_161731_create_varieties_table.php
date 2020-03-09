@@ -17,7 +17,7 @@ class CreateVarietiesTable extends Migration
             $table->bigIncrements('id');
              $table->unsignedBigInteger('plant_id')->unsigned()->nullable();
              $table->string('name');
-   $table->foreign('plant_id')->references('id')->on('plants')->onDelete('cascade');
+   $table->foreign('plant_id')->references('id')->on('plants')->onDelete('restrict');
             $table->timestamps();
         });
     }

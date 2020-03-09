@@ -17,24 +17,7 @@ $(document).ready(function () {
      }
 
 
-    $('#edit_prep').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var task = button.data('mytask')
-      var cost = button.data('mycost')
-      var details = button.data('mydetails')
-      var remarks = button.data('myremarks')
-      var prep_id = button.data('prepid')
-      var modal = $(this)
-      modal.find('.modal-body #task').val(task);
-      modal.find('.modal-body #cost').val(cost);
-      modal.find('.modal-body #details').val(details);
-      modal.find('.modal-body #remarks').val(remarks);
-      modal.find('.modal-body #prep_id').val(prep_id);
-
 });
-
-
-});
-    </script>
+</script>
 
     @endsection

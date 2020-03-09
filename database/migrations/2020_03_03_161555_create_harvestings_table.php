@@ -21,8 +21,8 @@ class CreateHarvestingsTable extends Migration
             $table->string('cost');
             $table->string('details');
             $table->string('remarks');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('farm_id')->references('id')->on('farms')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->foreign('farm_id')->references('id')->on('farms')->onDelete('restrict');
             $table->timestamps();
         });
     }

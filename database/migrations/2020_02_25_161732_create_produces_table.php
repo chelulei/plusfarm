@@ -24,9 +24,9 @@ class CreateProducesTable extends Migration
             $table->string('end_date');
             $table->string('farm_mode');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('farm_id')->references('id')->on('farms')->onDelete('cascade');
-            $table->foreign('plant_id')->references('id')->on('plants')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->foreign('farm_id')->references('id')->on('farms')->onDelete('restrict');
+            $table->foreign('plant_id')->references('id')->on('plants')->onDelete('restrict');
             $table->timestamps();
         });
     }

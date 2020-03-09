@@ -45,3 +45,5 @@ Route::any('activate/{id}', 'ActivateController@activate')->name('activate');
 Route::any('deactivate/{id}', 'ActivateController@deactivate')->name('deactivate');
 Route::resource('/roles', 'RolesController', ['as' => 'backend']);
 Route::resource('/permissions', 'permissionsController', ['as' => 'backend']);
+Route::delete('preparations/{id}', ['as' => 'preparations.destroy',
+'uses' => 'PreparationController@destroy']);

@@ -18,8 +18,8 @@ class CreateIntercropsTable extends Migration
             $table->unsignedBigInteger('produce_id')->unsigned()->nullable();
             $table->unsignedBigInteger('plant_id2')->unsigned()->nullable();
             $table->string('variety2');
-            $table->foreign('produce_id')->references('id')->on('produces')->onDelete('cascade');
-            $table->foreign('plant_id2')->references('id')->on('plants')->onDelete('cascade');
+            $table->foreign('produce_id')->references('id')->on('produces')->onDelete('restrict');
+            $table->foreign('plant_id2')->references('id')->on('plants')->onDelete('restrict');
             $table->timestamps();
         });
     }

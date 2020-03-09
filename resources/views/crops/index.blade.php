@@ -28,9 +28,9 @@
     </style>
 @endsection
 @section('content')
-        <button  type="button" class="btn btn-outline-primary"
+        <button  type="button" class="btn btn-outline-success"
          data-toggle="modal" data-target="#cropModal">
-    <i class="fa fa-plus"></i>Add Crop
+    <i class="fa fa-plus-circle"></i>Add Crop
 </button>
    @include('partials.messages')
     @if(! $crops->count())
@@ -40,7 +40,7 @@
         <!-- /.alert alert-danger -->
      @else
      <div class="card mt-4">
-            <div class="card-header bg-primary">
+            <div class="card-header bg-success">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">LIST OF Crops</a>

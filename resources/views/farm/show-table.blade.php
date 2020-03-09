@@ -1,44 +1,48 @@
+@section('style')
+    <style>
+
+    </style>
+@endsection
 <div class="table-responsive-sm">
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>FARM No</th>
-            <th>Name</th>
+            <th>Farm Name</th>
             <th>Size (Ha)</th>
-            <th>ALL ACTIVITIES</th>
         </tr>
         </thead>
         <tbody>
             <tr>
-                <td>{{$farm->id}}</td>
                 <td>{{$farm->farm_name}}</td>
                <td>{{$farm->size}} (Ha)</td>
-                <td>
-  <a data-toggle="tooltip" data-placement="top" title="View Details"
-  href="{{route('record',[$farm->id])}}"  class="btn btn-outline-primary btn-sm">
-    VIEW ACTIVITIES
-                    <i class="fa fa-search"></i>
-                    <!-- /.fa fa-edit -->
-                </a>
-                </td>
             </tr>
         </tbody>
     </table>
 </div>
-<h4 class="text-center  text-primary mt-5">ADD ACTIVITIES</h4>
+<h4 class="text-center  text-success mt-5">ACTIVITIES</h4>
 <hr>
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> Land Preparation</a>
-    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Planting</a>
-    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Harvesting</a>
-     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact2" aria-selected="false">Storage</a>
-  </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-     <div class="table-responsive-sm">
-    <table class="table table-bordered mt-4">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Land Preparation</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Planting</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Harvesting</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="store-tab" data-toggle="tab" href="#store" role="tab" aria-controls="store" aria-selected="false">Storage</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+     <button type="button" class="btn btn-success float-right m-4"
+                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#landModal">
+                         <i class="fa fa-plus-circle"></i>
+                     Add Activity
+                    </button>
+        <table class="table table-bordered mt-4">
         <thead>
         <tr>
             <th>Task</th>
@@ -56,26 +60,28 @@
             <td>{{$preparation->details}}</td>
             <td>{{$preparation->remarks}}</td>
             <td>
-                 <button type="button" class="btn btn-outline-primary" data-mytask="{{$preparation->task}}"
-                        data-mycost="{{$preparation->cost}}"  data-mydetails="{{$preparation->details}}"
-                        data-prepid="{{$preparation->id}}" data-myremarks="{{$preparation->remarks}}"  data-toggle="modal" data-target="#edit_prep">
+                 <button type="button" class="btn btn-outline-success" data-mytask="{{$preparation->task}}"
+                        data-mycost="{{$preparation->cost}}"
+                         data-mydetails="{{$preparation->details}}"
+                        data-prepid="{{$preparation->id}}"
+                        data-myremarks="{{$preparation->remarks}}"
+                        data-toggle="modal" data-target="#edit-pre">
                          <i class="fa fa-edit"></i>
                         EDIT</button>
-                         <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$preparation->id}})"
-              data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
-              DELETE
-              <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-              </a>
-                       </div>
+
             </td>
         </tr>
             @endforeach
         </tbody>
     </table>
-</div>
-    </div>
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-      <div class="table-responsive-sm">
+
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+     <button type="button" class="btn btn-success float-right m-4"
+                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#plantModal">
+                         <i class="fa fa-plus-circle"></i>
+                     Add Activity
+                    </button>
     <table class="table table-bordered mt-4">
         <thead>
         <tr>
@@ -86,7 +92,7 @@
             <th>Settings</th>
         </tr>
         </thead>
-        <tbody id="plantings-list" name="plantings-list">
+        <tbody>
          @foreach($plantings as $planting)
         <tr>
             <td>{{$planting->task}}</td>
@@ -94,6 +100,15 @@
             <td>{{$planting->details}}</td>
             <td>{{$planting->remarks}}</td>
             <td>
+                <button type="button" class="btn btn-outline-primary"
+                        data-ytask="{{$planting->task}}"
+                        data-ycost="{{$planting->cost}}"
+                         data-ydetails="{{$planting->details}}"
+                        data-plantpid="{{$planting->id}}"
+                        data-yremarks="{{$planting->remarks}}"
+                        data-toggle="modal" data-target="#edit-plant">
+                         <i class="fa fa-edit"></i>
+                        EDIT</button>
  <a href="#!" class="btn btn-md btn-danger delete"
  data-url="{{ route('backend.plantings.destroy', $planting->id) }}" data-toggle="modal"  data-target="#exampleModal">
     DELETE
@@ -104,17 +119,21 @@
             @endforeach
         </tbody>
     </table>
-</div>
-    </div>
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-<div class="table-responsive-sm">
-    <table class="table table-bordered mt-4">
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+<button type="button" class="btn btn-success float-right m-4"
+                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#harvestModal">
+                         <i class="fa fa-plus-circle"></i>
+                     Add Activity
+                    </button>
+     <table class="table table-bordered mt-4">
         <thead>
         <tr>
             <th>Task</th>
             <th>Cost</th>
             <th>Details</th>
             <th>Remarks</th>
+             <th>Activities</th>
         </tr>
         </thead>
         <tbody>
@@ -124,22 +143,41 @@
             <td>{{$harvesting->cost}}</td>
             <td>{{$harvesting->details}}</td>
             <td>{{$harvesting->remarks}}</td>
-
+             <td>
+<button type="button" class="btn btn-outline-primary"
+                        data-htask="{{$harvesting->task}}"
+                        data-hcost="{{$harvesting->cost}}"
+                         data-hdetails="{{$harvesting->details}}"
+                        data-harvestpid="{{$harvesting->id}}"
+                        data-hremarks="{{$harvesting->remarks}}"
+                        data-toggle="modal" data-target="#edit-harvest">
+                         <i class="fa fa-edit"></i>
+                        EDIT</button>
+ <a href="#!" class="btn btn-md btn-danger delete"
+ data-url="{{ route('backend.harvestings.destroy', $harvesting->id) }}" data-toggle="modal"  data-target="#harvestModal">
+    DELETE
+    <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+              </a>
+              </td>
         </tr>
             @endforeach
         </tbody>
     </table>
-</div>
   </div>
-  <div class="tab-pane fade" id="nav-contact2" role="tabpanel" aria-labelledby="nav-contact-tab">
-<div class="table-responsive-sm">
-    <table class="table table-bordered mt-4">
+   <div class="tab-pane fade" id="store" role="tabpanel" aria-labelledby="store-tab">
+       <button type="button" class="btn btn-success float-right m-4"
+                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#storageModal">
+                         <i class="fa fa-plus-circle"></i>
+                     Add Activity
+                    </button>
+        <table class="table table-bordered mt-4">
         <thead>
         <tr>
             <th>Task</th>
             <th>Cost</th>
             <th>Details</th>
             <th>Remarks</th>
+            <th>Settings</th>
         </tr>
         </thead>
         <tbody>
@@ -149,12 +187,27 @@
             <td>{{$storage->cost}}</td>
             <td>{{$storage->details}}</td>
             <td>{{$storage->remarks}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-primary"
+                        data-stask="{{$storage->task}}"
+                        data-scost="{{$storage->cost}}"
+                        data-sdetails="{{$storage->details}}"
+                        data-storageid="{{$storage->id}}"
+                        data-sremarks="{{$storage->remarks}}"
+                        data-toggle="modal" data-target="#edit-storage">
+                         <i class="fa fa-edit"></i>
+                        EDIT</button>
+ <a href="#!" class="btn btn-md btn-danger delete"
+ data-url="{{ route('backend.plantings.destroy', $storage->id) }}" data-toggle="modal"  data-target="#exampleModal">
+    DELETE
+    <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+              </a>
+            </td>
 
         </tr>
             @endforeach
         </tbody>
     </table>
+   </div>
 </div>
-  </div>
-</div>
-@include('farm.modal')
+

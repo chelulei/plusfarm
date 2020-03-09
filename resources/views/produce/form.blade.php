@@ -31,7 +31,7 @@
     <div class="form-group col-md-6">
         <label for="variety">Varieties:</label>
       <select   name="variety"  class="form-control" required>
-        <option value="">--State Variety--</option>
+        <option value="">--Select Variety--</option>
       </select>
     </div>
     </div>
@@ -74,7 +74,7 @@
     </div>
  <div class="form-row" id="otherFieldGroupDiv">
       <div class="form-group col-md-6">
-          <label for="plant_id2">Farm produce:</label>
+          <label for="plant_id2">Produce to Intercrop:</label>
             <select id="otherField1" name="plant_id2" class="form-control"  required>
               <option value="">--- Select Produce ---</option>
                     @foreach ($plants as $key => $value)

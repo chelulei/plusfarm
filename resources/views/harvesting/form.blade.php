@@ -1,7 +1,7 @@
 <div class="form-group row">
         {!! Form::label('task','Task:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
-        <select class="form-control" id="task" name="task">
+        <select class="form-control" id="task" name="task" required>
          <option value="">--Choose Task--</option>
          <option value="Storage Materials">Storage Materials</option>
         <option value="Farm tools">Farm tools</option>
@@ -20,7 +20,7 @@
    <div class="form-group row">
         {!! Form::label('cost','Cost:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
-         <input id="cost" type="text" name="cost" value="{{ old('cost') }}" class="form-control {{ $errors->has('cost') ? 'is-invalid' : ' ' }}"  required>
+         <input id="cost" type="number" name="cost" value="{{ old('cost') }}" class="form-control {{ $errors->has('cost') ? 'is-invalid' : ' ' }}"  required>
         @if($errors->has('cost'))
             <span class="is-invalid">{{ $errors->first('cost') }}</span>
         @endif

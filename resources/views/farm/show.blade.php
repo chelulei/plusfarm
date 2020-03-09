@@ -1,6 +1,5 @@
 
 @extends('layouts.main')
-
 @section('title', 'Plus Farm | Add new farm')
 @section('content')
  @include('partials.messages')
@@ -25,5 +24,5 @@
     </div>
 </div>
 @endsection
- @include('farm.script')
-
+@include('farm.modal')
+@include('farm.script')

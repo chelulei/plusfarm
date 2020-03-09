@@ -42,19 +42,18 @@ class FarmController extends Controller
     public function store(Requests\FarmStoreRequest $request)
     {
 
-        try {
 
              $input = $request->all();
-             $request->user()->farms()->create($input);
+             $ok = $request->user()->farms()->create($input);
 
-           } catch (\Exception $e) {
+                if($ok){
+                        return back()->with('success', "Farm has been added successfully");
+                }else {
+                        return back()->with('error', "Something wen't wrong! Please try again");
 
-              Session::flash('error',"Something wen't wrong! Please try again")->error();
-          }
+                }
 
 
-            return redirect()->route('backend.farms.index')
-            ->with('success','Farm has been added successfully');
     }
 
     /**
@@ -71,8 +70,7 @@ class FarmController extends Controller
         $plantings = Farm::with('plantings')->find($id)->plantings;
         $harvestings = Farm::with('harvestings')->find($id)->harvestings;
         $activities = Farm::with('activities')->find($id)->activities;
-        $farm = Farm::select('farm_name','size')
-            ->where('id','=',$id)->first();
+        $farm = Farm::where('id','=',$id)->first();
 
         return view('farm.show',compact('farm','harvestings','plantings','storages','preparations','activities'));
 
@@ -103,17 +101,15 @@ class FarmController extends Controller
     public function update(Requests\FarmUpdateRequest $request, Farm $farm)
     {
         //
-   try {
 
-      $farm->update($request->all());
+         $ok = $farm->update($request->all());
 
-         } catch (\Exception $e) {
+       if($ok){
+                        return back()->with('success', "Farm was updated successfully!");
+                }else {
+                        return back()->with('error', "Something wen't wrong! Please try again");
 
-              Session::flash('error',"Something wen't wrong! Please try again");
-        }
-
-
-        return redirect("/farms")->with('success','Farm was updated successfully!');
+                }
 
     }
 
@@ -126,18 +122,17 @@ class FarmController extends Controller
     public function destroy($id)
     {
 
-    try{
 
       $farm=Farm::FindOrFail($id);
 
-        $farm->delete();
+        $ok = $farm->delete();
 
-         } catch (\Exception $e) {
+          if($ok){
+                        return back()->with('success', "Farm deleted successfully!!");
+                }else {
+                        return back()->with('error', "Something wen't wrong! Please try again");
 
-             Session::flash('error', 'Some thing is wrong. Please try again');
-
-        }
-       return back()->with('success', 'Farm deleted successfully!');
+                }
 
    }
 

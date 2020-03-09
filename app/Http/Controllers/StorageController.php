@@ -37,18 +37,14 @@ class StorageController extends Controller
     {
         //
 
-        try {
-
              $input = $request->all();
-            $request->user()->storages()->create($input);
+            $ok  = $request->user()->storages()->create($input);
+         if($ok){
+          return back()->with('success','Storage has been added successfully');
+         }else {
+        Session::flash('error',"Something wen't wrong! Please try again");
+         }
 
-           } catch (\Exception $e) {
-
-              Session::flash('error',"Something wen't wrong! Please try again");
-          }
-
-
-             return back()->with('success','Storage has been added successfully');
     }
 
     /**
@@ -83,6 +79,16 @@ class StorageController extends Controller
     public function update(Request $request, Storage $storage)
     {
         //
+          $data = $request->all();
+          $update = Storage::findOrFail($request->storage_id);
+          $data = $request->all();
+          $ok = $update->update($data);
+
+        if ($ok) {
+            return back()->with('success', "Activity updated successfully");
+        } else {
+            return back()->with('error', "Something wen't wrong! Please try again");
+        }
     }
 
     /**

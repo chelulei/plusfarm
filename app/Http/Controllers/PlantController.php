@@ -38,18 +38,15 @@ class PlantController extends Controller
     public function store(Request $request)
     {
         //
-        try {
-
-            $crop =  Plant::create($request->all());
-
-        } catch (\Exception $e) {
-
-            Session::flash('error', "Something wen't wrong! Please try again");
-        }
-
-
-        return redirect()->route('backend.plants.index')
+          $crop =  Plant::create($request->all());
+        if( $crop ){
+                return redirect()->route('backend.plants.index')
             ->with('success', 'Crop has been added successfully');
+            }else {
+                Session::flash('error', "Something wen't wrong! Please try again");
+
+            }
+
     }
 
     /**

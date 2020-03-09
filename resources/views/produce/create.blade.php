@@ -3,6 +3,20 @@
 @section('title', 'Plus Farm | Add new produce')
 
 @section('content')
+<div class="breadcrumbs">
+        <div class="">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{route('backend.produces.index')}}">
+                            <button class="btn btn-success">
+                                <i class="fa fa-arrow-left"></i>ALL PRODUCES</button></a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+     @include('partials.messages')
 <div class="card card  border-success">
             <div class="card-header">
                 <strong>Production Form</strong>

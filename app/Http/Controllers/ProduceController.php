@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Produce;
 use App\Farm;
-use App\Plant;
-use App\Variety;
 use App\Intercrop;
 use Illuminate\Http\Request;
 use DB;
 use Session;
-use Response;
 class ProduceController extends Controller
 {
     /**
@@ -34,8 +30,14 @@ class ProduceController extends Controller
     public function create(Produce $produce)
     {
         //
-    $plants = DB::table('plants')->pluck("name","id");
-    return view('produce.create',compact('plants','produce'));
+        $plants = DB::table('plants')->pluck("name","id");
+        $farms = Farm::all();
+        if($farms->count())
+        return view('produce.create',compact('plants','produce'));
+         else{
+            return redirect()->route('backend.produces.index')
+                ->with('error', 'Please create farm');
+         }
 
     }
 
@@ -55,8 +57,7 @@ class ProduceController extends Controller
             $farm->size -= $request->size;
             $farm->save();
         }else {
-         return redirect()->route('backend.produces.index')
-        ->with('error','No more Farm for Planting');
+          return back()->with('error','No more Farm for Planting');
         }
 
          if ($farm->save() && $request->farm_mode == 'Inter-Croping'){
@@ -67,8 +68,7 @@ class ProduceController extends Controller
             $inter->save();
         }
 
-        return redirect()->route('backend.produces.index')
-        ->with('success','Produce has been added successfully');
+        return back()->with('success','Produce has been added successfully');
         }
 
     /**

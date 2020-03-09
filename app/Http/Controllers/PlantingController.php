@@ -36,18 +36,17 @@ class PlantingController extends Controller
     public function store(Request $request)
     {
         //
-         try {
-
-             $input = $request->all();
-            $request->user()->plantings()->create($input);
-
-           } catch (\Exception $e) {
-
-              Session::flash('error',"Something wen't wrong! Please try again");
-          }
 
 
-             return back()->with('success','Added successfully');
+         $input = $request->all();
+         $ok= $request->user()->plantings()->create($input);
+
+       if($ok){
+         return back()->with('success','Added successfully');
+         }else{
+           Session::flash('error',"Something wen't wrong! Please try again");
+     }
+
     }
 
     /**
@@ -70,8 +69,8 @@ class PlantingController extends Controller
     public function edit($id)
     {
         //
-    $plant = Planting::find($id);
-    return response()->json($plant);
+    // $plant = Planting::find($id);
+    // return response()->json($plant);
 
     }
 
@@ -82,10 +81,20 @@ class PlantingController extends Controller
      * @param  \App\Planting  $planting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        //
+        $data = $request->all();
+        $update = Planting::findOrFail($request->plant_id);
+        $data = $request->all();
+        $ok = $update->update($data);
 
+        if ($ok) {
+            return back()->with('success', "Activity updated successfully");
+        } else {
+            return back()->with('error', "Something wen't wrong! Please try again");
+        }
     }
 
     /**
@@ -97,18 +106,20 @@ class PlantingController extends Controller
     public function destroy($id)
     {
 
-          try{
+
 
         $planting=Planting::FindOrFail($id);
 
-        $planting->delete();
+       $ok= $planting->delete();
 
-         } catch (\Exception $e) {
 
-             Session::flash('error', 'Some thing is wrong. Please try again');
-
+        if ($ok) {
+                    return back()->with('success', 'Details deleted successfully!');
+        }else {
+            return back()->with('error', 'Some thing is wrong. Please try again');
         }
-       return back()->with('success', 'Details deleted successfully!');
+
+
     }
 
 }

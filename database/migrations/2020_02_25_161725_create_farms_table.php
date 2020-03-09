@@ -28,7 +28,7 @@ class CreateFarmsTable extends Migration
             $table->string('ward');
             $table->string('street');
             $table->string('gps')->nullable();
-              $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+              $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->timestamps();
         });
     }

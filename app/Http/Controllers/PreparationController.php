@@ -83,20 +83,17 @@ class PreparationController extends Controller
     public function update(Request $request)
     {
         //
-          $data = $request->all();
-           try {
-
          $update = Preparation::findOrFail($request->prep_id);
          $data = $request->all();
-         $update->update($data);
+         $ok=$update->update($data);
 
+     if($ok){
+            return back()->with('success', "Activity updated successfully");
+     }else {
+            return back()->with('error', "Something wen't wrong! Please try again");
 
-     } catch (\Exception $e) {
+     }
 
-            Session::flash('error',"Something wen't wrong! Please try again");
-       return back();
-        }
-      return back()->with('success', 'Details updated successfully');
     }
 
     /**
@@ -105,20 +102,18 @@ class PreparationController extends Controller
      * @param  \App\Preparation  $preparation
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
-         try{
+             $delete = Preparation::findOrFail($request->prep_id);
+            $delete->delete();
 
-      $farm=Preparation::FindOrFail($id);
+        //  if($delete){
+        //   return back()->with('success', 'Details deleted successfully!');
+        //  } else{
+        //      Session::flash('error', 'Some thing is wrong. Please try again');
+        // }
 
-        $farm->delete();
 
-         } catch (\Exception $e) {
-
-             Session::flash('error', 'Some thing is wrong. Please try again');
-
-        }
-       return back()->with('success', 'Details deleted successfully!');
     }
 }
