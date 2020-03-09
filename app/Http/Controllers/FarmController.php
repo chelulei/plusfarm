@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Farm;
+use App\County;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
+use DB;
 use App\Http\Requests;
 class FarmController extends Controller
 {
@@ -29,7 +31,9 @@ class FarmController extends Controller
     public function create(Farm $farm)
     {
         //
-        return view("farm.create", compact('farm'));
+
+         $counties = DB::table('counties')->pluck("name","id");
+        return view("farm.create", compact('farm','counties'));
 
     }
 

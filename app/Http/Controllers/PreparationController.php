@@ -105,14 +105,14 @@ class PreparationController extends Controller
     public function destroy(Request $request)
     {
         //
-             $delete = Preparation::findOrFail($request->prep_id);
-            $delete->delete();
+             $prepa = Preparation::findOrFail($request->this_id);
+             $delete = $prepa->delete();
 
-        //  if($delete){
-        //   return back()->with('success', 'Details deleted successfully!');
-        //  } else{
-        //      Session::flash('error', 'Some thing is wrong. Please try again');
-        // }
+         if($delete){
+          return back()->with('success', 'Activity deleted successfully!');
+         } else{
+             Session::flash('error', 'Some thing is wrong. Please try again');
+        }
 
 
     }

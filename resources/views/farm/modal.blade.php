@@ -1,6 +1,6 @@
 
 <!-- Land preparations-->
-<div class="modal fade" id="landModal" tabindex="-1" role="dialog" aria-labelledby="landModalLabel" data-backdrop="static">
+<div class="modal fade" id="landModal" tabindex="" role="dialog" aria-labelledby="landModalLabel" data-backdrop="static">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -30,7 +30,7 @@
 </div>
 
 <!-- Planting-->
-<div class="modal fade" id="plantModal" tabindex="-1" role="dialog" aria-labelledby="plantModalLabel" data-backdrop="static">
+<div class="modal fade" id="plantModal" tabindex="" role="dialog" aria-labelledby="plantModalLabel" data-backdrop="static">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -59,7 +59,7 @@
   </div>
 </div>
 <!-- Land storage-->
-<div class="modal fade" id="storageModal" tabindex="-1" role="dialog" aria-labelledby="storageModalLabel" data-backdrop="static">
+<div class="modal fade" id="storageModal" tabindex="" role="dialog" aria-labelledby="storageModalLabel" data-backdrop="static">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -90,7 +90,7 @@
 </div>
 
 <!-- Land harvest-->
-<div class="modal fade" id="harvestModal" tabindex="-1" role="dialog" aria-labelledby="harvestModalLabel" data-backdrop="static">
+<div class="modal fade" id="harvestModal" tabindex="" role="dialog" aria-labelledby="harvestModalLabel" data-backdrop="static">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -120,7 +120,7 @@
 </div>
 
 <!-- Edit  preparations-->
-<div class="modal fade" id="edit-pre" tabindex="-1" role="dialog" aria-labelledby="edit-preLabel" data-backdrop="static">
+<div class="modal fade" id="edit-pre" tabindex="" role="dialog" aria-labelledby="edit-preLabel" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -144,7 +144,7 @@
 
 
 <!-- Edit  plnt-->
-<div class="modal fade" id="edit-plant" tabindex="-1" role="dialog" aria-labelledby="edit-plantLabel" data-backdrop="static">
+<div class="modal fade" id="edit-plant" tabindex="" role="dialog" aria-labelledby="edit-plantLabel" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -167,7 +167,7 @@
 </div>
 
 <!-- Edit  harvest-->
-<div class="modal fade" id="edit-harvest" tabindex="-1" role="dialog" aria-labelledby="edit-harvestLabel" data-backdrop="static">
+<div class="modal fade" id="edit-harvest" tabindex="" role="dialog" aria-labelledby="edit-harvestLabel" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -190,7 +190,7 @@
 </div>
 
 <!-- Edit  storage-->
-<div class="modal fade" id="edit-storage" tabindex="-1" role="dialog" aria-labelledby="edit-storageLabel" data-backdrop="static">
+<div class="modal fade" id="edit-storage" tabindex="" role="dialog" aria-labelledby="edit-storageLabel" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -213,7 +213,8 @@
 </div>
 
 <!-- Delete Preparations-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<!-- Modal -->
+        <div class="modal fade" id="delete" tabindex="" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header  bg-danger ">
@@ -225,10 +226,98 @@
           </button>
         </div>
         <div class="modal-body">
-            <form action="{{route('preparations.destroy','delete')}}" method="post">
-              @method('DELETE')
-      	    @csrf
-                   <input type="hidden" name="prep_id" id="prepid">
+         <form action="{{route('backend.preparations.destroy', 'delete')}}" method="post">
+            @csrf
+            @method('DELETE')
+             <input type="hidden" name="this_id" id="val_id" value="">
+          <h5 class="text-center">Are you sure you want to delete ... ?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete plnt-->
+<!-- Modal -->
+        <div class="modal fade" id="delete2" tabindex="" role="dialog" aria-labelledby="delete2ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header  bg-danger ">
+          <h5 class="modal-title text-white" id="delete2ModalLabel">
+            We just want to confirm...
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form action="{{route('backend.plantings.destroy', 'delete')}}" method="post">
+            @csrf
+            @method('DELETE')
+             <input type="hidden" name="this_id2" id="val_id2" value="">
+          <h5 class="text-center">Are you sure you want to delete ... ?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Delete  harvest--->
+<!-- Modal -->
+        <div class="modal fade" id="delete3" tabindex="" role="dialog" aria-labelledby="delete3ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header  bg-danger ">
+          <h5 class="modal-title text-white" id="delete3ModalLabel">
+            We just want to confirm...
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form action="{{route('backend.harvestings.destroy', 'delete')}}" method="post">
+            @csrf
+            @method('DELETE')
+             <input type="hidden" name="this_id3" id="val_id3" value="">
+          <h5 class="text-center">Are you sure you want to delete ... ?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <!-- Delete  storage--->
+<!-- Modal -->
+        <div class="modal fade" id="delete4" tabindex="" role="dialog" aria-labelledby="delete4ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header  bg-danger ">
+          <h5 class="modal-title text-white" id="delete4ModalLabel">
+            We just want to confirm...
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form action="{{route('backend.storages.destroy', 'delete')}}" method="post">
+            @csrf
+            @method('DELETE')
+             <input type="hidden" name="this_id4" id="val_id4" value="">
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">

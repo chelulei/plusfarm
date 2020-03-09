@@ -104,8 +104,9 @@
        <label for="">Farm County:</label>
        <select id="county" class="form-control" name="county" required>
        <option>Choose county</option>
-        <option value="Nandi">Nandi</option>
-        <option value="Narok">Narok</option>
+        @foreach ($counties as $key => $value)
+                    <option value="{{ $key }}" {{ $key == $farm->county_id ? 'selected' : '' }}>{{ $value}}</option>
+                    @endforeach
         </select>
     @if($errors->has('county'))
 		<div class="invalid-feedback">

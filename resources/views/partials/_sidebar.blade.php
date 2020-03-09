@@ -53,6 +53,23 @@
       </a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
+        <i class="menu-icon typcn typcn-coffee"></i>
+        <span class="menu-title">Manage Crops</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic2">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('backend.plants.index') }}">Crops</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('backend.seeds.index') }}">Varieties</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Reports/Analytics </span>
@@ -62,18 +79,6 @@
       <a class="nav-link" href="#">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Resources</span>
-      </a>
-    </li>
- <li class="nav-item">
-      <a class="nav-link" href="{{ route('backend.plants.index') }}">
-        <i class="menu-icon typcn typcn-th-large-outline"></i>
-        <span class="menu-title">Crops</span>
-      </a>
-    </li>
-     <li class="nav-item">
-      <a class="nav-link" href="{{ route('backend.seeds.index') }}">
-        <i class="menu-icon typcn typcn-th-large-outline"></i>
-        <span class="menu-title">Seeds</span>
       </a>
     </li>
   </ul>

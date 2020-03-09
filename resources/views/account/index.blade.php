@@ -10,7 +10,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
-                <div class="bg-primary p-2 mb-2 text-white text-center">
+                <div class="bg-success p-2 mb-2 text-white text-center">
                     Profile
                 </div>
             </div>
@@ -32,13 +32,13 @@
         </div>
         <br>
         <!-- /.div -->
-        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">
               <i class="fa fa-edit"></i>
         change Image
         </button>
 
         <div class="float-right">
-              <button class="btn btn-outline-primary" data-myuname="{{$user->username}}"
+              <button class="btn btn-outline-success" data-myuname="{{$user->username}}"
     data-myname="{{$user->name}}"  data-myemail="{{$user->email}}"  data-userid={{$user->id}} data-toggle="modal" data-target="#edit_user">
       <i class="fa fa-edit"></i>
     EDIT</button>
@@ -82,7 +82,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-success">Save</button>
       </div>
       </form>
     </div>

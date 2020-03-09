@@ -28,9 +28,9 @@
     </style>
 @endsection
 @section('content')
-        <button  type="button" class="btn btn-outline-primary"
+        <button  type="button" class="btn btn-outline-success"
          data-toggle="modal" data-target="#seedModal">
-    <i class="fa fa-plus"></i>Add Seeds
+    <i class="fa fa-plus"></i>Add Varieties
 </button>
 <br>
    @include('partials.messages')
@@ -41,10 +41,10 @@
         <!-- /.alert alert-danger -->
      @else
      <div class="card mt-4">
-            <div class="card-header bg-primary">
+            <div class="card-header bg-success">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">LIST OF Seeds</a>
+                        <a class="nav-link active" href="#">LIST OF Varieties</a>
                     </li>
 
                 </ul>

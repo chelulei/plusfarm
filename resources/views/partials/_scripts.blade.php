@@ -68,6 +68,18 @@ $('select').select2({
       } );
 
 
+        /*counter dashboard*/
+        function getCount() {
+            $.ajax({
+                url: "/count",
+                success: function (data) {
+                    $('#farms').text(data.farmCount);
+                    setTimeout(getCount, 1000);
+                }
+            });
+        }
+
+        getCount();
 
 });
 </script>

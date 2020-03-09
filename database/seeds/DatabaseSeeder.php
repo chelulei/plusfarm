@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
              AdminTableSeeder::class,
              PlantsTableSeeder::class,
              VarietyTableSeeder::class,
+             CountyTableSeeder::class,
 
               ]);
     }

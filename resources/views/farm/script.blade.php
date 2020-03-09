@@ -89,15 +89,33 @@ $('#edit-storage').on('show.bs.modal', function (event) {
       modal.find('.modal-body #storage_id').val(storage_id);
 
       });
-$('table[data-form="deleteForm"]').on('click', '.form-delete', function(e){
-    e.preventDefault();
-    var $form=$(this);
-    $('#confirm').modal({ backdrop: 'static', keyboard: false })
-        .on('click', '#delete-btn', function(){
-            $form.submit();
-        });
-});
 
+$('#delete').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var val_id = button.data('valid');
+        var modal = $(this);
+        modal.find('.modal-body #val_id').val(val_id);
+    });
+
+    $('#delete2').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var val_id2 = button.data('valid2');
+        var modal = $(this);
+        modal.find('.modal-body #val_id2').val(val_id2);
+    });
+
+    $('#delete3').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var val_id3 = button.data('valid3');
+        var modal = $(this);
+        modal.find('.modal-body #val_id3').val(val_id3);
+    });
+     $('#delete4').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var val_id4 = button.data('valid4');
+        var modal = $(this);
+        modal.find('.modal-body #val_id4').val(val_id4);
+    })
     </script>
 
     @endsection

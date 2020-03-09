@@ -34,10 +34,12 @@ class ProduceController extends Controller
         $farms = Farm::all();
         if($farms->count())
         return view('produce.create',compact('plants','produce'));
-         else{
+     else{
             return redirect()->route('backend.produces.index')
                 ->with('error', 'Please create farm');
          }
+
+
 
     }
 

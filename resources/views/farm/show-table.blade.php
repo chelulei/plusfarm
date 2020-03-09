@@ -1,8 +1,4 @@
-@section('style')
-    <style>
 
-    </style>
-@endsection
 <div class="table-responsive-sm">
     <table class="table table-bordered">
         <thead>
@@ -68,7 +64,12 @@
                         data-toggle="modal" data-target="#edit-pre">
                          <i class="fa fa-edit"></i>
                         EDIT</button>
-
+ <button tooltip="Delete&nbsp;Activity" data-valid="{{$preparation->id}}"
+     data-toggle="modal"
+data-target="#delete" class="btn btn btn-outline-danger">
+           DELETE
+<i class="fa fa-trash"></i>
+ </button>
             </td>
         </tr>
             @endforeach
@@ -109,11 +110,11 @@
                         data-toggle="modal" data-target="#edit-plant">
                          <i class="fa fa-edit"></i>
                         EDIT</button>
- <a href="#!" class="btn btn-md btn-danger delete"
- data-url="{{ route('backend.plantings.destroy', $planting->id) }}" data-toggle="modal"  data-target="#exampleModal">
-    DELETE
-    <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-              </a>
+        <button tooltip="Delete&nbsp;Activity" data-valid2="{{$planting->id}}"
+     data-toggle="modal" data-target="#delete2" class="btn btn btn-outline-danger">
+           DELETE
+<i class="fa fa-trash"></i>
+ </button>
             </td>
         </tr>
             @endforeach
@@ -153,11 +154,13 @@
                         data-toggle="modal" data-target="#edit-harvest">
                          <i class="fa fa-edit"></i>
                         EDIT</button>
- <a href="#!" class="btn btn-md btn-danger delete"
- data-url="{{ route('backend.harvestings.destroy', $harvesting->id) }}" data-toggle="modal"  data-target="#harvestModal">
-    DELETE
-    <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-              </a>
+                         <button tooltip="Delete&nbsp;Activity"
+                         data-valid3="{{$harvesting->id}}"
+     data-toggle="modal" data-target="#delete3" class="btn btn btn-outline-danger">
+           DELETE
+<i class="fa fa-trash"></i>
+ </button>
+
               </td>
         </tr>
             @endforeach
@@ -197,11 +200,12 @@
                         data-toggle="modal" data-target="#edit-storage">
                          <i class="fa fa-edit"></i>
                         EDIT</button>
- <a href="#!" class="btn btn-md btn-danger delete"
- data-url="{{ route('backend.plantings.destroy', $storage->id) }}" data-toggle="modal"  data-target="#exampleModal">
-    DELETE
-    <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-              </a>
+                         <button tooltip="Delete&nbsp;Activity"
+                         data-valid4="{{$storage->id}}"
+     data-toggle="modal" data-target="#delete4" class="btn btn btn-outline-danger">
+           DELETE
+<i class="fa fa-trash"></i>
+ </button>
             </td>
 
         </tr>

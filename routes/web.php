@@ -47,3 +47,4 @@ Route::resource('/roles', 'RolesController', ['as' => 'backend']);
 Route::resource('/permissions', 'permissionsController', ['as' => 'backend']);
 Route::delete('preparations/{id}', ['as' => 'preparations.destroy',
 'uses' => 'PreparationController@destroy']);
+Route::get('/count', 'PagesController@getCount');

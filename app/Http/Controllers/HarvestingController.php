@@ -101,8 +101,19 @@ class HarvestingController extends Controller
      * @param  \App\Harvesting  $harvesting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Harvesting $harvesting)
+    public function destroy(Request $request)
     {
         //
+
+        $harvesting=Harvesting::FindOrFail($request->this_id3);
+
+        $ok= $harvesting->delete();
+
+
+        if ($ok) {
+                    return back()->with('success', 'Activity deleted successfully!');
+        }else {
+            return back()->with('error', 'Some thing is wrong. Please try again');
+        }
     }
 }

@@ -97,8 +97,18 @@ class StorageController extends Controller
      * @param  \App\Storage  $storage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Storage $storage)
+   public function destroy(Request $request)
     {
         //
+        $str = Storage::findOrFail($request->this_id4);
+        $delete = $str->delete();
+
+         if($delete){
+          return back()->with('success', 'Activity deleted successfully!');
+         } else{
+             Session::flash('error', 'Some thing is wrong. Please try again');
+        }
+
+
     }
 }

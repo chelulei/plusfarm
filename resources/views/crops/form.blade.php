@@ -9,7 +9,7 @@
         </div>
 
     </div>
-<div class="form-group row required">
+{{-- <div class="form-group row required">
         {!! Form::label("varieties","Varieties",["class"=>"col-form-label col-md-3"]) !!}
         <div class="col-md-9">
           {!! Form::text('varieties', null, ['class' => 'form-control'.($errors->has('varieties')?" is-invalid":""),'rows' => 3, 'cols' =>5,'required'=>'']) !!}
@@ -17,5 +17,5 @@
             <span class="invalid-feedback">{{ $errors->first('varieties') }}</span>
             @endif
         </div>
-    </div>
+    </div> --}}
 

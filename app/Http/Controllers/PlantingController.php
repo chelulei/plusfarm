@@ -103,18 +103,18 @@ class PlantingController extends Controller
      * @param  \App\Planting  $planting
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
 
 
 
-        $planting=Planting::FindOrFail($id);
+        $planting=Planting::FindOrFail($request->this_id2);
 
        $ok= $planting->delete();
 
 
         if ($ok) {
-                    return back()->with('success', 'Details deleted successfully!');
+                    return back()->with('success', 'Activity deleted successfully!');
         }else {
             return back()->with('error', 'Some thing is wrong. Please try again');
         }

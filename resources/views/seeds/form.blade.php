@@ -8,11 +8,13 @@
         @endif
         </div>
      </div>
-    <div class="form-group row required">
-        {!! Form::label("name","seed Name",["class"=>"col-form-label col-md-3"]) !!}
+     <div class="form-group row required">
+        {!! Form::label("name","Name",["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
-            {!! Form::text("name",null,["class"=>"form-control".($errors->has('name')? "is-invalid":""), 'placeholder'=>'Name']) !!}
-            <span id="error-name" class="invalid-feedback"></span>
+          {!! Form::text('name', null, ['class' => 'form-control'.($errors->has('varieties')?" is-invalid":""),'rows' => 3, 'cols' =>5,'required'=>'']) !!}
+             @if($errors->has('name'))
+            <span class="invalid-feedback">{{ $errors->first('name') }}</span>
+            @endif
         </div>
     </div>
 
