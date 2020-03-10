@@ -83,10 +83,10 @@
       </div>
     </li>
       @endrole
-    <li class="nav-item">
-      <a class="nav-link" href="#">
+       <li class="nav-item">
+      <a class="nav-link" href="{{ route('backend.reports.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
-        <span class="menu-title">Reports/Analytics </span>
+        <span class="menu-title">Reports/Analyticst</span>
       </a>
     </li>
      @role('superadmin')

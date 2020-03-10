@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="bg-primary pl-3 p-2 mb-2 text-white">
+                                <div class="bg-success pl-3 p-2 mb-2 text-white">
                                    Change Password
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
 
                                     <div class="form-group">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-success">
                                                 Change Password
                                             </button>
                                         </div>
