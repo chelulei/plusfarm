@@ -1,24 +1,27 @@
 
-@extends('layouts.layout')
+@extends('layouts.front')
+@section('style')
+    <style>
+       .login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+    </style>
 @section('content')
-<div class="page-content--bge5">
-    <div class="container">
-        <div class="login-wrap">
-            <div class="login-content">
-                <div class="login-logo">
+<div class="col-lg-4 mx-auto">
+              <div class="auto-form-wrapper">
+                 <div class="login-logo">
                     <a href="{{url('/')}}">
-                        <img src="{{ asset('/backend/images/icon/logo.png') }}" alt="Norsu">
+                        <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
                     </a>
                 </div>
-                <div class="login-form">
-                      @if($errors->any())
-                    <div   class="alert alert-danger" role="alert">
-                        @foreach ($errors->all() as $error)
-                        <strong>{{ $error }}</strong>
-                        @endforeach
+                @include('partials.messages')
+              @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
                         </div>
                     @endif
-                    <form method="POST" action="{{ route('password.update') }}">
+             <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -57,6 +60,9 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
+                            <p id="passwordHelpBlock" class="form-text text-muted">
+                           Your password must be more than 8 characters long, should contain at-least 1 Uppercase, 1 Lowercase, 1 Numeric and 1 special character.
+                           </p>
                         </div>
 
                         <div class="form-group row mb-0">
@@ -67,11 +73,6 @@
                             </div>
                         </div>
                     </form>
-                       </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
 @endsection
-
-

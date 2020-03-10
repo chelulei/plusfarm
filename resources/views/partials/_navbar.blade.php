@@ -1,7 +1,7 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="index.html">
-      <img src="{{asset('images/Plusfarm.png')}}" alt="Plusfarm" width="30" height="30"/> </a>
+      <img src="{{asset('images/icons/Plusfarm.png')}}" alt="Plusfarm" width="30" height="30"/> </a>
     <a class="navbar-brand brand-logo-mini" href="#">
     <img src="{{asset('images/Plusfarm.png')}}" alt="Plusfarm" width="30" height="30"/> </a>
    </div>
@@ -138,8 +138,6 @@
                Edit Password
                <i class="dropdown-item-icon ti-comment-alt"></i></a>
           <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
-          <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
-          <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
           <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">

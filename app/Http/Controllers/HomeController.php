@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use DB;
+use App\Farm;
+use App\Produce;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+   $produceCount = Farm::where("user_id" ,Auth::user()->id)->count();
+   $farmCount = Produce::where("user_id" ,Auth::user()->id)->count();
+        return view("home", compact('produceCount', 'farmCount'));
     }
 }

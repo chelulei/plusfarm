@@ -1,19 +1,32 @@
 @extends('layouts.front')
-
+@section('style')
+    <style>
+       .login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+    </style>
+@endsection
 @section('content')
 <div class="col-lg-4 mx-auto">
               <div class="auto-form-wrapper">
+                 <div class="login-logo">
+                    <a href="{{url('/')}}">
+                        <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
+                    </a>
+                </div>
+                @include('partials.messages')
              <form method="POST" action="{{ route('login') }}">
                  @csrf
                   <div class="form-group">
                     <label class="label">{{ __('Username') }}</label>
                     <div class="input-group">
                       <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}"  placeholder="username"  required autocomplete="username" autofocus>
-                         @error('username')
+                         {{-- @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror --}}
                       <div class="input-group-append">
                         <span class="input-group-text">
                           <i class="mdi mdi-check-circle-outline"></i>
@@ -25,12 +38,11 @@
                     <label class="label">Password</label>
                     <div class="input-group">
                       <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="*********">
-
-                                @error('password')
+                                {{-- @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror --}}
                       <div class="input-group-append">
                         <span class="input-group-text">
                           <i class="mdi mdi-check-circle-outline"></i>
@@ -39,7 +51,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <button  type="submit"  class="btn btn-primary submit-btn btn-block"> {{ __('Login') }}</button>
+                    <button  type="submit"  class="btn btn-success submit-btn btn-block"> {{ __('Login') }}</button>
                   </div>
                   <div class="form-group d-flex justify-content-between">
                     <div class="form-check form-check-flat mt-0">
@@ -63,17 +75,5 @@
                   </div>
                 </form>
               </div>
-              <ul class="auth-footer">
-                <li>
-                  <a href="#">Conditions</a>
-                </li>
-                <li>
-                  <a href="#">Help</a>
-                </li>
-                <li>
-                  <a href="#">Terms</a>
-                </li>
-              </ul>
-              <p class="footer-text text-center">copyright © 2018 Bootstrapdash. All rights reserved.</p>
             </div>
 @endsection

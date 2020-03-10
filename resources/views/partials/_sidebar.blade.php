@@ -14,12 +14,23 @@
       </a>
     </li>
     <li class="nav-item nav-category">Main Menu</li>
+       @role('superadmin')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin') }}">
         <i class="menu-icon typcn typcn-document-text"></i>
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+    @endrole
+    {{-- @role('user')
+    <li class="nav-item">
+          <a class="nav-link" href="{{ route('home') }}">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+    @endrole --}}
+    @role('superadmin')
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <i class="menu-icon typcn typcn-coffee"></i>
@@ -40,6 +51,7 @@
         </ul>
       </div>
     </li>
+   @endrole
     <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.farms.index') }}">
         <i class="menu-icon typcn typcn-shopping-bag"></i>
@@ -52,6 +64,7 @@
         <span class="menu-title">Produce Management</span>
       </a>
     </li>
+      @role('superadmin')
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
         <i class="menu-icon typcn typcn-coffee"></i>
@@ -69,17 +82,20 @@
         </ul>
       </div>
     </li>
+      @endrole
     <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Reports/Analytics </span>
       </a>
     </li>
+     @role('superadmin')
      <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Resources</span>
       </a>
     </li>
+      @endrole
   </ul>
 </nav>

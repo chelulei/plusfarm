@@ -1,14 +1,22 @@
 @extends('layouts.front')
+@section('style')
+    <style>
+       .login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+    </style>
+@endsection
 @section('content')
-@if ($errors->any())
-<div class="alert alert-danger">
-	<button type="button" class="close" data-dismiss="alert">×</button>
-	<ul>{!! implode('', $errors->all()) !!}</ul>
-</div>
-@endif
    <div class="col-lg-4 mx-auto">
-              <h2 class="text-center mb-4">{{ __('Register') }}</h2>
+       @include('partials.messages')
+              {{-- <h2 class="text-center mb-4">{{ __('Register') }}</h2> --}}
               <div class="auto-form-wrapper">
+                <div class="login-logo">
+                    <a href="{{url('/')}}">
+                        <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
+                    </a>
+                </div>
                <form method="POST" action="{{ route('register') }}">
                  @csrf
                   <div class="form-group">
@@ -16,9 +24,9 @@
                       <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Name" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                    <div class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </div>
                                 @enderror
                       <div class="input-group-append">
                         <span class="input-group-text">
@@ -35,9 +43,9 @@
                       <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="UserName" required autocomplete="name" autofocus>
 
                                 @error('username')
-                                    <span class="invalid-feedback" role="alert">
+                                    <div class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </div>
                                 @enderror
                       <div class="input-group-append">
                         <span class="input-group-text">
@@ -51,9 +59,9 @@
                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <div class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </div>
                                 @enderror
                       <div class="input-group-append">
                         <span class="input-group-text">
@@ -67,9 +75,9 @@
                       <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    <div class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </div>
                                 @enderror
                       <div class="input-group-append">
                         <span class="input-group-text">
@@ -87,6 +95,10 @@
                         </span>
                       </div>
                     </div>
+
+<p id="passwordHelpBlock" class="form-text text-danger">
+        Your password must be more than 8 characters long, should contain at-least 1 Letter, 1 Numeric and 1 special character.
+</p>
                   </div>
                   <div class="form-group d-flex justify-content-center">
                     <div class="form-check form-check-flat mt-0">
@@ -95,7 +107,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary submit-btn btn-block"> {{ __('Register') }}</button>
+                    <button type="submit" class="btn btn-success submit-btn btn-block"> {{ __('Register') }}</button>
                   </div>
                   <div class="text-block text-center my-3">
                     <span class="text-small font-weight-semibold">Already have and account ?</span>
