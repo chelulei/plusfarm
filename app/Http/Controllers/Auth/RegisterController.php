@@ -53,7 +53,6 @@ class RegisterController extends Controller
             'username' =>['required','unique:users'],
             'slug'     => ['required','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'type' => User::DEFAULT_TYPE,
             'password' => ['required', 'string', 'min:6', 'confirmed','regex:/^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/']
         ]);
     }
