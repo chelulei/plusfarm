@@ -14,7 +14,7 @@
       </a>
     </li>
     <li class="nav-item nav-category">Main Menu</li>
-       @role('superadmin')
+     @role('superadmin')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin') }}">
         <i class="menu-icon typcn typcn-document-text"></i>
@@ -22,6 +22,12 @@
       </a>
     </li>
     @endrole
+ <li class="nav-item">
+      <a class="nav-link" href="{{ route('home') }}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Dashboard2</span>
+      </a>
+    </li>
     {{-- @role('user')
     <li class="nav-item">
           <a class="nav-link" href="{{ route('home') }}">

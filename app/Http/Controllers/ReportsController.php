@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Produce;
+use App\Plant;
 class ReportsController extends Controller
 {
     /**
@@ -15,9 +16,8 @@ class ReportsController extends Controller
     public function index()
     {
         //
-
-        // $produces = DB::table('produces')->pluck("name","id");
-         return view('reports.index');
+         $produces = Produce::latest()->get();
+         return view('reports.index',compact('produces'));
     }
 
     /**
@@ -28,6 +28,7 @@ class ReportsController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -39,6 +40,7 @@ class ReportsController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -47,9 +49,12 @@ class ReportsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Produce $produce)
     {
         //
+
+     $produces = Produce::latest()->get();
+      return view("reports.performance", compact('produce','produces'));
     }
 
     /**

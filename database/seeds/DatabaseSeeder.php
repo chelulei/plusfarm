@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              PlantsTableSeeder::class,
              VarietyTableSeeder::class,
              CountyTableSeeder::class,
-
+              WardsTableSeeder::class,
               ]);
     }
 }

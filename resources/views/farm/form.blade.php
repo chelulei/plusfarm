@@ -62,7 +62,7 @@
 
     <div class="form-group col-md-6">
    <label for="">Soil Ph:</label>
- <input id="soilph" type="text" name="soilph" value="{{ old('soilph',$farm->soilph) }}" class="form-control {{ $errors->has('soilph') ? 'is-invalid' : ' ' }}"  required>
+ <input id="soilph" type="text" name="soilph" value="{{ old('soilph',$farm->soilph) }}" class="form-control {{ $errors->has('soilph') ? 'is-invalid' : ' ' }}">
    @if($errors->has('soilph'))
 		<div class="invalid-feedback">
 		   <strong>{{ $errors->first('soilph') }}</strong>
@@ -118,58 +118,22 @@
    <label for="">Sub county:</label>
  <select id="sub_county" class="form-control" name="sub_county" required>
         <option>Choose Sub county</option>
-        <option  value="keses">keses</option>
-        <option  value="mau">mau</option>
         </select>
-
-   @if($errors->has('farm_ownership'))
-		<div class="invalid-feedback">
-		   <strong>{{ $errors->first('sub_county') }}</strong>
-		</div>
-  	@endif
     </div>
 
   </div>
   <div class="form-row">
      <div class="form-group col-md-6">
-       <label for="ward">Ward:</label>
-     <select id="ward" class="form-control" name="ward">
-        <option>Choose Ward</option>
-        <option value="Narok">Narok</option>
-        <option value="Narok">Nandi</option>
-        </select>
-        @if($errors->has('ward'))
-        <div class="invalid-feedback">
-          <strong>{{ $errors->first('ward') }}</strong>
-        </div>
-      	@endif
-    </div>
+        <label for="">Village:</label>
+        <input id="village" type="text" name="village" value="{{ old('village',$farm->village) }}" class="form-control {{ $errors->has('village') ? 'is-invalid' : ' ' }}">
+
+          @if($errors->has('village'))
+            <div class="invalid-feedback">
+              <strong>{{ $errors->first('village') }}</strong>
+            </div>
+            @endif
+            </div>
     <div class="form-group col-md-6">
-   <label for="">Street:</label>
- <input id="street" type="text" name="street" value="{{ old('street',$farm->street) }}" class="form-control {{ $errors->has('street') ? 'is-invalid' : ' ' }}"  required>
-
-   @if($errors->has('street'))
-		<div class="invalid-feedback">
-		   <strong>{{ $errors->first('street') }}</strong>
-		</div>
-  	@endif
-    </div>
-
-  </div>
-  <div class="form-row">
-     <div class="form-group col-md-6">
-       <label for="">FARM GPS:</label>
-      <input id="gps" type="text" name="gps" value="{{ old('gps',$farm->gps) }}" class="form-control {{ $errors->has('gps') ? 'is-invalid' : ' ' }}">
-    @if($errors->has('gps'))
-		<div class="invalid-feedback">
-		   <strong>{{ $errors->first('gps') }}</strong>
-		</div>
-  	@endif
-    </div>
-    <div class="form-group col-md-6">
-
-    </div>
-
   </div>
     <div class="form-group">
         <button type="submit" class="btn btn-outline-primary btn-lg">{{ $farm->exists ? 'Update' : 'Save' }}</button>

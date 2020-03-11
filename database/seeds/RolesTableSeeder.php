@@ -13,9 +13,8 @@ class RolesTableSeeder extends Seeder
     {
         //
         $roles = [
-
-            'admin',
-             'user',
+             'admin',
+             'farmer',
 
         ];
 

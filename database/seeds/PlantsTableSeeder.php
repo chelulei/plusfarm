@@ -14,18 +14,13 @@ class PlantsTableSeeder extends Seeder
         //
          $plants = [
 
-            'Maize',
-            'Beans',
-            'Tea',
-            'Sukuma Wiki',
-            'Potatoes',
-            'Rice',
-
+         ['name' => 'Maize','image' => "maize.jpg"],
+         ['name' => 'Beans','image' => "beans.jpg"],
         ];
 
 
         foreach ($plants as $plant) {
-            Plant::create(['name' => $plant]);
+            Plant::create($plant);
         }
     }
 }

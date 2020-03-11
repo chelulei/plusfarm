@@ -5,8 +5,17 @@ namespace App\Http\Controllers;
 use App\Plant;
 use Illuminate\Http\Request;
 use Session;
+use DB;
 class PlantController extends Controller
 {
+
+     protected $uploadPath;
+
+    public function __construct()
+    {
+        $this->uploadPath =public_path('images');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +47,9 @@ class PlantController extends Controller
     public function store(Request $request)
     {
         //
-          $crop =  Plant::create($request->all());
+         $data= $this->handleRequest($request);
+        $crop = Plant::create($data);
+
         if( $crop ){
                 return redirect()->route('backend.plants.index')
             ->with('success', 'Crop has been added successfully');
@@ -49,6 +60,25 @@ class PlantController extends Controller
 
     }
 
+     private function handleRequest($request){
+
+                $data = $request->all();
+
+                if($request->hasFile('image')){
+
+                    $image = $request->file('image');
+
+                    $fileNameToStore  = rand() . '.' . $image->getClientOriginalExtension();
+
+                    $destination = $this->uploadPath;
+
+                    $image->move($destination,$fileNameToStore);
+
+                    $data['image'] =  $fileNameToStore;
+
+                }
+                return $data;
+            }
     /**
      * Display the specified resource.
      *
@@ -58,6 +88,9 @@ class PlantController extends Controller
     public function show(Plant $plant)
     {
         //
+    // $plants = DB::table('plants')->pluck("name","id");
+    // return view("reports.crop", compact('plant','plants'));
+
     }
 
     /**
@@ -78,10 +111,21 @@ class PlantController extends Controller
      * @param  \App\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plant $plant)
+    public function update(Request $request, Plant $plant, $id)
     {
         //
+        $plant = Plant::findOrFail($id);
+        $oldImage = $plant->image;
+        $defaultImage ='default.png';
+        $data=$this->handleRequest($request);
+        $plant->update($data);
+        if (($oldImage !== $plant->image && $oldImage !== $defaultImage)) {
 
+            $this->removeImage($oldImage);
+
+        }
+
+          return back()->with('success','Crop has been updated successfully');
     }
 
     /**

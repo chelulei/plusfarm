@@ -19,7 +19,7 @@ class FarmController extends Controller
     public function index()
     {
         //
-         $farms = Farm::latest()->get();
+        $farms = Farm::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('farm.index',compact('farms'));
     }
 
@@ -141,12 +141,10 @@ class FarmController extends Controller
    }
 
 
-     public function details($id)
+ function myformAjax($id)
     {
-        //
-
-        return view('farm.edit',compact('farm'));
-
+         $wards = DB::table("wards")->where("county_id", $id)->pluck("name","id");
+          return response()->json($wards);
 
     }
 

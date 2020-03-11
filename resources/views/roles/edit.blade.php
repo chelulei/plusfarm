@@ -5,9 +5,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="float-lg-right">
-                <a href="{{ route('backend.roles.index') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                        <i class="zmdi zmdi-arrow-left"></i>BACK</button></a>
+            <div class="">
+                <a href="{{ route('backend.roles.index') }}"><button class="btn btn-success">
+                        <i class="fa fa fa-back-arrow"></i>BACK</button></a>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
 
                     @endforeach
                     <br>
-                    {{ Form::submit('UPDATE', ['class' => 'btn btn-primary btn-lg']) }}
+                    {{ Form::submit('UPDATE', ['class' => 'btn btn-success btn-lg']) }}
 
                     {{ Form::close() }}
                 </div>

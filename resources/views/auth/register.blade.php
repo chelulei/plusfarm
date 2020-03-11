@@ -1,18 +1,10 @@
 @extends('layouts.front')
-@section('style')
-    <style>
-       .login-logo {
-    text-align: center;
-    margin-bottom: 30px;
-}
-    </style>
-@endsection
 @section('content')
    <div class="col-lg-4 mx-auto">
        @include('partials.messages')
               {{-- <h2 class="text-center mb-4">{{ __('Register') }}</h2> --}}
               <div class="auto-form-wrapper">
-                <div class="login-logo">
+                <div class="text-center">
                     <a href="{{url('/')}}">
                         <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
                     </a>

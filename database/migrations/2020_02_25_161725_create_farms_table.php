@@ -22,13 +22,12 @@ class CreateFarmsTable extends Migration
             $table->string('soiltype')->nullable();
             $table->string('soilph')->nullable();
             $table->string('humidity')->nullable();
-            $table->string('mechanization');
+            $table->string('mechanization')->nullable();
             $table->string('county');
             $table->string('sub_county')->nullable();
-            $table->string('ward');
-            $table->string('street')->nullable();
+            $table->string('village')->nullable();
             $table->string('gps')->nullable();
-              $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->timestamps();
         });
     }

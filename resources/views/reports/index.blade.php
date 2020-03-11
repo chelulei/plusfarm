@@ -1,18 +1,24 @@
 @extends('layouts.main')
-
 @section('title', 'PlusFarm | Roports index')
-
 @section('content')
    @include('partials.messages')
-
-            <div class="card-header bg-success mt-4">
-                <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">LIST OF REPORTS</a>
-                    </li>
-
-                </ul>
-            </div>
-          @include('reports.table')
+    @include('reports.search')
+      <div class="card">
+      <div class="card-body pb-5">
+           <p class="text-center text-primary bg-secondary rounded-pill">
+              NO SELECTION!! CHOOSE TYPE OF REPORT TO GENERATE!!
+            </p>
+      </div>
+      </div>
+      <hr>
+      <p class="text-muted text-center">
+ Plusfarm - FMS <br>
+Easily manage your farm accounts/activities
+</p>
+             <div class="text-center">
+                    <a href="{{url('/')}}">
+                        <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
+                    </a>
+                </div>
      @endsection
 @include('reports.script')

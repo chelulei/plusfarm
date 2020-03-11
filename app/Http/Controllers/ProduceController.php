@@ -7,6 +7,7 @@ use App\Intercrop;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use Auth;
 class ProduceController extends Controller
 {
     /**
@@ -18,7 +19,7 @@ class ProduceController extends Controller
     {
         //
 
-          $produces = Produce::latest()->get();
+        $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('produce.index',compact('produces'));
     }
 
@@ -52,8 +53,8 @@ class ProduceController extends Controller
     public function store(Request $request)
     {
             //
-        $input = $request->all();
-        $farm = Farm::findOrFail($request->farm_id);
+         $input = $request->all();
+         $farm = Farm::findOrFail($request->farm_id);
         if ($request->size < $farm->size){
             $prod_id = $request->user()->produces()->create($input);
             $farm->size -= $request->size;
@@ -82,6 +83,8 @@ class ProduceController extends Controller
     public function show(Produce $produce)
     {
         //
+     $produces = Produce::latest()->get();
+      return view("reports.financial", compact('produce','produces'));
     }
 
     /**

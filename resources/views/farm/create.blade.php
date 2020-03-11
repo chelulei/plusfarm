@@ -36,6 +36,6 @@
 
 @endsection
 
-@include('produce.script')
+@include('farm.script')
 
 

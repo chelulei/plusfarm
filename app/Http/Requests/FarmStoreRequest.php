@@ -28,14 +28,9 @@ class FarmStoreRequest extends FormRequest
             'farm_name'=>'required',
             'size'=>'required',
             'ownership'=>'required',
-			'soiltype'=>'required',
-            'soilph'=>'required',
-            'humidity'=>'required',
             'mechanization'=>'required',
             'county'=>'required',
             'sub_county'=>'required',
-            'ward'=>'required',
-            'street'=>'required',
 
         ];
 

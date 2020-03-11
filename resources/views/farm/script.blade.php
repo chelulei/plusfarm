@@ -1,15 +1,29 @@
 @section('script')
     <script type="text/javascript">
 
-    $(document).ready(function() {
-            $('li').click(function() {
-                $('li.list-group-item.active').removeClass("active");
-                $(this).addClass("active");
-            });
+    $('select[name="county"]').bind('change', function() {
+            var countyID = $(this).val();
+            if(countyID) {
+                $.ajax({
+                    url: '/farms/create/'+countyID,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+
+
+                        $('select[name="sub_county"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="sub_county"]').append('<option value="'+ value +'">'+ value +'</option>');
+                        });
+
+
+                    }
+                });
+            }else{
+                $('select[name="sub_county"]').empty();
+            }
         });
-
 //delete modal script
-
      function deleteData(id)
      {
          var id = id;

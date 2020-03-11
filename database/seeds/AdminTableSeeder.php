@@ -29,10 +29,15 @@ class AdminTableSeeder extends Seeder
         }
 
         //3) Create Admin User
-        $user = ['name' => 'superadmin','username' => 'superadmin',
-            'slug' => 'superadmin','status' =>1,'email' => 'superadmin@coredev.ph', 'password' =>Hash::make('123456')];
+        $user = [
+            'name' => 'superadmin',
+            'username' => 'superadmin',
+            'slug' => 'superadmin',
+            'status' =>1,
+            'email' => 'superadmin@coredev.ph',
+            'password' =>Hash::make('123456')
+        ];
         $user = User::create($user);
-
         //4) Set User Role
         $user->assignRole($role);
     }
