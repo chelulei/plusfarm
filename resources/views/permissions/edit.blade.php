@@ -4,14 +4,15 @@
 
 @section('content')
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('backend.permissions.index') }}">All permissions</a></li>
-        </ol>
+       <a href="{{ route('backend.permissions.index') }}">
+        <button class="btn btn-outline-success">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            BACK
+        </button></a>
     </nav>
     <div class="row mb-10">
         <div class="col-lg-8 offset-md-2">
-            <div class="card">
+            <div class="card border-success">
                 <div class="card-header">
                     <strong>Edit {{$permission->name}}</strong>
                     <small> Form</small>
@@ -24,7 +25,7 @@
                         {{ Form::text('name', null, ['class' => 'form-control']) }}
                     </div>
                     <br>
-                    {{ Form::submit('UPDATE', ['class' => 'btn btn-primary btn-lg']) }}
+                    {{ Form::submit('UPDATE', ['class' => 'btn btn-success btn-lg']) }}
 
                     {{ Form::close() }}
                 </div>

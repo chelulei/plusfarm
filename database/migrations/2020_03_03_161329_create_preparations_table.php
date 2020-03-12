@@ -19,8 +19,8 @@ class CreatePreparationsTable extends Migration
             $table->unsignedBigInteger('farm_id')->unsigned()->nullable();
             $table->string('task');
             $table->string('cost');
-            $table->string('details');
-            $table->string('remarks');
+            $table->string('details')->nullable();
+            $table->string('remarks')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
              $table->foreign('farm_id')->references('id')->on('farms')->onDelete('restrict');
             $table->timestamps();

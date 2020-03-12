@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('username');
             $table->string('slug');
+            $table->string('type')->default('farmer');
             $table->string('status')->default(0);
             $table->string('image')->default('default.png');
             $table->string('email')->unique();

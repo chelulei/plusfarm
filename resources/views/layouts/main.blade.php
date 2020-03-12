@@ -35,6 +35,7 @@
      @include('partials._modal')
  <!-- modal-->
     @include('partials._scripts')
+    @yield('modal')
     @yield('script')
     <!-- End custom js for this page-->
   </body>

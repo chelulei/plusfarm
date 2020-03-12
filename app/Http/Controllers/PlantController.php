@@ -25,7 +25,7 @@ class PlantController extends Controller
     public function index()
     {
         //
-        $crops = Plant::with('varieties')->get();
+        $crops = Plant::with('varieties')->orderBy('id', 'desc')->get();
         return view('crops.index', compact('crops'));
     }
 

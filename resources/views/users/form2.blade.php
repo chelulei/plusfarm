@@ -19,6 +19,7 @@
 
     <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
         {{ Form::hidden('slug', null, array('id' => 'slug')) }}
+         {{ Form::hidden('type', user) }}
     </div>
 
         <div class="form-group">

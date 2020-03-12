@@ -32,9 +32,10 @@ class ProduceController extends Controller
     {
         //
         $plants = DB::table('plants')->pluck("name","id");
-        $farms = Farm::all();
+         $farms = Farm::where("user_id",Auth::user()->id)->get();
+         $frms = Farm::where('user_id',Auth::user()->id)->pluck('farm_name','id');
         if($farms->count())
-        return view('produce.create',compact('plants','produce'));
+        return view('produce.create',compact('plants','produce','frms'));
      else{
             return redirect()->route('backend.produces.index')
                 ->with('error', 'Please create farm');
@@ -70,8 +71,8 @@ class ProduceController extends Controller
             $inter->variety2 = $request->input('variety2');
             $inter->save();
         }
-
-        return back()->with('success','Produce has been added successfully');
+ return redirect()->route('backend.farms.index')
+                       ->with('success','Produce has been added successfully');
         }
 
     /**
@@ -97,7 +98,8 @@ class ProduceController extends Controller
     {
         //
     $plants = DB::table('plants')->pluck("name","id");
-    return view('produce.edit',compact('plants','produce'));
+     $frms = Farm::where('user_id',Auth::user()->id)->pluck('farm_name','id');
+    return view('produce.edit',compact('plants','produce','frms'));
 
     }
 

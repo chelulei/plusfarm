@@ -6,8 +6,9 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="">
-                <a href="{{ route('backend.roles.index') }}"><button class="btn btn-success">
-                        <i class="fa fa fa-back-arrow"></i>BACK</button></a>
+               <a href="{{ route('backend.roles.index') }}">
+                            <button class="btn btn-outline-success">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>BACK</button></a>
             </div>
         </div>
     </div>

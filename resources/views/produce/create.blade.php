@@ -8,9 +8,16 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{route('backend.produces.index')}}">
+                        <a href="{{url()->previous()}}">
+                        <button class="btn btn-success">
+                        <i class="fa fa-arrow-left"></i>BACK</button>
+                        </a>
+                        {{-- {{route('backend.produces.index')}}
+                        <a href="">
                             <button class="btn btn-success">
-                                <i class="fa fa-arrow-left"></i>ALL PRODUCES</button></a>
+                                <i class="fa fa-arrow-left"></i>
+                                BACK{{  Form::hidden('url',URL::previous())  }}
+                            </button></a> --}}
                     </li>
                 </ol>
             </nav>

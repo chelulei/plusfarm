@@ -32,7 +32,9 @@
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('backend.permissions.index') }}">
                             <button class="btn btn-outline-success">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i>ALL PERMISSIONS</button></a>
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                BACK
+                            </button></a>
                     </li>
                 </ol>
             </nav>
@@ -40,7 +42,7 @@
     </div>
     <div class="row mb-10">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card border-success">
                 <div class="card-header">
                     <strong>Create permission</strong>
                     <small> Form</small>

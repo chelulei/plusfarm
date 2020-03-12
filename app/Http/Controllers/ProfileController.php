@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Hash;
+use Redirect;
+use Auth;
 class ProfileController extends Controller
 {
     //
@@ -56,11 +58,9 @@ class ProfileController extends Controller
 
         //Change Password
          $user->password = Hash::make($request->get('new-password'));
-
-        $user->save();
-
-        return redirect()->back()->with("success","Password changed successfully !");;
-
+         $user->save();
+         Auth::logout();
+        return Redirect::route('main')->with("success","Password changed please login Again...!");
 
     }
 }

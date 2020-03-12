@@ -51,7 +51,8 @@ class FarmController extends Controller
              $ok = $request->user()->farms()->create($input);
 
                 if($ok){
-                        return back()->with('success', "Farm has been added successfully");
+                        return redirect()->route('backend.farms.index')
+                        ->with('success', "Farm has been added successfully");
                 }else {
                         return back()->with('error', "Something wen't wrong! Please try again");
 
@@ -90,7 +91,8 @@ class FarmController extends Controller
     {
         //
 
-        return view('farm.edit',compact('farm'));
+            $counties = DB::table('counties')->pluck("name","id");
+        return view("farm.edit", compact('farm','counties'));
 
 
     }

@@ -5,19 +5,15 @@
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a class="text-success" href="/home">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a class="text-success"  href="{{ route('backend.plants.index') }}">
-                    All Produces</a>
-                </li>
+             <a href="{{route('backend.plants.index')}}">
+        <button class="btn btn-success">
+            <i class="fa fa-arrow-left"></i>BACK</button></a>
         </ol>
     </nav>
     <div class="row">
         @include('partials.messages')
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card border-success">
                 <div class="card-header">
                     <strong>Edit Produce</strong>
                     <small> Form</small>

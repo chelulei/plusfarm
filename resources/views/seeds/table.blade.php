@@ -2,7 +2,7 @@
     <thead>
     <tr>
          <th>Variety Name</th>
-         <th>Produce</th>
+         <th>Produce Name</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -33,3 +33,5 @@
         </tr>
     </tbody>
 </table>
+@include('seeds.modal')
+@include('seeds.script')

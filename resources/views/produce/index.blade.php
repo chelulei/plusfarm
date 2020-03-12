@@ -58,4 +58,4 @@
          {{-- </div> --}}
      @endsection
 
-@include('produce.script')
+  @include('produce.script')

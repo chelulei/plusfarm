@@ -33,7 +33,7 @@
               <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
               </a>
           <a data-toggle="tooltip" data-placement="top" title="Manage"
-                    href="{{ route('backend.farms.show',$produce->farm_id)}}" class="btn btn-success btn-sm">
+                    href="{{route('backend.farms.show' ,$produce->farm_id)}}" class="btn btn-success btn-sm">
                     Manage
                     <i class="fa fa-cogs"></i>
                     <!-- /.fa fa-edit -->
@@ -46,3 +46,4 @@
 
                       </tbody>
                     </table>
+

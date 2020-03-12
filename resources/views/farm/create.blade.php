@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{route('backend.farms.index')}}">
                             <button class="btn btn-success">
-                                <i class="fa fa-arrow-left"></i>ALL FARMS</button></a>
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                 </ol>
             </nav>

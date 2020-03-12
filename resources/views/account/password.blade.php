@@ -3,20 +3,28 @@
 @section('title', 'Plusfarm | users index')
 
 @section('content')
-    {{-- <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            @role('secretary')
-            <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            @endrole
-            @role('doctor')
-            <li class="breadcrumb-item"><a href="/doctor">Home</a></li>
-            @endrole
-            @role('dentists')
-            <li class="breadcrumb-item"><a href="/dentists">Home</a></li>
-            @endrole
-        </ol>
-    </nav> --}}
-
+    <div class="breadcrumbs">
+        <div class="">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb">
+                     @role('farmer')
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{ route('home') }}">
+                            <button class="btn btn-success">
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
+                    </li>
+                       @endrole
+                  @role('superadmin')
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{ route('admin') }}">
+                            <button class="btn btn-success">
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
+                    </li>
+                     @endrole
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="content mt-3">
         @include('partials.messages')
         <div class="row">

@@ -30,14 +30,6 @@
       </a>
     </li>
     @endrole
-    {{-- @role('user')
-    <li class="nav-item">
-          <a class="nav-link" href="{{ route('home') }}">
-            <i class="menu-icon typcn typcn-document-text"></i>
-            <span class="menu-title">Dashboard</span>
-          </a>
-        </li>
-    @endrole --}}
     @role('superadmin')
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -60,18 +52,22 @@
       </div>
     </li>
    @endrole
+    @role('farmer')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.farms.index') }}">
         <i class="menu-icon typcn typcn-shopping-bag"></i>
         <span class="menu-title">Farm Management</span>
       </a>
     </li>
+      @endrole
+       @role('farmer')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.produces.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Produce Management</span>
       </a>
     </li>
+       @endrole
       @role('superadmin')
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
@@ -105,5 +101,6 @@
       </a>
     </li>
       @endrole
+
   </ul>
 </nav>

@@ -215,3 +215,5 @@ data-target="#delete" class="btn btn btn-outline-danger">
    </div>
 </div>
 
+@include('farm.modal')
+@include('farm.script')

@@ -9,7 +9,10 @@
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{route('backend.produces.index')}}">
                             <button class="btn btn-success">
-                                <i class="fa fa-arrow-left"></i>ALL PRODUCES</button></a>
+                                <i class="fa fa-arrow-left"></i>
+                                BACK
+                            </button>
+                        </a>
                     </li>
                 </ol>
             </nav>
@@ -37,5 +40,4 @@
     </div>
 </div>
 @endsection
-@include('farm.modal')
-@include('farm.script')
+

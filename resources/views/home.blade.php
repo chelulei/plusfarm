@@ -18,7 +18,7 @@
                           <p class="font-weight-semibold mb-0">{{$produce->plant->name}} | {{$produce->variety}}</p>
                         </div>
                       <h4 class="font-weight-medium">{{$produce->size}} Acres</h4>
-                    <a href="#" class="btn btn-primary">View Details</a>
+                    <a href="{{route('backend.produces.index')}}" class="btn btn-primary">View Details</a>
                 </div>
               </div>
         </div>

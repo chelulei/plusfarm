@@ -3,7 +3,14 @@
  <div class="form-row">
      <div class="form-group col-md-6">
         <label for="farm_id">Farm:</label>
-    {!! Form::select('farm_id',  App\Farm::pluck('farm_name', 'id'), null, ["class"=>"form-control".($errors->has('farm_id')?" is-invalid":""), 'placeholder' => 'Choose Farm','required' =>'']) !!}
+{{--
+{!! Form::select('farm_id',  App\Farm::pluck('farm_name', 'id'), null, ["class"=>"form-control".($errors->has('farm_id')?" is-invalid":""), 'placeholder' => 'Choose Farm','required' =>'']) !!} --}}
+ <select name="farm_id" class="form-control"  required>
+        <option value="">--- Select Farm ---</option>
+              @foreach ($frms as $key => $value)
+              <option value="{{ $key }}" {{ $key == $produce->farm_id ? 'selected' : '' }}>{{ $value}}</option>
+              @endforeach
+      </select>
     @if($errors->has('farm_id'))
         <span class="invalid-feedback">{{ $errors->first('farm_id') }}</span>
     @endif

@@ -4,7 +4,28 @@
 @section('css')
 @endsection
 @section('content')
-
+ <div class="breadcrumbs">
+        <div class="">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb">
+                     @role('farmer')
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{ route('home') }}">
+                            <button class="btn btn-success">
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
+                    </li>
+                       @endrole
+                  @role('superadmin')
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{ route('admin') }}">
+                            <button class="btn btn-success">
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
+                    </li>
+                     @endrole
+                </ol>
+            </nav>
+        </div>
+    </div>
   @include('partials.messages')
 <div class="card">
     <div class="card-body">
@@ -49,6 +70,9 @@
 @endsection
 @include('account.script')
 
+@section('modal')
+<!-- Modal -->
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-md" role="document">
@@ -88,5 +112,4 @@
     </div>
   </div>
 </div>
-
-
+@endsection

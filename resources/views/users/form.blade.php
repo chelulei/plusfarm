@@ -29,6 +29,7 @@
     </div>
     <div class="form-group">
         {{ Form::hidden('slug', null, ['id' => 'slug']) }}
+        {{ Form::hidden('type', user) }}
     </div>
 
         <div class="form-group">
