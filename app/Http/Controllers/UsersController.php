@@ -179,7 +179,7 @@ class UsersController extends Controller
         try{
               $user = User::findOrFail($id);
                $defaultImage ='default.png';
-              $user->delete();
+               $user->delete();
 
            if ($user->image !== $defaultImage) {
 

@@ -2,7 +2,9 @@
     <thead>
     <tr>
         <th>Name</th>
+         <th>image</th>
         <th>varieties</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -12,11 +14,25 @@
                 {{ $crop->name}}
             </td>
             <td>
+           <img src="{{ ($crop->image_url) ? $crop->image_url : ''}}" alt=""
+                    width="200" height="200" >
+            </td>
+            <td>
             <ul>
           @foreach ($crop->varieties as $variety)
              <li>{{ $variety->name }}</li>
            @endforeach
             </ul>
+          </td>
+          <td>
+               <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.plants.edit',$crop->id)}}" class="btn btn-md  btn-outline-primary">
+                    <i class="fa fa-edit"></i>
+                </a>
+                   <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$crop->id}})"
+              data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
+              DELETE
+              <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+              </a>
           </td>
             @endforeach
         </tr>

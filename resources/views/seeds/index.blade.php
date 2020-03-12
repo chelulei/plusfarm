@@ -58,3 +58,4 @@
          </div>
      @endsection
      @include('seeds.modal')
+    @include('seeds.script')

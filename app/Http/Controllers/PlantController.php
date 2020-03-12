@@ -6,6 +6,7 @@ use App\Plant;
 use Illuminate\Http\Request;
 use Session;
 use DB;
+use App\Variety;
 class PlantController extends Controller
 {
 
@@ -102,6 +103,9 @@ class PlantController extends Controller
     public function edit(Plant $plant)
     {
         //
+         $varieties = Variety::pluck('name','name')->all();
+         $plantVariety = $plant->varieties->pluck('name','name')->all();
+         return view('crops.edit',compact('plant','varieties','plantVariety'));
     }
 
     /**
@@ -111,7 +115,7 @@ class PlantController extends Controller
      * @param  \App\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plant $plant, $id)
+    public function update(Request $request, $id)
     {
         //
         $plant = Plant::findOrFail($id);
@@ -119,13 +123,24 @@ class PlantController extends Controller
         $defaultImage ='default.png';
         $data=$this->handleRequest($request);
         $plant->update($data);
+        $plant->varieties()->delete();
+        foreach($request->input('varieties') as $variety){
+            $plant->varieties()->create([
+                'name' => $variety
+            ]);
+
+        }
+
         if (($oldImage !== $plant->image && $oldImage !== $defaultImage)) {
 
             $this->removeImage($oldImage);
 
         }
 
-          return back()->with('success','Crop has been updated successfully');
+           return redirect()->route('backend.plants.index')
+           ->with('success', 'Produce updated successfully');
+
+
     }
 
     /**
@@ -134,8 +149,38 @@ class PlantController extends Controller
      * @param  \App\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plant $plant)
+    public function destroy($id)
     {
+
         //
+      $plant=Plant::FindOrFail($id);
+       $defaultImage ='default.png';
+        $ok =$plant->delete();
+
+           if ($plant->image !== $defaultImage) {
+
+             $this->removeImage($plant->image);
+
+           }
+
+
+          if($ok){
+                        return back()->with('success', "Produce deleted successfully!!");
+                }else {
+                        return back()->with('error', "Something wen't wrong! Please try again");
+
+                }
+
+    }
+
+
+      private function removeImage($image)
+    {
+        if ( ! empty($image) )
+        {
+            $imagePath     = $this->uploadPath . '/' . $image;
+            if ( file_exists($imagePath) ) unlink($imagePath);
+
+        }
     }
 }

@@ -25,3 +25,25 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="edit-pre" tabindex="" role="dialog" aria-labelledby="edit-preLabel" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"  id="edit-preLabel">Update Varieties</h4>
+      </div>
+      <form action="{{route('backend.seeds.update','test')}}" method="POST">
+              @method('put')
+      	    @csrf
+	      <div class="modal-body">
+	      		<input type="hidden" name="prep_id" id="prep_id">
+				@include('seeds.edit_form')
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-primary">Save</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>

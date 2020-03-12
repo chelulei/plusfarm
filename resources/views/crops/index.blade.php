@@ -57,3 +57,4 @@
          </div>
      @endsection
      @include('crops.modal')
+      @include('crops.script')

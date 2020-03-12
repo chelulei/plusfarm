@@ -1,32 +1,37 @@
-@extends('layouts.backend.main')
+@extends('layouts.main')
 
-@section('title', 'Clinic | Add new prescription')
+@section('title', 'PlusFarm | Add edit crops')
 
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('backend.medicines.index') }}">All Prescriptions</a></li>
+            <li class="breadcrumb-item">
+                <a class="text-success" href="/home">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a class="text-success"  href="{{ route('backend.plants.index') }}">
+                    All Produces</a>
+                </li>
         </ol>
     </nav>
-    <div class="row mb-10">
+    <div class="row">
+        @include('partials.messages')
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <strong>Edit prescription</strong>
+                    <strong>Edit Produce</strong>
                     <small> Form</small>
                 </div>
                 <div class="card-body card-block">
-                    {!! Form::model($medicine, [
+                    {!! Form::model($plant, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.medicines.update', $medicine->id],
+                  'route'  => ['backend.plants.update', $plant->id],
                   'files'  => TRUE,
-                  'id'     => 'prescription-form'
 
               ]) !!}
 
-                    @include('backend.medicines.form')
+                    @include('crops.form2')
 
                     {!! Form::close() !!}
                 </div>

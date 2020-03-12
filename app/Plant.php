@@ -9,6 +9,7 @@ class Plant extends Model
     //
     protected $fillable = [
         'name',
+        'image',
 
     ];
 
@@ -36,6 +37,7 @@ class Plant extends Model
 
         return $this->hasMany(Produce::class);
     }
+
 
 
 }

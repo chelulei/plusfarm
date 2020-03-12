@@ -16,7 +16,7 @@ class CreatePlantsTable extends Migration
         Schema::create('plants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('image')->default('default.png');
+            $table->string('image')->default('noimage.png');
             $table->timestamps();
         });
     }

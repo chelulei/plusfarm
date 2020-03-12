@@ -22,12 +22,14 @@
       </a>
     </li>
     @endrole
+    @role('farmer')
  <li class="nav-item">
       <a class="nav-link" href="{{ route('home') }}">
         <i class="menu-icon typcn typcn-document-text"></i>
-        <span class="menu-title">Dashboard2</span>
+        <span class="menu-title">Dashboard</span>
       </a>
     </li>
+    @endrole
     {{-- @role('user')
     <li class="nav-item">
           <a class="nav-link" href="{{ route('home') }}">
