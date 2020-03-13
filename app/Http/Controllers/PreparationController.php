@@ -36,19 +36,15 @@ class PreparationController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+        $ok = $request->user()->preparations()->create($input);
 
-        try {
+     if( $ok){
+     return back()->with('success','Land Preparations has been added successfully');
+     }else{
+     Session::flash('error',"Something wen't wrong! Please try again");
+     }
 
-             $input = $request->all();
-            $request->user()->preparations()->create($input);
-
-           } catch (\Exception $e) {
-
-              Session::flash('error',"Something wen't wrong! Please try again");
-          }
-
-
-             return back()->with('success','Land Preparations has been added successfully');
     }
 
     /**

@@ -32,12 +32,12 @@
               DELETE
               <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
               </a>
-          {{-- <a data-toggle="tooltip" data-placement="top" title="Manage"
+          <a data-toggle="tooltip" data-placement="top" title="Manage"
                     href="{{route('backend.produces.show' ,$produce->id)}}" class="btn btn-success btn-sm">
                     Manage
                     <i class="fa fa-cogs"></i>
                     <!-- /.fa fa-edit -->
-                </a> --}}
+                </a>
 
                               </td>
                              @endforeach

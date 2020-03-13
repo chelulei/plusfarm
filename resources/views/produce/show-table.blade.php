@@ -34,7 +34,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
      <button type="button" class="btn btn-success float-right m-4"
-                        data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#landModal">
+                           data-toggle="modal" data-target="#landModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
                     </button>

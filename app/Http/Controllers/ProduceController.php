@@ -84,14 +84,14 @@ class ProduceController extends Controller
     public function show($id)
     {
         //
-        // $preparations = Produce::with('preparations')->find($id)->preparations;
+        $preparations = Produce::with('preparations')->find($id)->preparations;
         $storages = Produce::with('storages')->find($id)->storages;
         $plantings = Produce::with('plantings')->find($id)->plantings;
         $harvestings = Produce::with('harvestings')->find($id)->harvestings;
         $activities = Produce::with('activities')->find($id)->activities;
         $produce = Produce::where('id','=',$id)->first();
 
-        return view('Produce.show',compact('produce','harvestings','plantings','storages','preparations','activities'));
+        return view('produce.show',compact('produce','harvestings','plantings','storages','preparations','activities'));
     }
 
     /**

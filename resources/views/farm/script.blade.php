@@ -130,6 +130,7 @@ $('#delete').on('show.bs.modal', function (event) {
         var modal = $(this);
         modal.find('.modal-body #val_id4').val(val_id4);
     })
+
     </script>
 
     @endsection

@@ -13,7 +13,8 @@
                     ]) !!}
 
            @csrf
-             {{ Form::hidden('produce_id',$produce->id) }}
+
+             	<input type="hidden" name="produce_id" value="{{$produce->id}}">
             <div class="modal-body">
                 @include('preparation.form')
             </div>

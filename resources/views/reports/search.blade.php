@@ -11,7 +11,7 @@
 <select id="name" type="dropdown-toggle" class="form-control" name="apports" onchange="top.location.href = this.options[this.selectedIndex].value">
     <option value="name" selected disabled>--- Crop Financial Report ---</option>
     @foreach($produces as $produce)
-        <option class="apports" value="{{ route("backend.produces.show", $produce->id) }}">
+        <option class="apports" value="{{ route("backend.reports.show", $produce->id) }}">
             {{$produce->plant->name}} |
              <span class="badge badge-light">
                 {{$produce->variety}}

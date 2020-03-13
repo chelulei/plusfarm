@@ -7,16 +7,16 @@
   <div class="card-body">
 
      <small class="">Plusfarm Kenya Ltd</small><br>
-     <small class="card-title font-weight-bolder">CROP FINANCIAL REPORT</small><br>
-     <small class="">Farm: 1054(34)</small>
+     <small class="card-title font-weight-bolder">PRODUCE FINANCIAL REPORT</small><br>
+  <small class="">{{$produce->farm->farm_name}} | {{$produce->size}} Acres</small>
      <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
      <hr><hr><hr>
       <small class="font-weight-bolder">PRODUCE FINANCIAL REPORT</small> <br>
-     <small>Farm: 1054(34)</small><br><br>
+     <small>{{$produce->farm->farm_name}} | {{$produce->size}} Acres</small><br><br>
        <div class="pl-4">
-       <h4 class="text-primary">---Vin Cal</h4>
-      <small class="font-weight-bolder">Produce: Maize </small><br>
-       <small class="font-weight-bolder">Variety: H6218 </small><br><br>
+       <h4 class="text-primary">{{ Auth::user()->name }}</h4>
+      <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
+       <small class="font-weight-bolder">Variety: {{$produce->variety}} </small><br><br>
      </div>
 
  <h5 class="card-title"><i class="fa fa-money mr-1"> </i>INCOME</h5>
@@ -30,52 +30,90 @@
         </thead>
         <tbody>
             <tr>
-                <td>reports</td>
-                <td>3/5/2020</td>
-                <td>67</td>
-                <td>1000</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
     </tbody>
 </table>
  </div>
+
     <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5>
    <div class="table-responsive">
   <table class="table">
         <tbody>
-            <tr  class="table-active">
+            <tr  class="table-dark">
                <td colspan="4">Land Preparation</td>
             </tr>
-            {{-- @foreach($produces as $produce)
+            @foreach($preparations as $preparation)
             <tr>
-                <td>{{$produce->task}}</td>
-                <td>{{$produce->cost}}</td>
+                <td>{{$preparation->task}}</td>
+                <td>{{$preparation->cost}}</td>
                 <td>
                 </td>
             </tr>
-            @endforeach --}}
-             <tr  class="table-active">
+            @endforeach
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td class="table-active">{{$sum}}</td>
+            </tr>
+             <tr  class="table-dark">
                  <td colspan="4">Planting</td>
             </tr>
+             @foreach($plantings as $planting)
             <tr>
-                <td></td>
-                <td>bush Clearing</td>
-                <td>5000</td>
+                <td>{{$planting->task}}</td>
+                <td>{{$planting->cost}}</td>
+                <td>
+                </td>
             </tr>
-             <tr  class="table-active">
+            @endforeach
+            <tr>
+                <td>Total</td>
+                <td></td>
+               <td class="table-active">{{$sum2}}</td>
+            </tr>
+             <tr  class="table-dark">
                  <td colspan="4">Harvesting</td>
                 </tr>
+            @foreach($harvestings as $harvesting)
             <tr>
-                <td></td>
-               <td>bush Clearing</td>
-                <td>5000</td>
+                <td>{{$harvesting->task}}</td>
+                <td>{{$harvesting->cost}}</td>
+                <td>
+                </td>
             </tr>
-             <tr  class="table-active">
+            @endforeach
+            <tr>
+                <td>Total</td>
+                <td></td>
+              <td class="table-active">{{$sum3}}</td>
+            </tr>
+             <tr  class="table-dark">
                  <td colspan="4">Storage</td>
                 </tr>
+            @foreach($storages as $storage)
             <tr>
+                <td>{{$storage->task}}</td>
+                <td>{{$storage->cost}}</td>
+                <td>
+                </td>
+            </tr>
+            @endforeach
+            <tr>
+                <td>Total</td>
                 <td></td>
-               <td>bush Clearing</td>
-                <td>5000</td>
+                 <td class="table-active">{{$sum4}}</td>
+            </tr>
+             <tr>
+                <td></td>
+                <td> Total Expenditure</td>
+                 <td class="">
+                     {{$sum+$sum2+$sum3+$sum4}}
+                     <hr>
+                </td>
             </tr>
     </tbody>
 </table>

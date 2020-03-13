@@ -33,7 +33,7 @@
     <div class="card-body p-4">
     <div class="row">
         <div class="table-responsive m-b-40">
-            @include('farm.show-table')
+            @include('produce.show-table')
         </div>
     </div>
     <!-- /.row -->

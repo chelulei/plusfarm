@@ -53,6 +53,7 @@ class Produce extends Model
 
         return $this->hasMany(Activity::class);
     }
+
      public  function preparations(){
 
         return $this->hasMany(Preparation::class);
