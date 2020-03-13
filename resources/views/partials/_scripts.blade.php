@@ -68,18 +68,20 @@ $('select').select2({
       } );
 
 
-        /*counter dashboard*/
-        function getCount() {
-            $.ajax({
-                url: "/count",
-                success: function (data) {
-                    $('#farms').text(data.farmCount);
-                    setTimeout(getCount, 1000);
-                }
-            });
-        }
+        // /*counter dashboard*/
+        // function getCount() {
+        //     $.ajax({
+        //         url: "/count",
+        //         success: function (data) {
+        //              $('#farmers').text(data.farmersCount);
+        //              $('#users').text(data.userCount);
 
-        getCount();
+        //             setTimeout(getCount, 1000);
+        //         }
+        //     });
+        // }
+
+        // getCount();
 
 });
 </script>

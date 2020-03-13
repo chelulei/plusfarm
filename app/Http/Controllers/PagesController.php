@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Farm;
+use App\User;
+use App\Blog;
 class PagesController extends Controller
 {
     //
@@ -16,27 +18,32 @@ class PagesController extends Controller
 
 public function admin(){
 
-        return view('admin');
+        $usersCount = User::where('type', '=', 'user')->count();
+         $farmersCount = User::where('type', '=', 'farmer')->count();
+        $blogsCount = Blog::all()->count();
+        return view('admin',compact('usersCount','farmersCount','blogsCount'));
 
     }
 
-    public function countAll(){
+    // public function countAll(){
 
 
-        $farmCount = Farm::All()->count();
+    //      $userCount = User::where('type', '=', 'user')->count();
+    //      $farmersCount = User::where('type', '=', 'farmer')->count();
 
-        $countAll = array(
+    //     $countAll = array(
 
-            'farmCount' => $farmCount
+    //         'userCount' => $userCount,
+    //         'farmersCount' => $farmersCount,
 
-        );
+    //     );
 
-        return (object)$countAll;
+    //     return (object)$countAll;
 
-    }
+    // }
 
-    function getCount()
-    {
-        return response()->json($this->countAll());
-    }
+    // function getCount()
+    // {
+    //     return response()->json($this->countAll());
+    // }
 }
