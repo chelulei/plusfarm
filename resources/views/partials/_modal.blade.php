@@ -49,6 +49,44 @@
   </div>
 </div>
 
+<div class="modal fade" id="modal" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ADD NEW</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{{route('backend.blogs.store')}}">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                        {!! Form::text('title', null, ['class' => 'form-control',
+                        'placeholder' => 'Enter Title', 'required'=>'']) !!}
 
+                        @if($errors->has('title'))
+                            <span class="help-block">{{ $errors->first('title') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
+                        {!! Form::label('body','Body') !!}
+                        {!! Form::textarea('body', null, ['class' => 'form-control my-editor','rows' => 5, 'cols' =>5]) !!}
+                        @if($errors->has('body'))
+                            <span class="help-block">{{ $errors->first('body') }}</span>
+                        @endif
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>Close</button>
+                    <button type="submit"   class="btn btn-primary"><i class="fa fa-save"></i>Save </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 

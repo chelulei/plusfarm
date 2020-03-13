@@ -22,7 +22,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->get();
+        $users = User::where('type', '=', 'user')->orderBy('id', 'desc')->get();
         return view('users.index',compact('users'));
 
 

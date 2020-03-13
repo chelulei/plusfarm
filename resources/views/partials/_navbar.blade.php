@@ -41,88 +41,60 @@
         </div>
       </li>
     </ul>
-    <form class="ml-auto search-form d-none d-md-block" action="#">
+    <form class="ml-auto search-form d-none d-md-block" action="{{ route('backend.blogs.index') }}">
       <div class="form-group">
-        <input type="search" class="form-control" placeholder="Search Here">
+        <input type="search" name="term"  class="form-control"  value="{{ request('term') }}"
+        placeholder="Search Here">
       </div>
     </form>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <i class="mdi mdi-bell-outline"></i>
-          <span class="count">7</span>
+            @if(auth()->user()->unreadNotifications->count())
+          <span class="count">{{auth()->user()->unreadNotifications->count()}}</span>
+           @endif
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
           <a class="dropdown-item py-3">
-            <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-            <span class="badge badge-pill badge-primary float-right">View all</span>
-          </a>
+            @if(auth()->user()->unreadNotifications->count())
+            <p class="mb-0 font-weight-medium float-left">
+              You have {{auth()->user()->unreadNotifications->count()}} unread Notifications</p>
+                   <a href="{{route('backend.blogs.index')}}">
+                     <span class="badge badge-pill badge-primary float-right">
+                     View all
+                     </span>
+                    </a>
+               <p class="ml-1">
+                   <a href="{{url('/markAsRead')}}">Mark All as Read</a>
+                  </p>
+               @endif
+           </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-              <img src="assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic"> </div>
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-              <p class="font-weight-light small-text"> The meeting is cancelled </p>
+              {{-- <img src="assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic"> </div> --}}
+              <div class="preview-item-content flex-grow py-2">
+             @forelse(auth()->user()->unreadNotifications as $notification)
+              <p class="preview-subject ellipsis font-weight-medium text-dark">
+                From {{$notification->data['user']}}
+              </p>
+              <p class="font-weight-light small-text">
+                {{$notification->data['subject']}}
+              </p>
+                <p class="font-weight-light small-text">
+                {{$notification->data['title']}}
+              </p>
+              {{$notification->created_at->toDayDateTimeString()}}</span>
+                 @empty
+                     <p>No Notifications</p>
+                 @endforelse
             </div>
-          </a>
-          <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-              <img src="{{ Auth::user()->image_url}}" alt="{{ Auth::user()->name }}" class="img-sm profile-pic"> </div>
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-              <p class="font-weight-light small-text"> The meeting is cancelled </p>
-            </div>
-          </a>
-          <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-              <img src="assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic"> </div>
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-              <p class="font-weight-light small-text"> The meeting is cancelled </p>
-            </div>
+
           </a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
-          <i class="mdi mdi-email-outline"></i>
-          <span class="count bg-success">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
-          <a class="dropdown-item py-3 border-bottom">
-            <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
-            <span class="badge badge-pill badge-primary float-right">View all</span>
-          </a>
-          <a class="dropdown-item preview-item py-3">
-            <div class="preview-thumbnail">
-              <i class="mdi mdi-alert m-auto text-primary"></i>
-            </div>
-            <div class="preview-item-content">
-              <h6 class="preview-subject font-weight-normal text-dark mb-1">Application Error</h6>
-              <p class="font-weight-light small-text mb-0"> Just now </p>
-            </div>
-          </a>
-          <a class="dropdown-item preview-item py-3">
-            <div class="preview-thumbnail">
-              <i class="mdi mdi-settings m-auto text-primary"></i>
-            </div>
-            <div class="preview-item-content">
-              <h6 class="preview-subject font-weight-normal text-dark mb-1">Settings</h6>
-              <p class="font-weight-light small-text mb-0"> Private message </p>
-            </div>
-          </a>
-          <a class="dropdown-item preview-item py-3">
-            <div class="preview-thumbnail">
-              <i class="mdi mdi-airballoon m-auto text-primary"></i>
-            </div>
-            <div class="preview-item-content">
-              <h6 class="preview-subject font-weight-normal text-dark mb-1">New user registration</h6>
-              <p class="font-weight-light small-text mb-0"> 2 days ago </p>
-            </div>
-          </a>
-        </div>
-      </li>
+
       <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <img class="img-xs rounded-circle" src="{{ Auth::user()->image_url}}" alt="{{ Auth::user()->name }}"> </a>

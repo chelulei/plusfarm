@@ -32,5 +32,6 @@
       <!-- Layout styles -->
 
 <link  type="text/css" href="{{asset('backend/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+<link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link  type="text/css" href="{{asset('backend/vendor/jasny-bootstrap/css/jasny-bootstrap.css')}}" rel="stylesheet" media="all">
    <meta name="csrf-token" content="{{ csrf_token() }}">

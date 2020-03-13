@@ -87,20 +87,19 @@
       </div>
     </li>
       @endrole
+       @role('farmer')
        <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.reports.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Reports/Analyticst</span>
       </a>
     </li>
-     @role('superadmin')
+     @endrole
      <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('backend.blogs.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Resources</span>
       </a>
     </li>
-      @endrole
-
   </ul>
 </nav>

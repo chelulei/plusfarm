@@ -3,6 +3,21 @@
   <head>
    @include('partials._head')
   @yield('style')
+  <script src="{{asset('/backend/vendor/tinymce/plugin/tinymce/tinymce.min.js')}}"></script>
+    <script>tinymce.init({
+            selector:'textarea.my-editor',
+            setup : function(ed)
+            {
+                ed.on('init', function()
+                {
+                    this.execCommand("fontName", false, "tahoma");
+                    this.execCommand("fontSize", false, "12px");
+                });
+            }  ,
+                        menubar:'false',
+             toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link fontsizeselect |",
+              relative_urls: false
+    });</script>
   </head>
   <body>
     <div class="container-scroller">

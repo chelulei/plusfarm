@@ -46,3 +46,8 @@ Route::any('deactivate/{id}', 'ActivateController@deactivate')->name('deactivate
 Route::resource('/roles', 'RolesController', ['as' => 'backend']);
 Route::resource('/permissions', 'permissionsController', ['as' => 'backend']);
 Route::get('/count', 'PagesController@getCount');
+Route::resource('/blogs', 'BlogController',['as'=>'backend']);
+Route::get('/markAsRead',function(){
+Auth()->user()->unreadNotifications->markAsRead();
+return back();
+});

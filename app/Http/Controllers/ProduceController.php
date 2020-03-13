@@ -71,7 +71,7 @@ class ProduceController extends Controller
             $inter->variety2 = $request->input('variety2');
             $inter->save();
         }
- return redirect()->route('backend.farms.index')
+ return redirect()->route('backend.produces.index')
                        ->with('success','Produce has been added successfully');
         }
 
@@ -81,11 +81,17 @@ class ProduceController extends Controller
      * @param  \App\Produce  $produce
      * @return \Illuminate\Http\Response
      */
-    public function show(Produce $produce)
+    public function show($id)
     {
         //
-     $produces = Produce::latest()->get();
-      return view("reports.financial", compact('produce','produces'));
+        // $preparations = Produce::with('preparations')->find($id)->preparations;
+        $storages = Produce::with('storages')->find($id)->storages;
+        $plantings = Produce::with('plantings')->find($id)->plantings;
+        $harvestings = Produce::with('harvestings')->find($id)->harvestings;
+        $activities = Produce::with('activities')->find($id)->activities;
+        $produce = Produce::where('id','=',$id)->first();
+
+        return view('Produce.show',compact('produce','harvestings','plantings','storages','preparations','activities'));
     }
 
     /**
@@ -98,7 +104,7 @@ class ProduceController extends Controller
     {
         //
     $plants = DB::table('plants')->pluck("name","id");
-     $frms = Farm::where('user_id',Auth::user()->id)->pluck('farm_name','id');
+     $frms = Produce::where('user_id',Auth::user()->id)->pluck('farm_name','id');
     return view('produce.edit',compact('plants','produce','frms'));
 
     }

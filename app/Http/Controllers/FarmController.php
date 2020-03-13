@@ -70,14 +70,7 @@ class FarmController extends Controller
     public function show($id)
     {
         //
-        $preparations = Farm::with('preparations')->find($id)->preparations;
-        $storages = Farm::with('storages')->find($id)->storages;
-        $plantings = Farm::with('plantings')->find($id)->plantings;
-        $harvestings = Farm::with('harvestings')->find($id)->harvestings;
-        $activities = Farm::with('activities')->find($id)->activities;
-        $farm = Farm::where('id','=',$id)->first();
 
-        return view('farm.show',compact('farm','harvestings','plantings','storages','preparations','activities'));
 
     }
 

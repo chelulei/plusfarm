@@ -52,6 +52,8 @@ class ReportsController extends Controller
     public function show(Produce $produce)
     {
         //
+     // $produces = Produce::latest()->get();
+      //return view("reports.financial", compact('produce','produces'));
 
      $produces = Produce::latest()->get();
       return view("reports.performance", compact('produce','produces'));

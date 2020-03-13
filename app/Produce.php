@@ -35,6 +35,27 @@ class Produce extends Model
     {
         return $this->belongsTo(Farm::class);
     }
+ public  function plantings(){
 
+        return $this->hasMany(Planting::class);
+    }
+
+     public  function harvestings(){
+
+        return $this->hasMany(Harvesting::class);
+    }
+
+     public  function storages(){
+
+        return $this->hasMany(Storage::class);
+    }
+      public  function activities(){
+
+        return $this->hasMany(Activity::class);
+    }
+     public  function preparations(){
+
+        return $this->hasMany(Preparation::class);
+    }
 
 }

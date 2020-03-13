@@ -13,7 +13,7 @@
                     ]) !!}
 
            @csrf
-             {{ Form::hidden('farm_id',$farm->id) }}
+             {{ Form::hidden('produce_id',$produce->id) }}
             <div class="modal-body">
                 @include('preparation.form')
             </div>
@@ -43,7 +43,7 @@
                     ]) !!}
 
            @csrf
-             {{ Form::hidden('farm_id',$farm->id) }}
+             {{ Form::hidden('produce_id',$produce->id) }}
             <div class="modal-body">
            @include('planting.form')
             </div>
@@ -73,7 +73,7 @@
 
 
            @csrf
-            {{ Form::hidden('farm_id',$farm->id) }}
+            {{ Form::hidden('produce_id',$produce->id) }}
             <div class="modal-body">
                 @include('storage.form')
             </div>
@@ -103,7 +103,7 @@
                     ]) !!}
 
            @csrf
-            {{ Form::hidden('farm_id',$farm->id) }}
+            {{ Form::hidden('produce_id',$produce->id) }}
             <div class="modal-body">
                 @include('harvesting.form')
             </div>

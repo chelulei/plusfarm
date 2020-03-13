@@ -9,8 +9,8 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{$farm->farm_name}}</td>
-               <td>{{$farm->size}} (Ha)</td>
+                <td>{{$produce->farm->farm_name}}</td>
+               <td>{{$produce->size}} (Ha)</td>
             </tr>
         </tbody>
     </table>
@@ -34,7 +34,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
      <button type="button" class="btn btn-success float-right m-4"
-                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#landModal">
+                        data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#landModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
                     </button>
@@ -79,7 +79,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
      <button type="button" class="btn btn-success float-right m-4"
-                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#plantModal">
+                        data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#plantModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
                     </button>
@@ -123,7 +123,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 <button type="button" class="btn btn-success float-right m-4"
-                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#harvestModal">
+                        data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#harvestModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
                     </button>
@@ -169,7 +169,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
   </div>
    <div class="tab-pane fade" id="store" role="tabpanel" aria-labelledby="store-tab">
        <button type="button" class="btn btn-success float-right m-4"
-                        data-prepid="{{$farm->id}}"   data-toggle="modal" data-target="#storageModal">
+                        data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#storageModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
                     </button>

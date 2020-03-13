@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Notification;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -112,6 +113,10 @@ class User extends Authenticatable
         return $this->hasMany(Planting::class);
     }
 
+  public  function blogs(){
+
+        return $this->hasMany(Blog::class);
+    }
 
     public  function php(){
 

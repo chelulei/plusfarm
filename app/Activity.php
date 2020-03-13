@@ -26,4 +26,8 @@ class Activity extends Model
     {
         return $this->belongsTo(Farm::class);
     }
+     public function produce()
+    {
+        return $this->belongsTo(Produce::class);
+    }
 }
