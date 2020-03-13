@@ -10,6 +10,7 @@ use App\Preparation;
 use App\Planting;
 use App\Harvesting;
 use App\Storage;
+use Auth;
 class ReportsController extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class ReportsController extends Controller
     public function index()
     {
         //
-         $produces = Produce::latest()->get();
+         $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
          return view('reports.index',compact('produces'));
     }
 
@@ -65,7 +66,7 @@ class ReportsController extends Controller
         $harvestings = Produce::with('harvestings')->find($id)->harvestings;
         $activities = Produce::with('activities')->find($id)->activities;
         $produce = Produce::where('id','=',$id)->first();
-        $produces = Produce::all();
+        $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
         $sum = Preparation::where('produce_id','=',$id)->sum('cost');
         $sum2 = Planting::where('produce_id','=',$id)->sum('cost');
         $sum3 = Harvesting::where('produce_id','=',$id)->sum('cost');
