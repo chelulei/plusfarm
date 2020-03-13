@@ -1,6 +1,6 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-    <a class="navbar-brand brand-logo" href="index.html">
+    <a class="navbar-brand brand-logo" href="#">
       <img src="{{asset('images/icons/Plusfarm.png')}}" alt="Plusfarm" width="30" height="30"/> </a>
     <a class="navbar-brand brand-logo-mini" href="#">
     <img src="{{asset('images/Plusfarm.png')}}" alt="Plusfarm" width="30" height="30"/> </a>
