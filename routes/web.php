@@ -34,6 +34,7 @@ Route::any('record/{id}','RecordsController@details')->name('record');
 Route::resource('/plants', 'PlantController', ['as'=>'backend']);
 Route::resource('/seeds', 'VarietyController', ['as' => 'backend']);
 Route::resource('/reports', 'ReportsController',['as'=>'backend']);
+Route::any('/performs/{id}','ReportsController@perform')->name('performance');
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::resource('/account', 'AccountController', ['as' => 'backend'])->except(['store']);
 Route::post('/uploadfile', 'ImageController@upload');

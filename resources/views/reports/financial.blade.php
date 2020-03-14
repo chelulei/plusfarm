@@ -8,15 +8,24 @@
 
      <small class="">Plusfarm Kenya Ltd</small><br>
      <small class="card-title font-weight-bolder">PRODUCE FINANCIAL REPORT</small><br>
-  <small class="">{{$produce->farm->farm_name}} | {{$produce->size}} Acres</small>
+    <small class="">
+    {{$produce->farm->farm_name}} |
+     <strong> {{$produce->size}} </strong>
+     {{str_plural('Acre',$produce->size)}}
+    </small>
      <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
      <hr><hr><hr>
       <small class="font-weight-bolder">PRODUCE FINANCIAL REPORT</small> <br>
-     <small>{{$produce->farm->farm_name}} | {{$produce->size}} Acres</small><br><br>
+   <small class="">
+    {{$produce->farm->farm_name}} |
+     <strong> {{$produce->size}} </strong>
+     {{str_plural('Acre',$produce->size)}}
+    </small>
+     <br><br>
        <div class="pl-4">
        <h4 class="text-primary">{{ Auth::user()->name }}</h4>
       <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
-       <small class="font-weight-bolder">Variety: {{$produce->variety}} </small><br><br>
+       <small class="font-weight-bolder">Variety: <b class="text-danger">{{$produce->variety}} </b></small><br><br>
      </div>
 
  <h5 class="card-title"><i class="fa fa-money mr-1"> </i>INCOME</h5>
@@ -38,9 +47,9 @@
     </tbody>
 </table>
  </div>
-
-    <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5>
-   <div class="table-responsive">
+<h5 class="card-title">(less)</h5>
+ <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5>
+  <div class="table-responsive">
   <table class="table">
         <tbody>
             <tr  class="table-dark">

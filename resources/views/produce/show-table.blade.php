@@ -30,6 +30,9 @@
   <li class="nav-item">
     <a class="nav-link" id="store-tab" data-toggle="tab" href="#store" role="tab" aria-controls="store" aria-selected="false">Storage</a>
   </li>
+   <li class="nav-item">
+    <a class="nav-link" id="store-tab" data-toggle="tab" href="#complete" role="tab" aria-controls="store" aria-selected="false">Task Completion</a>
+  </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -213,7 +216,48 @@ data-target="#delete" class="btn btn btn-outline-danger">
         </tbody>
     </table>
    </div>
+<div class="tab-pane fade show" id="complete" role="tabpanel" aria-labelledby="complete">
+<div class="card">
+  <div class="card-body">
+   <p class="text-center text-danger"> Make sure to complete all the task before clicking this button</p>
+   <button type="button" class="btn btn-danger btn-lg btn-block"  data-toggle="modal" data-target="#completeModal"
+   data-cpid="{{$produce->id}}"
+   data-pdid="{{$produce->size}}"
+    data-fmid="{{$produce->farm->id}}"
+   >
+   Click Here
+  </button>
+  </div>
+</div>
+</div>
 </div>
 
 @include('farm.modal')
 @include('farm.script')
+<!-- Modal -->
+<div class="modal fade" id="completeModal" tabindex="-1" role="dialog" aria-labelledby="completeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="completeModalLabel">Task Completion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{route('backend.reports.update','test')}}" method="POST">
+              @method('put')
+      	    @csrf
+      <div class="modal-body">
+          <input type="hidden" name="cp_id" id="cp_id">
+          <input type="hidden" name="pd_id" id="pd_id">
+          <input type="hidden" name="fm_id" id="fm_id">
+        <p class="text-danger">Are you sure all the tasks are complete?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-danger">Save </button>
+      </div>
+         </form>
+    </div>
+  </div>
+</div>

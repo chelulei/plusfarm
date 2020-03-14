@@ -21,7 +21,6 @@ class CreatePlantingsTable extends Migration
             $table->string('cost');
             $table->longText('details')->nullable();
             $table->longText('remarks')->nullable();
-            $table->string('status')->default(0);
              $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
              $table->foreign('produce_id')->references('id')->on('produces')->onDelete('restrict');
             $table->timestamps();

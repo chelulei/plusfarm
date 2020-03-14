@@ -56,7 +56,7 @@ class ProduceController extends Controller
             //
          $input = $request->all();
          $farm = Farm::findOrFail($request->farm_id);
-        if ($request->size < $farm->size){
+        if ($farm->size > $request->size  || $farm->size == $request->size){
             $prod_id = $request->user()->produces()->create($input);
             $farm->size -= $request->size;
             $farm->save();

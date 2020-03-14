@@ -17,12 +17,15 @@
                           <h6 class="card-title mb-0">{{$produce->farm->farm_name}}</h6>
                           <p class="font-weight-semibold mb-0">{{$produce->plant->name}} | {{$produce->variety}}</p>
                         </div>
-                      <h4 class="font-weight-medium">{{$produce->size}} Acres</h4>
+                      <h4 class="font-weight-medium">
+                        <strong> {{$produce->size}} </strong>
+                        {{str_plural('Acre',$produce->size)}}
+                        </h4>
                     <a href="{{route('backend.produces.index')}}" class="btn btn-primary">View Details</a>
                 </div>
               </div>
         </div>
-        @if ($loop->iteration % 2 == 0)
+        @if ($loop->iteration % 3 == 0)
             </div>
             <div class="row">
         @endif

@@ -131,6 +131,18 @@ $('#delete').on('show.bs.modal', function (event) {
         modal.find('.modal-body #val_id4').val(val_id4);
     })
 
+
+$('#completeModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget);
+          var cp_id = button.data('cpid');
+          var pd_id = button.data('pdid');
+          var fm_id = button.data('fmid');
+        var modal = $(this);
+        modal.find('.modal-body #cp_id').val(cp_id);
+        modal.find('.modal-body #pd_id').val(pd_id);
+        modal.find('.modal-body #fm_id').val(fm_id);
+    });
+
     </script>
 
     @endsection

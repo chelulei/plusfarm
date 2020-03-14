@@ -23,7 +23,7 @@ class CreateProducesTable extends Migration
             $table->string('start_date');
             $table->string('end_date');
             $table->string('farm_mode');
-
+            $table->string('status')->default(0);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->foreign('farm_id')->references('id')->on('farms')->onDelete('restrict');
             $table->foreign('plant_id')->references('id')->on('plants')->onDelete('restrict');

@@ -10,12 +10,16 @@
 
      <small class="">Plusfarm Kenya Ltd</small><br>
      <small class="card-title font-weight-bolder">CROP PERFORMANCE REPORT</small><br>
-     <small class="">Farm: 1054(34)</small>
+   <small class="">
+     {{$produce->farm->farm_name}} |
+     <strong> {{$produce->size}} </strong>
+     {{str_plural('Acre',$produce->size)}}
+    </small>
      <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
      <div class="pl-4 bg-secondary mt-4">
-       <h4 class="text-primary">---Vin Cal</h4>
-      <small class="font-weight-bolder">Produce: Maize </small><br>
-       <small class="font-weight-bolder">Variety: H6218 </small><br><br>
+       <h4 class="text-primary">{{ Auth::user()->name }}</h4>
+      <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
+       <small class="font-weight-bolder">Variety: {{$produce->variety}} </small><br><br>
      </div>
      <hr>
        <br>
@@ -24,10 +28,14 @@
         <table class="table table-borderless">
               <tbody>
                   <tr>
-                      <td>Start Date: Jan 31, 2020 </td>
+                      <td>Start Date: {{$produce->created_at->toFormattedDateString()}} </td>
                       <td></td>
                       <td></td>
-                      <td>Last Harvest Date: --/--/----</td>
+                      <td>Last Harvest Date:
+                           @foreach($harvestings as $harve)
+                             {{$harve->created_at->toFormattedDateString()}}
+                           @endforeach
+                      </td>
                   </tr>
                   <tr>
                       <td> Propagation Status: ACTIVE</td>
