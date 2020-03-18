@@ -11,7 +11,7 @@
         <div class="col-md-4">
        <div class="card">
            @if ($produce->plant->image_url)
-                <img src="{{$produce->plant->image_url}}" class="card-img-top" alt="...">
+                <img src="{{$produce->plant->image_url}}" class="card-img-top" alt="{{$produce->plant->name}}">
                   @endif
                 <div class="card-body">
                     <h5 class="card-title">SHORT TERM CEREALS</h5>

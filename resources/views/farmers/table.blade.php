@@ -3,6 +3,7 @@
     <tr>
         <th>Image</th>
         <th>Name</th>
+        <th>Date Registered</th>
     </tr>
     </thead>
     <tbody>
@@ -10,6 +11,7 @@
         <tr>
             <td><img src="{{ $user->image_url}} " alt="" width="200" height="200"></td>
             <td>{{$user->name}}</td>
+             <td>{{$user->created_at->toFormattedDateString() }}</td>
         </tr>
     @endforeach
     </tbody>

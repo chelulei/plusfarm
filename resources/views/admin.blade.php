@@ -1,8 +1,5 @@
 @extends('layouts.main')
 @section('content')
- {{-- @include('partials._statistics') --}}
-  {{-- @include('partials._overview') --}}
-
 <div class="row">
   <div class="col md-4">
   <div class="card">
