@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Clinic | Show user')
+@section('title', 'Plusfarm | Show user')
 
 @section('content')
 
@@ -14,8 +14,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.users.index') }}"><button class="btn btn-primary">
-                                <i class="zmdi zmdi-arrow-left"></i>BACK</button></a>
+                        <a href="{{ route('backend.users.index') }}"><button class="btn btn-success">
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                 </ol>
             </nav>
@@ -25,7 +25,7 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="bg-primary p-2 mb-2 text-white text-center">
+                                <div class="bg-success p-2 mb-2 text-white text-center">
                                         User Details
                                 </div>
                             </div>

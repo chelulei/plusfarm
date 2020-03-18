@@ -1,10 +1,12 @@
 @section('script')
-    <script type="text/javascript">
+<script>
+$(document).ready(function () {
+//delete modal script
 
-        function deleteData(id)
+     function deleteData(id)
      {
          var id = id;
-         var url = '{{ route("backend.seeds.destroy", ":id") }}';
+         var url = '{{ route("backend.cultivations.destroy", ":id") }}';
          url = url.replace(':id', id);
          $("#deleteForm").attr('action', url);
      }
@@ -14,7 +16,8 @@
          $("#deleteForm").submit();
      }
 
-    </script>
 
+});
+</script>
 
     @endsection

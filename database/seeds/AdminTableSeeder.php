@@ -33,7 +33,6 @@ class AdminTableSeeder extends Seeder
             'name' => 'superadmin',
             'username' => 'superadmin',
             'slug' => 'superadmin',
-            'slug' => 'superadmin',
             'type' =>'user',
             'email' => 'superadmin@coredev.ph',
             'password' =>Hash::make('123456')

@@ -11,10 +11,11 @@
     </style>
 @endsection
 @section('content')
-        <button  type="button" class="btn btn-outline-success"
-         data-toggle="modal" data-target="#seedModal">
+        <button  type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#seedModal">
     <i class="fa fa-plus"></i>Add Varieties
 </button>
+<!-- Button trigger modal -->
+
 <br>
    @include('partials.messages')
     @if(! $crops->count())
@@ -40,4 +41,3 @@
              </div>
          </div>
      @endsection
-

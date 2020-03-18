@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Planting;
+use App\Cultivation;
 use Illuminate\Http\Request;
 
-class PlantingController extends Controller
+class CultivationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,26 +36,24 @@ class PlantingController extends Controller
     public function store(Request $request)
     {
         //
+          //
+        $input = $request->all();
+        $ok = $request->user()->cultivations()->create($input);
 
-
-         $input = $request->all();
-         $ok= $request->user()->plantings()->create($input);
-
-       if($ok){
-         return back()->with('success','Added successfully');
-         }else{
-           Session::flash('error',"Something wen't wrong! Please try again");
+     if( $ok){
+     return back()->with('success','Cultivation has been added successfully');
+     }else{
+     Session::flash('error',"Something wen't wrong! Please try again");
      }
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Planting  $planting
+     * @param  \App\Cultivation  $cultivation
      * @return \Illuminate\Http\Response
      */
-    public function show(Planting $planting)
+    public function show(Cultivation $cultivation)
     {
         //
     }
@@ -63,58 +61,53 @@ class PlantingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Planting  $planting
+     * @param  \App\Cultivation  $cultivation
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cultivation $cultivation)
     {
         //
-    // $plant = Planting::find($id);
-    // return response()->json($plant);
-
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Planting  $planting
+     * @param  \App\Cultivation  $cultivation
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
         //
-        //
-        $data = $request->all();
-        $update = Planting::findOrFail($request->plant_id);
-        $data = $request->all();
-        $ok = $update->update($data);
+         $update = Cultivation::findOrFail($request->cultivate_id);
+         $data = $request->all();
+         $ok=$update->update($data);
 
-        if ($ok) {
+     if($ok){
             return back()->with('success', "Activity updated successfully");
-        } else {
+     }else {
             return back()->with('error', "Something wen't wrong! Please try again");
-        }
+
+     }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Planting  $planting
+     * @param  \App\Cultivation  $cultivation
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
-        $planting=Planting::FindOrFail($request->this_id2);
-         $ok= $planting->delete();
+        //
+           $prepa = Cultivation::findOrFail($request->cul_id5);
+             $delete = $prepa->delete();
 
-        if ($ok) {
-                    return back()->with('success', 'Activity deleted successfully!');
-        }else {
-            return back()->with('error', 'Some thing is wrong. Please try again');
+         if($delete){
+          return back()->with('success', 'Activity deleted successfully!');
+         } else{
+             Session::flash('error', 'Some thing is wrong. Please try again');
         }
 
-
     }
-
 }

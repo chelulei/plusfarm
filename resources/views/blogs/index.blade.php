@@ -75,9 +75,9 @@
                 </div>
                 <!-- Start of side bar left -->
                 <div class="col-lg-1 sidebar-widgets mt-3">
-                    <div class="widget-wrap">
+                    {{-- <div class="widget-wrap">
 
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

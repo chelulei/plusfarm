@@ -1,7 +1,12 @@
 @section('script')
     <script type="text/javascript">
-
-    $('select[name="county"]').bind('change', function() {
+$(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        }
+});
+     $('select[name="county"]').bind('change', function() {
             var countyID = $(this).val();
             if(countyID) {
                 $.ajax({
@@ -104,6 +109,24 @@ $('#edit-storage').on('show.bs.modal', function (event) {
 
       });
 
+
+$('#edit-cultivate').on('show.bs.modal', function (event) {
+
+      var button = $(event.relatedTarget)
+      var task4 = button.data('ctask')
+      var cost4 = button.data('ccost')
+      var details4 = button.data('cdetails')
+      var remarks4 = button.data('cremarks')
+      var cultivate_id= button.data('cultivateid')
+      var modal = $(this)
+      modal.find('.modal-body #task4').val(task4);
+      modal.find('.modal-body #cost4').val(cost4);
+      modal.find('.modal-body #details4').val(details4);
+      modal.find('.modal-body #remarks4').val(remarks4);
+      modal.find('.modal-body #cultivate_id').val(cultivate_id);
+
+      });
+
 $('#delete').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var val_id = button.data('valid');
@@ -124,6 +147,7 @@ $('#delete').on('show.bs.modal', function (event) {
         var modal = $(this);
         modal.find('.modal-body #val_id3').val(val_id3);
     });
+
      $('#delete4').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var val_id4 = button.data('valid4');
@@ -131,6 +155,12 @@ $('#delete').on('show.bs.modal', function (event) {
         modal.find('.modal-body #val_id4').val(val_id4);
     })
 
+ $('#delete5').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var val_id5 = button.data('valid5');
+        var modal = $(this);
+        modal.find('.modal-body #val_id5').val(val_id5);
+    })
 
 $('#completeModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget);
@@ -142,7 +172,7 @@ $('#completeModal').on('show.bs.modal', function (event) {
         modal.find('.modal-body #pd_id').val(pd_id);
         modal.find('.modal-body #fm_id').val(fm_id);
     });
-
-    </script>
+});
+   </script>
 
     @endsection

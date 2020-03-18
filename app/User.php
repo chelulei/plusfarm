@@ -57,10 +57,10 @@ class User extends Authenticatable
         $this->attributes['username'] = strtolower($value);
     }
 
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
 
     public function getImageUrlAttribute($value)
@@ -112,6 +112,12 @@ class User extends Authenticatable
 
         return $this->hasMany(Planting::class);
     }
+
+    public  function cultivations(){
+
+        return $this->hasMany(Cultivation::class);
+    }
+
 
   public  function blogs(){
 

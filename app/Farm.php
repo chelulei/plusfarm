@@ -10,6 +10,7 @@ class Farm extends Model
  protected $fillable=[
            'user_id',
            'farm_name',
+            'slug',
             'size',
             'ownership',
             'soiltype',
@@ -22,6 +23,37 @@ class Farm extends Model
             'street',
             'gps',
 ];
+
+  /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function ($farm) {
+            $farm->update(['slug' => $farm->farm_name]);
+        });
+    }
+
+     /**
+     * Set the proper slug attribute
+     *
+     * @param string $value
+     */
+    public function setSlugAttribute($value)
+    {
+        if (static::whereSlug($slug = str_slug($value))->exists()) {
+
+            $slug = "{$slug}-{$this->id}";
+
+        }
+        $this->attributes['slug'] = $slug;
+    }
+
+     public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
      public function user()
     {

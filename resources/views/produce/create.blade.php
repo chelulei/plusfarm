@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'Plus Farm | Add new produce')
-
 @section('content')
 <div class="breadcrumbs">
         <div class="">
@@ -40,9 +38,8 @@
         </div>
 
 @endsection
-
 @include('produce.script')
 
-@section('script')
+
 
 

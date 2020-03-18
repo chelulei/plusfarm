@@ -29,6 +29,7 @@ Route::resource('/preparations', 'PreparationController', ['as'=>'backend']);
 Route::resource('/harvestings', 'HarvestingController', ['as'=>'backend']);
 Route::resource('/storages', 'StorageController', ['as'=>'backend']);
 Route::resource('/plantings', 'PlantingController', ['as'=>'backend']);
+Route::resource('/cultivations', 'CultivationController', ['as'=>'backend']);
 Route::get('/produces/create/{id}','ProduceController@myformAjax');
 Route::any('record/{id}','RecordsController@details')->name('record');
 Route::resource('/plants', 'PlantController', ['as'=>'backend']);

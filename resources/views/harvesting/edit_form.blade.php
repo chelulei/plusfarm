@@ -2,7 +2,7 @@
         {!! Form::label('task','Task:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
         <select class="form-control" id="task2" name="task">
-         <option value="">--Choose Task--</option>
+         <option value="" selected disabled>--Choose Task--</option>
          <option value="Storage Materials">Storage Materials</option>
         <option value="Farm tools">Farm tools</option>
         <option value="Labour">Labour</option>

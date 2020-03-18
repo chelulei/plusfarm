@@ -17,6 +17,7 @@ class CreateFarmsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->string('farm_name');
+            $table->string('slug')->nullable();
             $table->string('size');
             $table->string('ownership');
             $table->string('soiltype')->nullable();

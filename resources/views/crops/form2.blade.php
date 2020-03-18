@@ -4,9 +4,6 @@
             <strong>Produce Name:</strong>
             {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
         </div>
-    {{-- <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
-        {{ Form::hidden('slug', null, array('id' => 'slug')) }}
-    </div> --}}
         <div class="form-group">
             <strong>Variety:</strong>
             {!! Form::select('varieties[]', $varieties,$plantVariety, array('class' => 'form-control','multiple')) !!}

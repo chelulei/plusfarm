@@ -6,8 +6,17 @@ use App\Variety;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use App\Http\Requests;
 class VarietyController extends Controller
 {
+
+
+     protected $uploadPath;
+
+    public function __construct()
+    {
+        $this->uploadPath =public_path('images');
+    }
 
     /**
      * Display a listing of the resource.
@@ -37,21 +46,43 @@ class VarietyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\SeedStoreRequest $request)
     {
         //
-        try {
+         $data= $this->handleRequest($request);
+        $crop = Variety::create($data);
 
-            $crop = Variety::create($request->all());
+        if( $crop ){
+                return redirect()->route('backend.seeds.index')
+            ->with('success', 'Variety has been added successfully');
+            }else {
+                Session::flash('error', "Something wen't wrong! Please try again");
 
-        } catch (\Exception $e) {
+            }
 
-            Session::flash('error', "Something wen't wrong! Please try again");
-        }
-
-        return redirect()->route('backend.seeds.index')
-            ->with('success', 'Seed has been added successfully');
     }
+
+
+
+     private function handleRequest($request){
+
+                $data = $request->all();
+
+                if($request->hasFile('image')){
+
+                    $image = $request->file('image');
+
+                    $fileNameToStore  = rand() . '.' . $image->getClientOriginalExtension();
+
+                    $destination = $this->uploadPath;
+
+                    $image->move($destination,$fileNameToStore);
+
+                    $data['image'] =  $fileNameToStore;
+
+                }
+                return $data;
+            }
 
     /**
      * Display the specified resource.
@@ -70,9 +101,10 @@ class VarietyController extends Controller
      * @param  \App\Variety  $variety
      * @return \Illuminate\Http\Response
      */
-    public function edit(Variety $variety)
+    public function edit($id)
     {
-
+        $variety = Variety::findOrFail($id);
+         return view('seeds.edit',compact('variety'));
     }
 
     /**
@@ -82,20 +114,24 @@ class VarietyController extends Controller
      * @param  \App\Variety  $variety
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Variety $variety)
+    public function update(Request $request, $id)
     {
         //
+       $plant = Variety::findOrFail($id);
+        $oldImage = $plant->image;
+        $defaultImage ='noimage.png';
+        $data=$this->handleRequest($request);
+        $plant->update($data);
 
-        $update = Variety::findOrFail($request->prep_id);
-         $data = $request->all();
-         $ok=$update->update($data);
+        if (($oldImage !== $plant->image && $oldImage !== $defaultImage)) {
 
-     if($ok){
-            return back()->with('success', "Variety updated successfully");
-     }else {
-            return back()->with('error', "Something wen't wrong! Please try again");
+            $this->removeImage($oldImage);
 
-     }
+        }
+
+           return redirect()->route('backend.seeds.index')
+           ->with('success', 'Produce updated successfully');
+
     }
 
     /**
@@ -108,9 +144,15 @@ class VarietyController extends Controller
     {
         //
            //
-       $plant=Variety::FindOrFail($id);
-
+         $plant=Variety::FindOrFail($id);
+         $defaultImage ='noimage.png';
         $ok =$plant->delete();
+
+           if ($plant->image !== $defaultImage) {
+
+             $this->removeImage($plant->image);
+
+           }
 
 
           if($ok){
@@ -119,5 +161,16 @@ class VarietyController extends Controller
                         return back()->with('error', "Something wen't wrong! Please try again");
 
                 }
+    }
+
+
+       private function removeImage($image)
+    {
+        if ( ! empty($image) )
+        {
+            $imagePath     = $this->uploadPath . '/' . $image;
+            if ( file_exists($imagePath) ) unlink($imagePath);
+
+        }
     }
 }

@@ -17,6 +17,26 @@
             @endif
         </div>
     </div>
+    <div class="form-group">
+        {!! Form::label('image',"Image",["class"=>"col-form-label col-md-2"]) !!}
+        <br>
+         <div class="col-md-10">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-new" style="width: 200px; height: 150px;">
+                <img src="{{asset('images/noimage.png')}}">
+            </div>
+            <div class="fileinput-preview fileinput-exists" style="max-width: 200px; max-height: 150px;"></div>
+            <div>
+                <span class="btn btn-outline-default btn-file btn-outline-success mt-3">
+                    <span class="fileinput-new">Select image</span>
+                    <span class="fileinput-exists">Change</span>
+                    {!! Form::file('image') !!}
+                </span>
+                <a href="#" class="btn btn-default fileinput-exists btn-outline-danger mt-3" data-dismiss="fileinput">Remove</a>
+            </div>
+        </div>
+         </div>
+    </div>
 
 
 

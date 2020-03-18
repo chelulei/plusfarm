@@ -1,8 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'PlusFarm | farm index')
-@section('style')
-@endsection
 @section('content')
  <a href="{{ route('backend.farms.create') }}">
         <button  type="button" class="btn btn-success">

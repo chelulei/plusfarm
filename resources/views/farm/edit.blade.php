@@ -22,7 +22,7 @@
      {!! Form::model($farm, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.farms.update', $farm->id],
+                  'route'  => ['backend.farms.update', $farm->slug],
                   'files'  => TRUE
               ]) !!}
 

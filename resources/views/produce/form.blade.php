@@ -6,7 +6,7 @@
 {{--
 {!! Form::select('farm_id',  App\Farm::pluck('farm_name', 'id'), null, ["class"=>"form-control".($errors->has('farm_id')?" is-invalid":""), 'placeholder' => 'Choose Farm','required' =>'']) !!} --}}
  <select name="farm_id" class="form-control"  required>
-        <option value="">--- Select Farm ---</option>
+        <option value="" selected disabled>--- Select Farm ---</option>
               @foreach ($frms as $key => $value)
               <option value="{{ $key }}" {{ $key == $produce->farm_id ? 'selected' : '' }}>{{ $value}}</option>
               @endforeach
@@ -29,7 +29,7 @@
     <div class="form-group col-md-6">
      <label for="plant_id">Farm produce:</label>
       <select name="plant_id" class="form-control"  required>
-        <option value="">--- Select Produce ---</option>
+        <option value="" selected disabled>--- Select Produce ---</option>
               @foreach ($plants as $key => $value)
               <option value="{{ $key }}" {{ $key == $produce->plant_id ? 'selected' : '' }}>{{ $value}}</option>
               @endforeach
@@ -38,7 +38,7 @@
     <div class="form-group col-md-6">
         <label for="variety">Varieties:</label>
       <select   name="variety"  class="form-control" required>
-        <option value="">--Select Variety--</option>
+        <option value="" selected disabled>--Select Variety--</option>
       </select>
     </div>
     </div>
@@ -70,7 +70,7 @@
    <div class="form-group col-md-12">
       <label for="farm_mode">Farming Mode:</label>
    <select id="farm_mode" class="form-control"  name="farm_mode" required>
-       <option value="">--Select Type---</option>
+       <option value="" selected disabled>--Select Type---</option>
       <option value="Mono-Croping" {{ old('farm_mode',$produce->farm_mode ) == 'Mono-Croping' ? 'selected' : '' }}>Mono-Croping</option>
       <option value="Inter-Croping" {{ old('farm_mode',$produce->farm_mode ) == 'Inter-Croping' ? 'selected' : '' }}>Inter-Croping</option>
       </select>
@@ -92,7 +92,7 @@
         <div class="form-group col-md-6">
         <label for="variety">Varieties:</label>
               <select   name="variety2"  id="otherField2" class="form-control" required>
-                <option value="">--State Variety--</option>
+                <option value="" selected disabled>--State Variety--</option>
               </select>
         </div><!-- /.form-group col-md-6 -->
 

@@ -89,9 +89,10 @@ class ProduceController extends Controller
         $plantings = Produce::with('plantings')->find($id)->plantings;
         $harvestings = Produce::with('harvestings')->find($id)->harvestings;
         $activities = Produce::with('activities')->find($id)->activities;
+        $cultivations = Produce::with('cultivations')->find($id)->cultivations;
         $produce = Produce::where('id','=',$id)->first();
 
-        return view('produce.show',compact('produce','harvestings','plantings','storages','preparations','activities'));
+        return view('produce.show',compact('produce','harvestings','plantings','storages','preparations','activities','cultivations'));
     }
 
     /**
@@ -104,7 +105,7 @@ class ProduceController extends Controller
     {
         //
     $plants = DB::table('plants')->pluck("name","id");
-     $frms = Produce::where('user_id',Auth::user()->id)->pluck('farm_name','id');
+     $frms = Produce::where('user_id',Auth::user()->id)->pluck('farm_id','id');
     return view('produce.edit',compact('plants','produce','frms'));
 
     }

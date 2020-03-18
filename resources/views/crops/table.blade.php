@@ -14,8 +14,10 @@
                 {{ $crop->name}}
             </td>
             <td>
-           <img src="{{ ($crop->image_url) ? $crop->image_url : ''}}" alt=""
+                @if ($crop->image_url)
+           <img src="{{ ($crop->image_url) ? $crop->image_url : ''}}" alt="{{ $crop->name}}"
                     width="200" height="200" >
+                     @endif
             </td>
             <td>
             <ul>
@@ -40,4 +42,4 @@
     </tbody>
 </table>
   @include('crops.modal')
-      @include('crops.script')
+@include('crops.script')

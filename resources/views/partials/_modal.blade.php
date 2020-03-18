@@ -60,6 +60,7 @@
                 </button>
             </div>
             <form method="POST" action="{{route('backend.blogs.store')}}">
+
                 @csrf
                 <div class="modal-body">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
@@ -88,5 +89,4 @@
         </div>
     </div>
 </div>
-
 

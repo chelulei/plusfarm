@@ -29,7 +29,7 @@
                                <td>{{$farm->size}}</td>
                               <td colspan="2">
          <a data-toggle="tooltip" data-placement="top" title="Edit"
-           href="{{ route('backend.farms.edit',$farm->id)}}" class="btn btn-md  btn-outline-primary">
+           href="{{ route('backend.farms.edit',$farm->slug)}}" class="btn btn-md  btn-outline-primary">
            EDIT
                     <i class="fa fa-edit"></i>
                 </a>

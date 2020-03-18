@@ -119,6 +119,34 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="cultivateModal" tabindex="" role="dialog" aria-labelledby="cultivateModalLabel" data-backdrop="static">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="cultivateModalLabel">Harvesting</h4>
+      </div>
+       {!! Form::open([
+                        'method' => 'POST',
+                        'route'  => 'backend.cultivations.store'
+                    ]) !!}
+
+           @csrf
+            {{ Form::hidden('produce_id',$produce->id) }}
+            <div class="modal-body">
+                @include('cultivation.form')
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit" name="update" class="btn btn-info">
+                        <i class="fa fa-save"></i> SAVE</button>
+
+            </div>
+             {!! Form::close() !!}
+
+    </div>
+  </div>
+</div>
 
 <!-- Edit  preparations-->
 <div class="modal fade" id="edit-pre" tabindex="" role="dialog" aria-labelledby="edit-preLabel" data-backdrop="static">
@@ -213,6 +241,30 @@
   </div>
 </div>
 
+
+<!-- Edit  cultivation-->
+<div class="modal fade" id="edit-cultivate" tabindex="" role="dialog" aria-labelledby="edit-cultivateLabel" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"  id="edit-cultivateLabel">Update Activities</h4>
+      </div>
+      <form action="{{route('backend.cultivations.update','test')}}" method="POST">
+              @method('put')
+      	    @csrf
+	      <div class="modal-body">
+	      		<input type="hidden" name="cultivate_id" id="cultivate_id">
+				@include('cultivation.edit_form')
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-primary">Save</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Delete Preparations-->
 <!-- Modal -->
         <div class="modal fade" id="delete" tabindex="" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -244,7 +296,7 @@
 
   <!-- Delete plnt-->
 <!-- Modal -->
-        <div class="modal fade" id="delete2" tabindex="" role="dialog" aria-labelledby="delete2ModalLabel" aria-hidden="true">
+  <div class="modal fade" id="delete2" tabindex="" role="dialog" aria-labelledby="delete2ModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header  bg-danger ">
@@ -259,7 +311,7 @@
          <form action="{{route('backend.plantings.destroy', 'delete')}}" method="post">
             @csrf
             @method('DELETE')
-             <input type="hidden" name="this_id2" id="val_id2" value="">
+             <input type="hidden" name="this_id2" id="val_id2">
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">
@@ -319,6 +371,35 @@
             @csrf
             @method('DELETE')
              <input type="hidden" name="this_id4" id="val_id4" value="">
+          <h5 class="text-center">Are you sure you want to delete ... ?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- Delete  cultivation--->
+<!-- Modal -->
+    <div class="modal fade" id="delete5" tabindex="" role="dialog" aria-labelledby="delete5ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header  bg-danger ">
+          <h5 class="modal-title text-white" id="delete5ModalLabel">
+            We just want to confirm...
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form action="{{route('backend.cultivations.destroy', 'delete')}}" method="post">
+            @csrf
+            @method('DELETE')
+             <input type="hidden" name="cul_id5" id="val_id5" value="">
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">

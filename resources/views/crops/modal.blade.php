@@ -7,7 +7,8 @@
       </div>
        {!! Form::open([
                         'method' => 'POST',
-                        'route'  => 'backend.plants.store'
+                        'route'  => 'backend.plants.store',
+                        'files'  => TRUE
                     ]) !!}
 
            @csrf

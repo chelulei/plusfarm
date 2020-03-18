@@ -1,11 +1,22 @@
 @extends('layouts.main')
 @section('title', 'PlusFarm | Roports index')
+@section('style')
+    <style>
+        @media print {
+        * {
+            display: none;
+        }
+        #printableTable {
+            display: block;
+        }
+        }
+    </style>
+@endsection
 @section('content')
    @include('partials.messages')
     @include('reports.search')
 <div class="card">
-  <div class="card-body">
-
+  <div class="card-body" id="printableTable">
      <small class="">Plusfarm Kenya Ltd</small><br>
      <small class="card-title font-weight-bolder">PRODUCE FINANCIAL REPORT</small><br>
     <small class="">
@@ -128,6 +139,11 @@
 </table>
  </div>
   </div>
+  <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+  <div class="text-center mb-4">
+     <button class="btn btn-success btn-lg" onclick="printDiv()">Print</button>
+</div><!-- /.text-center -->
 </div>
+
      @endsection
 @include('reports.script')

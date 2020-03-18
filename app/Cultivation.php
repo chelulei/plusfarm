@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Planting extends Model
+class Cultivation extends Model
 {
     //
-    protected $fillable=[
+
+     protected $fillable=[
             'user_id',
             'produce_id',
             'task',
-             'fert_types',
             'cost',
             'details',
             'remarks',
@@ -28,7 +28,7 @@ public function farm()
         return $this->belongsTo(Farm::class);
     }
 
-    public function produce()
+     public function produce()
     {
         return $this->belongsTo(Produce::class);
     }

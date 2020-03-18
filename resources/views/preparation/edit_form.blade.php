@@ -2,7 +2,7 @@
 <label class="control-label col-md-4" >Task:</label>
 <div class="col-md-12">
    <select class="form-control" id="task" name="task" required>
-         <option value="">--Choose Task--</option>
+         <option value="" selected disabled>--Choose Task--</option>
          <option value="Bush Clearing">Bush Clearing</option>
          <option value="Tilling">Tilling</option>
         <option value="Harrowing"> Harrowing </option>

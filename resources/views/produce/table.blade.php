@@ -27,11 +27,7 @@
   EDIT
                     <i class="fa fa-edit"></i>
                 </a>
-                   <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$produce->id}})"
-              data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
-              DELETE
-              <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-              </a>
+
           <a data-toggle="tooltip" data-placement="top" title="Manage"
                     href="{{route('backend.produces.show' ,$produce->id)}}" class="btn btn-success btn-sm">
                     Manage

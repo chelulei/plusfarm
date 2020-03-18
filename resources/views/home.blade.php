@@ -10,7 +10,9 @@
     @foreach($produces as $produce)
         <div class="col-md-4">
        <div class="card">
+           @if ($produce->plant->image_url)
                 <img src="{{$produce->plant->image_url}}" class="card-img-top" alt="...">
+                  @endif
                 <div class="card-body">
                     <h5 class="card-title">SHORT TERM CEREALS</h5>
                      <div class="d-flex justify-content-between">

@@ -6,8 +6,7 @@
    @include('partials.messages')
     @include('reports.search')
 <div class="card">
-  <div class="card-body">
-
+<div class="card-body" id="printableTable">
      <small class="">Plusfarm Kenya Ltd</small><br>
      <small class="card-title font-weight-bolder">CROP PERFORMANCE REPORT</small><br>
    <small class="">
@@ -15,7 +14,9 @@
      <strong> {{$produce->size}} </strong>
      {{str_plural('Acre',$produce->size)}}
     </small>
-     <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
+    <div class="float-left">
+<img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
+    </div>
      <div class="pl-4 bg-secondary mt-4">
        <h4 class="text-primary">{{ Auth::user()->name }}</h4>
       <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
@@ -84,6 +85,10 @@
       </table>
       </div>
   </div>
+  <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+  <div class="text-center mb-4">
+     <button class="btn btn-success btn-lg" onclick="printDiv()">Print</button>
+</div><!-- /.text-center -->
 </div>
-     @endsection
+ @endsection
 @include('reports.script')

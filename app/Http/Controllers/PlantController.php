@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 use App\Variety;
+use App\Http\Requests;
 class PlantController extends Controller
 {
 
@@ -45,7 +46,7 @@ class PlantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\PlantStoreRequest $request)
     {
         //
          $data= $this->handleRequest($request);
@@ -120,7 +121,7 @@ class PlantController extends Controller
         //
         $plant = Plant::findOrFail($id);
         $oldImage = $plant->image;
-        $defaultImage ='default.png';
+        $defaultImage ='noimage.png';
         $data=$this->handleRequest($request);
         $plant->update($data);
         $plant->varieties()->delete();
@@ -154,7 +155,7 @@ class PlantController extends Controller
 
         //
       $plant=Plant::FindOrFail($id);
-       $defaultImage ='default.png';
+       $defaultImage ='noimage.png';
         $ok =$plant->delete();
 
            if ($plant->image !== $defaultImage) {

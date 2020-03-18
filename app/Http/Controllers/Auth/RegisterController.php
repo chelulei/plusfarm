@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'username' =>['required','unique:users'],
             'slug'     => ['required','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed','regex:/^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/']
+            'password' => ['required', 'string', 'min:6']
         ]);
     }
 
@@ -76,7 +76,7 @@ class RegisterController extends Controller
 
      //Set User Role
        $role = ['name' => 'farmer'];
-       $role = Role::updateOrCreate($role);
+       $role = Role::firstOrCreate($role);
        $user->assignRole($role);
        return $user;
     }

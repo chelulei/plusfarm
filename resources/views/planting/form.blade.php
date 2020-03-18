@@ -1,11 +1,11 @@
 <div class="form-group row">
         {!! Form::label('task','Task:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
-        <select class="form-control" id="task" name="task">
-         <option value="">--Choose Task--</option>
+        <select class="form-control" id="selection" name="task">
+        <option value="" selected disabled>--Choose Task--</option>
         <option value="Planting">Planting</option>
         <option value="Seeds">Seeds</option>
-        <option value="Seeds">Fertilizer</option>
+        <option value="Fertilizer">Fertilizer</option>
         <option value="Labour">Labour</option>
         <option value="Heavy Equipment">Heavy Equipment</option>
         <option value="Other Activities">Other Activities</option>
@@ -21,6 +21,16 @@
         </select>
         </div>
      </div>
+<div class="form-row" id="otherFieldGroupDiv">
+  {!! Form::label("fert_types","FertilizerType:", ["class"=>"col-form-label col-md-2"]) !!}
+      <div class="form-group col-md-10">
+          {!! Form::text('fert_types', null, ['class' => 'form-control'.($errors->has('fert_types')?" is-invalid":""),'required'=>'','id'=>'otherField1']) !!}
+             @if($errors->has('fert_types'))
+            <span class="invalid-feedback">{{ $errors->first('fert_types') }}</span>
+            @endif
+        </div><!-- /.form-group col-md-6 -->
+ </div>
+
    <div class="form-group row">
         {!! Form::label('cost','Cost:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
@@ -48,15 +58,3 @@
                  @endif
         </div>
      </div>
-
-
-
-
-
-
-
-
-
-
-
-

@@ -48,7 +48,7 @@
      <div class="form-group col-md-6">
        <label for="">Soil Type:</label>
         <select id="soiltype" class="form-control" name="soiltype" required>
-        <option value="">Choose Soil Type</option>
+        <option value="" selected disabled>--Choose Soil Type--</option>
        <option value="Loam" {{ old('soiltype',$farm->soiltype ) == 'Loam' ? 'selected' : '' }}>Loam</option>
       <option value="Clay" {{ old('soiltype',$farm->soiltype ) == 'Clay' ? 'selected' : '' }}>Clay</option>
       <option value="Sand"  {{ old('soiltype',$farm->soiltype ) == 'sand' ? 'selected' : '' }}>Sand</option>
@@ -85,7 +85,7 @@
     <div class="form-group col-md-6">
    <label for="">Mechanization:</label>
  <select id="mechanization" class="form-control" name="mechanization" required>
-        <option>Choose Mechanization</option>
+        <option value="" selected disabled>--Choose Mechanization--</option>
         <option value="Yes" {{ old('mechanization',$farm->mechanization ) == 'Yes' ? 'selected' : '' }}>Yes</option>
       <option value="No" {{ old('mechanization',$farm->mechanization ) == 'No' ? 'selected' : '' }}>No</option>
         </select>
@@ -103,7 +103,7 @@
      <div class="form-group col-md-6">
        <label for="">Farm County:</label>
        <select id="county" class="form-control" name="county" required>
-       <option>Choose county</option>
+       <option value="" selected disabled>--Choose county--</option>
         @foreach ($counties as $key => $value)
                     <option value="{{ $key }}" {{ $key == $farm->county_id ? 'selected' : '' }}>{{ $value}}</option>
                     @endforeach
@@ -117,7 +117,7 @@
     <div class="form-group col-md-6">
    <label for="">Sub county:</label>
  <select id="sub_county" class="form-control" name="sub_county" required>
-        <option>Choose Sub county</option>
+        <option value="" selected disabled>--Choose Sub county--</option>
         </select>
     </div>
 

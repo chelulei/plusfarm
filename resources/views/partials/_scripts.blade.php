@@ -34,15 +34,9 @@
 <!-- plugins-->
 <script src="{{asset('backend/vendor/select2/select2.min.js')}}"></script>
 <script src="{{asset('backend/vendor/jasny-bootstrap/js/jasny-bootstrap.js')}}"></script>
-
-
 <script>
-
 $(document).ready(function() {
-
- $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
-
-
+$('div.alert').not('.alert-important').delay(5000).fadeOut(350);
 $('select').select2({
 
         theme: "classic",
@@ -50,38 +44,21 @@ $('select').select2({
         width: '100%'
 
     });
-
-    $('#DataTable').DataTable( {
-            dom: 'lBfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        } );
-
-
-
-    // ------- Datepicker  js --------//
-
-      $( function() {
-        $( "#datepicker1" ).datepicker();
-        $( "#datepicker2" ).datepicker();
-      } );
-
-
-        // /*counter dashboard*/
-        // function getCount() {
-        //     $.ajax({
-        //         url: "/count",
-        //         success: function (data) {
-        //              $('#farmers').text(data.farmersCount);
-        //              $('#users').text(data.userCount);
-
-        //             setTimeout(getCount, 1000);
-        //         }
-        //     });
-        // }
-
-        // getCount();
+$('#selection').on('change', function() {
+    if ($(this).val() == "Fertilizer")
+     {
+       $('#otherFieldGroupDiv').show();
+        $('#otherField1').attr('required','');
+        $('#otherField1').attr('data-error', 'This field is required.');
+     }
+     else
+    {
+        $('#otherFieldGroupDiv').hide();
+        $('#otherField1').removeAttr('required');
+        $('#otherField1').removeAttr('data-error');
+    }
+    });
+     $("#selection").trigger("change");
 
 });
 </script>

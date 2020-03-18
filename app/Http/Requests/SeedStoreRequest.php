@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FarmUpdateRequest extends FormRequest
+class SeedStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,16 +25,8 @@ class FarmUpdateRequest extends FormRequest
     {
 
         return [
-            'farm_name'=>'required',
-            'size'=>'required',
-            'ownership'=>'required',
-			'soiltype'=>'required',
-            'soilph'=>'required',
-            'humidity'=>'required',
-            'mechanization'=>'required',
-            'county'=>'required',
-            'sub_county'=>'required',
-
+           'name'=>'required',
+            'image'=> 'mimes:jpeg,png,jpg'
 
         ];
 

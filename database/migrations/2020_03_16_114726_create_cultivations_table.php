@@ -1,10 +1,10 @@
-restrict<?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlantingsTable extends Migration
+class CreateCultivationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreatePlantingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('plantings', function (Blueprint $table) {
-           $table->bigIncrements('id');
-           $table->unsignedBigInteger('user_id')->unsigned()->nullable();
+        Schema::create('cultivations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->unsignedBigInteger('produce_id')->unsigned()->nullable();
             $table->string('task');
-             $table->longText('fert_types')->nullable();
             $table->string('cost');
             $table->longText('details')->nullable();
             $table->longText('remarks')->nullable();
@@ -35,6 +34,6 @@ class CreatePlantingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plantings');
+        Schema::dropIfExists('cultivations');
     }
 }
