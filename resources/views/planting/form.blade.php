@@ -11,7 +11,8 @@
         <option value="Other Activities">Other Activities</option>
         <option value="Farm tools">Farm tools</option>
         <option value="Transportation">Transportation</option>
-        <option value="Herbicide Pesticide">Herbicide Pesticide</option>
+        <option value="Herbicide">Herbicide</option>
+        <option value="Pesticide">Pesticide</option>
         <option value="Top Dressing">Top Dressing</option>
         <option value="Weeding<">Weeding</option>
         <option value="Irrigation">Irrigation</option>
@@ -22,12 +23,21 @@
         </div>
      </div>
 <div class="form-row" id="otherFieldGroupDiv">
-  {!! Form::label("fert_types","FertilizerType:", ["class"=>"col-form-label col-md-2"]) !!}
+  {!! Form::label("fert_types","Type:", ["class"=>"col-form-label col-md-2"]) !!}
       <div class="form-group col-md-10">
-          {!! Form::text('fert_types', null, ['class' => 'form-control'.($errors->has('fert_types')?" is-invalid":""),'required'=>'','id'=>'otherField1']) !!}
-             @if($errors->has('fert_types'))
-            <span class="invalid-feedback">{{ $errors->first('fert_types') }}</span>
-            @endif
+         <select class="form-control" id="selection" name="fert_types">
+            <option value="" selected disabled>--Choose Fertilizer Type--</option>
+            <option value="DAP"> Di-Ammonium phosphate (DAP) -Cereals, horticulture</option>
+            <option value="Urea"> Urea -Cereals,sugarcane</option>
+            <option value="CAN"> CAN - Cereals,horticulture, coffee</option>
+            <option value="NPK 26:5:5"> NPK 26:5:5-Tea</option>
+            <option value="NPK 25:5:5:5S"> NPK 25:5:5:5S-Tea</option>
+            <option value="NPK 23:23:0 "> NPK 23:23:0 Cereals</option>
+            <option value="Calcium Nitrate"> Calcium Nitrate-Flowers and vegetables</option>
+            <option value="Ammonium Sulphate"> Ammonium Sulphate-Rice</option>
+            <option value="NPK 17:17:17"> NPK 17:17:17-Coffee and fruits</option>
+            <option value="MOP"> Muriate of Potash (MOP)-Fruits and sugarcane</option>
+        </select>
         </div><!-- /.form-group col-md-6 -->
  </div>
 

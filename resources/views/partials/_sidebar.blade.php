@@ -4,7 +4,6 @@
       <a href="#" class="nav-link">
         <div class="profile-image">
           <img class="img-xs rounded-circle" src="{{ Auth::user()->image_url}}" alt="{{ Auth::user()->name }}">
-
           <div class="dot-indicator bg-success"></div>
         </div>
         <div class="text-wrapper">
@@ -91,7 +90,7 @@
        <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.reports.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
-        <span class="menu-title">Reports/Analyticst</span>
+        <span class="menu-title">Reports</span>
       </a>
     </li>
      @endrole

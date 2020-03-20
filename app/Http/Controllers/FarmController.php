@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Farm;
+use App\Produce;
 use App\County;
 use Illuminate\Http\Request;
 use Auth;
@@ -30,13 +31,10 @@ class FarmController extends Controller
      */
     public function create(Farm $farm)
     {
-        //
-
          $counties = DB::table('counties')->pluck("name","id");
         return view("farm.create", compact('farm','counties'));
 
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -45,8 +43,6 @@ class FarmController extends Controller
      */
     public function store(Requests\FarmStoreRequest $request)
     {
-
-
              $input = $request->all();
              $ok = $request->user()->farms()->create($input);
 
@@ -57,8 +53,6 @@ class FarmController extends Controller
                         return back()->with('error', "Something wen't wrong! Please try again");
 
                 }
-
-
     }
 
     /**
@@ -70,10 +64,7 @@ class FarmController extends Controller
     public function show($id)
     {
         //
-
-
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -82,14 +73,10 @@ class FarmController extends Controller
      */
     public function edit(Farm $farm)
     {
-        //
-
-            $counties = DB::table('counties')->pluck("name","id");
+        $counties = DB::table('counties')->pluck("name","id");
         return view("farm.edit", compact('farm','counties'));
 
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -97,19 +84,23 @@ class FarmController extends Controller
      * @param  \App\Farm  $farm
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\FarmUpdateRequest $request, Farm $farm)
+    public function update(Requests\FarmUpdateRequest $request,$id)
     {
-        //
-
-         $ok = $farm->update($request->all());
-
-       if($ok){
-                        return back()->with('success', "Farm was updated successfully!");
-                }else {
-                        return back()->with('error', "Something wen't wrong! Please try again");
-
-                }
-
+        $data = $request->all();
+        $farm = Farm::find($id);
+         if(Produce::count()){
+           $size= DB::table('produces')->where('farm_id', $id)->first()->size;
+           $size2 = $request->size;
+           $size3 = $size2-$size ;
+           $data['size'] =  $size3 ;
+           $farm->update($data);
+         return redirect()->route('backend.farms.index')
+                         ->with('success', "Farm was updated successfully!");
+         }else{
+               $farm->update($data);
+           return redirect()->route('backend.farms.index')
+                         ->with('success', "Farm was updated successfully!");
+         }
     }
 
     /**
@@ -118,11 +109,10 @@ class FarmController extends Controller
      * @param  \App\Farm  $farm
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
 
-
-      $farm=Farm::FindOrFail($id);
+      $farm=Farm::FindOrFail($request->val_id6);
 
         $ok = $farm->delete();
 
@@ -132,9 +122,7 @@ class FarmController extends Controller
                         return back()->with('error', "Something wen't wrong! Please try again");
 
                 }
-
    }
-
 
  function myformAjax($id)
     {

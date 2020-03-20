@@ -38,7 +38,7 @@
       <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
        <small class="font-weight-bolder">Variety: <b class="text-danger">{{$produce->variety}} </b></small><br><br>
      </div>
-
+{{--
  <h5 class="card-title"><i class="fa fa-money mr-1"> </i>INCOME</h5>
  <div class="table-responsive">
   <table class="table">
@@ -57,9 +57,9 @@
             </tr>
     </tbody>
 </table>
- </div>
-<h5 class="card-title">(less)</h5>
- <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5>
+ </div> --}}
+{{-- <h5 class="card-title">(less)</h5>
+ <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5> --}}
   <div class="table-responsive">
   <table class="table">
         <tbody>

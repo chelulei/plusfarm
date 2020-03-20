@@ -105,7 +105,9 @@
        <select id="county" class="form-control" name="county" required>
        <option value="" selected disabled>--Choose county--</option>
         @foreach ($counties as $key => $value)
-                    <option value="{{ $key }}" {{ $key == $farm->county_id ? 'selected' : '' }}>{{ $value}}</option>
+                    <option value="{{ $key }}" {{ $key == $farm->county ? 'selected' : '' }}>
+                      {{ $value}}
+                    </option>
                     @endforeach
         </select>
     @if($errors->has('county'))
@@ -136,6 +138,6 @@
     <div class="form-group col-md-6">
   </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $farm->exists ? 'Update' : 'Save' }}</button>
+        <button type="submit" class="btn btn-outline-success btn-lg">{{ $farm->exists ? 'Update' : 'Save' }}</button>
         <a href="{{ route('backend.farms.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
     </div>

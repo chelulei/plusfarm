@@ -8,14 +8,12 @@
                           <th>Ownership</th>
                           <th> Land size(Acre) </th>
                           <th>Actions</th>
-                            <th>
-                                 <a data-toggle="tooltip" data-placement="top" title="Manage"
-                    href="{{ route('backend.produces.create') }}" class="btn btn-success btn-sm">
+                          <th>
+                            <a  href="{{ route('backend.produces.create') }}" class="btn btn-success btn-sm">
                     <i class="fa fa fa-plus-circle"></i>
                        Add Produce
-                    <!-- /.fa fa-edit -->
-                </a>
-                            </th>
+                      </a>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -29,15 +27,16 @@
                                <td>{{$farm->size}}</td>
                               <td colspan="2">
          <a data-toggle="tooltip" data-placement="top" title="Edit"
-           href="{{ route('backend.farms.edit',$farm->slug)}}" class="btn btn-md  btn-outline-primary">
+           href="{{ route('backend.farms.edit',$farm->id)}}" class="btn btn-md  btn-outline-success">
            EDIT
                     <i class="fa fa-edit"></i>
                 </a>
-                   <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$farm->id}})"
-              data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
-              DELETE
-              <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-              </a>
+        <button tooltip="Delete&nbsp;Farm" data-valid6="{{$farm->id}}"
+     data-toggle="modal" data-target="#deletef" class="btn btn btn-outline-danger">
+           DELETE
+<i class="fa fa-trash"></i>
+ </button>
+
                               </td>
                              @endforeach
                          </tr>

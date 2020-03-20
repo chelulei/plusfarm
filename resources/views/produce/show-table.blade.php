@@ -30,14 +30,14 @@
   <li class="nav-item">
     <a class="nav-link  border border-success border-bottom-0" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Planting</a>
   </li>
+   <li class="nav-item">
+    <a class="nav-link   borderborder-success border-bottom-0" id="store-tab" data-toggle="tab" href="#cultivate" role="tab" aria-controls="store" aria-selected="false">Cultivation</a>
+  </li>
   <li class="nav-item">
     <a class="nav-link  border border-success border-bottom-0" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Harvesting</a>
   </li>
   <li class="nav-item">
     <a class="nav-link  border border-success border-bottom-0" id="store-tab" data-toggle="tab" href="#store" role="tab" aria-controls="store" aria-selected="false">Storage</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link   borderborder-success border-bottom-0" id="store-tab" data-toggle="tab" href="#cultivate" role="tab" aria-controls="store" aria-selected="false">Cultivation</a>
   </li>
    <li class="nav-item">
     <a class="nav-link  border border-success border-bottom-0" id="store-tab" data-toggle="tab" href="#complete" role="tab" aria-controls="store" aria-selected="false">Task Completion</a>

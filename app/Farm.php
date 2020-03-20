@@ -19,9 +19,8 @@ class Farm extends Model
             'mechanization',
             'county',
             'sub_county',
-            'ward',
-            'street',
-            'gps',
+            'village',
+
 ];
 
   /**
@@ -30,9 +29,11 @@ class Farm extends Model
     protected static function boot()
     {
         parent::boot();
+
         static::created(function ($farm) {
             $farm->update(['slug' => $farm->farm_name]);
         });
+
     }
 
      /**
@@ -50,10 +51,10 @@ class Farm extends Model
         $this->attributes['slug'] = $slug;
     }
 
-     public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+    //  public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 
      public function user()
     {

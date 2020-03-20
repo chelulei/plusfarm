@@ -10,12 +10,6 @@
                         <button class="btn btn-success">
                         <i class="fa fa-arrow-left"></i>BACK</button>
                         </a>
-                        {{-- {{route('backend.produces.index')}}
-                        <a href="">
-                            <button class="btn btn-success">
-                                <i class="fa fa-arrow-left"></i>
-                                BACK{{  Form::hidden('url',URL::previous())  }}
-                            </button></a> --}}
                     </li>
                 </ol>
             </nav>

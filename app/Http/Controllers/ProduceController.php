@@ -31,17 +31,15 @@ class ProduceController extends Controller
     public function create(Produce $produce)
     {
         //
-        $plants = DB::table('plants')->pluck("name","id");
+         $plants = DB::table('plants')->pluck("name","id");
          $farms = Farm::where("user_id",Auth::user()->id)->get();
          $frms = Farm::where('user_id',Auth::user()->id)->pluck('farm_name','id');
         if($farms->count())
         return view('produce.create',compact('plants','produce','frms'));
-     else{
+        else{
             return redirect()->route('backend.produces.index')
                 ->with('error', 'Please create farm');
          }
-
-
 
     }
 
@@ -71,7 +69,7 @@ class ProduceController extends Controller
             $inter->variety2 = $request->input('variety2');
             $inter->save();
         }
- return redirect()->route('backend.produces.index')
+      return redirect()->route('backend.produces.index')
                        ->with('success','Produce has been added successfully');
         }
 
@@ -85,11 +83,11 @@ class ProduceController extends Controller
     {
         //
         $preparations = Produce::with('preparations')->find($id)->preparations;
-        $storages = Produce::with('storages')->find($id)->storages;
-        $plantings = Produce::with('plantings')->find($id)->plantings;
+        $storages = Produce::with('storages') ->find($id)->storages;
+        $plantings = Produce::with('plantings') ->find($id)->plantings;
         $harvestings = Produce::with('harvestings')->find($id)->harvestings;
         $activities = Produce::with('activities')->find($id)->activities;
-        $cultivations = Produce::with('cultivations')->find($id)->cultivations;
+        $cultivations = Produce::with('cultivations') ->find($id)->cultivations;
         $produce = Produce::where('id','=',$id)->first();
 
         return view('produce.show',compact('produce','harvestings','plantings','storages','preparations','activities','cultivations'));
@@ -104,8 +102,8 @@ class ProduceController extends Controller
     public function edit(Produce $produce)
     {
         //
-    $plants = DB::table('plants')->pluck("name","id");
-     $frms = Produce::where('user_id',Auth::user()->id)->pluck('farm_id','id');
+     $plants = DB::table('plants')->pluck("name","id");
+     $frms = Farm::where('user_id',Auth::user()->id)->pluck('farm_name','id');
     return view('produce.edit',compact('plants','produce','frms'));
 
     }
@@ -117,21 +115,19 @@ class ProduceController extends Controller
      * @param  \App\Produce  $produce
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Produce $produce)
+    public function update(Request $request, $id)
     {
         //
-
-       try {
-
-     $produce->update($request->all());
-
-         } catch (\Exception $e) {
-
-              Session::flash('error',"Something wen't wrong! Please try again");
-        }
-
-
-        return redirect("/produces")->with('success','Produce was updated successfully!');
+      $size = Produce::where('id', $id)->first()->size;
+      Farm::find($request->farm_id)->increment('size', $size );
+      $produce = Produce::findOrFail($id);
+     if($produce->update($request->all())){
+           $size = Produce::where('id', $id)->first()->size;
+           Farm::find($request->farm_id)->decrement('size', $size );
+           return redirect("/produces")->with('success','Produce was updated successfully!');
+     }else{
+    Session::flash('error',"Something wen't wrong! Please try again");
+     }
 
     }
 
@@ -143,18 +139,15 @@ class ProduceController extends Controller
      */
     public function destroy(Produce $produce)
     {
-        //
-        try{
+       //
+       $ok = $produce->delete();
+        if($ok){
+            return back()->with('success', 'Produce deleted successfully!');
 
-       $produce->delete();
+        }else {
+            Session::flash('error', 'Some thing is wrong. Please try again');
 
-         } catch (\Exception $e) {
-
-             Session::flash('error', 'Some thing is wrong. Please try again');
-
-        }
-       return back()->with('success', 'Produce deleted successfully!');
-
+            }
 
     }
 

@@ -1,5 +1,11 @@
+
+<?php $var = isset($produce->plant_id ) ? $produce->plant_id  : "";?>
+
 @section('script')
     <script type="text/javascript">
+
+     var produce = <?php echo json_encode($var) ?>;
+
      function deleteData(id)
      {
          var id = id;
@@ -38,28 +44,38 @@ $("#farm_mode").bind('change', function() {
     });
  $("#farm_mode").trigger("change");
 
-$('select[name="plant_id"]').bind('change', function() {
-    var produceID = $(this).val();
-    if(produceID) {
-        $.ajax({
-            url: '/produces/create/'+produceID,
-            type: "GET",
-            dataType: "json",
-            success:function(data) {
 
 
-                $('select[name="variety"]').empty();
-                $.each(data, function(key, value) {
-                    $('select[name="variety"]').append('<option value="'+ value +'">'+ value +'</option>');
-                });
+     function call_ajax(produceID){
+        if(produceID) {
+            $.ajax({
+                url: '/produces/create/'+produceID,
+                type: "GET",
+                dataType: "json",
+                success:function(data) {
+
+                    $('select[name="variety"]').empty();
+                    $.each(data, function(key, value) {
+                        $('select[name="variety"]').append('<option value="'+ value +'">'+ value +'</option>');
+                    });
 
 
-            }
-        });
-    }else{
-        $('select[name="variety"]').empty();
+                }
+            });
+        }else{
+            $('select[name="variety"]').empty();
+        }
+
     }
-    });
+
+     $('select[name="plant_id"]').bind('change', function() {
+        var produceID = $(this).val();
+        call_ajax(produceID);
+    })
+
+  call_ajax(produce);
+
+
 $('select[name="plant_id2"]').bind('change', function() {
     var produceID = $(this).val();
     if(produceID) {

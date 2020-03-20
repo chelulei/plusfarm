@@ -1,13 +1,21 @@
+
+<?php $var = isset($farm->county ) ? $farm->county  : "";?>
+
 @section('script')
-    <script type="text/javascript">
+
+<script type="text/javascript">
+
+ var county = <?php echo json_encode($var) ?>;
+
 $(document).ready(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('input[name="_token"]').val()
         }
 });
-     $('select[name="county"]').bind('change', function() {
-            var countyID = $(this).val();
+
+
+    function call_ajax(countyID){
             if(countyID) {
                 $.ajax({
                     url: '/farms/create/'+countyID,
@@ -15,19 +23,25 @@ $(document).ready(function () {
                     dataType: "json",
                     success:function(data) {
 
-
                         $('select[name="sub_county"]').empty();
                         $.each(data, function(key, value) {
                             $('select[name="sub_county"]').append('<option value="'+ value +'">'+ value +'</option>');
                         });
-
 
                     }
                 });
             }else{
                 $('select[name="sub_county"]').empty();
             }
-        });
+    }
+
+     $('select[name="county"]').bind('change', function() {
+        var countyID = $(this).val();
+        call_ajax(countyID);
+    })
+
+  call_ajax(county);
+
 //delete modal script
      function deleteData(id)
      {
@@ -42,7 +56,6 @@ $(document).ready(function () {
          $("#deleteForm").submit();
      }
 
-
     $('#edit-pre').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
       var task = button.data('mytask')
@@ -56,9 +69,7 @@ $(document).ready(function () {
       modal.find('.modal-body #details').val(details);
       modal.find('.modal-body #remarks').val(remarks);
       modal.find('.modal-body #prep_id').val(prep_id);
-
 });
-
 
  $('#edit-plant').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
@@ -73,7 +84,6 @@ $(document).ready(function () {
       modal.find('.modal-body #details1').val(details1);
       modal.find('.modal-body #remarks1').val(remarks1);
       modal.find('.modal-body #plant_id').val(plant_id);
-
 });
 
  $('#edit-harvest').on('show.bs.modal', function (event) {
@@ -93,7 +103,6 @@ $(document).ready(function () {
 });
 
 $('#edit-storage').on('show.bs.modal', function (event) {
-
       var button = $(event.relatedTarget)
       var task3 = button.data('staskfar')
       var cost3 = button.data('scost')
@@ -106,12 +115,9 @@ $('#edit-storage').on('show.bs.modal', function (event) {
       modal.find('.modal-body #details3').val(details3);
       modal.find('.modal-body #remarks3').val(remarks3);
       modal.find('.modal-body #storage_id').val(storage_id);
-
       });
 
-
 $('#edit-cultivate').on('show.bs.modal', function (event) {
-
       var button = $(event.relatedTarget)
       var task4 = button.data('ctask')
       var cost4 = button.data('ccost')
@@ -124,7 +130,6 @@ $('#edit-cultivate').on('show.bs.modal', function (event) {
       modal.find('.modal-body #details4').val(details4);
       modal.find('.modal-body #remarks4').val(remarks4);
       modal.find('.modal-body #cultivate_id').val(cultivate_id);
-
       });
 
 $('#delete').on('show.bs.modal', function (event) {
@@ -155,11 +160,11 @@ $('#delete').on('show.bs.modal', function (event) {
         modal.find('.modal-body #val_id4').val(val_id4);
     })
 
- $('#delete5').on('show.bs.modal', function (event) {
+ $('#deletef').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
-        var val_id5 = button.data('valid5');
+        var val_id6 = button.data('valid6');
         var modal = $(this);
-        modal.find('.modal-body #val_id5').val(val_id5);
+        modal.find('.modal-body #val_id6').val(val_id6);
     })
 
 $('#completeModal').on('show.bs.modal', function (event) {
@@ -173,6 +178,7 @@ $('#completeModal').on('show.bs.modal', function (event) {
         modal.find('.modal-body #fm_id').val(fm_id);
     });
 });
+
    </script>
 
     @endsection

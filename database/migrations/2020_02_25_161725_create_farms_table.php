@@ -27,8 +27,7 @@ class CreateFarmsTable extends Migration
             $table->string('county');
             $table->string('sub_county')->nullable();
             $table->string('village')->nullable();
-            $table->string('gps')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

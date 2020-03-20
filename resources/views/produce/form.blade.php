@@ -1,14 +1,13 @@
 @csrf
-
  <div class="form-row">
      <div class="form-group col-md-6">
         <label for="farm_id">Farm:</label>
-{{--
-{!! Form::select('farm_id',  App\Farm::pluck('farm_name', 'id'), null, ["class"=>"form-control".($errors->has('farm_id')?" is-invalid":""), 'placeholder' => 'Choose Farm','required' =>'']) !!} --}}
  <select name="farm_id" class="form-control"  required>
         <option value="" selected disabled>--- Select Farm ---</option>
               @foreach ($frms as $key => $value)
-              <option value="{{ $key }}" {{ $key == $produce->farm_id ? 'selected' : '' }}>{{ $value}}</option>
+              <option value="{{ $key }}" {{ $key == $produce->farm_id ? 'selected' : '' }}>
+                {{ $value}}
+              </option>
               @endforeach
       </select>
     @if($errors->has('farm_id'))
@@ -74,10 +73,7 @@
       <option value="Mono-Croping" {{ old('farm_mode',$produce->farm_mode ) == 'Mono-Croping' ? 'selected' : '' }}>Mono-Croping</option>
       <option value="Inter-Croping" {{ old('farm_mode',$produce->farm_mode ) == 'Inter-Croping' ? 'selected' : '' }}>Inter-Croping</option>
       </select>
-     </div><!-- /.form-group col-md-6 -->
-   {{-- <div class="form-group col-md-6">
-
-     </div><!-- /.form-group col-md-6 --> --}}
+     </div>
     </div>
  <div class="form-row" id="otherFieldGroupDiv">
       <div class="form-group col-md-6">
@@ -99,6 +95,6 @@
  </div>
 
  <div class="form-group">
-        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $produce->exists ? 'Update' : 'Save' }}</button>
+        <button type="submit" class="btn btn-outline-success btn-lg">{{ $produce->exists ? 'Update' : 'Save' }}</button>
         <a href="{{ route('backend.produces.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
     </div>

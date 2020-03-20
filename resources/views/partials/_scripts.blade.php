@@ -44,6 +44,7 @@ $('select').select2({
         width: '100%'
 
     });
+
 $('#selection').on('change', function() {
     if ($(this).val() == "Fertilizer")
      {
@@ -58,7 +59,12 @@ $('#selection').on('change', function() {
         $('#otherField1').removeAttr('data-error');
     }
     });
+
      $("#selection").trigger("change");
 
+    $( "#datepicker1" ).datepicker({ changeMonth: true });
+    $( "#datepicker2" ).datepicker({ changeMonth: true });
+
 });
+
 </script>

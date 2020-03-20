@@ -22,13 +22,12 @@
      {!! Form::model($farm, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.farms.update', $farm->slug],
+                  'route'  => ['backend.farms.update', $farm->id],
                   'files'  => TRUE
               ]) !!}
-
                     @include('farm.form')
-
                     {!! Form::close() !!}
                     </div>
         </div>
 @endsection
+@include('farm.script')

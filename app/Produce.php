@@ -12,6 +12,7 @@ class Produce extends Model
       'farm_id',
        'size',
       'plant_id',
+       'slug',
       'variety',
       'start_date',
       'end_date',
@@ -19,38 +20,36 @@ class Produce extends Model
     ];
 
 
-    /**
+     /**
      * Boot the model.
      */
-    // protected static function boot()
-    // {
-    //     parent::boot();
-    //     static::created(function ($produce) {
-    //         $produce->update(['slug' => $produce->name]);
-    //     });
-    // }
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function ($produce) {
+            $produce->update(['slug' => $produce->variety]);
+        });
+    }
 
-    //  /**
-    //  * Set the proper slug attribute
-    //  *
-    //  * @param string $value
-    //  */
-    // public function setSlugAttribute($value)
-    // {
-    //     if (static::whereSlug($slug = str_slug($value))->exists()) {
+     /**
+     * Set the proper slug attribute
+     *
+     * @param string $value
+     */
+    public function setSlugAttribute($value)
+    {
+        if (static::whereSlug($slug = str_slug($value))->exists()) {
 
-    //         $slug = "{$slug}-{$this->id}";
+            $slug = "{$slug}-{$this->id}";
 
-    //     }
-    //     $this->attributes['slug'] = $slug;
-    // }
+        }
+        $this->attributes['slug'] = $slug;
+    }
 
-    //  public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
-
-    // protected $dates= ['start_date','end_date'];
+//   public function getRouteKeyName()
+//     {
+//         return 'slug';
+//     }
 
      public function user()
     {
