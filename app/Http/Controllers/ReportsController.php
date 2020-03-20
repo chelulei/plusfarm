@@ -58,7 +58,7 @@ class ReportsController extends Controller
     {
         //
         $produce = Produce::findOrFail($id);
-    if ($produce->status == 1 ){
+    if ($produce->status  > 0 ){
         $preparations = Produce::with('preparations')->find($id)->preparations;
         $storages = Produce::with('storages')->find($id)->storages;
         $plantings = Produce::with('plantings')->find($id)->plantings;
@@ -116,15 +116,40 @@ class ReportsController extends Controller
      */
     public function update(Request $request)
     {
-        //
-        $ok =Produce::where('id', $request->cp_id)
-            ->update([
-            'status'=> DB::raw(1)
-             ]);
+
+     $ok = Produce::find($request->cp_id)->increment('status', 1);
+
      if($ok){
+
          DB::table('farms')
     ->where('id', $request->fm_id)
     ->increment('size',$request->pd_id);
+
+      DB::table('preparations')
+        ->whereRaw('produce_id ', $request->cp_id)
+        ->increment('status',1);
+
+    DB::table('harvestings')
+        ->whereRaw('produce_id ', $request->cp_id)
+        ->increment('status',1);
+
+    DB::table('plantings')
+        ->whereRaw('produce_id ', $request->cp_id)
+        ->increment('status',1);
+
+    DB::table('storages')
+        ->whereRaw('produce_id ', $request->cp_id)
+        ->increment('status', 1);
+
+    DB::table('activities')
+    ->whereRaw('produce_id ', $request->cp_id)
+    ->increment('status',1);
+
+       DB::table('cultivations')
+    ->whereRaw('produce_id ', $request->cp_id)
+    ->increment('status',1);
+
+
             return back()->with('success', "Activity completed successfully");
      }else {
             return back()->with('error', "Something wen't wrong! Please try again");

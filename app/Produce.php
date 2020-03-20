@@ -68,29 +68,29 @@ class Produce extends Model
     }
  public  function plantings(){
 
-        return $this->hasMany(Planting::class);
+        return $this->hasMany(Planting::class)->where('plantings.status', 0);
     }
 
      public  function harvestings(){
 
-        return $this->hasMany(Harvesting::class);
+        return $this->hasMany(Harvesting::class)->where('harvestings.status', 0);
     }
 
      public  function storages(){
 
-        return $this->hasMany(Storage::class);
+        return $this->hasMany(Storage::class)->where('storages.status', 0);
     }
       public  function activities(){
 
-        return $this->hasMany(Activity::class);
+        return $this->hasMany(Activity::class)->where('activities.status', 0);
     }
 
      public  function preparations(){
 
-        return $this->hasMany(Preparation::class);
+        return $this->hasMany(Preparation::class)->where('preparations.status', 0);
     }
  public  function cultivations(){
 
-        return $this->hasMany(Cultivation::class);
+        return $this->hasMany(Cultivation::class)->where('cultivations.status', 0);
     }
 }
