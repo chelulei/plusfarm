@@ -7,7 +7,7 @@
     <div class="breadcrumbs">
         <div class="page-header">
             <div class="page-title">
-                <h1 class="bread-head"> <i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                <h2 class="bread-head"> <i class="fas fa-tachometer-alt"></i> Dashboard</h2>
             </div>
         </div>
         <div class="">

@@ -20,7 +20,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-info">
+                    <button type="submit" name="update" class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-info">
+                    <button type="submit" name="update" class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-info">
+                    <button type="submit" name="update" class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -110,7 +110,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-info">
+                    <button type="submit" name="update" class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -138,7 +138,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-info">
+                    <button type="submit" name="update" class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -164,7 +164,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-primary">Save</button>
+	        <button type="submit" class="btn btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -188,7 +188,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-primary">Save</button>
+	        <button type="submit" class="btn btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -211,7 +211,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-primary">Save</button>
+	        <button type="submit" class="btn btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -234,7 +234,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-primary">Save</button>
+	        <button type="submit" class="btn btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -258,7 +258,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-primary">Save</button>
+	        <button type="submit" class="btn btn-success">Save</button>
 	      </div>
       </form>
     </div>

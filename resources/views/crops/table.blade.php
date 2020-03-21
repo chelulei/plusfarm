@@ -28,7 +28,7 @@
           </td>
           <td>
                <a data-toggle="tooltip" data-placement="top" title="Edit"
-               href="{{ route('backend.plants.edit',$crop->id)}}" class="btn btn-md  btn-outline-primary">
+               href="{{ route('backend.plants.edit',$crop->id)}}" class="btn btn-md  btn-outline-success">
                     <i class="fa fa-edit"></i>
                 </a>
                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$crop->id}})"

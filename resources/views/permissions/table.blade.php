@@ -9,7 +9,7 @@
     @foreach($permissions as $permissions)
         <tr>
             <td>
- <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.permissions.edit',$permissions->id)}}" class="btn btn-md  btn-outline-primary">
+ <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.permissions.edit',$permissions->id)}}" class="btn btn-md  btn-outline-success">
                     <i class="fa fa-edit"></i>
 
                 </a>

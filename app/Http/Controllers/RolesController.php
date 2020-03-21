@@ -10,7 +10,6 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Session;
 class RolesController extends Controller {
-
     public function __construct() {
 
 //        $this->middleware(['auth', 'isAdmin']);
@@ -24,10 +23,8 @@ class RolesController extends Controller {
      */
     public function index() {
         $roles = Role::all();//Get all roles
-
         return view('roles.index',compact('roles'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -35,10 +32,8 @@ class RolesController extends Controller {
      */
     public function create() {
         $permissions = Permission::all();//Get all permissions
-
         return view('roles.create', ['permissions'=>$permissions]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -52,15 +47,11 @@ class RolesController extends Controller {
                 'permissions' =>'required',
             ]
         );
-
         try{
-
         $name = $request['name'];
         $role = new Role();
         $role->name = $name;
-
         $permissions = $request['permissions'];
-
         $role->save();
         //Looping thru selected permissions
         foreach ($permissions as $permission) {
@@ -69,19 +60,11 @@ class RolesController extends Controller {
             $role = Role::where('name', '=', $name)->first();
             $role->givePermissionTo($p);
         }
-
-
         } catch (\Exception $e) {
-
              Session::flash('error',"Something wen't wrong! Please try again");
-
         }
         return redirect()->route('backend.roles.index')->with('succes','Role Added Successfullly');
-
-
-
     }
-
     /**
      * Display the specified resource.
      *
@@ -114,7 +97,6 @@ class RolesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-
     try{
         $role = Role::findOrFail($id);//Get role with the given id
         //Validate name and permission fields
@@ -122,7 +104,6 @@ class RolesController extends Controller {
             'name'=>'required|max:10|unique:roles,name,'.$id,
             'permissions' =>'required',
         ]);
-
         $input = $request->except(['permissions']);
         $permissions = $request['permissions'];
         $role->fill($input)->save();
@@ -132,7 +113,6 @@ class RolesController extends Controller {
         foreach ($p_all as $p) {
             $role->revokePermissionTo($p); //Remove all permissions associated with role
         }
-
         foreach ($permissions as $permission) {
             $p = Permission::where('id', '=', $permission)->firstOrFail(); //Get corresponding form //permission in db
             $role->givePermissionTo($p);  //Assign permission to role
@@ -143,11 +123,8 @@ class RolesController extends Controller {
            Session::flash('error',"Something wen't wrong! Please try again");
 
         }
-
-        return redirect()->route('backend.roles.index')->with('success','Role updated Successfully');
-
+        return redirect()->route('roles.index')->with('success','Role updated Successfully');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -156,18 +133,19 @@ class RolesController extends Controller {
      */
     public function destroy($id)
     {
-
+    $role = Role::findOrFail($id);
+    $permissions = $role->permissions;
+ if ($permissions->count() == 0) {
     try{
-        $role = Role::findOrFail($id);
+
         $role->delete();
-
      } catch (\Exception $e) {
-
-            Session::flash('error',"Something wen't wrong! Please try again");
-
+            //Session::flash('error',"Something wen't wrong! Please try again");
         }
-        return redirect()->route('backend.roles.index')->with('success','Role deleted Successfully');
-
+        return redirect()->route('roles.index')->with('success','Role deleted Successfully');
+       } else {
+            return redirect('roles')->with('error','This role is currently assigned to a user, thus deleting is prohibited.');
+        }
 
     }
 }

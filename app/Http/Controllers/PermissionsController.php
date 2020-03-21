@@ -138,28 +138,17 @@ try{
      */
     public function destroy($id) {
 
-
         $permission = Permission::findOrFail($id);
+        $roles = $permission->roles;
 
-       try{
         //Make it impossible to delete this specific permission
-        if ($permission->name == "Administer roles & permissions") {
-
-              Session::flash('error',"Cannot delete this Permission!");
-
-            return redirect()->route('permissions.index');
-
+        if ($roles->count() >0 ||  $permission->name == "Administer roles & permissions") {
+          return redirect('permissions')->with('error','This permission is currently assigned to a role, thus deleting is prohibited');
         }
 
         $permission->delete();
 
-
-     } catch (\Exception $e) {
-
-            Session::flash('error',"Something wen't wrong! Please try again")->error();
-
-        }
-        return redirect()->route('backend.permissions.index')->with('success','Permission deleted Successfully');
+        return redirect('permissions')->with('success','Permission deleted Successfully');
 
 
     }

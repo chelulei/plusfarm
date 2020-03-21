@@ -25,7 +25,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Whats in your mind?</h5>
                                 <p class="card-text">Write something.</p>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal">
                                         <i class="fa fa-plus"></i>
                                       Create a blog
                                     </button>

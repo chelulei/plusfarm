@@ -109,7 +109,6 @@
            <a href="{{ route('profile-edit', ['user' => $user]) }}" class="dropdown-item">
                Edit Password
                <i class="dropdown-item-icon ti-comment-alt"></i></a>
-          <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
           <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">

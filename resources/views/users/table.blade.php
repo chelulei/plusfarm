@@ -17,7 +17,7 @@
                 class="btn  btn-md btn-outline-info" href="{{ route('backend.users.show',$user->slug) }}">
                     <i class="fa fa-search"></i>
                 </a>
-                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.users.edit',$user->slug)}}" class="btn btn-md  btn-outline-primary">
+                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.users.edit',$user->slug)}}" class="btn btn-md  btn-outline-success">
                     <i class="fa fa-edit"></i>
                 </a>
                 <!-- /.btn  btn-default -->

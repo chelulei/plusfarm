@@ -10,7 +10,7 @@
     @foreach ($roles as $role)
         <tr>
             <td>
-                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.roles.edit',$role->id)}}" class="btn btn-md  btn-outline-primary">
+                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.roles.edit',$role->id)}}" class="btn btn-md  btn-outline-success">
                     <i class="fa fa-edit"></i>
 
                 </a>
