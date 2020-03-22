@@ -1,7 +1,7 @@
-<footer class="footer">
-  <div class="container-fluid clearfix">
-    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block"></span>
-
-    </span>
-  </div>
-</footer>
+ <footer class="main-footer">
+    <strong>Copyright &copy; 2020-2030 </strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.0.2
+    </div>
+  </footer>

@@ -22,7 +22,7 @@
             <td>
             <ul>
           @foreach ($crop->varieties as $variety)
-             <li>{{ $variety->name }}</li>
+             <li>{{ $variety->name ?? ''}}</li>
            @endforeach
             </ul>
           </td>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
    @include('partials._head')
-  @yield('style')
+  {{-- @yield('style')
   <script src="{{asset('/backend/vendor/tinymce/plugin/tinymce/tinymce.min.js')}}"></script>
     <script>tinymce.init({
             selector:'textarea.my-editor',
@@ -17,41 +17,45 @@
                         menubar:'false',
              toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link fontsizeselect |",
               relative_urls: false
-    });</script>
+    });</script> --}}
   </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-       @include('partials._navbar')
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-       @include('partials._sidebar')
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <!-- Page Title Header Starts-->
-             {{-- @include('partials._pagetitle') --}}
-            <!-- Page Title Header Ends-->
-           {{-- @include('partials._statistics') --}}
+  <body class="hold-transition sidebar-mini layout-fixed">
+      <div class="wrapper">
+        <!-- Navbar -->
+      @include('partials._navbar')
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+           @include('partials._sidebar')
+
+            <!-- Sidebar Menu -->
+
+        <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+         @include('partials._pageheader')
+          <!-- /.content-header -->
+           <!-- Main content -->
+            <section class="content">
            @yield('content')
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-         @include('partials._footer')
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
+            </section>
+           <!-- /.content -->
+
+    <!-- /.content -->
       </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-     @include('partials._modal')
+       <!-- /.content-wrapper -->
+  @include('partials._footer')
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+      </div>
+      <!-- ./wrapper -->
+  {{-- @include('partials._modal') --}}
  <!-- modal-->
-    @include('partials._scripts')
-    @yield('modal')
-    @yield('script')
-    <!-- End custom js for this page-->
-  </body>
+  @include('partials._scripts')
+    {{-- @yield('modal')
+    @yield('script') --}}
+
+</body>
 </html>

@@ -1,12 +1,13 @@
 @extends('layouts.main')
 @section('content')
+
  @if(! $produces->count())
         <div class="alert alert-danger m-2">
             No Records
         </div>
         <!-- /.alert alert-danger -->
      @else
-<div class="row">
+    <div class="row">
     @foreach($produces as $produce)
         <div class="col-md-4">
        <div class="card">
@@ -34,4 +35,6 @@
     @endforeach
 </div>
  @endif
+
+
 @endsection
