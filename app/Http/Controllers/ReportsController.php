@@ -149,8 +149,8 @@ class ReportsController extends Controller
     ->whereRaw('produce_id ', $request->cp_id)
     ->increment('status',1);
 
-
-            return back()->with('success', "Activity completed successfully");
+             return redirect()->route('backend.produces.index')
+                       ->with('success','Activity completed successfully');
      }else {
             return back()->with('error', "Something wen't wrong! Please try again");
 

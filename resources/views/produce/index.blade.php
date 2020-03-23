@@ -28,6 +28,8 @@
     </style>
 @endsection
 @section('content')
+<div class="row">
+<div class="col-12">
      <a href="{{ route('backend.produces.create') }}">
         <button  type="button" class="btn btn-success">
     <i class="fa fa-plus-circle"></i>Add Produce</button>
@@ -56,6 +58,11 @@
                 @endif
              </div>
          </div>
+
+            </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
      @endsection
 
   @include('produce.script')

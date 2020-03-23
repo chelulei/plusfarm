@@ -20,7 +20,7 @@ class CreateProducesTable extends Migration
             $table->string('size');
             $table->unsignedBigInteger('plant_id')->unsigned()->nullable();
             $table->string('slug')->nullable();
-            $table->string('variety');
+            $table->unsignedBigInteger('variety_id')->unsigned();
             $table->string('start_date');
             $table->string('end_date');
             $table->string('farm_mode');
@@ -28,6 +28,7 @@ class CreateProducesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->foreign('farm_id')->references('id')->on('farms')->onDelete('cascade');
             $table->foreign('plant_id')->references('id')->on('plants')->onDelete('cascade');
+            $table->foreign('variety_id')->references('id')->on('varieties')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -3,21 +3,6 @@
   <head>
    @include('partials._head')
      @yield('style')
-  {{-- <script src="{{asset('/backend/vendor/tinymce/plugin/tinymce/tinymce.min.js')}}"></script>
-    <script>tinymce.init({
-            selector:'textarea.my-editor',
-            setup : function(ed)
-            {
-                ed.on('init', function()
-                {
-                    this.execCommand("fontName", false, "tahoma");
-                    this.execCommand("fontSize", false, "12px");
-                });
-            }  ,
-                        menubar:'false',
-             toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link fontsizeselect |",
-              relative_urls: false
-    });</script>  --}}
   </head>
   <body class="hold-transition sidebar-mini layout-fixed">
       <div class="wrapper">
@@ -36,7 +21,9 @@
           <!-- /.content-header -->
            <!-- Main content -->
             <section class="content">
-           @yield('content')
+              <div class="container-fluid">
+                 @yield('content')
+              </div>
             </section>
            <!-- /.content -->
 
@@ -54,8 +41,8 @@
   @include('partials._modal')
  <!-- modal-->
   @include('partials._scripts')
-    @yield('modal') --}}
-    @yield('script') --}}
+    @yield('modal')
+    @yield('script')
 
 </body>
 </html>

@@ -3,6 +3,8 @@
 @section('title', 'Plusfarm Clinic | Users index')
 
 @section('content')
+<div class="row">
+<div class="col-12">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb" id="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
@@ -31,6 +33,10 @@
             </div>
             </div>
  @endif
+  </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 @endsection
 <!-- Modal -->
 @include('users.script')

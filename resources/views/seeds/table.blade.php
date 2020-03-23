@@ -1,7 +1,8 @@
-<table class="table table-bordered" >
+<table class="table table-bordered" id="Data_Table" >
     <thead>
     <tr>
          <th>Variety Name</th>
+           <th>Days</th>
           <th>Image</th>
          <th>Produce Name</th>
         <th>Actions</th>
@@ -12,6 +13,9 @@
         <tr>
              <td>
                 {{ $crop->name}}
+            </td>
+             <td>
+                {{ $crop->days}}
             </td>
             <td>
             @if ($crop->image_url)
@@ -38,6 +42,4 @@
     </tbody>
 </table>
 @include('seeds.script')
-@include('seeds.modal')
-
 

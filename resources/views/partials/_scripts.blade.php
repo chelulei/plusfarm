@@ -11,7 +11,10 @@
 <!-- Bootstrap 4 -->
 <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="{{asset('/plugins/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('plugins/chart.js/Chart.min.js ')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <!-- Sparkline -->
 <script src="{{asset('/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
@@ -34,41 +37,8 @@
 <script src="{{asset('/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/dist/js/demo.js')}}"></script>
-
-
-
-
-
- <!-- plugins:js -->
-{{-- <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
-<script src="{{asset('vendors/js/vendor.bundle.addons.js')}}"></script> --}}
-{{-- <script src="{{asset('js/jquery-ui.js')}}"></script> --}}
-
-    {{-- <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="{{asset('js/shared/off-canvas.js')}}"></script>
-    <script src="{{asset('js/shared/misc.js')}}"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="{{asset('js/demo_1/dashboard.js')}}"></script>
-    <!-- End custom js for this page--> --}}
-
-
- <!-- dataTables JS-->
-
-<script src="{{asset('backend/vendor/dataTables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/jszip.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/pdfmake.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/vfs_fonts.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/buttons.html5.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/buttons.print.min.js')}}"></script>
-<script src="{{asset('backend/vendor/dataTables/buttons.colVis.min.js')}}"></script>
-
+<!-- Summernote -->
+<script src="{{asset('/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- plugins-->
 <script src="{{asset('backend/vendor/select2/select2.min.js')}}"></script>
 <script src="{{asset('backend/vendor/jasny-bootstrap/js/jasny-bootstrap.js')}}"></script>
@@ -101,9 +71,25 @@ $('#selection').on('change', function() {
 
      $("#selection").trigger("change");
 
-    $( "#datepicker1" ).datepicker({ changeMonth: true });
-    $( "#datepicker2" ).datepicker({ changeMonth: true });
+    $( "#datepicker1" ).datepicker({ changeMonth: true,dateFormat: 'dd/mm/y' });
+    $( "#datepicker2" ).datepicker({ changeMonth: true,dateFormat: 'dd/mm/y' });
+
+     $('input').attr('autocomplete','off');
 
 });
 
+$(function () {
+    $('#Data_Table').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": false,
+      "autoWidth": false,
+    });
+  });
+ $(function () {
+    // Summernote
+    $('.my-editor').summernote()
+  })
 </script>

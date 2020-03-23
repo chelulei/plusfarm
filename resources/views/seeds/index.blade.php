@@ -2,7 +2,6 @@
 @section('title', 'PlusFarm | farm index')
 @section('style')
     <style>
-
         .form-group.required label:after {
             content: " *";
             color: red;
@@ -15,7 +14,6 @@
     <i class="fa fa-plus"></i>Add Varieties
 </button>
 <!-- Button trigger modal -->
-
 <br>
    @include('partials.messages')
     @if(! $crops->count())

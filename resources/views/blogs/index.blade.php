@@ -14,14 +14,13 @@
     <section class="post-content-area" style="background-color: #EBF2F7;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
-
+                <div class="col-md-1">
                 </div>
                 <!-- End of side bar left -->
-                <div class="col-lg-8 posts-list mt-3">
+                <div class="col-md-10 posts-list mt-2">
                   @role('superadmin')
                     <div class="single-post row card p-5">
-                        <div class="col-lg-12 col-md-12 ">
+                        <div class="col-md-12">
                             <div class="card-body">
                                 <h5 class="card-title">Whats in your mind?</h5>
                                 <p class="card-text">Write something.</p>
@@ -32,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-             @endrole
+                  @endrole
                     @if (! $blogs->count())
                         <div class="alert alert-info">
                             <strong>No record found</strong>
@@ -74,7 +73,7 @@
                     @endif
                 </div>
                 <!-- Start of side bar left -->
-                <div class="col-lg-1 sidebar-widgets mt-3">
+                <div class="col-md-1 sidebar-widgets mt-2">
                     {{-- <div class="widget-wrap">
 
                     </div> --}}

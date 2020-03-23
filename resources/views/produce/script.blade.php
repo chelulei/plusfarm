@@ -43,9 +43,6 @@ $("#farm_mode").bind('change', function() {
     }
     });
  $("#farm_mode").trigger("change");
-
-
-
      function call_ajax(produceID){
         if(produceID) {
             $.ajax({
@@ -54,16 +51,16 @@ $("#farm_mode").bind('change', function() {
                 dataType: "json",
                 success:function(data) {
 
-                    $('select[name="variety"]').empty();
+                    $('select[name="variety_id"]').empty();
                     $.each(data, function(key, value) {
-                        $('select[name="variety"]').append('<option value="'+ value +'">'+ value +'</option>');
+                        $('select[name="variety_id"]').append('<option value="'+ key +'">'+ value +'</option>');
                     });
 
 
                 }
             });
         }else{
-            $('select[name="variety"]').empty();
+            $('select[name="variety_id"]').empty();
         }
 
     }
@@ -90,7 +87,6 @@ $('select[name="plant_id2"]').bind('change', function() {
                 $.each(data, function(key, value) {
                     $('select[name="variety2"]').append('<option value="'+ value +'">'+ value +'</option>');
                 });
-
 
             }
         });

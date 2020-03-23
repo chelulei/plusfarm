@@ -14,17 +14,11 @@ class VarietyTableSeeder extends Seeder
     {
         //
          $varieties = [
-
-            '614',
-            '625',
-            'Rose Koko',
-            'Sukuma 14',
-            '633',
-            'R515 rice',
-
+              'm614',
+              'm625',
+              'Rose',
+              'Sukuma',
         ];
-
-
         foreach ($varieties as $variety) {
             Variety::create(['name' => $variety]);
         }

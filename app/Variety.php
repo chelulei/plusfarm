@@ -12,6 +12,7 @@ class Variety extends Model
 
         'plant_id',
         'name',
+         'days',
         'image'
 
     ];
@@ -33,6 +34,10 @@ class Variety extends Model
      public function plant()
     {
         return $this->belongsTo(Plant::class);
+    }
+     public function produce()
+    {
+        return $this->belongsTo(Produce::class);
     }
 }
 

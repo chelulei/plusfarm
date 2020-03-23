@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Auth;
+use Variety;
+use Carbon\Carbon;
 class ProduceController extends Controller
 {
     /**
@@ -19,7 +21,9 @@ class ProduceController extends Controller
     {
         //
 
-        $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
+        $produces =Produce::where("user_id",Auth::user()->id)
+         ->where(DB::raw('status'), '=', 0)
+        ->orderBy('id', 'desc')->get();
         return view('produce.index',compact('produces'));
     }
 
@@ -52,8 +56,16 @@ class ProduceController extends Controller
     public function store(Request $request)
     {
             //
-         $input = $request->all();
-         $farm = Farm::findOrFail($request->farm_id);
+             $input = $request->all();
+              $size = Variety::where('id', $id)->first()->size;
+            $start_date1=Carbon::createFromFormat('d/m/y', $request->start_date)
+             ->toFormattedDateString();
+
+             $start_date=$input['start_date'] = $start_date1;
+
+              $input['end_date'] =$start_date;
+
+          $farm = Farm::findOrFail($request->farm_id);
         if ($farm->size > $request->size  || $farm->size == $request->size){
             $prod_id = $request->user()->produces()->create($input);
             $farm->size -= $request->size;

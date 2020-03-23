@@ -1,10 +1,13 @@
 @extends('layouts.main')
 @section('title', 'PlusFarm | farm index')
 @section('content')
+<div class="row">
+<div class="col-12">
  <a href="{{ route('backend.farms.create') }}">
-        <button  type="button" class="btn btn-success">
+        <button  type="button" class="btn btn-success mb-2">
     <i class="fa fa-plus"></i>Add Farm</button>
        </a>
+
    @include('partials.messages')
     @if(! $farms->count())
         <div class="alert alert-danger m-2">
@@ -12,22 +15,29 @@
         </div>
         <!-- /.alert alert-danger -->
      @else
-     <div class="card mt-4">
+           <div class="card">
             <div class="card-header bg-success">
-                <ul class="nav nav-tabs card-header-tabs">
+          <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">LIST OF FARMS</a>
                     </li>
 
                 </ul>
             </div>
+            <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
                    @include('farm.table')
                 </div>
                 @endif
-             </div>
-         </div>
+              </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+            </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
      @endsection
      @include('farm.script')
 @section('script')

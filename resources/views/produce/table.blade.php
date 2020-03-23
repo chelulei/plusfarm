@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered table-striped" id="Data_Table">
                       <thead>
                         <tr>
                           <th> Farm Name </th>
@@ -29,7 +29,7 @@
                 </a>
 
           <a data-toggle="tooltip" data-placement="top" title="Manage"
-                    href="{{route('backend.produces.show' ,$produce->id)}}" class="btn btn-success btn-sm">
+                    href="{{route('backend.produces.show' ,$produce->id)}}" class="btn btn-success">
                     Manage
                     <i class="fa fa-cogs"></i>
                     <!-- /.fa fa-edit -->

@@ -117,13 +117,13 @@ class VarietyController extends Controller
     public function update(Request $request, $id)
     {
         //
-       $plant = Variety::findOrFail($id);
-        $oldImage = $plant->image;
+       $variety = Variety::findOrFail($id);
+        $oldImage = $variety->image;
         $defaultImage ='noimage.png';
         $data=$this->handleRequest($request);
-        $plant->update($data);
+        $variety->update($data);
 
-        if (($oldImage !== $plant->image && $oldImage !== $defaultImage)) {
+        if (($oldImage !== $variety->image && $oldImage !== $defaultImage)) {
 
             $this->removeImage($oldImage);
 
@@ -142,18 +142,15 @@ class VarietyController extends Controller
      */
     public function destroy(Variety $variety,$id)
     {
-        //
-           //
-         $plant=Variety::FindOrFail($id);
+         $variety=Variety::FindOrFail($id);
          $defaultImage ='noimage.png';
-        $ok =$plant->delete();
+          $ok= $variety->delete();
 
-           if ($plant->image !== $defaultImage) {
+           if ($variety->image !== $defaultImage) {
 
-             $this->removeImage($plant->image);
+             $this->removeImage($variety->image);
 
            }
-
 
           if($ok){
                         return back()->with('success', "Variety deleted successfully!!");
@@ -162,7 +159,6 @@ class VarietyController extends Controller
 
                 }
     }
-
 
        private function removeImage($image)
     {

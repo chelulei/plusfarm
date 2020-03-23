@@ -13,12 +13,11 @@ class Produce extends Model
        'size',
       'plant_id',
        'slug',
-      'variety',
+      'variety_id',
       'start_date',
       'end_date',
       'farm_mode'
     ];
-
 
      /**
      * Boot the model.
@@ -93,4 +92,9 @@ class Produce extends Model
 
         return $this->hasMany(Cultivation::class)->where('cultivations.status', 0);
     }
+
+     public  function varieties(){
+        return $this->hasMany(Variety::class);
+    }
 }
+

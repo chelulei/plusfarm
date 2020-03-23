@@ -58,11 +58,7 @@ class LoginController extends Controller
 
         }elseif ($user-> hasRole('farmer')){
             return redirect()-> route('home');
-        }else{
-
-            return redirect()-> route('home');
         }
-
     }
 
 }

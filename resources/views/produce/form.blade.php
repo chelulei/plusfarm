@@ -36,7 +36,7 @@
     </div>
     <div class="form-group col-md-6">
         <label for="variety">Varieties:</label>
-      <select   name="variety"  class="form-control" required>
+      <select   name="variety_id"  class="form-control" required>
         <option value="" selected disabled>--Select Variety--</option>
       </select>
     </div>
@@ -45,26 +45,18 @@
   <div class="form-row">
      <div class="form-group col-md-6">
        <label for="">Planting Date:</label>
-<input id="datepicker1" name="start_date" value="{{ old('start_date',$produce->start_date) }}"  class="dates form-control  {{ $errors->has('start_date') ? 'is-invalid' : ' ' }}"  type="text">
+<input id="datepicker1" name="start_date" value="{{ old('start_date',$produce->start_date) }}"  class="dates form-control  {{ $errors->has('start_date') ? 'is-invalid' : ' ' }}"  type="text" autocomplete="off">
 @if($errors->has('start_date'))
 		<div class="invalid-feedback">
 		   <strong>{{ $errors->first('start_date') }}</strong>
     </div>
      @endif
      </div>
-
     <div class="form-group col-md-6">
-   <label for="">Expected Date:</label>
-   <input id="datepicker2" name="end_date" value="{{ old('end_date',$produce->end_date) }}"  class="dates form-control  {{ $errors->has('end_date') ? 'is-invalid' : ' ' }}" type="text">
-   @if($errors->has('end_date'))
-		<div class="invalid-feedback">
-		   <strong>{{ $errors->first('end_date') }}</strong>
-    </div>
-     @endif
+      <label for=""></label>
+    <input type="text" class="form-control mt-2" name="" id="" disabled>
     </div>
   </div>
-
-
     <div class="form-row">
    <div class="form-group col-md-12">
       <label for="farm_mode">Farming Mode:</label>
