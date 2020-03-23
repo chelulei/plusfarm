@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
    @include('partials._head')
-  {{-- @yield('style')
-  <script src="{{asset('/backend/vendor/tinymce/plugin/tinymce/tinymce.min.js')}}"></script>
+     @yield('style')
+  {{-- <script src="{{asset('/backend/vendor/tinymce/plugin/tinymce/tinymce.min.js')}}"></script>
     <script>tinymce.init({
             selector:'textarea.my-editor',
             setup : function(ed)
@@ -17,7 +17,7 @@
                         menubar:'false',
              toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link fontsizeselect |",
               relative_urls: false
-    });</script> --}}
+    });</script>  --}}
   </head>
   <body class="hold-transition sidebar-mini layout-fixed">
       <div class="wrapper">
@@ -51,10 +51,10 @@
   <!-- /.control-sidebar -->
       </div>
       <!-- ./wrapper -->
-  {{-- @include('partials._modal') --}}
+  @include('partials._modal')
  <!-- modal-->
   @include('partials._scripts')
-    {{-- @yield('modal')
+    @yield('modal') --}}
     @yield('script') --}}
 
 </body>

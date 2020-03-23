@@ -1,14 +1,23 @@
 @extends('layouts.front')
 @section('content')
-   <div class="col-lg-4 mx-auto">
+
+<div class="login-box">
+  <div class="login-logo">
+    <a href="#"><b>Plus</b>Farm</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+ <p class="login-box-msg">
        @include('partials.messages')
-              {{-- <h2 class="text-center mb-4">{{ __('Register') }}</h2> --}}
-              <div class="auto-form-wrapper">
+      </p>
+
+              {{-- <div class="auto-form-wrapper">
                 <div class="text-center">
                     <a href="{{url('/')}}">
                         <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
                     </a>
-                </div>
+                </div> --}}
                <form method="POST" action="{{ route('register') }}">
                  @csrf
                   <div class="form-group">
@@ -106,7 +115,11 @@
                     <a href="{{ route('login') }}" class="text-black text-small">Login</a>
                   </div>
                 </form>
-              </div>
-            </div>
+                 </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
 @endsection
 @include('auth.script')
