@@ -17,6 +17,15 @@
             @endif
         </div>
     </div>
+    <div class="form-group row required">
+        {!! Form::label("days","Months",["class"=>"col-form-label col-md-2"]) !!}
+        <div class="col-md-10">
+           <input id="days" type="text" name="days" value="{{ old('days',$variety->days) }}" class="form-control {{ $errors->has('days') ? 'is-invalid' : ' ' }}"  required>
+             @if($errors->has('days'))
+            <span class="invalid-feedback">{{ $errors->first('days') }}</span>
+            @endif
+        </div>
+    </div>
      <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
             {!! Form::label('image', 'Image', ['class' => 'col-form-label col-md-2']) !!}
             <br>

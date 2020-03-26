@@ -1,13 +1,33 @@
 <div class="form-group row">
         {!! Form::label('task','Task:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
-        <select class="form-control" id="task4" name="task" required>
+        <select class="form-control" id="selection5" name="task" required>
          <option value="" selected disabled>--Choose Task--</option>
          <option value="Weeding">Weeding</option>
          <option value="Irrigation">Irrigation</option>
         </select>
         </div>
      </div>
+ <div class="form-row">
+ <div class="form-check">
+<input type="checkbox" name="showField2" id="showField2" value="yes" onchange="myFunction()">
+  <label class="form-check-label" for="defaultCheck1">
+   Other Activities
+  </label>
+</div>
+ </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <input type="hidden" class="form-control">
+     </div>
+    <div class="form-group col-md-10"  id="nameField2">
+      <input id="otherField3" type="text" name="task" value="{{ old('task') }}" class="form-control {{ $errors->has('task') ? 'is-invalid' : ' ' }}"  required>
+        @if($errors->has('task'))
+            <span class="is-invalid">{{ $errors->first('task') }}</span>
+        @endif
+    </div>
+  </div>
+
    <div class="form-group row">
         {!! Form::label('cost','Cost:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
@@ -27,7 +47,7 @@
         </div>
      </div>
       <div class="form-group row">
-        {!! Form::label('remarks','Remarks', ["class"=>"col-form-label col-md-2"]) !!}
+        {!! Form::label('remarks','Remark', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
        {!! Form::textarea('remarks', null, ['class' => 'form-control'.($errors->has('remarks')?" is-invalid":"") ,'rows' => 3, 'cols' =>5, 'id'=>'remarks4']) !!}
                  @if($errors->has('remarks'))

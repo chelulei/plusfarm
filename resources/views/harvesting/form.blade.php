@@ -1,7 +1,7 @@
 <div class="form-group row">
         {!! Form::label('task','Task:', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
-        <select class="form-control" id="task" name="task" required>
+        <select class="form-control" id="selection6" name="task" required>
          <option value="" selected disabled>--Choose Task--</option>
          <option value="Storage Materials">Storage Materials</option>
         <option value="Farm tools">Farm tools</option>
@@ -12,8 +12,6 @@
         <option value="Grading">Grading</option>
         <option value="Transportation ">Transportation </option>
         <option value="Heavy Machinery">Heavy Machinery </option>
-        <option value="Other Activities">Other Activities</option>
-
         </select>
         </div>
      </div>
@@ -36,7 +34,7 @@
         </div>
      </div>
       <div class="form-group row">
-        {!! Form::label('remarks','Remarks', ["class"=>"col-form-label col-md-2"]) !!}
+        {!! Form::label('remarks','Remark', ["class"=>"col-form-label col-md-2"]) !!}
         <div class="col-md-10">
        {!! Form::textarea('remarks', null, ['class' => 'form-control'.($errors->has('remarks')?" is-invalid":"") ,'rows' => 3, 'cols' =>5]) !!}
                  @if($errors->has('remarks'))

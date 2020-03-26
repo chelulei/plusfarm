@@ -40,6 +40,9 @@
     <a class="nav-link  border border-success border-bottom-0" id="store-tab" data-toggle="tab" href="#store" role="tab" aria-controls="store" aria-selected="false">Storage</a>
   </li>
    <li class="nav-item">
+    <a class="nav-link  border border-success border-bottom-0" id="harvested-tab" data-toggle="tab" href="#harvested" role="tab" aria-controls="harvested" aria-selected="false">Produce harvested </a>
+  </li>
+   <li class="nav-item">
     <a class="nav-link  border border-success border-bottom-0" id="store-tab" data-toggle="tab" href="#complete" role="tab" aria-controls="store" aria-selected="false">Task Completion</a>
   </li>
 </ul>
@@ -68,7 +71,9 @@
             <td>{{$preparation->details}}</td>
             <td>{{$preparation->remarks}}</td>
             <td>
-                 <button type="button" class="btn btn-outline-success" data-mytask="{{$preparation->task}}"
+                 <button type="button" class="btn btn-outline-success"
+                        data-mytask="{{$preparation->task}}"
+                        data-myherb="{{$preparation->herb_types}}"
                         data-mycost="{{$preparation->cost}}"
                          data-mydetails="{{$preparation->details}}"
                         data-prepid="{{$preparation->id}}"
@@ -113,7 +118,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$planting->details}}</td>
             <td>{{$planting->remarks}}</td>
             <td>
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-success"
                         data-ytask="{{$planting->task}}"
                         data-ycost="{{$planting->cost}}"
                         data-ydetails="{{$planting->details}}"
@@ -158,7 +163,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$harvesting->details}}</td>
             <td>{{$harvesting->remarks}}</td>
              <td>
-<button type="button" class="btn btn-outline-primary"
+<button type="button" class="btn btn-outline-success"
                         data-htask="{{$harvesting->task}}"
                         data-hcost="{{$harvesting->cost}}"
                          data-hdetails="{{$harvesting->details}}"
@@ -204,7 +209,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$storage->details}}</td>
             <td>{{$storage->remarks}}</td>
             <td>
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-success"
                         data-stask="{{$storage->task}}"
                         data-scost="{{$storage->cost}}"
                         data-sdetails="{{$storage->details}}"
@@ -253,7 +258,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$cultivation->details}}</td>
             <td>{{$cultivation->remarks}}</td>
             <td>
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-success"
                         data-ctask="{{$cultivation->task}}"
                         data-ccost="{{$cultivation->cost}}"
                         data-cdetails="{{$cultivation->details}}"
@@ -288,6 +293,54 @@ data-target="#delete" class="btn btn btn-outline-danger">
    >
    Click Here
   </button>
+  </div>
+</div>
+</div>
+
+<div class="tab-pane fade show border border-success" id="harvested" role="tabpanel" aria-labelledby="harvested">
+<div class="card">
+  <div class="card-body">
+  <button type="button" class="btn btn-success float-right m-4"
+                        data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#harvestedModal">
+                         <i class="fa fa-plus-circle"></i>
+                     Add Activity
+                    </button>
+        <table class="table table-bordered mt-4">
+        <thead>
+        <tr>
+            <th>Total harvest</th>
+            <th>Total Income</th>
+            <th>Remarks</th>
+            <th>Settings</th>
+        </tr>
+        </thead>
+        <tbody>
+         @foreach($harvests as $harvest)
+        <tr>
+            <td>{{$harvested->total_harv}}</td>
+            <td>{{$harvested->total_inc}}</td>
+            <td>{{$harvest->remarks}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-success"
+                        data-hartot="{{$harvest->total_harv}}"
+                        data-harinc="{{$harvest->total_inc}}"
+                        data-harid="{{$harvest->id}}"
+                        data-haremarks="{{$harvest->remarks}}"
+                        data-toggle="modal" data-target="#edit-harvests">
+                         <i class="fa fa-edit"></i>
+                        EDIT</button>
+                         <button tooltip="Delete&nbsp;Activity"
+                         data-valid45="{{$harvest->id}}"
+     data-toggle="modal" data-target="#delete45" class="btn btn btn-outline-danger">
+           DELETE
+<i class="fa fa-trash"></i>
+ </button>
+            </td>
+
+        </tr>
+            @endforeach
+        </tbody>
+    </table>
   </div>
 </div>
 </div>

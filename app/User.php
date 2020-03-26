@@ -118,6 +118,10 @@ class User extends Authenticatable
         return $this->hasMany(Cultivation::class);
     }
 
+ public  function harvests(){
+
+        return $this->hasMany(Harvest::class);
+    }
 
   public  function blogs(){
 

@@ -8,13 +8,14 @@
 }
     </style>
 @section('content')
-<div class="col-lg-4 mx-auto">
-              <div class="auto-form-wrapper">
-                 <div class="login-logo">
-                    <a href="{{url('/')}}">
-                        <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
-                    </a>
-                </div>
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Plus</b>Farm</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">You are only one step a way from your new password, recover your password now.</p>
                 @include('partials.messages')
               @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -73,6 +74,12 @@
                             </div>
                         </div>
                     </form>
-              </div>
-            </div>
+             <p class="mt-3 mb-1">
+        <a href="{{ route('login') }}">Login</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
 @endsection

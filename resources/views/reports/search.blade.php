@@ -27,7 +27,7 @@
     @endif
         </div>
     <div class="form-group col-md-12">
-{{-- <select id="name" type="dropdown-toggle" class="form-control" name="apports" onchange="top.location.href = this.options[this.selectedIndex].value">
+<select id="name" type="dropdown-toggle" class="form-control" name="apports" onchange="top.location.href = this.options[this.selectedIndex].value">
     <option value="name" selected disabled>--Crop Performance Report--</option>
     @foreach($produces as $produce)
         <option class="apports" value="{{ route("performance", $produce->id) }}">
@@ -40,7 +40,7 @@
             </span>
         </option>
      @endforeach
-</select> --}}
+</select>
     </div>
 </div>
 @include('reports.script')

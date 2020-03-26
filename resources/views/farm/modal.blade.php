@@ -148,6 +148,35 @@
   </div>
 </div>
 
+<div class="modal fade" id="harvestedModal" tabindex="" role="dialog" aria-labelledby="harvestedModalLabel" data-backdrop="static">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="harvestedModalLabel">Harvest</h4>
+      </div>
+       {!! Form::open([
+                        'method' => 'POST',
+                        'route'  => 'backend.harvests.store'
+                    ]) !!}
+
+           @csrf
+            {{ Form::hidden('produce_id',$produce->id) }}
+            <div class="modal-body">
+                @include('harvests.form')
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit" name="update" class="btn btn-success">
+                        <i class="fa fa-save"></i> SAVE</button>
+
+            </div>
+             {!! Form::close() !!}
+
+    </div>
+  </div>
+</div>
+
 <!-- Edit  preparations-->
 <div class="modal fade" id="edit-pre" tabindex="" role="dialog" aria-labelledby="edit-preLabel" data-backdrop="static">
   <div class="modal-dialog" role="document">
@@ -265,6 +294,52 @@
   </div>
 </div>
 
+
+<!-- Edit  cultivation-->
+<div class="modal fade" id="edit-cultivate" tabindex="" role="dialog" aria-labelledby="edit-cultivateLabel" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"  id="edit-cultivateLabel">Update Activities</h4>
+      </div>
+      <form action="{{route('backend.cultivations.update','test')}}" method="POST">
+              @method('put')
+      	    @csrf
+	      <div class="modal-body">
+	      		<input type="hidden" name="cultivate_id" id="cultivate_id">
+				@include('cultivation.edit_form')
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-success">Save</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="edit-harvests" tabindex="" role="dialog" aria-labelledby="edit-harvestsLabel" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"  id="edit-harvestsLabel">Update Activities</h4>
+      </div>
+      <form action="{{route('backend.harvests.update','test')}}" method="POST">
+              @method('put')
+      	    @csrf
+	      <div class="modal-body">
+	      		<input type="hidden" name="harv_id" id="harv_id">
+				@include('harvests.edit_form')
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-success">Save</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Delete Preparations-->
 <!-- Modal -->
         <div class="modal fade" id="delete" tabindex="" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -282,7 +357,7 @@
          <form action="{{route('backend.preparations.destroy', 'delete')}}" method="post">
             @csrf
             @method('DELETE')
-             <input type="hidden" name="this_id" id="val_id" value="">
+             <input type="text" name="this_id" id="val_id" value="">
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">

@@ -16,7 +16,7 @@
                           <tr>
                               <td>{{$produce->farm->farm_name}}</td>
                               <td>{{$produce->plant->name}}</td>
-                               <td>{{$produce->variety}}</td>
+                               <td>{{$produce->variety->name}}</td>
                                <td>{{$produce->start_date}}</td>
                                <td>{{$produce->end_date}}</td>
                               <td>{{$produce->farm_mode}}</td>

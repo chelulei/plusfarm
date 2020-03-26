@@ -16,10 +16,10 @@
                 <img src="{{$produce->plant->image_url}}" class="card-img-top" alt="{{$produce->plant->name}}">
                   @endif
                 <div class="card-body">
-                    <h5 class="card-title">SHORT TERM CEREALS</h5>
+                    <h5 class="card-title mr-2">SHORT TERM CEREALS</h5>
                      <div class="d-flex justify-content-between">
                           <h6 class="card-title mb-0">{{$produce->farm->farm_name}}</h6>
-                          <p class="font-weight-semibold mb-0">{{$produce->plant->name}} | {{$produce->variety}}</p>
+                          <p class="font-weight-semibold mb-0">{{$produce->plant->name}}  |  {{$produce->variety->name}}</p>
                         </div>
                       <h4 class="font-weight-medium">
                         <strong> {{$produce->size}} </strong>

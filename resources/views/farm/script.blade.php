@@ -59,15 +59,16 @@ $(document).ready(function () {
     $('#edit-pre').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
       var task = button.data('mytask')
+      var herb = button.data('myherb')
       var cost = button.data('mycost')
       var details = button.data('mydetails')
       var remarks = button.data('myremarks')
       var prep_id = button.data('prepid')
       var modal = $(this)
-      modal.find('.modal-body #task').val(task);
-      modal.find('.modal-body #cost').val(cost);
-      modal.find('.modal-body #details').val(details);
-      modal.find('.modal-body #remarks').val(remarks);
+      modal.find('.modal-body #task33').val(task);
+      modal.find('.modal-body #cost33').val(cost);
+      modal.find('.modal-body #details33').val(details);
+      modal.find('.modal-body #remarks33').val(remarks);
       modal.find('.modal-body #prep_id').val(prep_id);
 });
 
@@ -104,7 +105,7 @@ $(document).ready(function () {
 
 $('#edit-storage').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
-      var task3 = button.data('staskfar')
+      var task3 = button.data('stask')
       var cost3 = button.data('scost')
       var details3 = button.data('sdetails')
       var remarks3 = button.data('sremarks')
@@ -130,6 +131,20 @@ $('#edit-cultivate').on('show.bs.modal', function (event) {
       modal.find('.modal-body #details4').val(details4);
       modal.find('.modal-body #remarks4').val(remarks4);
       modal.find('.modal-body #cultivate_id').val(cultivate_id);
+      });
+
+
+      $('#edit-harvests').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      var task45 = button.data('hartot')
+      var cost45 = button.data('harinc')
+      var remarks45 = button.data('cremarks')
+      var harv_id= button.data('harid')
+      var modal = $(this)
+      modal.find('.modal-body #task45').val(task45);
+      modal.find('.modal-body #cost45').val(cost45);
+      modal.find('.modal-body #remarks45').val(remarks45);
+      modal.find('.modal-body #harv_id').val(harv_id);
       });
 
 $('#delete').on('show.bs.modal', function (event) {
@@ -167,6 +182,13 @@ $('#delete').on('show.bs.modal', function (event) {
         modal.find('.modal-body #val_id6').val(val_id6);
     })
 
+     $('#delete45').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var val_id45 = button.data('valid45');
+        var modal = $(this);
+        modal.find('.modal-body #val_id45').val(val_id45);
+    })
+
 $('#completeModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget);
           var cp_id = button.data('cpid');
@@ -177,7 +199,10 @@ $('#completeModal').on('show.bs.modal', function (event) {
         modal.find('.modal-body #pd_id').val(pd_id);
         modal.find('.modal-body #fm_id').val(fm_id);
     });
-});
+
+ });
+
+
 
    </script>
 

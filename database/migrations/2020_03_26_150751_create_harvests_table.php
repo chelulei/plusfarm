@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCultivationsTable extends Migration
+class CreateHarvestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateCultivationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cultivations', function (Blueprint $table) {
+        Schema::create('harvests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->unsignedBigInteger('produce_id')->unsigned()->nullable();
-            $table->string('task');
-             $table->longText('other')->nullable();
-            $table->string('cost');
-            $table->longText('details')->nullable();
+            $table->string('total_harv');
+            $table->string('total_inc');
             $table->longText('remarks')->nullable();
             $table->string('status')->default(0);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
-            $table->foreign('produce_id')->references('id')->on('produces')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('produce_id')->references('id')->on('produces')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -36,6 +34,6 @@ class CreateCultivationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cultivations');
+        Schema::dropIfExists('harvests');
     }
 }

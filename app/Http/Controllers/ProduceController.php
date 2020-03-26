@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Auth;
-use Variety;
+use App\Variety;
 use Carbon\Carbon;
 class ProduceController extends Controller
 {
@@ -56,16 +56,14 @@ class ProduceController extends Controller
     public function store(Request $request)
     {
             //
-             $input = $request->all();
-              $size = Variety::where('id', $id)->first()->size;
-            $start_date1=Carbon::createFromFormat('d/m/y', $request->start_date)
-             ->toFormattedDateString();
+              $input = $request->all();
+              $days = Variety::where('id', $request->variety_id)->first()->days;
+              $start_date=Carbon::createFromFormat('d/m/y', $request->start_date);
+              $input['start_date']=$start_date->toFormattedDateString();
+              $input['end_date'] =Carbon::parse($start_date)->addMonths($days)
+              ->toFormattedDateString();
 
-             $start_date=$input['start_date'] = $start_date1;
-
-              $input['end_date'] =$start_date;
-
-          $farm = Farm::findOrFail($request->farm_id);
+              $farm = Farm::findOrFail($request->farm_id);
         if ($farm->size > $request->size  || $farm->size == $request->size){
             $prod_id = $request->user()->produces()->create($input);
             $farm->size -= $request->size;
@@ -100,9 +98,10 @@ class ProduceController extends Controller
         $harvestings = Produce::with('harvestings')->find($id)->harvestings;
         $activities = Produce::with('activities')->find($id)->activities;
         $cultivations = Produce::with('cultivations') ->find($id)->cultivations;
+        $harvests = Produce::with('harvests') ->find($id)->harvests;
         $produce = Produce::where('id','=',$id)->first();
 
-        return view('produce.show',compact('produce','harvestings','plantings','storages','preparations','activities','cultivations'));
+        return view('produce.show',compact('produce','harvests','harvestings','plantings','storages','preparations','activities','cultivations',));
     }
 
     /**
@@ -129,11 +128,15 @@ class ProduceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-      $size = Produce::where('id', $id)->first()->size;
-      Farm::find($request->farm_id)->increment('size', $size );
-      $produce = Produce::findOrFail($id);
-     if($produce->update($request->all())){
+       $input=$request->all();
+       $size = Produce::where('id', $id)->first()->size;
+       Farm::find($request->farm_id)->increment('size', $size );
+       $produce = Produce::findOrFail($id);
+
+       $start_date=Carbon::createFromFormat('d/m/y', $request->start_date);
+       $input['start_date']=$start_date->toFormattedDateString();
+
+     if($produce->update($input)){
            $size = Produce::where('id', $id)->first()->size;
            Farm::find($request->farm_id)->decrement('size', $size );
            return redirect("/produces")->with('success','Produce was updated successfully!');

@@ -18,7 +18,8 @@ class CreatePlantingsTable extends Migration
            $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->unsignedBigInteger('produce_id')->unsigned()->nullable();
             $table->string('task');
-             $table->longText('fert_types')->nullable();
+            $table->longText('fert_types')->nullable();
+            $table->longText('herb_types')->nullable();
             $table->string('cost');
             $table->longText('details')->nullable();
             $table->longText('remarks')->nullable();

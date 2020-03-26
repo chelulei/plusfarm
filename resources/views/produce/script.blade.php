@@ -41,8 +41,11 @@ $("#farm_mode").bind('change', function() {
         $('#otherField2').removeAttr('required');
         $('#otherField2').removeAttr('data-error');
     }
+
     });
  $("#farm_mode").trigger("change");
+
+
      function call_ajax(produceID){
         if(produceID) {
             $.ajax({

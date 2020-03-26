@@ -45,6 +45,7 @@
 
 <script>
 $(document).ready(function() {
+
 $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
 $('select').select2({
 
@@ -54,29 +55,33 @@ $('select').select2({
 
     });
 
-$('#selection').on('change', function() {
-    if ($(this).val() == "Fertilizer")
+  $('#selection2').bind('change', function() {
+
+     if ($(this).val() == "Herbicide")
      {
-       $('#otherFieldGroupDiv').show();
-        $('#otherField1').attr('required','');
-        $('#otherField1').attr('data-error', 'This field is required.');
+        $('#otherFieldGroupDiv').show();
+        $('#otherField3').attr('required','');
+        $('#otherField3').attr('data-error', 'This field is required.');
      }
      else
     {
         $('#otherFieldGroupDiv').hide();
-        $('#otherField1').removeAttr('required');
-        $('#otherField1').removeAttr('data-error');
+        $('#otherField3').removeAttr('required');
+        $('#otherField3').removeAttr('data-error');
+        $('#otherField3').removeAttr('name');
     }
+
     });
 
-     $("#selection").trigger("change");
+     $("#selection2").trigger("change");
 
-    $( "#datepicker1" ).datepicker({ changeMonth: true,dateFormat: 'dd/mm/y' });
-    $( "#datepicker2" ).datepicker({ changeMonth: true,dateFormat: 'dd/mm/y' });
+    $("#datepicker1").datepicker({ changeMonth: true,dateFormat: 'dd/mm/y' });
+    $("#datepicker2").datepicker({ changeMonth: true,dateFormat: 'dd/mm/y' });
 
      $('input').attr('autocomplete','off');
 
 });
+
 
 $(function () {
     $('#Data_Table').DataTable({
@@ -88,8 +93,70 @@ $(function () {
       "autoWidth": false,
     });
   });
- $(function () {
+
+$(function () {
     // Summernote
-    $('.my-editor').summernote()
+    $('.textarea').summernote()
   })
+
+$(function () {
+$('#selection4').bind('change', function() {
+
+   if ($(this).val() == "Fertilizer")
+     {
+       $('#otherFieldGroupDiv4').show();
+        $('#otherField5').attr('required','');
+        $('#otherField5').attr('data-error', 'This field is required.');
+     }
+     else
+    {
+        $('#otherFieldGroupDiv4').hide();
+        $('#otherField5').removeAttr('required');
+        $('#otherField5').removeAttr('data-error');
+    }
+
+if ($(this).val() == "Herbicide")
+     {
+       $('#otherFieldGroupDiv24').show();
+        $('#otherField22').attr('required','');
+        $('#otherField22').attr('data-error', 'This field is required.');
+     }
+     else
+    {
+        $('#otherFieldGroupDiv24').hide();
+        $('#otherField22').removeAttr('required');
+        $('#otherField22').removeAttr('data-error');
+    }
+
+
+    });
+
+     $("#selection4").trigger("change");
+  });
+
+
+ $('#nameField2').css('display','none'); // Hide the text input box in default
+		function myFunction() {
+
+		   if($('#showField2').prop('checked')) {
+		         $('#nameField2').css('display','block');
+             $('#otherField3').attr('required','');
+             $('#otherField3').attr('data-error', 'This field is required.');
+             $('#selection5').removeAttr('required');
+             $('#selection5').removeAttr('data-error');
+             $('#selection5').removeAttr('name');
+		       } else {
+		          $('#nameField2').css('display','none');
+              $('#otherField3').removeAttr('required');
+              $('#otherField3').removeAttr('data-error');
+              $('#otherField3').removeAttr('name');
+		       }
+
+    }
+
 </script>
+
+
+
+
+

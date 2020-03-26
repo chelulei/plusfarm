@@ -1,10 +1,10 @@
 <table class="table table-bordered" id="Data_Table" >
     <thead>
     <tr>
-         <th>Variety Name</th>
-           <th>Days</th>
-          <th>Image</th>
-         <th>Produce Name</th>
+        <th>Image</th>
+       <th>Variety Name</th>
+        <th>Months</th>
+        <th>Produce Name</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -12,16 +12,16 @@
     @foreach($crops as $crop)
         <tr>
              <td>
-                {{ $crop->name}}
-            </td>
-             <td>
-                {{ $crop->days}}
-            </td>
-            <td>
-            @if ($crop->image_url)
+                  @if ($crop->image_url)
             <img src="{{ ($crop->image_url) ? $crop->image_url : ''}}" alt="{{ $crop->name}}"
                      width="200" height="200" />
             @endif
+            </td>
+             <td>
+                  {{ $crop->name}}
+            </td>
+            <td>
+               {{ $crop->days}}
             </td>
              <td>
                 {{ $crop->plant->name}}

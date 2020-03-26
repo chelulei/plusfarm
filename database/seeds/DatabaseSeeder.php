@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
              PermissionTableSeeder::class,
              AdminTableSeeder::class,
              PlantsTableSeeder::class,
-             VarietyTableSeeder::class,
+            //  VarietyTableSeeder::class,
              CountyTableSeeder::class,
               WardsTableSeeder::class,
               ]);

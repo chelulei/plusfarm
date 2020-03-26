@@ -43,7 +43,7 @@
     </div>
 
   <div class="form-row">
-     <div class="form-group col-md-6">
+    <div class="form-group col-md-6">
        <label for="">Planting Date:</label>
 <input id="datepicker1" name="start_date" value="{{ old('start_date',$produce->start_date) }}"  class="dates form-control  {{ $errors->has('start_date') ? 'is-invalid' : ' ' }}"  type="text" autocomplete="off">
 @if($errors->has('start_date'))

@@ -11,6 +11,7 @@ protected $fillable=[
             'user_id',
             'produce_id',
             'task',
+            'herb_types',
             'cost',
             'details',
             'remarks',

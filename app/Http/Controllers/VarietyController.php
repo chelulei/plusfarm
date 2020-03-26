@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\Http\Requests;
+use Carbon\Carbon;
 class VarietyController extends Controller
 {
 
@@ -50,8 +51,7 @@ class VarietyController extends Controller
     {
         //
          $data= $this->handleRequest($request);
-        $crop = Variety::create($data);
-
+          $crop = Variety::create($data);
         if( $crop ){
                 return redirect()->route('backend.seeds.index')
             ->with('success', 'Variety has been added successfully');

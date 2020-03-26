@@ -1,17 +1,13 @@
 <div class="form-group">
 <label class="control-label col-md-4" >Task:</label>
 <div class="col-md-12">
-   <select class="form-control" id="task4" name="task" required>
-         <option value="" selected disabled>--Choose Task--</option>
-         <option value="Weeding">Weeding</option>
-         <option value="Irrigation">Irrigation</option>
-        </select>
+  <input type="text" name="task" id="task4" class="form-control" required/>
 </div>
 </div>
 <div class="form-group">
 <label class="control-label col-md-4" >Cost:</label>
 <div class="col-md-12">
-    <input type="text" name="cost" id="cost4" class="form-control" />
+    <input type="number" name="cost" id="cost4" class="form-control" />
 </div>
 </div>
 <div class="form-group">

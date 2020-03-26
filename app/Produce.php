@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Produce extends Model
 {
     //
@@ -22,28 +22,28 @@ class Produce extends Model
      /**
      * Boot the model.
      */
-    protected static function boot()
-    {
-        parent::boot();
-        static::created(function ($produce) {
-            $produce->update(['slug' => $produce->variety]);
-        });
-    }
+    // protected static function boot()
+    // {
+    //     parent::boot();
+    //     static::created(function ($produce) {
+    //         $produce->update(['slug' => $produce->variety]);
+    //     });
+    // }
 
-     /**
-     * Set the proper slug attribute
-     *
-     * @param string $value
-     */
-    public function setSlugAttribute($value)
-    {
-        if (static::whereSlug($slug = str_slug($value))->exists()) {
+    //  /**
+    //  * Set the proper slug attribute
+    //  *
+    //  * @param string $value
+    //  */
+    // public function setSlugAttribute($value)
+    // {
+    //     if (static::whereSlug($slug = str_slug($value))->exists()) {
 
-            $slug = "{$slug}-{$this->id}";
+    //         $slug = "{$slug}-{$this->id}";
 
-        }
-        $this->attributes['slug'] = $slug;
-    }
+    //     }
+    //     $this->attributes['slug'] = $slug;
+    // }
 
 //   public function getRouteKeyName()
 //     {
@@ -93,8 +93,14 @@ class Produce extends Model
         return $this->hasMany(Cultivation::class)->where('cultivations.status', 0);
     }
 
-     public  function varieties(){
-        return $this->hasMany(Variety::class);
+    public  function harvests(){
+
+        return $this->hasMany(Harvest::class)->where('harvests.status', 0);
+    }
+
+     public function variety()
+    {
+        return $this->belongsTo(Variety::class);
     }
 }
 
