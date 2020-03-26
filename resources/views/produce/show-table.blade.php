@@ -317,8 +317,8 @@ data-target="#delete" class="btn btn btn-outline-danger">
         <tbody>
          @foreach($harvests as $harvest)
         <tr>
-            <td>{{$harvested->total_harv}}</td>
-            <td>{{$harvested->total_inc}}</td>
+            <td>{{$harvest->total_harv}}</td>
+            <td>{{$harvest->total_inc}}</td>
             <td>{{$harvest->remarks}}</td>
             <td>
                 <button type="button" class="btn btn-outline-success"

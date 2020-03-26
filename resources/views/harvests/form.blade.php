@@ -7,9 +7,9 @@
      </div>
    <div class="form-group">
          <label class="control-label" >Total Income</label>
-         <input id="total_inc	" type="number" name="total_inc	" value="{{ old('total_inc') }}" class="form-control {{ $errors->has('total_inc	') ? 'is-invalid' : ' ' }}"  required>
-        @if($errors->has('total_inc	'))
-            <span class="is-invalid">{{ $errors->first('total_inc	') }}</span>
+         <input id="total_inc" type="number" name="total_inc" value="{{ old('total_inc') }}" class="form-control {{ $errors->has('total_inc	') ? 'is-invalid' : ' ' }}"  required>
+        @if($errors->has('total_inc'))
+            <span class="is-invalid">{{ $errors->first('total_inc') }}</span>
         @endif
      </div>
       <div class="form-group">
