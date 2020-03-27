@@ -14,7 +14,7 @@
         <option class="apports" value="{{ route("backend.reports.show", $produce->id) }}">
             {{$produce->plant->name}} |
              <span class="badge badge-light">
-                {{$produce->variety}}
+                {{$produce->variety->name}}
             </span>
             <span class="badge badge-light">
                 {{$produce->size}}(Acres)
@@ -33,7 +33,7 @@
         <option class="apports" value="{{ route("performance", $produce->id) }}">
             {{$produce->plant->name}} |
              <span class="badge badge-light">
-                {{$produce->variety}}
+                {{$produce->variety->name}}
             </span>
             <span class="badge badge-light">
                 {{$produce->size}}(Acres)

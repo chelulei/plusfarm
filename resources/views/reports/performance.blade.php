@@ -18,9 +18,9 @@
 <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
     </div>
      <div class="pl-4 bg-secondary mt-4">
-       <h4 class="text-primary">{{ Auth::user()->name }}</h4>
+       <h4 class="text-white">{{ Auth::user()->name }}</h4>
       <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
-       <small class="font-weight-bolder">Variety: {{$produce->variety}} </small><br><br>
+       <small class="font-weight-bolder">Variety: {{$produce->variety->name}}</small><br><br>
      </div>
      <hr>
        <br>
@@ -87,7 +87,10 @@
   </div>
   <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
   <div class="text-center mb-4">
-     <button class="btn btn-success btn-lg" onclick="printDiv()">Print</button>
+   <button class="btn btn-success btn-lg" onclick="printDiv()">
+       <i class="fas fa-print"></i>
+        Print
+    </button>
 </div><!-- /.text-center -->
 </div>
  @endsection

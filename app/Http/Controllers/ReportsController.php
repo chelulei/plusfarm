@@ -9,7 +9,9 @@ use App\Plant;
 use App\Preparation;
 use App\Planting;
 use App\Harvesting;
+use App\Cultivation;
 use App\Storage;
+use App\Harvest;
 use Auth;
 class ReportsController extends Controller
 {
@@ -58,19 +60,24 @@ class ReportsController extends Controller
     {
         //
       $produce = Produce::findOrFail($id);
+
     if ($produce->status  > 0 ){
-        $preparations = Produce::with('preparations')->find($id)->preparations;
-        $storages = Produce::with('storages')->find($id)->storages;
-        $plantings = Produce::with('plantings')->find($id)->plantings;
-        $harvestings = Produce::with('harvestings')->find($id)->harvestings;
-        $activities = Produce::with('activities')->find($id)->activities;
+
+        $preparations =Preparation::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $storages =  Storage::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $plantings = Planting::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $harvestings = Harvesting::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $harvests = Harvest::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+
         $produce = Produce::where('id','=',$id)->first();
         $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
         $sum = Preparation::where('produce_id','=',$id)->sum('cost');
         $sum2 = Planting::where('produce_id','=',$id)->sum('cost');
         $sum3 = Harvesting::where('produce_id','=',$id) ->sum('cost');
         $sum4 = Storage::where('produce_id','=',$id)->sum('cost');
- return view('reports.financial',compact('sum','sum2','sum3','sum4','produces','produce','harvestings','plantings','storages','preparations','activities'));
+        $sum5 = Harvest::where('produce_id','=',$id)->sum('total_harv');
+        $sum6 = Harvest::where('produce_id','=',$id)->sum('total_inc');
+ return view('reports.financial',compact('sum','sum2','sum3','sum4','sum5','sum6','produces','produce','harvestings','harvests','plantings','storages','preparations'));
          }else {
             return back()->with('error', "No reccords yet!!!");
          }
@@ -86,24 +93,29 @@ class ReportsController extends Controller
      */
     public function perform($id)
     {
-        //        //
-//         $produce = Produce::findOrFail($id);
-//     if ($produce->status == 1 ){
-//         $preparations = Produce::with('preparations')->find($id)->preparations;
-//         $storages = Produce::with('storages')->find($id)->storages;
-//         $plantings = Produce::with('plantings')->find($id)->plantings;
-//         $harvestings = Produce::with('harvestings')->find($id)->harvestings;
-//         $activities = Produce::with('activities')->find($id)->activities;
-//         $produce = Produce::where('id','=',$id)->first();
-//         $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
-//         $sum = Preparation::where('produce_id','=',$id)->sum('cost');
-//         $sum2 = Planting::where('produce_id','=',$id)->sum('cost');
-//         $sum3 = Harvesting::where('produce_id','=',$id) ->sum('cost');
-//         $sum4 = Storage::where('produce_id','=',$id)->sum('cost');
-//  return view('reports.performance',compact('sum','sum2','sum3','sum4','produces','produce','harvestings','plantings','storages','preparations','activities'));
-//          }else {
-//             return back()->with('error', "No reccords yet!!!");
-//          }
+     $produce = Produce::findOrFail($id);
+     if ($produce->status  > 0 ){
+
+        $preparations =Preparation::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $storages =  Storage::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $plantings = Planting::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $harvestings = Harvesting::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+        $harvests = Harvest::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
+
+        $produce = Produce::where('id','=',$id)->first();
+        $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
+
+        $sum = Preparation::where('produce_id','=',$id)->sum('cost');
+        $sum2 = Planting::where('produce_id','=',$id)->sum('cost');
+        $sum3 = Harvesting::where('produce_id','=',$id) ->sum('cost');
+        $sum4 = Storage::where('produce_id','=',$id)->sum('cost');
+         $sum5 = Harvest::where('produce_id','=',$id)->sum('total_harv');
+        $sum6 = Harvest::where('produce_id','=',$id)->sum('total_inc');
+
+ return view('reports.performance',compact('sum','sum2','sum3','sum4','sum5','sum6','produces','produce','harvestings','harvests','plantings','storages','preparations'));
+          }else {
+             return back()->with('error', "No reccords yet!!!");
+          }
 
     }
 
@@ -117,7 +129,38 @@ class ReportsController extends Controller
     public function update(Request $request)
     {
 
-     $ok = Produce::find($request->cp_id)->increment('status', 1);
+        if (Preparation::where('produce_id', '=', $request->cp_id)->exists()) {
+            $ok = Produce::find($request->cp_id)->increment('status', 1);
+        }else {
+            return back()->with('error', "Please complete land preparation activities");
+        }
+
+         if (Planting::where('produce_id', '=', $request->cp_id)->exists()) {
+            $ok = Produce::find($request->cp_id)->increment('status', 1);
+        }else {
+            return back()->with('error', "Please complete planting activities");
+        }
+
+         if (Cultivation::where('produce_id', '=', $request->cp_id)->exists()) {
+            $ok = Produce::find($request->cp_id)->increment('status', 1);
+        }else {
+            return back()->with('error', "Please complete cultivation activities");
+        }
+         if (Harvesting::where('produce_id', '=', $request->cp_id)->exists()) {
+            $ok = Produce::find($request->cp_id)->increment('status', 1);
+        }else {
+            return back()->with('error', "Please complete harvest activities");
+        }
+         if (Storage::where('produce_id', '=', $request->cp_id)->exists()) {
+            $ok = Produce::find($request->cp_id)->increment('status', 1);
+        }else {
+            return back()->with('error', "Please complete storage activities");
+        }
+        if (Harvest::where('produce_id', '=', $request->cp_id)->exists()) {
+                $ok = Produce::find($request->cp_id)->increment('status', 1);
+            }else {
+                return back()->with('error', "Please complete harvests activities");
+            }
 
      if($ok){
 
@@ -145,12 +188,16 @@ class ReportsController extends Controller
     ->whereRaw('produce_id ', $request->cp_id)
     ->increment('status',1);
 
-       DB::table('cultivations')
+    DB::table('cultivations')
+    ->whereRaw('produce_id ', $request->cp_id)
+    ->increment('status',1);
+
+     DB::table('harvests')
     ->whereRaw('produce_id ', $request->cp_id)
     ->increment('status',1);
 
              return redirect()->route('backend.produces.index')
-                       ->with('success','Activity completed successfully');
+                       ->with('success','Activities completed successfully');
      }else {
             return back()->with('error', "Something wen't wrong! Please try again");
 

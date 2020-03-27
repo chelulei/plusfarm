@@ -13,7 +13,7 @@
         @endif
      </div>
       <div class="form-group">
-         <label class="control-labe" >Remarks</label>
+         <label class="control-labe" >Details</label>
        {!! Form::textarea('remarks', null, ['class' => 'form-control'.($errors->has('remarks')?" is-invalid":"") ,'rows' => 3, 'cols' =>5]) !!}
                  @if($errors->has('remarks'))
                      <span class="invalid-feedback">{{ $errors->first('remarks') }}</span>

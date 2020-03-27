@@ -36,30 +36,37 @@
        <div class="pl-4">
        <h4 class="text-primary">{{ Auth::user()->name }}</h4>
       <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
-       <small class="font-weight-bolder">Variety: <b class="text-danger">{{$produce->variety}} </b></small><br><br>
+       <small class="font-weight-bolder">Variety: <b class="text-danger">{{$produce->variety->name}}</b></small><br><br>
      </div>
-{{--
  <h5 class="card-title"><i class="fa fa-money mr-1"> </i>INCOME</h5>
  <div class="table-responsive">
   <table class="table">
         <thead  class="thead-light">
         <th>Details</th>
         <th>Date</th>
-        <th>Qty</th>
+        <th>Qty (kgs)</th>
          <th>Amount(KES)</th>
         </thead>
         <tbody>
+             @foreach($harvests as $harv)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$harv->remarks}}</td>
+                <td>{{$harv->created_at->toFormattedDateString()}}</td>
+                <td>{{$harv->total_harv}}</td>
+                <td>{{$harv->total_inc}}</td>
+            </tr>
+             @endforeach
+             <tr>
+                 <td class="table-active">Total</td>
+                <td class="table-active"></td>
+                <td class="table-active">{{$sum5}}</td>
+                <td class="table-active">{{$sum6}}</td>
             </tr>
     </tbody>
 </table>
- </div> --}}
-{{-- <h5 class="card-title">(less)</h5>
- <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5> --}}
+ </div>
+<h5 class="card-title">(less)</h5>
+ <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5>
   <div class="table-responsive">
   <table class="table">
         <tbody>
@@ -135,15 +142,25 @@
                      <hr>
                 </td>
             </tr>
+            <tr>
+                <td></td>
+                <td> Profit</td>
+                 <td>
+                     {{$sum6 - ($sum+$sum2+$sum3+$sum4)}}
+                     <hr class="border-dark">
+                </td>
+            </tr>
     </tbody>
 </table>
  </div>
   </div>
   <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
   <div class="text-center mb-4">
-     <button class="btn btn-success btn-lg" onclick="printDiv()">Print</button>
+     <button class="btn btn-success btn-lg" onclick="printDiv()">
+       <i class="fas fa-print"></i>
+        Print
+    </button>
 </div><!-- /.text-center -->
 </div>
-
-     @endsection
+@endsection
 @include('reports.script')

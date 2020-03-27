@@ -147,6 +147,14 @@
             </ul>
           </li>
             @endrole
+           @role('farmer')
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('backend.reports.index') }}">
+          <i class="far fa-circle nav-icon"></i>
+            <span class="menu-title">Reports</span>
+          </a>
+          </li>
+         @endrole
             <li class="nav-item">
             <a class="nav-link" href="{{ route('backend.blogs.index') }}">
              <i class="far fa-circle nav-icon"></i>

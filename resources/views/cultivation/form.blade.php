@@ -10,9 +10,9 @@
      </div>
  <div class="form-row">
  <div class="form-check">
-<input type="checkbox" name="showField2" id="showField2" value="yes" onchange="myFunction()">
+<input type="checkbox"  id="yourBox">
   <label class="form-check-label" for="defaultCheck1">
-   Other Activities
+   Activities(optional)
   </label>
 </div>
  </div>
@@ -20,8 +20,9 @@
     <div class="form-group col-md-2">
       <input type="hidden" class="form-control">
      </div>
-    <div class="form-group col-md-10"  id="nameField2">
-      <input id="otherField3" type="text" name="task" value="{{ old('task') }}" class="form-control {{ $errors->has('task') ? 'is-invalid' : ' ' }}"  required>
+    <div class="form-group col-md-10"  id="nameField">
+      <input id="yourText" disabled  type="text" value="{{ old('task') }}"
+      class="form-control {{ $errors->has('task') ? 'is-invalid' : ' ' }}"  required>
         @if($errors->has('task'))
             <span class="is-invalid">{{ $errors->first('task') }}</span>
         @endif

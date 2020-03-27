@@ -100,6 +100,7 @@ $(function () {
   })
 
 $(function () {
+
 $('#selection4').bind('change', function() {
 
    if ($(this).val() == "Fertilizer")
@@ -134,25 +135,12 @@ if ($(this).val() == "Herbicide")
      $("#selection4").trigger("change");
   });
 
+document.getElementById('yourBox').onchange = function() {
+    document.getElementById('yourText').disabled = !this.checked;
+      $('#yourText').attr('name', 'task');
+      $('#selection5').removeAttr('name');
 
- $('#nameField2').css('display','none'); // Hide the text input box in default
-		function myFunction() {
-
-		   if($('#showField2').prop('checked')) {
-		         $('#nameField2').css('display','block');
-             $('#otherField3').attr('required','');
-             $('#otherField3').attr('data-error', 'This field is required.');
-             $('#selection5').removeAttr('required');
-             $('#selection5').removeAttr('data-error');
-             $('#selection5').removeAttr('name');
-		       } else {
-		          $('#nameField2').css('display','none');
-              $('#otherField3').removeAttr('required');
-              $('#otherField3').removeAttr('data-error');
-              $('#otherField3').removeAttr('name');
-		       }
-
-    }
+};
 
 </script>
 

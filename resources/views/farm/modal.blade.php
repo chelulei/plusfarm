@@ -20,7 +20,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                    <button type="submit"  class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                    <button type="submit"  class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                    <button type="submit"  class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -110,7 +110,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                    <button type="submit" class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -138,7 +138,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                    <button type="submit"  class="btn btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -357,7 +357,7 @@
          <form action="{{route('backend.preparations.destroy', 'delete')}}" method="post">
             @csrf
             @method('DELETE')
-             <input type="text" name="this_id" id="val_id" value="">
+             <input type="hidden" name="this_id" id="val_id" value="">
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">
