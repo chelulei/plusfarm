@@ -27,7 +27,7 @@
       <div class="form-group col-md-10">
          <select class="form-control" id="otherField5" name="fert_types" required>
             <option value="" selected disabled>--Choose Fertilizer Type--</option>
-            <option value="DAP"> Di-Ammonium phosphate (DAP) -Cereals, horticulture</option>
+            <option value="Di-Ammonium phosphate (DAP)"> Di-Ammonium phosphate (DAP) -Cereals, horticulture</option>
             <option value="Urea"> Urea -Cereals,sugarcane</option>
             <option value="CAN"> CAN - Cereals,horticulture, coffee</option>
             <option value="NPK 26:5:5"> NPK 26:5:5-Tea</option>
@@ -36,7 +36,7 @@
             <option value="Calcium Nitrate"> Calcium Nitrate-Flowers and vegetables</option>
             <option value="Ammonium Sulphate"> Ammonium Sulphate-Rice</option>
             <option value="NPK 17:17:17"> NPK 17:17:17-Coffee and fruits</option>
-            <option value="MOP"> Muriate of Potash (MOP)-Fruits and sugarcane</option>
+            <option value="Muriate of Potash (MOP)"> Muriate of Potash (MOP)-Fruits and sugarcane</option>
         </select>
         </div><!-- /.form-group col-md-6 -->
  </div>
@@ -45,13 +45,13 @@
       <div class="form-group col-md-10">
          <select class="form-control" id="otherField22" name="herb_types" required>
             <option value="" selected disabled>--Choose Herbicide Type--</option>
-                  <option value="480SC">Ambar 480SC</option>
-                  <option value="860 SL">Agromine® 860 SL</option>
-                  <option value="240 EC">Bentagran®Top 240 EC</option>
-                  <option value="450 EC">Breakdown® 450 EC</option>
-                  <option value="240EC">Commander® 240EC</option>
-                  <option value="480 SL">Catapult® 480 SL</option>
-                  <option value=" 480 SL">Clampdown® 480 SL</option>
+                  <option value="Ambar 480SC">Ambar 480SC</option>
+                  <option value="Agromine® 860 S">Agromine® 860 SL</option>
+                  <option value=">Bentagran®Top 240 EC">Bentagran®Top 240 EC</option>
+                  <option value="Breakdown® 450 EC">Breakdown® 450 EC</option>
+                  <option value="Commander® 240EC">Commander® 240EC</option>
+                  <option value="Catapult® 480 SL">Catapult® 480 SL</option>
+                  <option value="Clampdown® 480 SL">Clampdown® 480 SL</option>
         </select>
         </div><!-- /.form-group col-md-6 -->
  </div>

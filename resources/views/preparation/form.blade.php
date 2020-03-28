@@ -21,13 +21,13 @@
       <div class="form-group col-md-10">
          <select class="form-control" id="otherField3" name="herb_types" required>
             <option value="" selected disabled>--Choose Herbicide Type--</option>
-                  <option value="480SC">Ambar 480SC</option>
-                  <option value="860 SL">Agromine® 860 SL</option>
-                  <option value="240 EC">Bentagran®Top 240 EC</option>
-                  <option value="450 EC">Breakdown® 450 EC</option>
-                  <option value="240EC">Commander® 240EC</option>
-                  <option value="480 SL">Catapult® 480 SL</option>
-                  <option value=" 480 SL">Clampdown® 480 SL</option>
+                  <option value="Ambar 480SC">Ambar 480SC</option>
+                  <option value="Agromine® 860 S">Agromine® 860 SL</option>
+                  <option value=">Bentagran®Top 240 EC">Bentagran®Top 240 EC</option>
+                  <option value="Breakdown® 450 EC">Breakdown® 450 EC</option>
+                  <option value="Commander® 240EC">Commander® 240EC</option>
+                  <option value="Catapult® 480 SL">Catapult® 480 SL</option>
+                  <option value="Clampdown® 480 SL">Clampdown® 480 SL</option>
         </select>
         </div><!-- /.form-group col-md-6 -->
  </div>

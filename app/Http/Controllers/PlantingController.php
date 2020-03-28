@@ -35,18 +35,23 @@ class PlantingController extends Controller
      */
     public function store(Request $request)
     {
-        //
 
+          $input = $request->all();
 
-         $input = $request->all();
-         $ok= $request->user()->plantings()->create($input);
-
-       if($ok){
-         return back()->with('success','Added successfully');
-         }else{
-           Session::flash('error',"Something wen't wrong! Please try again");
-     }
-
+          if($request->task == 'Fertilizer'){
+             $input['task']=$request->fert_types;
+             $input['type']='Fertilizer';
+             $request->user()->plantings()->create($input);
+            return back()->with('success','Activity has been added successfully');
+           }elseif($request->task == 'Herbicide'){
+             $input['task']='(Herbicide)'.' '.$request->herb_types;
+             $input['type']='Herbicide';
+             $request->user()->plantings()->create($input);
+            return back()->with('success','Activity has been added successfully');
+           }else {
+             $request->user()->plantings()->create($input);
+            return back()->with('success','Added successfully');
+           }
     }
 
     /**
@@ -68,9 +73,7 @@ class PlantingController extends Controller
      */
     public function edit($id)
     {
-        //
-    // $plant = Planting::find($id);
-    // return response()->json($plant);
+
 
     }
 
@@ -83,8 +86,7 @@ class PlantingController extends Controller
      */
     public function update(Request $request)
     {
-        //
-        //
+
         $data = $request->all();
         $update = Planting::findOrFail($request->plant_id);
         $data = $request->all();

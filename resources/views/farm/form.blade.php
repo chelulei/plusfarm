@@ -62,7 +62,9 @@
 
     <div class="form-group col-md-6">
    <label for="">Soil Ph:</label>
- <input id="soilph" type="text" name="soilph" value="{{ old('soilph',$farm->soilph) }}" class="form-control {{ $errors->has('soilph') ? 'is-invalid' : ' ' }}">
+ <input id="soilph" type="number" name="soilph" value="{{ old('soilph',$farm->soilph) }}" class="form-control {{ $errors->has('soilph') ? 'is-invalid' : ' ' }}"  min="1" max="14"
+   onKeyUp="if(this.value>14){this.value='14';}else if(this.value<1){this.value='1';}"
+ >
    @if($errors->has('soilph'))
 		<div class="invalid-feedback">
 		   <strong>{{ $errors->first('soilph') }}</strong>

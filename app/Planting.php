@@ -10,10 +10,9 @@ class Planting extends Model
     protected $fillable=[
             'user_id',
             'produce_id',
-             'task',
-             'fert_types',
-             'herb_types',
-             'cost',
+            'task',
+            'type',
+            'cost',
             'details',
             'remarks',
 

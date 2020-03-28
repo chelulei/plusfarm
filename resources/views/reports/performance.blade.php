@@ -15,7 +15,7 @@
      {{str_plural('Acre',$produce->size)}}
     </small>
     <div class="float-left">
-<img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
+{{-- <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="..."> --}}
     </div>
      <div class="pl-4 bg-secondary mt-4">
        <h4 class="text-white">{{ Auth::user()->name }}</h4>
@@ -44,42 +44,58 @@
                       <td></td>
                       <td></td>
                   </tr>
-                   <tr>
-                      <td> Fertilizer(s) Used</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
                   <tr>
-                      <td> Herbicide(s) Used</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                     <td colspan="4"><h6>Fertilizer(s) Used</h6></td>
                   </tr>
-                   <tr>
-                      <td> Pesticide(s) Used</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
+                    @foreach($fertilizers as $fertilizer)
+                    <tr>
+                        <td>{{$fertilizer->task}}</td>
+                        <td>
+                    </tr>
+                   @endforeach
                   <tr>
-                      <td> Results / Observations</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                     <td colspan="4"><h6>Herbicide(s) Used</h6></td>
+                  </tr>
+                    @foreach($herbicides as $herbicide)
+                    <tr>
+                        <td>{{$herbicide->task}}</td>
+                        <td>
+                        </td>
+                    </tr>
+                   @endforeach
+                   {{-- <tr>
+                     <td colspan="4"> Pesticide(s) Used</td>
+                  </tr>
+                    @foreach($storages as $storage)
+                    <tr>
+                        <td>{{$storage->task}}</td>
+                        <td>{{$storage->cost}}</td>
+                        <td>
+                        </td>
+                    </tr>
+                   @endforeach --}}
+                  <tr>
+                      <td><h6> Results / Observations</h6></td>
+                      @foreach($harvests as $harvest)
+                        <tr>
+                            <td>{{$harvest->details}}</td>
+                            <td>
+                            </td>
+                        </tr>
+                        @endforeach
                   </tr>
                     <tr>
-                      <td>Total Harvest:</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><h6>Total Harvest</h6></td>
+                      <td>{{$sum5}} (kgs)</td>
                   </tr>
                   </tr>
                     <tr>
-                      <td> Comments: ________________________________________________</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><h6>Comments:</h6></td>
+                       @foreach($harvests as $harvest)
+                        <tr>
+                            <td>{{$harvest->remarks}}</td>
+                        </tr>
+                     @endforeach
                   </tr>
           </tbody>
       </table>

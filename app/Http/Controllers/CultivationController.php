@@ -35,16 +35,17 @@ class CultivationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-          //
-        $input = $request->all();
-        $ok = $request->user()->cultivations()->create($input);
 
-     if( $ok){
-     return back()->with('success','Cultivation has been added successfully');
-     }else{
-     Session::flash('error',"Something wen't wrong! Please try again");
-     }
+          $input = $request->all();
+
+           if($request->task== 'other'){
+             $input['task']=$request->task2;
+             $request->user()->cultivations()->create($input);
+            return back()->with('success','Cultivation has been added successfully');
+           }
+           $request->user()->cultivations()->create($input);
+            return back()->with('success','Cultivation has been added successfully');
+
     }
 
     /**

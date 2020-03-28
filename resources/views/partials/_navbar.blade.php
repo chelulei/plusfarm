@@ -15,7 +15,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3" action="{{ route('backend.blogs.index') }}">
+    <form class="form-inline ml-3" action="{{route('backend.blogs.index')}}">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" name="term"  value="{{ request('term') }}" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">

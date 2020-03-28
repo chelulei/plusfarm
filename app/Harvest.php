@@ -12,6 +12,7 @@ class Harvest extends Model
             'produce_id',
             'total_harv',
             'total_inc',
+             'details',
             'remarks',
 
 ];

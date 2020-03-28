@@ -35,15 +35,14 @@ class PreparationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $input = $request->all();
-        $ok = $request->user()->preparations()->create($input);
-
-     if( $ok){
-     return back()->with('success','Land Preparations has been added successfully');
-     }else{
-     Session::flash('error',"Something wen't wrong! Please try again");
-     }
+           $input = $request->all();
+           if($request->task== 'Herbicide'){
+             $input['task']='(Herbicide)'.' '.$request->herb_types;
+             $request->user()->preparations()->create($input);
+            return back()->with('success','Activity has been added successfully');
+           }
+           $request->user()->preparations()->create($input);
+            return back()->with('success','Activity has been added successfully');
 
     }
 

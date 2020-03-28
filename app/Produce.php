@@ -67,35 +67,35 @@ class Produce extends Model
     }
  public  function plantings(){
 
-        return $this->hasMany(Planting::class)->where('plantings.status', 0);
+        return $this->hasMany(Planting::class)->where('plantings.status', 0)->orderBy('id','desc');
     }
 
      public  function harvestings(){
 
-        return $this->hasMany(Harvesting::class)->where('harvestings.status', 0);
+        return $this->hasMany(Harvesting::class)->where('harvestings.status', 0)->orderBy('id','desc');
     }
 
      public  function storages(){
 
-        return $this->hasMany(Storage::class)->where('storages.status', 0);
+        return $this->hasMany(Storage::class)->where('storages.status', 0)->orderBy('id','desc');
     }
       public  function activities(){
 
-        return $this->hasMany(Activity::class)->where('activities.status', 0);
+        return $this->hasMany(Activity::class)->where('activities.status', 0)->orderBy('id','desc');
     }
 
      public  function preparations(){
 
-        return $this->hasMany(Preparation::class)->where('preparations.status', 0);
+        return $this->hasMany(Preparation::class)->where('preparations.status', 0)->orderBy('id','desc');
     }
  public  function cultivations(){
 
-        return $this->hasMany(Cultivation::class)->where('cultivations.status', 0);
+        return $this->hasMany(Cultivation::class)->where('cultivations.status', 0)->orderBy('id','desc');
     }
 
     public  function harvests(){
 
-        return $this->hasMany(Harvest::class)->where('harvests.status', 0);
+        return $this->hasMany(Harvest::class)->where('harvests.status', 0)->orderBy('id','desc');
     }
 
      public function variety()

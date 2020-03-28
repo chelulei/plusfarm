@@ -120,7 +120,7 @@
             </tr>
              <tr  class="table-dark">
                  <td colspan="4">Storage</td>
-                </tr>
+             </tr>
             @foreach($storages as $storage)
             <tr>
                 <td>{{$storage->task}}</td>

@@ -101,7 +101,8 @@ class ReportsController extends Controller
         $plantings = Planting::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
         $harvestings = Harvesting::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
         $harvests = Harvest::where('produce_id','=',$id)->orderBy('id', 'desc')->get();
-
+        $fertilizers = Planting::where('produce_id','=',$id)->where('type','=','Fertilizer')->orderBy('id', 'desc')->get();
+        $herbicides = Planting::where('produce_id','=',$id)->where('type','=', 'Herbicide')->orderBy('id', 'desc')->get();
         $produce = Produce::where('id','=',$id)->first();
         $produces =Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
 
@@ -109,10 +110,11 @@ class ReportsController extends Controller
         $sum2 = Planting::where('produce_id','=',$id)->sum('cost');
         $sum3 = Harvesting::where('produce_id','=',$id) ->sum('cost');
         $sum4 = Storage::where('produce_id','=',$id)->sum('cost');
-         $sum5 = Harvest::where('produce_id','=',$id)->sum('total_harv');
+        $sum5 = Harvest::where('produce_id','=',$id)->sum('total_harv');
         $sum6 = Harvest::where('produce_id','=',$id)->sum('total_inc');
 
- return view('reports.performance',compact('sum','sum2','sum3','sum4','sum5','sum6','produces','produce','harvestings','harvests','plantings','storages','preparations'));
+ return view('reports.performance',compact('sum','sum2','sum3','sum4','sum5','sum6','produces','produce',
+ 'herbicides','fertilizers','harvestings','harvests','plantings','storages','preparations'));
           }else {
              return back()->with('error', "No reccords yet!!!");
           }

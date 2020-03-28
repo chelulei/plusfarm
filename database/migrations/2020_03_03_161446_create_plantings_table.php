@@ -14,18 +14,17 @@ class CreatePlantingsTable extends Migration
     public function up()
     {
         Schema::create('plantings', function (Blueprint $table) {
-           $table->bigIncrements('id');
-           $table->unsignedBigInteger('user_id')->unsigned()->nullable();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->unsignedBigInteger('produce_id')->unsigned()->nullable();
             $table->string('task');
-            $table->longText('fert_types')->nullable();
-            $table->longText('herb_types')->nullable();
+            $table->longText('type')->nullable();
             $table->string('cost');
             $table->longText('details')->nullable();
             $table->longText('remarks')->nullable();
-             $table->string('status')->default(0);
-             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
-             $table->foreign('produce_id')->references('id')->on('produces')->onDelete('restrict');
+            $table->string('status')->default(0);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->foreign('produce_id')->references('id')->on('produces')->onDelete('restrict');
             $table->timestamps();
         });
     }

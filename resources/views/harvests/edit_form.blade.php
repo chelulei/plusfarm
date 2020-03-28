@@ -10,8 +10,15 @@
         @endif
      </div>
       <div class="form-group">
-         <label class="control-labe" >Details</label>
-       {!! Form::textarea('remarks', null, ['class' => 'form-control'.($errors->has('remarks')?" is-invalid":"") ,'id' => 'remarks45', 'rows' => 3, 'cols' =>5]) !!}
+            <label class="control-label" >Details</label>
+              {!! Form::textarea('details', null, ['class' => 'form-control'.($errors->has('details')?" is-invalid":""),'rows' => 3, 'cols' =>5]) !!}
+                 @if($errors->has('details'))
+                     <span class="invalid-feedback">{{ $errors->first('details') }}</span>
+                 @endif
+     </div>
+      <div class="form-group">
+            <label class="control-label" >Remarks</label>
+       {!! Form::textarea('remarks', null, ['class' => 'form-control'.($errors->has('remarks')?" is-invalid":"") ,'rows' => 3, 'cols' =>5]) !!}
                  @if($errors->has('remarks'))
                      <span class="invalid-feedback">{{ $errors->first('remarks') }}</span>
                  @endif

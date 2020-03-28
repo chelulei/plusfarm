@@ -11,7 +11,7 @@
     </style>
 @endsection
 @section('content')
-        <button  type="button" class="btn btn-outline-success"
+        <button  type="button" class="btn btn-outline-success mb-2"
          data-toggle="modal" data-target="#cropModal">
     <i class="fa fa-plus-circle"></i>Add Crop
 </button>

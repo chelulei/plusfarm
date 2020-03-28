@@ -5,26 +5,19 @@
          <option value="" selected disabled>--Choose Task--</option>
          <option value="Weeding">Weeding</option>
          <option value="Irrigation">Irrigation</option>
+         <option value="other">Other Activity</option>
         </select>
         </div>
      </div>
- <div class="form-row">
- <div class="form-check">
-<input type="checkbox"  id="yourBox">
-  <label class="form-check-label" for="defaultCheck1">
-   Activities(optional)
-  </label>
-</div>
- </div>
   <div class="form-row">
     <div class="form-group col-md-2">
       <input type="hidden" class="form-control">
      </div>
-    <div class="form-group col-md-10"  id="nameField">
-      <input id="yourText" disabled  type="text" value="{{ old('task') }}"
-      class="form-control {{ $errors->has('task') ? 'is-invalid' : ' ' }}"  required>
-        @if($errors->has('task'))
-            <span class="is-invalid">{{ $errors->first('task') }}</span>
+    <div class="form-group col-md-10"  id="othergroup">
+      <input id="otherinput" name="task2" type="text" value="{{ old('task2') }}"
+      class="form-control {{ $errors->has('task2') ? 'is-invalid' : ' ' }}" placeholder="Input your activity"  required>
+        @if($errors->has('task2'))
+            <span class="is-invalid">{{ $errors->first('task2') }}</span>
         @endif
     </div>
   </div>

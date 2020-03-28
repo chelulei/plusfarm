@@ -45,7 +45,10 @@
 
 <script>
 $(document).ready(function() {
-
+  $(function () {
+    // Summernote
+    $('.my-editor').summernote()
+  })
 $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
 $('select').select2({
 
@@ -68,7 +71,6 @@ $('select').select2({
         $('#otherFieldGroupDiv').hide();
         $('#otherField3').removeAttr('required');
         $('#otherField3').removeAttr('data-error');
-        $('#otherField3').removeAttr('name');
     }
 
     });
@@ -94,10 +96,7 @@ $(function () {
     });
   });
 
-$(function () {
-    // Summernote
-    $('.textarea').summernote()
-  })
+
 
 $(function () {
 
@@ -135,12 +134,27 @@ if ($(this).val() == "Herbicide")
      $("#selection4").trigger("change");
   });
 
-document.getElementById('yourBox').onchange = function() {
-    document.getElementById('yourText').disabled = !this.checked;
-      $('#yourText').attr('name', 'task');
-      $('#selection5').removeAttr('name');
+$(function () {
 
-};
+$('#selection5').bind('change', function() {
+
+   if ($(this).val() == "other")
+     {
+       $('#othergroup').show();
+        $('#otherinput').attr('required','');
+        $('#otherinput').attr('data-error', 'This field is required.');
+     }
+     else
+    {
+        $('#othergroup').hide();
+        $('#otherinput').removeAttr('required');
+        $('#otherinput').removeAttr('data-error');
+    }
+
+    });
+
+     $("#selection5").trigger("change");
+  });
 
 </script>
 
