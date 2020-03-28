@@ -11,14 +11,14 @@
      </div>
       <div class="form-group">
             <label class="control-label" >Details</label>
-              {!! Form::textarea('details', null, ['class' => 'form-control'.($errors->has('details')?" is-invalid":""),'rows' => 3, 'cols' =>5]) !!}
+              {!! Form::textarea('details', null, ['class' => 'form-control'.($errors->has('details')?" is-invalid":""),'rows' => 3, 'cols' =>5,'id' =>'d45']) !!}
                  @if($errors->has('details'))
                      <span class="invalid-feedback">{{ $errors->first('details') }}</span>
                  @endif
      </div>
       <div class="form-group">
             <label class="control-label" >Remarks</label>
-       {!! Form::textarea('remarks', null, ['class' => 'form-control'.($errors->has('remarks')?" is-invalid":"") ,'rows' => 3, 'cols' =>5]) !!}
+       {!! Form::textarea('remarks', null, ['class' => 'form-control'.($errors->has('remarks')?" is-invalid":"") ,'rows' => 3, 'cols' =>5,'id' =>'rem45']) !!}
                  @if($errors->has('remarks'))
                      <span class="invalid-feedback">{{ $errors->first('remarks') }}</span>
                  @endif

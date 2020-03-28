@@ -14,9 +14,8 @@
      <strong> {{$produce->size}} </strong>
      {{str_plural('Acre',$produce->size)}}
     </small>
-    <div class="float-left">
-{{-- <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="..."> --}}
-    </div>
+       <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="PlusFarm">
+     <hr><hr><hr>
      <div class="pl-4 bg-secondary mt-4">
        <h4 class="text-white">{{ Auth::user()->name }}</h4>
       <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>

@@ -24,7 +24,7 @@
      <strong> {{$produce->size}} </strong>
      {{str_plural('Acre',$produce->size)}}
     </small>
-     <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="...">
+     <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="PlusFarm">
      <hr><hr><hr>
       <small class="font-weight-bolder">PRODUCE FINANCIAL REPORT</small> <br>
    <small class="">

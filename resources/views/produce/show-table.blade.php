@@ -310,6 +310,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
         <tr>
             <th>Total harvest</th>
             <th>Total Income</th>
+             <th>Details</th>
             <th>Remarks</th>
             <th>Settings</th>
         </tr>
@@ -319,22 +320,24 @@ data-target="#delete" class="btn btn btn-outline-danger">
         <tr>
             <td>{{$harvest->total_harv}} (Kg)</td>
             <td>{{$harvest->total_inc}}  (Kshs)</td>
+            <td>{{$harvest->details}}</td>
             <td>{{$harvest->remarks}}</td>
             <td>
                 <button type="button" class="btn btn-outline-success"
                         data-hartot="{{$harvest->total_harv}}"
                         data-harinc="{{$harvest->total_inc}}"
                         data-harid="{{$harvest->id}}"
-                        data-haremarks="{{$harvest->remarks}}"
+                        data-hard="{{$harvest->details}}"
+                        data-harem="{{$harvest->remarks}}"
                         data-toggle="modal" data-target="#edit-harvests">
                          <i class="fa fa-edit"></i>
                         EDIT</button>
-                         <button tooltip="Delete&nbsp;Activity"
+                         {{-- <button tooltip="Delete&nbsp;Activity"
                          data-valid45="{{$harvest->id}}"
      data-toggle="modal" data-target="#delete45" class="btn btn btn-outline-danger">
            DELETE
 <i class="fa fa-trash"></i>
- </button>
+ </button> --}}
             </td>
 
         </tr>

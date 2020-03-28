@@ -75,7 +75,7 @@ class HarvestController extends Controller
      * @param  \App\Harvest  $harvest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Harvest $harvest)
+    public function update(Request $request)
     {
         //
          //

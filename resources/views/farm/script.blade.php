@@ -138,12 +138,14 @@ $('#edit-cultivate').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
       var task45 = button.data('hartot')
       var cost45 = button.data('harinc')
-      var remarks45 = button.data('cremarks')
+      var hard45 = button.data('hard')
+      var harem45 = button.data('harem')
       var harv_id= button.data('harid')
       var modal = $(this)
       modal.find('.modal-body #task45').val(task45);
       modal.find('.modal-body #cost45').val(cost45);
-      modal.find('.modal-body #remarks45').val(remarks45);
+       modal.find('.modal-body #d45').val(hard45);
+      modal.find('.modal-body #rem45').val(harem45);
       modal.find('.modal-body #harv_id').val(harv_id);
       });
 
