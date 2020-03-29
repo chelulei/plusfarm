@@ -6,11 +6,7 @@
                           <th> Soil PH </th>
                           <th>Ownership</th>
                           <th> Land size(Acre) </th>
-                          <th>Actions</th>
-                          <th>  <a  href="{{ route('backend.produces.create') }}" class="btn btn-success btn-sm">
-                    <i class="fa fa fa-plus-circle"></i>
-                       Add Produce
-                      </a></th>
+                          <th colspan="2">Actions</th>
                         </tr>
                       </thead>
                       <tbody>

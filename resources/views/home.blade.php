@@ -16,15 +16,15 @@
                 <img src="{{$produce->plant->image_url}}" class="card-img-top" alt="{{$produce->plant->name}}">
                   @endif
                 <div class="card-body">
-                    <h5 class="card-title mr-2">SHORT TERM CEREALS</h5>
+                      <h6 class="info-box-text"></h6>
                      <div class="d-flex justify-content-between">
-                          <h6 class="card-title mb-0">{{$produce->farm->farm_name}}</h6>
-                          <p class="font-weight-semibold mb-0">{{$produce->plant->name}}  |  {{$produce->variety->name}}</p>
+                          <h6 class="card-title mb-0 info-box-text">{{$produce->farm->farm_name}}</h6>
+                          <p class="font-weight-semibold mb-0 info-box-text">{{$produce->plant->name}}  |  {{$produce->variety->name}}</p>
                         </div>
-                      <h4 class="font-weight-medium">
+                      <h6 class="font-weight-medium info-box-text">
                         <strong> {{$produce->size}} </strong>
                         {{str_plural('Acre',$produce->size)}}
-                        </h4>
+                        </h6>
                     <a href="{{route('backend.produces.index')}}" class="btn btn-primary">View Details</a>
                 </div>
               </div>

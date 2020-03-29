@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="{{asset('/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('/plugins/daterangepicker/daterangepicker.css')}}">
+   <link rel="shortcut icon" type="text/css"  href="{{asset('/images/icons/Pluslogo.png')}}" />
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('/plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->

@@ -28,6 +28,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Notifications Dropdown Menu -->
+       @role('farmer')
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
@@ -35,7 +36,6 @@
          <span class="badge badge-warning navbar-badge">{{auth()->user()->unreadNotifications->count()}}</span>
            @endif
         </a>
-         @role('farmer')
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
  @if(auth()->user()->unreadNotifications->count())
           <span class="dropdown-item dropdown-header">
@@ -63,12 +63,12 @@
           <a href="{{route('backend.blogs.index')}}" class="dropdown-item dropdown-footer">See All Notifications</a>
            @endif
         </div>
-          @endrole
       </li>
-      <li class="nav-item">
-        {{-- <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+    @endrole
+      {{-- <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
           <i class="fas fa-th-large"></i>
-        </a> --}}
-      </li>
+        </a>
+      </li> --}}
     </ul>
   </nav>

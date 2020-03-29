@@ -22,7 +22,7 @@ class RolesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $roles = Role::all();//Get all roles
+        $roles = Role::orderBy('id', 'desc')->get();
         return view('roles.index',compact('roles'));
     }
     /**
@@ -63,7 +63,7 @@ class RolesController extends Controller {
         } catch (\Exception $e) {
              Session::flash('error',"Something wen't wrong! Please try again");
         }
-        return redirect()->route('backend.roles.index')->with('succes','Role Added Successfullly');
+        return redirect('roles')->with('succes','Role Added Successfullly');
     }
     /**
      * Display the specified resource.
@@ -123,7 +123,7 @@ class RolesController extends Controller {
            Session::flash('error',"Something wen't wrong! Please try again");
 
         }
-        return redirect()->route('roles.index')->with('success','Role updated Successfully');
+        return redirect('roles')->with('success','Role updated Successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -135,17 +135,22 @@ class RolesController extends Controller {
     {
     $role = Role::findOrFail($id);
     $permissions = $role->permissions;
- if ($permissions->count() == 0) {
-    try{
 
-        $role->delete();
-     } catch (\Exception $e) {
-            //Session::flash('error',"Something wen't wrong! Please try again");
-        }
-        return redirect()->route('roles.index')->with('success','Role deleted Successfully');
-       } else {
-            return redirect('roles')->with('error','This role is currently assigned to a user, thus deleting is prohibited.');
+    //Make it impossible to delete this specific permission
+        if ($role->name == "farmer") {
+             return redirect('roles')->with('error','This role is currently assigned to a user, thus deleting is prohibited.');
         }
 
-    }
+            if ($permissions->count() == 0) {
+                try{
+                    $role->delete();
+                } catch (\Exception $e) {
+                        //Session::flash('error',"Something wen't wrong! Please try again");
+                    }
+                    return redirect('roles')->with('success','Role deleted Successfully');
+                } else {
+                        return redirect('roles')->with('error','This role is currently assigned to a user, thus deleting is prohibited.');
+                    }
+
+                }
 }

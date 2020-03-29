@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-success">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="{{asset('/images/icons/pluslogo.png')}}"
+      <img src="{{asset('/images/icons/Pluslogo.png')}}"
            alt="Plusfarm"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -57,13 +57,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('backend.roles.index') }}l" class="nav-link">
+                <a href="{{ route('backend.roles.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Roles</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('backend.permissions.index') }}" class="nav-link">
+                <a href="{{ route('backend.permissions.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permissions</p>
                 </a>
@@ -74,7 +74,7 @@
            @role('farmer')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.farms.index') }}">
-       <i class="far fa-circle nav-icon"></i>
+       <i class="fas fa-tractor nav-icon"></i>
         <span class="menu-title">Farm Management</span>
       </a>
     </li>
@@ -82,7 +82,7 @@
        @role('farmer')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('backend.produces.index') }}">
-       <i class="far fa-circle nav-icon"></i>
+       <i class="fas fa-seedling nav-icon"></i>
         <span class="menu-title">Produce Management</span>
       </a>
     </li>
@@ -99,13 +99,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('backend.plants.index') }}" class="nav-link">
+                <a href="{{route('backend.plants.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Crops</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('backend.seeds.index') }}" class="nav-link">
+                <a href="{{route('backend.seeds.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Varieties</p>
                 </a>
@@ -116,14 +116,14 @@
            @role('farmer')
           <li class="nav-item">
           <a class="nav-link" href="{{ route('backend.reports.index') }}">
-          <i class="far fa-circle nav-icon"></i>
+         <i class=" nav-icon fas fa-sticky-note"></i>
             <span class="menu-title">Reports</span>
           </a>
           </li>
          @endrole
             <li class="nav-item">
             <a class="nav-link" href="{{ route('backend.blogs.index') }}">
-             <i class="far fa-circle nav-icon"></i>
+             <i class="nav-icon fas fa-comment"></i>
               <span class="menu-title">Resources</span>
             </a>
          </li>
@@ -145,7 +145,7 @@
               <li class="nav-item">
                    <?php $user = Auth::user(); ?>
                 <a href="{{ route('profile-edit', ['user' => $user]) }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="far fa-circle nav-icon"></i>
                   <p> Edit Password</p>
                 </a>
               </li>
@@ -155,7 +155,7 @@
            <li class="nav-item">
                 <a href="{{ route('logout') }}"   onclick="event.preventDefault();
             document.getElementById('logout-form').submit();" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class=" nav-icon fas fa-sign-out-alt"></i>
                   <p> Sign Out</p>
                 </a>
                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -14,11 +14,13 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+
+Auth::routes();
+Route::group(['middleware' => ['auth']], function() {
 Route::get('/', [
     'uses' => 'PagesController@index',
     'as'   => 'main'
 ]);
-Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'PagesController@admin')->name('admin');
 Route::resource('/farms', 'FarmController', ['as'=>'backend']);
@@ -48,10 +50,12 @@ Route::get('/profile/{user}/edit', [
 Route::any('activate/{id}', 'ActivateController@activate')->name('activate');
 Route::any('deactivate/{id}', 'ActivateController@deactivate')->name('deactivate');
 Route::resource('/roles', 'RolesController', ['as' => 'backend']);
-Route::resource('/permissions', 'permissionsController', ['as' => 'backend']);
+Route::resource('/permissions', 'PermissionsController', ['as' => 'backend']);
 Route::get('/count', 'PagesController@getCount');
 Route::resource('/blogs', 'BlogController',['as'=>'backend']);
 Route::get('/markAsRead',function(){
 Auth()->user()->unreadNotifications->markAsRead();
 return back();
+});
+
 });
