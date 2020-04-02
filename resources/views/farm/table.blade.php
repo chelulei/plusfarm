@@ -19,14 +19,12 @@
                                <td>{{$farm->size}}</td>
                               <td>
          <a data-toggle="tooltip" data-placement="top" title="Edit"
-           href="{{ route('backend.farms.edit',$farm->id)}}" class="btn btn-md  btn-outline-success">
+           href="{{ route('backend.farms.edit',$farm->id)}}" class="btn btn-sm  btn-outline-success">
            EDIT
                     <i class="fa fa-edit"></i>
                 </a>
-                             </td>
-                             <td>
             <button tooltip="Delete&nbsp;Farm" data-valid6="{{$farm->id}}"
-                data-toggle="modal" data-target="#deletef" class="btn btn btn-outline-danger">
+                data-toggle="modal" data-target="#deletef" class="btn btn-sm btn-outline-danger">
                       DELETE
             <i class="fa fa-trash"></i>
             </button>

@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
              <a href="{{route('backend.plants.index')}}">
-        <button class="btn btn-success">
+        <button class="btn btn-sm btn-success">
             <i class="fa fa-arrow-left"></i>BACK</button></a>
         </ol>
     </nav>

@@ -9,7 +9,7 @@
     <tbody>
     @foreach ($users as $key => $user)
         <tr>
-            <td><img src="{{ $user->image_url}} " alt="" width="200" height="200"></td>
+            <td><img src="{{ $user->image_url}} " alt="" class="img-fluid img-thumbnail"  width="150" height="150"></td>
             <td>{{$user->name}}</td>
              <td>{{$user->created_at->toFormattedDateString() }}</td>
         </tr>

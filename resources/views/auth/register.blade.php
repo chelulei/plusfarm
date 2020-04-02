@@ -13,18 +13,11 @@
  <p class="login-box-msg">
        @include('partials.messages')
       </p>
-
-              {{-- <div class="auto-form-wrapper">
-                <div class="text-center">
-                    <a href="{{url('/')}}">
-                        <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
-                    </a>
-                </div> --}}
                <form method="POST" action="{{ route('register') }}">
                  @csrf
                   <div class="form-group">
                     <div class="input-group">
-                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Name" required autocomplete="name" autofocus>
+                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Full Name" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <div class="invalid-feedback" role="alert">
@@ -38,6 +31,22 @@
                       </div>
                     </div>
                   </div>
+                  <div class="form-group">
+                     <div class="input-group">
+                      <input id="id_number" type="number" class="form-control @error('id_number') is-invalid @enderror" name="id_number" value="{{ old('id_number') }}" placeholder="ID Number" required autocomplete="id_number" autofocus>
+
+                                @error('id_number')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div><!-- /.form-group -->
                   <div class="form-group">
                       <input type="hidden" name="slug" id="slug">
                         </div>

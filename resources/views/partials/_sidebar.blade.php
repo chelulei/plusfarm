@@ -1,6 +1,7 @@
+@endsection
 <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-success">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a  class="brand-link">
       <img src="{{asset('/images/icons/Pluslogo.png')}}"
            alt="Plusfarm"
            class="brand-image img-circle elevation-3"
@@ -12,11 +13,11 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ Auth::user()->image_url}}" class="img-circle elevation-2" alt="{{ Auth::user()->name }}">
-
+          <img src="{{ Auth::user()->image_thumb_url }}"
+          class="img-circle elevation-2" alt="{{ Auth::user()->name }}"  width="150" height="150">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -116,9 +117,9 @@
            @role('farmer')
           <li class="nav-item">
           <a class="nav-link" href="{{ route('backend.reports.index') }}">
-         <i class=" nav-icon fas fa-sticky-note"></i>
-            <span class="menu-title">Reports</span>
-          </a>
+          <i class=" nav-icon fas fa-sticky-note"></i>
+              <span class="menu-title">Reports</span>
+            </a>
           </li>
          @endrole
             <li class="nav-item">

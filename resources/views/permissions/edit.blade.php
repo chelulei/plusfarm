@@ -5,7 +5,7 @@
 @section('content')
     <nav aria-label="breadcrumb">
        <a href="{{ route('backend.permissions.index') }}">
-        <button class="btn btn-outline-success">
+        <button class="btn btn-sm btn-outline-success">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
             BACK
         </button></a>
@@ -25,7 +25,7 @@
                         {{ Form::text('name', null, ['class' => 'form-control']) }}
                     </div>
                     <br>
-                    {{ Form::submit('UPDATE', ['class' => 'btn btn-success btn-lg']) }}
+                    {{ Form::submit('UPDATE', ['class' => 'btn btn-success btn-sm']) }}
 
                     {{ Form::close() }}
                 </div>

@@ -31,7 +31,7 @@
 <div class="row">
 <div class="col-12">
      <a href="{{ route('backend.produces.create') }}">
-        <button  type="button" class="btn btn-success mb-2">
+        <button  type="button" class="btn btn-sm  btn-success mb-2">
     <i class="fa fa-plus-circle"></i>Add Produce</button>
        </a>
 

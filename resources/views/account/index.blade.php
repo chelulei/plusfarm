@@ -10,14 +10,14 @@
                      @role('farmer')
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('home') }}">
-                            <button class="btn btn-success">
+                            <button class="btn btn-sm btn-success">
                                 <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                        @endrole
                   @role('superadmin')
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('admin') }}">
-                            <button class="btn btn-success">
+                            <button class="btn btn-sm btn-success">
                                 <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                      @endrole
@@ -58,7 +58,7 @@
         </button>
 
         <div class="float-right">
-              <button class="btn btn-outline-success" data-myuname="{{$user->username}}"
+              <button class="btn btn-sm btn-outline-success" data-myuname="{{$user->username}}"
     data-myname="{{$user->name}}"  data-myemail="{{$user->email}}"  data-userid={{$user->id}} data-toggle="modal" data-target="#edit_user">
       <i class="fa fa-edit"></i>
     EDIT</button>
@@ -104,8 +104,8 @@
     </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-sm btn-success">Save</button>
       </div>
       </form>
     </div>

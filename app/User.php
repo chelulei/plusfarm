@@ -65,29 +65,38 @@ class User extends Authenticatable
 
     public function getImageUrlAttribute($value)
     {
-
         $imageUrl = "";
-
         if (!is_null($this->image)) {
-
             $imagePath = public_path() . "/images/" . $this->image;
-
             if (file_exists($imagePath))  $imageUrl = asset("images/" . $this->image);
         }
-
         return   $imageUrl;
     }
-     public  function farms(){
 
-        return $this->hasMany(Farm::class);
+    public function getImageThumbUrlAttribute($value)
+    {
+        $imageUrl = "";
+
+        if ( ! is_null($this->image))
+        {
+            $directory = config('farm.image.directory');
+            $ext       = substr(strrchr($this->image, '.'), 1);
+            $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
+            $imagePath = public_path() . "/{$directory}/" . $thumbnail;
+            if (file_exists($imagePath)) $imageUrl = asset("{$directory}/" . $thumbnail);
+        }
+
+        return $imageUrl;
     }
 
+     public  function farms(){
+        return $this->hasMany(Farm::class);
+    }
 
      public  function produces(){
 
         return $this->hasMany(Produce::class);
     }
-
 
      public  function preparations(){
 

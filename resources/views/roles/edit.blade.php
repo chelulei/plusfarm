@@ -7,7 +7,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="">
                <a href="{{ route('backend.roles.index') }}">
-                            <button class="btn btn-outline-success">
+                            <button class="btn btn-sm  btn-outline-success">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>BACK</button></a>
             </div>
         </div>
@@ -46,7 +46,7 @@
 
                     @endforeach
                     <br>
-                    {{ Form::submit('UPDATE', ['class' => 'btn btn-success btn-lg']) }}
+                    {{ Form::submit('UPDATE', ['class' => 'btn btn-sm  btn-outline-success']) }}
 
                     {{ Form::close() }}
                 </div>

@@ -55,6 +55,8 @@
                           <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                            {{ __('  Keep me signed in') }} </label>
                     </div>
+                  </div>
+                   <div class="form-group">
                      @if (Route::has('password.request'))
                     <a  href="{{ route('password.request') }}" class="text-small forgot-password text-black">
                       {{ __('Forgot Your Password?') }}
@@ -66,7 +68,6 @@
                     <a href="{{ route('register') }}" class="text-black text-small">Create new account</a>
                   </div>
                 </form>
-
                  <div class="social-auth-links text-center mb-3">
         {{-- <p>- OR -</p> --}}
         {{-- <a href="#" class="btn btn-block btn-primary">
@@ -89,5 +90,4 @@
   </div>
 </div>
 <!-- /.login-box -->
-
 @endsection

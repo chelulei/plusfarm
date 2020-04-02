@@ -13,7 +13,7 @@
         <div class="col-md-4">
        <div class="card">
            @if ($produce->plant->image_url)
-                <img src="{{$produce->plant->image_url}}" class="card-img-top" alt="{{$produce->plant->name}}">
+                <img src="{{$produce->plant->image_url}}"  class="card-img-top" alt="{{$produce->plant->name}}">
                   @endif
                 <div class="card-body">
                       <h6 class="info-box-text"></h6>
@@ -25,7 +25,7 @@
                         <strong> {{$produce->size}} </strong>
                         {{str_plural('Acre',$produce->size)}}
                         </h6>
-                    <a href="{{route('backend.produces.index')}}" class="btn btn-primary">View Details</a>
+                    <a href="{{route('backend.produces.index')}}" class="btn btn-sm  btn-success">View Details</a>
                 </div>
               </div>
         </div>

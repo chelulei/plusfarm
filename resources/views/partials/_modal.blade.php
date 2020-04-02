@@ -51,7 +51,7 @@
 
 <div class="modal fade" id="modal" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">ADD NEW</h5>
@@ -108,8 +108,8 @@
                 @include('seeds.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                <button type="button" class="btn btn-sm btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit" name="update" class="btn btn-sm btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>

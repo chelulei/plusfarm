@@ -8,6 +8,7 @@ use DB;
 use Session;
 use App\Http\Requests;
 use Carbon\Carbon;
+use Image;
 class VarietyController extends Controller
 {
 
@@ -69,17 +70,11 @@ class VarietyController extends Controller
                 $data = $request->all();
 
                 if($request->hasFile('image')){
-
                     $image = $request->file('image');
-
                     $fileNameToStore  = rand() . '.' . $image->getClientOriginalExtension();
-
                     $destination = $this->uploadPath;
-
                     $image->move($destination,$fileNameToStore);
-
                     $data['image'] =  $fileNameToStore;
-
                 }
                 return $data;
             }
@@ -117,7 +112,7 @@ class VarietyController extends Controller
     public function update(Request $request, $id)
     {
         //
-       $variety = Variety::findOrFail($id);
+        $variety = Variety::findOrFail($id);
         $oldImage = $variety->image;
         $defaultImage ='noimage.png';
         $data=$this->handleRequest($request);

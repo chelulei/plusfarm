@@ -17,7 +17,7 @@ class CreateWardsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('county_id')->unsigned()->nullable();
              $table->string('name');
-   $table->foreign('county_id')->references('id')->on('counties')->onDelete('restrict');
+   $table->foreign('county_id')->references('id')->on('counties')->onDelete('cascade');
             $table->timestamps();
         });
     }

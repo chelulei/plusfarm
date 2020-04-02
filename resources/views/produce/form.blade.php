@@ -87,6 +87,6 @@
  </div>
 
  <div class="form-group">
-        <button type="submit" class="btn btn-outline-success btn-lg">{{ $produce->exists ? 'Update' : 'Save' }}</button>
-        <a href="{{ route('backend.produces.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
+        <button type="submit" class="btn btn-outline-success btn-sm ">{{ $produce->exists ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('backend.produces.index') }}" class="btn btn-sm btn-outline-danger" role="button" aria-pressed="true">Cancel</a>
     </div>

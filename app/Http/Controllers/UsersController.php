@@ -7,6 +7,7 @@ use DB;
 use Session;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests;
+use Image;
 class UsersController extends Controller
 {
     protected $uploadPath;
@@ -51,45 +52,40 @@ class UsersController extends Controller
      */
     public function store(Requests\UserStoreRequest $request)
     {
-
-         try {
+        //  try {
         $data= $this->handleRequest($request);
-
         $data['password'] = Hash::make($data['username']);
+         $user = User::create($data);
+         $user->assignRole($request->input('roles'));
 
-          $user = User::create($data);
+        // // } catch (\Exception $e) {
 
-        $user->assignRole($request->input('roles'));
+        //     Session::flash('error',"Something wen't wrong! Please try again");
+        //     return redirect()->route('backend.users.index');
 
-
-
-        } catch (\Exception $e) {
-
-            Session::flash('error',"Something wen't wrong! Please try again");
-            return redirect()->route('users.index');
-
-        }
+        // }
         return redirect()->route('backend.users.index')->with('success', 'User created successfully');
-
 
     }
             private function handleRequest($request){
-
-                $data = $request->all();
-
+                   $data = $request->all();
                 if($request->hasFile('image')){
-
                     $image = $request->file('image');
-
                     $fileNameToStore  = rand() . '.' . $image->getClientOriginalExtension();
-
                     $destination = $this->uploadPath;
+                    $successUploaded = $image->move($destination,$fileNameToStore);
 
-                    $image->move($destination,$fileNameToStore);
+                     if ($successUploaded)
+                    {
+                        $extension = $image->getClientOriginalExtension();
+                        $thumbnail = str_replace(".{$extension}", "_thumb.{$extension}",   $fileNameToStore);
+                        Image::make($destination . '/' .   $fileNameToStore)
+                            ->resize(100, 100)
+                            ->save($destination . '/' . $thumbnail);
+                    }
 
                     $data['image'] =  $fileNameToStore;
-
-                }
+                 }
                 return $data;
             }
 

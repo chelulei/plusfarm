@@ -16,8 +16,8 @@
                 @include('crops.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                <button type="button" class="btn btn-sm btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit" name="update" class="btn btn-sm btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>

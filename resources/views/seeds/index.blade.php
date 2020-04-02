@@ -10,7 +10,7 @@
     </style>
 @endsection
 @section('content')
-        <button  type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#seedModal">
+        <button  type="button" class="btn btn-sm btn-outline-success mb-2" data-toggle="modal" data-target="#seedModal">
     <i class="fa fa-plus"></i>Add Varieties
 </button>
 <!-- Button trigger modal -->

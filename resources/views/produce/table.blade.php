@@ -23,13 +23,13 @@
                               <td>{{$produce->size}}</td>
                               <td>
                 <a data-toggle="tooltip" data-placement="top" title="Edit"
- href="{{ route('backend.produces.edit',$produce->id)}}" class="btn btn-md  btn-outline-success">
+ href="{{ route('backend.produces.edit',$produce->id)}}" class="btn btn-sm  btn-outline-success">
   EDIT
                     <i class="fa fa-edit"></i>
                 </a>
 
           <a data-toggle="tooltip" data-placement="top" title="Manage"
-                    href="{{route('backend.produces.show' ,$produce->id)}}" class="btn btn-success">
+                    href="{{route('backend.produces.show' ,$produce->id)}}" class="btn  btn-sm btn-success">
                     Manage
                     <i class="fa fa-cogs"></i>
                     <!-- /.fa fa-edit -->

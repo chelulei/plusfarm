@@ -48,7 +48,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active  border border-success" id="home" role="tabpanel" aria-labelledby="home-tab">
-     <button type="button" class="btn btn-success float-right m-4"
+     <button type="button" class="btn btn-sm  btn-success float-right m-4"
                            data-toggle="modal" data-target="#landModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
@@ -95,7 +95,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
 
   </div>
   <div class="tab-pane fade border border-success" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-     <button type="button" class="btn btn-success float-right m-4"
+     <button type="button" class="btn btn-sm  btn-success float-right m-4"
                         data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#plantModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
@@ -140,7 +140,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
     </table>
   </div>
   <div class="tab-pane fade border  border-success" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-<button type="button" class="btn btn-success float-right m-4"
+<button type="button" class="btn btn-sm  btn-success float-right m-4"
                         data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#harvestModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
@@ -186,7 +186,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
     </table>
   </div>
    <div class="tab-pane fade border border-success" id="store" role="tabpanel" aria-labelledby="store-tab">
-       <button type="button" class="btn btn-success float-right m-4"
+       <button type="button" class="btn btn-sm  btn-success float-right m-4"
                         data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#storageModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
@@ -235,7 +235,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
    <div class="tab-pane fade show border border-success" id="cultivate" role="tabpanel" aria-labelledby="cultivate">
 <div class="card">
   <div class="card-body">
- <button type="button" class="btn btn-success float-right m-4"
+ <button type="button" class="btn btn-sm  btn-success float-right m-4"
                         data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#cultivateModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
@@ -300,7 +300,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
 <div class="tab-pane fade show border border-success" id="harvested" role="tabpanel" aria-labelledby="harvested">
 <div class="card">
   <div class="card-body">
-  <button type="button" class="btn btn-success float-right m-4"
+  <button type="button" class="btn btn-sm  btn-success float-right m-4"
                         data-prepid="{{$produce->id}}"   data-toggle="modal" data-target="#harvestedModal">
                          <i class="fa fa-plus-circle"></i>
                      Add Activity
@@ -369,8 +369,8 @@ data-target="#delete" class="btn btn btn-outline-danger">
         <p class="text-danger">Are you sure all the tasks are complete?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-danger">Save </button>
+        <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-danger btn-sm ">Save </button>
       </div>
          </form>
     </div>

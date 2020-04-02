@@ -34,7 +34,7 @@
         </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-success btn-lg">Save</button>
-        <a href="{{ route('backend.plants.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
+        <button type="submit" class="btn btn-sm btn-outline-success btn-lg">Save</button>
+        <a href="{{ route('backend.plants.index') }}" class="btn btn-sm btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
     </div>
 </div>

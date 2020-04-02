@@ -51,7 +51,7 @@
         </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-success btn-lg">{{ $user->exists ? 'Update' : 'Save' }}</button>
-        <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
+        <button type="submit" class="btn btn-outline-success btn-sm">{{ $user->exists ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true">Cancel</a>
     </div>
 </div>

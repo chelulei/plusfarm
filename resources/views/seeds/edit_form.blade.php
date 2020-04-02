@@ -10,8 +10,7 @@
      </div>
      <div class="form-group row required">
         {!! Form::label("name","Name",["class"=>"col-form-label col-md-2"]) !!}
-        <div class="col-md-10">
-           <input id="name" type="text" name="name" value="{{ old('name',$variety->name) }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"  required>
+        <div class="col-md-10">sm          <input id="name" type="text" name="name" value="{{ old('name',$variety->name) }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"  required>
              @if($errors->has('name'))
             <span class="invalid-feedback">{{ $errors->first('name') }}</span>
             @endif
@@ -54,8 +53,8 @@
         </div>
 
         <div class="form-group">
-        <button type="submit" class="btn btn-outline-success btn-lg">Update</button>
-        <a href="{{ route('backend.seeds.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
+        <button type="submit" class="btn btn-outline-success btn-sm">Update</button>
+        <a href="{{ route('backend.seeds.index') }}" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true">Cancel</a>
     </div>
 </div>
 

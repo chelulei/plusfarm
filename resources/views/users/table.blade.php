@@ -14,27 +14,28 @@
         <tr>
             <td>
                 <a data-toggle="tooltip" data-placement="top" title="View Details"
-                class="btn  btn-md btn-outline-info" href="{{ route('backend.users.show',$user->slug) }}">
+                class="btn  btn-sm btn-outline-info" href="{{ route('backend.users.show',$user->slug) }}">
                     <i class="fa fa-search"></i>
                 </a>
-                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.users.edit',$user->slug)}}" class="btn btn-md  btn-outline-success">
+                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.users.edit',$user->slug)}}" class="btn btn-sm  btn-outline-success">
                     <i class="fa fa-edit"></i>
                 </a>
                 <!-- /.btn  btn-default -->
                 @if($user->id == config('custom.default_user_id') || $user->id ==  Auth::user()->id)
-                    <button onclick="return false" type="submit" class="btn  btn-md  btn-danger disabled">
+                    <button onclick="return false" type="submit" class="btn  btn-sm  btn-danger disabled">
                         <i class="fa fa-times"></i>
                     </button>
                 @else
                     <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$user->id}})"
-              data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
+              data-target="#DeleteModal" class="btn   btn-sm  btn-outline-danger">
               <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
 
             </a>
                 @endif
 
             </td>
-            <td><img src="{{ $user->image_url}} " alt="" width="200" height="200"></td>
+            <td><img src="{{ $user->image_url}} "  class="img-fluid"
+                alt="{{$user->name}}" width="100" height="100"></td>
             <td>{{$user->name}}</td>
             <td>{{$user->username}}</td>
             <td>

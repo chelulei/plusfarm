@@ -8,7 +8,7 @@
             <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
             <li class="breadcrumb-item">
                  <a href="{{route('backend.seeds.index')}}">
-                            <button class="btn btn-success">
+                            <button class="btn btn-sm btn-success">
                                 <i class="fa fa-arrow-left"></i>BACK</button></a>
         </ol>
     </nav>

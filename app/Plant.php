@@ -28,6 +28,7 @@ class Plant extends Model
         return   $imageUrl;
     }
 
+
      public  function varieties(){
 
         return $this->hasMany(Variety::class);

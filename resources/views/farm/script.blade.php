@@ -1,12 +1,8 @@
 
 <?php $var = isset($farm->county ) ? $farm->county  : "";?>
-
 @section('script')
-
 <script type="text/javascript">
-
  var county = <?php echo json_encode($var) ?>;
-
 $(document).ready(function () {
     $.ajaxSetup({
         headers: {
@@ -27,6 +23,7 @@ $(document).ready(function () {
                         $.each(data, function(key, value) {
                             $('select[name="sub_county"]').append('<option value="'+ value +'">'+ value +'</option>');
                         });
+
 
                     }
                 });
@@ -203,9 +200,6 @@ $('#completeModal').on('show.bs.modal', function (event) {
     });
 
  });
-
-
-
    </script>
 
-    @endsection
+@endsection

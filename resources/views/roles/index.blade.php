@@ -3,32 +3,11 @@
 @section('content')
 
     <div class="breadcrumbs">
-        <div class="page-header float-left pl-2">
-            <div class="page-title">
-                <h1 class="bread-head">
-                    {{-- @role('secretary')
-                    <a href="{{route('home')}}">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
-                    </a>
-                    @endrole
-                    @role('doctor')
-                    <a href="{{route('doctor')}}">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
-                    </a>
-                    @endrole
-                    @role('dentists')
-                    <a href="{{route('dentists')}}">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
-                    </a>
-                    @endrole --}}
-                </h1>
-            </div>
-        </div>
         <div class="float">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.roles.create') }}"><button class="btn btn-outline-success">
+                        <a href="{{ route('backend.roles.create') }}"><button class="btn btn-sm  btn-outline-success">
                                 <i class="fa fa-plus-circle"></i>Add Roles</button></a>
                     </li>
                 </ol>

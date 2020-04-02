@@ -20,8 +20,7 @@ class ProduceController extends Controller
     public function index()
     {
         //
-
-        $produces =Produce::where("user_id",Auth::user()->id)
+        $produces =Produce::where("user_id", Auth::user()->id)
          ->where(DB::raw('status'), '=', 0)
         ->orderBy('id', 'desc')->get();
         return view('produce.index',compact('produces'));

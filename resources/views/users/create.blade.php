@@ -9,7 +9,7 @@
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{route('backend.users.index')}}">
-                            <button class="btn btn-success">
+                            <button class="btn btn-sm btn-success">
                                 <i class="fa fa-arrow-left"></i>ALL USERS</button></a>
                     </li>
                 </ol>

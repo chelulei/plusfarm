@@ -30,3 +30,10 @@
 <link  type="text/css" rel="stylesheet" href="{{asset('/css/main.css')}}">
 <link  type="text/css" href="{{asset('/backend/vendor/jasny-bootstrap/css/jasny-bootstrap.css')}}" rel="stylesheet" media="all">
    <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+    img{
+        max-width: 100%;
+        max-height: 100%;
+        display: block; /* remove extra space below image */
+    }
+</style>

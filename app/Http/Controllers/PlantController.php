@@ -1,18 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Plant;
 use Illuminate\Http\Request;
 use Session;
 use DB;
 use App\Variety;
 use App\Http\Requests;
+use Intervention\Image\Facades\Image;
 class PlantController extends Controller
 {
-
      protected $uploadPath;
-
     public function __construct()
     {
         $this->uploadPath =public_path('images');
@@ -49,35 +46,24 @@ class PlantController extends Controller
     public function store(Requests\PlantStoreRequest $request)
     {
         //
-         $data= $this->handleRequest($request);
+        $data= $this->handleRequest($request);
         $crop = Plant::create($data);
-
         if( $crop ){
                 return redirect()->route('backend.plants.index')
             ->with('success', 'Crop has been added successfully');
             }else {
                 Session::flash('error', "Something wen't wrong! Please try again");
-
             }
-
     }
-
      private function handleRequest($request){
-
                 $data = $request->all();
-
                 if($request->hasFile('image')){
-
                     $image = $request->file('image');
-
                     $fileNameToStore  = rand() . '.' . $image->getClientOriginalExtension();
-
                     $destination = $this->uploadPath;
-
                     $image->move($destination,$fileNameToStore);
 
                     $data['image'] =  $fileNameToStore;
-
                 }
                 return $data;
             }
@@ -90,11 +76,8 @@ class PlantController extends Controller
     public function show(Plant $plant)
     {
         //
-    // $plants = DB::table('plants')->pluck("name","id");
-    // return view("reports.crop", compact('plant','plants'));
 
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -108,7 +91,6 @@ class PlantController extends Controller
          $plantVariety = $plant->varieties->pluck('name','name')->all();
          return view('crops.edit',compact('plant','varieties','plantVariety'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -152,29 +134,21 @@ class PlantController extends Controller
      */
     public function destroy($id)
     {
-
         //
       $plant=Plant::FindOrFail($id);
        $defaultImage ='noimage.png';
         $ok =$plant->delete();
-
            if ($plant->image !== $defaultImage) {
-
              $this->removeImage($plant->image);
-
            }
-
-
           if($ok){
                         return back()->with('success', "Produce deleted successfully!!");
                 }else {
                         return back()->with('error', "Something wen't wrong! Please try again");
 
-                }
+             }
 
     }
-
-
       private function removeImage($image)
     {
         if ( ! empty($image) )

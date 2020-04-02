@@ -6,12 +6,12 @@
   <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
   <div class="btn-group mr-2" role="group" aria-label="First group">
     <a href="{{ route('backend.farms.create') }}">
-        <button  type="button" class="btn btn-success mb-2">
+        <button  type="button" class="btn btn-sm  btn-success mb-2">
     <i class="fa fa-plus"></i>Add Farm</button>
        </a>
   </div>
   <div class="btn-group mr-2" role="group" aria-label="Second group">
-    <a  href="{{ route('backend.produces.create') }}" class="btn btn-success mb-2">
+    <a  href="{{ route('backend.produces.create') }}" class="btn btn-sm  btn-success mb-2">
         <i class="fa fa fa-plus-circle"></i>
             Add Produce
           </a>

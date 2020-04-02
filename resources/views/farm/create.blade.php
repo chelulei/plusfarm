@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('title', 'Plus Farm | Add new farm')
 @section('content')
  <div class="breadcrumbs">
@@ -8,7 +7,7 @@
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{route('backend.farms.index')}}">
-                            <button class="btn btn-success">
+                            <button class="btn btn-success btn-sm">
                                 <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                 </ol>

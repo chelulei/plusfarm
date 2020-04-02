@@ -17,10 +17,6 @@ class Variety extends Model
 
     ];
 
-    // public function setExpiredAtAttribute( $value ) {
-    //     $this->attributes['days'] = (new Carbon($value))->format('d');
-    //  }
-
     public function getImageUrlAttribute($value)
     {
 

@@ -19,7 +19,7 @@ class CreateVarietiesTable extends Migration
              $table->string('name');
              $table->string('days')->nullable();
              $table->string('image')->default('noimage.png');
-   $table->foreign('plant_id')->references('id')->on('plants')->onDelete('restrict');
+   $table->foreign('plant_id')->references('id')->on('plants')->onDelete('cascade');
             $table->timestamps();
         });
     }

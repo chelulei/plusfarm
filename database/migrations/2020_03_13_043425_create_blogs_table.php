@@ -19,7 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->longText('body');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

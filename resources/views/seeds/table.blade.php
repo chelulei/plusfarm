@@ -14,7 +14,7 @@
              <td>
                   @if ($crop->image_url)
             <img src="{{ ($crop->image_url) ? $crop->image_url : ''}}" alt="{{ $crop->name}}"
-                     width="200" height="200" />
+                      class="img-fluid img-thumbnail"  width="150" height="150" />
             @endif
             </td>
              <td>
@@ -28,11 +28,11 @@
             </td>
             <td>
                  <a data-toggle="tooltip" data-placement="top" title="Edit"
-               href="{{ route('backend.seeds.edit',$crop->id)}}" class="btn btn-md  btn-outline-success">
+               href="{{ route('backend.seeds.edit',$crop->id)}}" class="btn btn-sm  btn-outline-success">
                     <i class="fa fa-edit"></i>
                 </a>
                   <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$crop->id}})"
-              data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
+              data-target="#DeleteModal" class="btn   btn-sm  btn-outline-danger">
               DELETE
               <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
               </a>

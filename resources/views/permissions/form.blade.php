@@ -20,8 +20,8 @@
 <br>
 
 <div class="form-group">
-    <button type="submit" class="btn btn-outline-success btn-lg">{{ $permission->exists ? 'Update' : 'Save' }}</button>
-    <a href="{{ route('backend.roles.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
+    <button type="submit" class="btn btn-sm btn-outline-success">{{ $permission->exists ? 'Update' : 'Save' }}</button>
+    <a href="{{ route('backend.roles.index') }}" class="btn btn-sm  btn-outline-danger btn-sm" role="button" aria-pressed="true">Cance</a>
 
 </div>
 <!-- /.form-group -->

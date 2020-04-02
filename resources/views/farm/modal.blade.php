@@ -19,8 +19,8 @@
                 @include('preparation.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit"  class="btn btn-success">
+                <button type="button" class="btn  btn-sm  btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit"  class="btn btn-sm  btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -49,8 +49,8 @@
            @include('planting.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit"  class="btn btn-success">
+                <button type="button" class="btn btn-sm  btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit"  class="btn  btn-sm btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -79,8 +79,8 @@
                 @include('storage.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit"  class="btn btn-success">
+                <button type="button" class="btn btn-sm  btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit"  class="btn btn-sm  btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -109,8 +109,8 @@
                 @include('harvesting.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" class="btn btn-success">
+                <button type="button" class="btn btn-sm  btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit" class="btn btn-sm  btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -137,8 +137,8 @@
                 @include('cultivation.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit"  class="btn btn-success">
+                <button type="button" class="btn btn-sm  btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit"  class="btn btn-sm  btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -166,8 +166,8 @@
                 @include('harvests.form')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
-                    <button type="submit" name="update" class="btn btn-success">
+                <button type="button" class="btn btn-sm  btn-danger btn-bl" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+                    <button type="submit" name="update" class="btn btn-sm  btn-success">
                         <i class="fa fa-save"></i> SAVE</button>
 
             </div>
@@ -192,8 +192,8 @@
 				@include('preparation.edit_form')
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-success">Save</button>
+	        <button type="button" class="btn btn-sm  btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-sm  btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -216,8 +216,8 @@
 				@include('planting.edit_form')
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-success">Save</button>
+	        <button type="button" class="btn btn-sm  btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-sm  btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -239,8 +239,8 @@
 				@include('harvesting.edit_form')
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-success">Save</button>
+	        <button type="button" class="btn btn-sm  btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn  btn-sm btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -262,8 +262,8 @@
 				@include('storage.edit_form')
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-success">Save</button>
+	        <button type="button" class="btn btn-sm  btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-sm  btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -286,8 +286,8 @@
 				@include('cultivation.edit_form')
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-success">Save</button>
+	        <button type="button" class="btn btn-sm  btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-sm  btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -310,8 +310,8 @@
 				@include('cultivation.edit_form')
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-success">Save</button>
+	        <button type="button" class="btn  btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn  btn-sm btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -332,8 +332,8 @@
 				@include('harvests.edit_form')
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="submit" class="btn btn-success">Save</button>
+	        <button type="button" class="btn btn-sm  btn-danger" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-sm  btn-success">Save</button>
 	      </div>
       </form>
     </div>
@@ -361,8 +361,8 @@
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-sm  btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-sm  btn-danger">Delete</button>
         </form>
         </div>
       </div>
@@ -390,12 +390,12 @@
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-sm  btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-sm  btn-danger btn-sm ">Delete</button>
         </form>
         </div>
       </div>
-    </div>
+    </div> btn-sm btn-sm
   </div>
 
 
@@ -420,8 +420,8 @@
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-sm btn-sm  btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-sm btn-sm  btn-danger ">Delete</button>
         </form>
         </div>
       </div>
@@ -449,8 +449,8 @@
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
         </form>
         </div>
       </div>
@@ -478,8 +478,8 @@
           <h5 class="text-center">Are you sure you want to delete ... ?</h5>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
         </form>
         </div>
       </div>

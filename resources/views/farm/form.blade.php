@@ -1,4 +1,3 @@
-
 @csrf
  <div class="form-row">
      <div class="form-group col-md-12">
@@ -62,9 +61,7 @@
 
     <div class="form-group col-md-6">
    <label for="">Soil Ph:</label>
- <input id="soilph" type="number" name="soilph" value="{{ old('soilph',$farm->soilph) }}" class="form-control {{ $errors->has('soilph') ? 'is-invalid' : ' ' }}"  min="1" max="14"
-   onKeyUp="if(this.value>14){this.value='14';}else if(this.value<1){this.value='1';}"
- >
+ <input id="soilph" type="number" name="soilph" value="{{ old('soilph',$farm->soilph) }}" class="form-control {{ $errors->has('soilph') ? 'is-invalid' : ' ' }}">
    @if($errors->has('soilph'))
 		<div class="invalid-feedback">
 		   <strong>{{ $errors->first('soilph') }}</strong>
@@ -120,7 +117,7 @@
     </div>
     <div class="form-group col-md-6">
    <label for="">Sub county:</label>
- <select id="sub_county" class="form-control" name="sub_county" required>
+ <select id="sub_county" class="form-control" name="sub_county" equired>
         <option value="" selected disabled>--Choose Sub county--</option>
         </select>
     </div>
@@ -140,6 +137,6 @@
     <div class="form-group col-md-6">
   </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-success btn-lg">{{ $farm->exists ? 'Update' : 'Save' }}</button>
-        <a href="{{ route('backend.farms.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
+        <button type="submit" class="btn btn-sm btn-outline-success btn-lg">{{ $farm->exists ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('backend.farms.index') }}" class="btn btn-sm btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
     </div>

@@ -10,14 +10,14 @@
                      @role('farmer')
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('home') }}">
-                            <button class="btn btn-success">
+                            <button class="btn btn-sm btn-success">
                                 <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                        @endrole
                   @role('superadmin')
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('admin') }}">
-                            <button class="btn btn-success">
+                            <button class="btn btn-sm btn-success">
                                 <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                      @endrole
@@ -33,7 +33,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="bg-success pl-3 p-2 mb-2 text-white">
+                                <div class="bg-success btn-sm pl-3 p-2 mb-2 text-white">
                                    Change Password
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
 
                                     <div class="form-group">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <button type="submit" class="btn btn-success">
+                                            <button type="submit" class="btn btn-sm btn-success">
                                                 Change Password
                                             </button>
                                         </div>
