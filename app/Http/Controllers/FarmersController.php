@@ -8,6 +8,12 @@ use Session;
 use Image;
 class FarmersController extends Controller
 {
+     protected $uploadPath;
+
+    public function __construct()
+    {
+        $this->uploadPath =public_path('images');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -98,7 +104,7 @@ class FarmersController extends Controller
     public function update(Request $request, $id)
     {
         //
-         try {
+        //  try {
         $user = User::findOrFail($id);
         $oldImage = $user->image;
         $defaultImage ='default.png';
@@ -109,10 +115,10 @@ class FarmersController extends Controller
         if (($oldImage !== $user->image && $oldImage !== $defaultImage)) {
             $this->removeImage($oldImage);
         }
-     } catch (\Exception $e) {
-            Session::flash('error',"Please this are the only images supported Jpg,png,jpg");
-            return redirect()->route('backend.farmers.index');
-        }
+    //  } catch (\Exception $e) {
+    //         Session::flash('error',"Please this are the only images supported Jpg,png,jpg");
+    //         return redirect()->route('backend.farmers.index');
+    //     }
         return redirect()->route('backend.farmers.index')->with('success', 'Farmer updated successfully');
     }
 
