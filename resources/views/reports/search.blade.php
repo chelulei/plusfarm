@@ -7,9 +7,18 @@
                 </ul>
             </div>
 <div class="form-row mt-3">
-    <div class="form-group col-md-12">
+     <div class="form-group col-md-12">
+      <label for="inputReport">Types of Reports</label>
+      <select id="inputReport" class="form-control">
+        <option selected disabled>--- Choose Report ---</option>
+        <option value="Financial">Financial Report</option>
+        <option value="Performance">Performance Report</option>
+      </select>
+    </div>
+    <div class="form-group col-md-12" id="reportgroup1">
+        <label for="inputReport">Completed crops</label>
 <select id="name" type="dropdown-toggle" class="form-control" name="apports" onchange="top.location.href = this.options[this.selectedIndex].value">
-    <option value="name" selected disabled>--- Crop Financial Report ---</option>
+    <option value="name" selected disabled>--- choose crop ---</option>
     @foreach($produces as $produce)
         <option class="apports" value="{{ route("backend.reports.show", $produce->id) }}">
             {{$produce->plant->name}} |
@@ -26,9 +35,11 @@
         <span class="invalid-feedback">{{ $errors->first('produce') }}</span>
     @endif
         </div>
-    <div class="form-group col-md-12">
+
+    <div class="form-group col-md-12" id="reportgroup2">
+        <label for="inputReport">Completed crops</label>
 <select id="name" type="dropdown-toggle" class="form-control" name="apports" onchange="top.location.href = this.options[this.selectedIndex].value">
-    <option value="name" selected disabled>--Crop Performance Report--</option>
+    <option value="name" selected disabled>--choose crop --</option>
     @foreach($produces as $produce)
         <option class="apports" value="{{ route("performance", $produce->id) }}">
             {{$produce->plant->name}} |

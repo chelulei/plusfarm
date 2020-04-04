@@ -7,8 +7,9 @@
     @include('reports.search')
 <div class="card">
 <div class="card-body" id="printableTable">
+    <small class="">Date: {{$produce->updated_at->toFormattedDateString()}}</small><br>
      <small class="">Plusfarm Kenya Ltd</small><br>
-     <small class="card-title font-weight-bolder">CROP PERFORMANCE REPORT</small><br>
+     <small class="font-weight-bolder">PERFORMANCE REPORT</small><br>
    <small class="">
      {{$produce->farm->farm_name}} |
      <strong> {{$produce->size}} </strong>

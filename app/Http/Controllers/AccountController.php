@@ -37,8 +37,6 @@ class AccountController extends Controller
     {
 
     }
-
-
      /**
      * Update the specified resource in storage.
      *
@@ -50,11 +48,11 @@ class AccountController extends Controller
     public function update(Request $request){
 
               $rules = [
-            'name' => 'required|string|max:255',
-            'username' => 'required|unique:users,username,'.$request->user_id,
-            'email' => 'required|unique:users,email,'.$request->user_id,
-            'image' => 'mimes:jpg,jpeg,bmp,png',
-            ];
+               'name' => 'required|string|max:255',
+               'username' => 'required|unique:users,username,'.$request->user_id,
+               'email' => 'required|unique:users,email,'.$request->user_id,
+               'image' => 'mimes:jpg,jpeg,bmp,png',
+             ];
 
             $request->validate($rules);
 

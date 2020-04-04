@@ -52,7 +52,6 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'username' =>['required','unique:users'],
-            'slug'     => ['required','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6']
         ]);
@@ -70,14 +69,28 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'id_number' => $data['id_number'],
             'username' => $data['username'],
-            'slug' => $data['slug'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
+         $permissions = [
+            'farms-list',
+            'farms-create',
+            'farms-edit',
+            'farms-delete',
+        ];
+
+
+        foreach ($permissions as $permission) {
+            Permission::firstOrCreate(['name' => $permission]);
+        }
      //Set User Role
        $role = ['name' => 'farmer'];
        $role = Role::firstOrCreate($role);
+        $permission = Permission::get();
+        foreach ($permission as $key => $value) {
+            $role->givePermissionTo($value);
+        }
        $user->assignRole($role);
        return $user;
     }

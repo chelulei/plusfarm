@@ -135,9 +135,7 @@ if ($(this).val() == "Herbicide")
   });
 
 $(function () {
-
 $('#selection5').bind('change', function() {
-
    if ($(this).val() == "other")
      {
        $('#othergroup').show();
@@ -150,12 +148,34 @@ $('#selection5').bind('change', function() {
         $('#otherinput').removeAttr('required');
         $('#otherinput').removeAttr('data-error');
     }
-
     });
-
      $("#selection5").trigger("change");
   });
 
+$(function () {
+
+$('#inputReport').bind('change', function() {
+   if ($(this).val() == "Financial")
+     {
+       $('#reportgroup1').show();
+     }
+     else
+    {
+        $('#reportgroup1').hide();
+    }
+    if ($(this).val() == "Performance")
+      {
+        $('#reportgroup2').show();
+      }
+      else
+      {
+          $('#reportgroup2').hide();
+      }
+  });
+
+ $("#inputReport").trigger("change");
+
+ });
 </script>
 
 

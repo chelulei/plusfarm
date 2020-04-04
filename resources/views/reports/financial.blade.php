@@ -17,28 +17,20 @@
     @include('reports.search')
 <div class="card">
   <div class="card-body" id="printableTable">
+      <small class="">Date: {{$produce->updated_at->toFormattedDateString()}}</small><br>
      <small class="">Plusfarm Kenya Ltd</small><br>
-     <small class="card-title font-weight-bolder">PRODUCE FINANCIAL REPORT</small><br>
-    <small class="">
+      <h5>{{ Auth::user()->name }}</h5>
+      <small class="">
     {{$produce->farm->farm_name}} |
      <strong> {{$produce->size}} </strong>
      {{str_plural('Acre',$produce->size)}}
-    </small>
+    </small><br>
+      <small class="font-weight-bolder">FINANCIAL REPORT</small><br>
+      Produce: Maize
+     Variety: 614 h
      <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="PlusFarm">
      <hr><hr><hr>
-      <small class="font-weight-bolder">PRODUCE FINANCIAL REPORT</small> <br>
-   <small class="">
-    {{$produce->farm->farm_name}} |
-     <strong> {{$produce->size}} </strong>
-     {{str_plural('Acre',$produce->size)}}
-    </small>
-     <br><br>
-       <div class="pl-4">
-       <h4 class="text-primary">{{ Auth::user()->name }}</h4>
-      <small class="font-weight-bolder">Produce: {{$produce->plant->name}} </small><br>
-       <small class="font-weight-bolder">Variety: <b class="text-danger">{{$produce->variety->name}}</b></small><br><br>
-     </div>
- <h5 class="card-title"><i class="fa fa-money mr-1"> </i>INCOME</h5>
+ <h5 class="card-title mt-5"><i class="fa fa-money mr-1"> </i>INCOME</h5>
  <div class="table-responsive">
   <table class="table">
         <thead  class="thead-light">
@@ -65,10 +57,16 @@
     </tbody>
 </table>
  </div>
-<h5 class="card-title">(less)</h5>
+<h5 class="card-title mb-2">(less)</h5>
  <h5 class="card-title"><i class="fa fa-money mr-1"> </i>EXPENDITURE</h5>
   <div class="table-responsive">
   <table class="table">
+      <thead  class="">
+         <th>Activity/Details</th>
+         <th>Date</th>
+         <th>Amount</th>
+         <th></th>
+        </thead>
         <tbody>
             <tr  class="table-dark">
                <td colspan="4">Land Preparation</td>
@@ -76,6 +74,7 @@
             @foreach($preparations as $preparation)
             <tr>
                 <td>{{$preparation->task}}</td>
+                <td>{{$harv->created_at->toFormattedDateString()}}</td>
                 <td>{{$preparation->cost}}</td>
                 <td>
                 </td>
@@ -92,6 +91,7 @@
              @foreach($plantings as $planting)
             <tr>
                 <td>{{$planting->task}}</td>
+                <td>{{$harv->created_at->toFormattedDateString()}}</td>
                 <td>{{$planting->cost}}</td>
                 <td>
                 </td>
@@ -108,6 +108,7 @@
             @foreach($harvestings as $harvesting)
             <tr>
                 <td>{{$harvesting->task}}</td>
+                <td>{{$harv->created_at->toFormattedDateString()}}</td>
                 <td>{{$harvesting->cost}}</td>
                 <td>
                 </td>
@@ -124,6 +125,7 @@
             @foreach($storages as $storage)
             <tr>
                 <td>{{$storage->task}}</td>
+                 <td>{{$harv->created_at->toFormattedDateString()}}</td>
                 <td>{{$storage->cost}}</td>
                 <td>
                 </td>

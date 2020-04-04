@@ -22,13 +22,11 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'name' => 'required|string|max:255',
             'username' => 'required|unique:users,username,' . $this->route("user"),
             'email' => 'required|unique:users,email,' . $this->route("user"),
-            'image' => 'mimes:jpg,jpeg,bmp,png',
-
+            'image' => 'mimes:jpg,jpeg,png',
         ];
 
 

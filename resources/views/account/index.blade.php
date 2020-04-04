@@ -36,8 +36,7 @@
             </div>
             <!-- /.col-md-12 -->
             <div class="col-md-3 col-lg-3 " align="center">
-                <img src="{{ $user->image_url}}" alt="" class="img-thumbnail mt-4" style="width:150px; height:150px;">
-                {{-- @include('account.image') --}}
+                <img src="{{ $user->image_url}}" alt="" class="img-thumbnail mt-4"   width="150" height="150" >
             </div>
             <!-- /.col-m-3 -->
             <div class="col-md-4">

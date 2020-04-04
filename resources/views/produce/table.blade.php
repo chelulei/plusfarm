@@ -22,6 +22,7 @@
                               <td>{{$produce->farm_mode}}</td>
                               <td>{{$produce->size}}</td>
                               <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
                 <a data-toggle="tooltip" data-placement="top" title="Edit"
  href="{{ route('backend.produces.edit',$produce->id)}}" class="btn btn-sm  btn-outline-success">
   EDIT
@@ -33,7 +34,7 @@
                     Manage
                     <i class="fa fa-cogs"></i>
                     <!-- /.fa fa-edit -->
-                </a>
+                </a></div>
 
                               </td>
                              @endforeach

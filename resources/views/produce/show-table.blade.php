@@ -60,7 +60,7 @@
             <th>Cost</th>
             <th>Details</th>
             <th>Remarks</th>
-             <th>Settings</th>
+             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -71,7 +71,8 @@
             <td>{{$preparation->details}}</td>
             <td>{{$preparation->remarks}}</td>
             <td>
-                 <button type="button" class="btn btn-outline-success"
+              <div class="btn-group" role="group" aria-label="Basic example">
+                 <button type="button" class="btn btn-sm  btn-outline-success"
                         data-mytask="{{$preparation->task}}"
                         data-myherb="{{$preparation->herb_types}}"
                         data-mycost="{{$preparation->cost}}"
@@ -80,13 +81,13 @@
                         data-myremarks="{{$preparation->remarks}}"
                         data-toggle="modal" data-target="#edit-pre">
                          <i class="fa fa-edit"></i>
-                        EDIT</button>
+                       </button>
  <button tooltip="Delete&nbsp;Activity" data-valid="{{$preparation->id}}"
      data-toggle="modal"
-data-target="#delete" class="btn btn btn-outline-danger">
-           DELETE
+data-target="#delete" class="btn btn-sm  btn btn-outline-danger">
+
 <i class="fa fa-trash"></i>
- </button>
+ </button></div>
             </td>
         </tr>
             @endforeach
@@ -107,7 +108,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <th>Cost</th>
             <th>Details</th>
             <th>Remarks</th>
-            <th>Settings</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -118,7 +119,8 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$planting->details}}</td>
             <td>{{$planting->remarks}}</td>
             <td>
-                <button type="button" class="btn btn-outline-success"
+             <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-sm  btn-outline-success"
                         data-ytask="{{$planting->task}}"
                         data-ycost="{{$planting->cost}}"
                         data-ydetails="{{$planting->details}}"
@@ -126,13 +128,13 @@ data-target="#delete" class="btn btn btn-outline-danger">
                         data-yremarks="{{$planting->remarks}}"
                         data-toggle="modal" data-target="#edit-plant">
                          <i class="fa fa-edit"></i>
-                        EDIT</button>
+                       </button>
 
         <button tooltip="Delete&nbsp;Activity" data-valid2="{{$planting->id}}"
-     data-toggle="modal" data-target="#delete2" class="btn btn btn-outline-danger">
-           DELETE
+     data-toggle="modal" data-target="#delete2" class="btn btn-sm  btn btn-outline-danger">
+
 <i class="fa fa-trash"></i>
- </button>
+ </button></div>
             </td>
         </tr>
             @endforeach
@@ -152,7 +154,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <th>Cost</th>
             <th>Details</th>
             <th>Remarks</th>
-             <th>Activities</th>
+             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -163,7 +165,8 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$harvesting->details}}</td>
             <td>{{$harvesting->remarks}}</td>
              <td>
-<button type="button" class="btn btn-outline-success"
+                <div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-sm  btn-outline-success"
                         data-htask="{{$harvesting->task}}"
                         data-hcost="{{$harvesting->cost}}"
                          data-hdetails="{{$harvesting->details}}"
@@ -171,13 +174,13 @@ data-target="#delete" class="btn btn btn-outline-danger">
                         data-hremarks="{{$harvesting->remarks}}"
                         data-toggle="modal" data-target="#edit-harvest">
                          <i class="fa fa-edit"></i>
-                        EDIT</button>
+                       </button>
                          <button tooltip="Delete&nbsp;Activity"
                          data-valid3="{{$harvesting->id}}"
-     data-toggle="modal" data-target="#delete3" class="btn btn btn-outline-danger">
-           DELETE
+     data-toggle="modal" data-target="#delete3" class="btn btn-sm  btn btn-outline-danger">
+
 <i class="fa fa-trash"></i>
- </button>
+ </button></div>
 
               </td>
         </tr>
@@ -198,7 +201,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <th>Cost</th>
             <th>Details</th>
             <th>Remarks</th>
-            <th>Settings</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -209,7 +212,8 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$storage->details}}</td>
             <td>{{$storage->remarks}}</td>
             <td>
-                <button type="button" class="btn btn-outline-success"
+                <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-sm  btn-outline-success"
                         data-stask="{{$storage->task}}"
                         data-scost="{{$storage->cost}}"
                         data-sdetails="{{$storage->details}}"
@@ -217,13 +221,13 @@ data-target="#delete" class="btn btn btn-outline-danger">
                         data-sremarks="{{$storage->remarks}}"
                         data-toggle="modal" data-target="#edit-storage">
                          <i class="fa fa-edit"></i>
-                        EDIT</button>
+                       </button>
                          <button tooltip="Delete&nbsp;Activity"
                          data-valid4="{{$storage->id}}"
-     data-toggle="modal" data-target="#delete4" class="btn btn btn-outline-danger">
-           DELETE
+     data-toggle="modal" data-target="#delete4" class="btn btn-sm  btn btn-outline-danger">
+
 <i class="fa fa-trash"></i>
- </button>
+ </button></div>
             </td>
 
         </tr>
@@ -247,7 +251,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <th>Cost</th>
             <th>Details</th>
             <th>Remarks</th>
-            <th>Settings</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -258,7 +262,8 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$cultivation->details}}</td>
             <td>{{$cultivation->remarks}}</td>
             <td>
-                <button type="button" class="btn btn-outline-success"
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-sm  btn-outline-success"
                         data-ctask="{{$cultivation->task}}"
                         data-ccost="{{$cultivation->cost}}"
                         data-cdetails="{{$cultivation->details}}"
@@ -266,13 +271,13 @@ data-target="#delete" class="btn btn btn-outline-danger">
                         data-cremarks="{{$cultivation->remarks}}"
                         data-toggle="modal" data-target="#edit-cultivate">
                          <i class="fa fa-edit"></i>
-                        EDIT</button>
+                       </button>
                          <button tooltip="Delete&nbsp;Activity"
                          data-valid5="{{$cultivation->id}}"
-     data-toggle="modal" data-target="#delete5" class="btn btn btn-outline-danger">
-           DELETE
+     data-toggle="modal" data-target="#delete5" class="btn btn-sm  btn-outline-danger">
+
 <i class="fa fa-trash"></i>
- </button>
+ </button></div>
             </td>
 
         </tr>
@@ -288,7 +293,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
    <p class="text-center text-danger"> Make sure to complete all the task before clicking this button</p>
    <button type="button" class="btn btn-danger btn-lg btn-block"  data-toggle="modal" data-target="#completeModal"
    data-cpid="{{$produce->id}}"
-   data-pdid="{{$produce->size}}"
+   data-size="{{$produce->size}}"
     data-fmid="{{$produce->farm->id}}"
    >
    Click Here
@@ -312,7 +317,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <th>Total Income</th>
              <th>Details</th>
             <th>Remarks</th>
-            <th>Settings</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -323,7 +328,7 @@ data-target="#delete" class="btn btn btn-outline-danger">
             <td>{{$harvest->details}}</td>
             <td>{{$harvest->remarks}}</td>
             <td>
-                <button type="button" class="btn btn-outline-success"
+                <button type="button" class="btn btn-sm  btn-outline-success"
                         data-hartot="{{$harvest->total_harv}}"
                         data-harinc="{{$harvest->total_inc}}"
                         data-harid="{{$harvest->id}}"
@@ -331,11 +336,11 @@ data-target="#delete" class="btn btn btn-outline-danger">
                         data-harem="{{$harvest->remarks}}"
                         data-toggle="modal" data-target="#edit-harvests">
                          <i class="fa fa-edit"></i>
-                        EDIT</button>
+                       </button>
                          {{-- <button tooltip="Delete&nbsp;Activity"
                          data-valid45="{{$harvest->id}}"
      data-toggle="modal" data-target="#delete45" class="btn btn btn-outline-danger">
-           DELETE
+
 <i class="fa fa-trash"></i>
  </button> --}}
             </td>
@@ -364,8 +369,8 @@ data-target="#delete" class="btn btn btn-outline-danger">
       	    @csrf
       <div class="modal-body">
           <input type="hidden" name="cp_id" id="cp_id">
-          <input type="hidden" name="pd_id" id="pd_id">
           <input type="hidden" name="fm_id" id="fm_id">
+           <input type="hidden" name="size" id="size">
         <p class="text-danger">Are you sure all the tasks are complete?</p>
       </div>
       <div class="modal-footer">

@@ -15,8 +15,8 @@
             </td>
             <td>
                 @if ($crop->image_url)
-           <img src="{{ ($crop->image_thumb_url)}}" alt="{{ $crop->name}}"
-                   class="img-fluid">
+           <img src="{{ ($crop->image_url)}}" alt="{{ $crop->name}}"
+                    class="img-fluid"  width="100" height="100">
                      @endif
             </td>
             <td>
@@ -27,6 +27,7 @@
             </ul>
           </td>
           <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
                <a data-toggle="tooltip" data-placement="top" title="Edit"
                href="{{ route('backend.plants.edit',$crop->id)}}" class="btn btn-sm  btn-outline-success">
                     <i class="fa fa-edit"></i>
@@ -36,6 +37,7 @@
               DELETE
               <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
               </a>
+            </div>
           </td>
             @endforeach
         </tr>

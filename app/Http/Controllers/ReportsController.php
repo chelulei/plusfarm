@@ -13,6 +13,7 @@ use App\Cultivation;
 use App\Storage;
 use App\Harvest;
 use Auth;
+use Carbon\Carbon;
 class ReportsController extends Controller
 {
     /**
@@ -130,80 +131,71 @@ class ReportsController extends Controller
      */
     public function update(Request $request)
     {
-
         if (Preparation::where('produce_id', '=', $request->cp_id)->exists()) {
-            $ok = Produce::find($request->cp_id)->increment('status', 1);
         }else {
             return back()->with('error', "Please complete land preparation activities");
         }
-
          if (Planting::where('produce_id', '=', $request->cp_id)->exists()) {
-            $ok = Produce::find($request->cp_id)->increment('status', 1);
         }else {
             return back()->with('error', "Please complete planting activities");
         }
-
          if (Cultivation::where('produce_id', '=', $request->cp_id)->exists()) {
-            $ok = Produce::find($request->cp_id)->increment('status', 1);
         }else {
             return back()->with('error', "Please complete cultivation activities");
         }
          if (Harvesting::where('produce_id', '=', $request->cp_id)->exists()) {
-            $ok = Produce::find($request->cp_id)->increment('status', 1);
         }else {
             return back()->with('error', "Please complete harvest activities");
         }
          if (Storage::where('produce_id', '=', $request->cp_id)->exists()) {
-            $ok = Produce::find($request->cp_id)->increment('status', 1);
         }else {
             return back()->with('error', "Please complete storage activities");
         }
         if (Harvest::where('produce_id', '=', $request->cp_id)->exists()) {
-                $ok = Produce::find($request->cp_id)->increment('status', 1);
             }else {
                 return back()->with('error', "Please complete harvests activities");
             }
+            $updateDetails = [
+            'updated_at' => Carbon::now(),
+            'status' => 1
+              ];
+            DB::table('produces')
+                ->where('id', $request->cp_id)
+                    ->update($updateDetails);
+            DB::table('farms')
+            ->where('id', $request->fm_id)
+            ->increment('size',$request->size);
 
-     if($ok){
+            DB::table('preparations')
+                ->whereRaw('produce_id ', $request->cp_id)
+                ->increment('status',1);
 
-         DB::table('farms')
-    ->where('id', $request->fm_id)
-    ->increment('size',$request->pd_id);
+            DB::table('harvestings')
+                ->whereRaw('produce_id ', $request->cp_id)
+                ->increment('status',1);
 
-      DB::table('preparations')
-        ->whereRaw('produce_id ', $request->cp_id)
-        ->increment('status',1);
+            DB::table('plantings')
+                ->whereRaw('produce_id ', $request->cp_id)
+                ->increment('status',1);
 
-    DB::table('harvestings')
-        ->whereRaw('produce_id ', $request->cp_id)
-        ->increment('status',1);
+            DB::table('storages')
+                ->whereRaw('produce_id ', $request->cp_id)
+                ->increment('status', 1);
 
-    DB::table('plantings')
-        ->whereRaw('produce_id ', $request->cp_id)
-        ->increment('status',1);
+            DB::table('activities')
+            ->whereRaw('produce_id ', $request->cp_id)
+            ->increment('status',1);
 
-    DB::table('storages')
-        ->whereRaw('produce_id ', $request->cp_id)
-        ->increment('status', 1);
+            DB::table('cultivations')
+            ->whereRaw('produce_id ', $request->cp_id)
+            ->increment('status',1);
 
-    DB::table('activities')
-    ->whereRaw('produce_id ', $request->cp_id)
-    ->increment('status',1);
+            DB::table('harvests')
+            ->whereRaw('produce_id ', $request->cp_id)
+            ->increment('status',1);
+                    return redirect()->route('backend.produces.index')
+                            ->with('success','Activities completed successfully');
 
-    DB::table('cultivations')
-    ->whereRaw('produce_id ', $request->cp_id)
-    ->increment('status',1);
-
-     DB::table('harvests')
-    ->whereRaw('produce_id ', $request->cp_id)
-    ->increment('status',1);
-
-             return redirect()->route('backend.produces.index')
-                       ->with('success','Activities completed successfully');
-     }else {
-            return back()->with('error', "Something wen't wrong! Please try again");
-
-     }
     }
 
     /**

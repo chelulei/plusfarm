@@ -4,7 +4,7 @@
 <div class="login-box">
   <div class="login-logo text-center"">
      <a href="{{url('/')}}">
-            <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
+            <img src="{{ asset('/images/icons/logo1.png') }}" class="mx-auto d-block" width="" height="" alt="Plusfarm">
         </a>
   </div>
   <!-- /.login-logo -->
@@ -47,9 +47,6 @@
                       </div>
                     </div>
                   </div><!-- /.form-group -->
-                  <div class="form-group">
-                      <input type="hidden" name="slug" id="slug">
-                        </div>
                <div class="form-group">
                     <div class="input-group">
                       <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="UserName" required autocomplete="name" autofocus>

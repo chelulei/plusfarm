@@ -1,7 +1,5 @@
 <?php
-
 namespace App;
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Hash;
@@ -19,9 +17,35 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'slug', 'type','email', 'password', 'image'
+        'name','id_number', 'username', 'slug', 'type','email', 'password', 'image'
     ];
 
+     /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($blog) {
+            $blog->update(['slug' => $blog->username]);
+        });
+    }
+
+     /**
+     * Set the proper slug attribute
+     *
+     * @param string $value
+     */
+    public function setSlugAttribute($value)
+    {
+        if (static::whereSlug($slug = str_slug($value))->exists()) {
+
+            $slug = "{$slug}-{$this->id}";
+
+        }
+        $this->attributes['slug'] = $slug;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -39,9 +63,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-
-
     public function getNameAttribute($value)
     {
         return ucwords($value);
@@ -72,18 +93,16 @@ class User extends Authenticatable
         }
         return   $imageUrl;
     }
-
     public function getImageThumbUrlAttribute($value)
     {
         $imageUrl = "";
 
         if ( ! is_null($this->image))
         {
-            $directory = config('farm.image.directory');
-            $ext       = substr(strrchr($this->image, '.'), 1);
+            $ext    = substr(strrchr($this->image, '.'), 1);
             $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
-            $imagePath = public_path() . "/{$directory}/" . $thumbnail;
-            if (file_exists($imagePath)) $imageUrl = asset("{$directory}/" . $thumbnail);
+            $imagePath = public_path() . "/images/"  . $thumbnail;
+            if (file_exists($imagePath)) $imageUrl = asset("images/" . $thumbnail);
         }
 
         return $imageUrl;

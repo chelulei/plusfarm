@@ -10,10 +10,11 @@
      @else
     <div class="row">
     @foreach($produces as $produce)
-        <div class="col-md-4">
-       <div class="card">
+        <div class="col-sm-4">
+       <div class="card"  style="width: 300px; height:300px;">
            @if ($produce->plant->image_url)
-                <img src="{{$produce->plant->image_url}}"  class="card-img-top" alt="{{$produce->plant->name}}">
+                <img src="{{$produce->variety->image_url}}"
+                 class="card-img-top"  alt="{{$produce->variety->name}}">
                   @endif
                 <div class="card-body">
                       <h6 class="info-box-text"></h6>

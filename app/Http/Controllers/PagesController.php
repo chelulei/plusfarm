@@ -18,7 +18,7 @@ class PagesController extends Controller
 
 public function admin(){
 
-        $usersCount = User::where('type', '=', 'user')->count();
+         $usersCount = User::where('type', '=', 'user')->count();
          $farmersCount = User::where('type', '=', 'farmer')->count();
         $blogsCount = Blog::all()->count();
         return view('admin',compact('usersCount','farmersCount','blogsCount'));

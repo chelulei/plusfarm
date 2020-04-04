@@ -5,7 +5,6 @@
         <th>Image</th>
         <th>Name</th>
         <th>Username</th>
-        <th>Satus</th>
         <th>Role</th>
     </tr>
     </thead>
@@ -14,10 +13,10 @@
         <tr>
             <td>
                 <a data-toggle="tooltip" data-placement="top" title="View Details"
-                class="btn  btn-sm btn-outline-info" href="{{ route('backend.users.show',$user->slug) }}">
+                class="btn  btn-sm btn-outline-info" href="{{ route('backend.users.show',$user->id) }}">
                     <i class="fa fa-search"></i>
                 </a>
-                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.users.edit',$user->slug)}}" class="btn btn-sm  btn-outline-success">
+                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.users.edit',$user->id)}}" class="btn btn-sm  btn-outline-success">
                     <i class="fa fa-edit"></i>
                 </a>
                 <!-- /.btn  btn-default -->
@@ -34,17 +33,17 @@
                 @endif
 
             </td>
-            <td><img src="{{ $user->image_url}} "  class="img-fluid"
+            <td><img src="{{$user->image_url}} "  class="img-fluid"
                 alt="{{$user->name}}" width="100" height="100"></td>
             <td>{{$user->name}}</td>
             <td>{{$user->username}}</td>
-            <td>
+            {{-- <td>
                 @if($user->status == 1)
                     <a href="{{route('deactivate',[$user->id])}}" ><span class="badge badge-success">Active</span></a>
                     @else
                     <a href="{{route('activate',[$user->id])}}" ><span class="badge badge-danger">Inactive</span></a>
                     @endif
-            </td>
+            </td> --}}
             <td>
                 @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $v)

@@ -17,7 +17,7 @@ Easily manage your farm accounts/activities
 </p>
              <div class="text-center">
                     <a href="{{url('/')}}">
-                        <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
+                        <img src="{{ asset('/images/icons/logo1.png') }}"  alt="Plusfarm" class="mx-auto d-block" >
                     </a>
                 </div>
      @endsection

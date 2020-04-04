@@ -28,7 +28,6 @@
             @endif
     </div>
     <div class="form-group">
-        {{ Form::hidden('slug', null, ['id' => 'slug']) }}
         {{ Form::hidden('type', 'user') }}
     </div>
 
@@ -48,7 +47,12 @@
                 <span class="btn btn-outline-default btn-file btn-outline-success mt-3">
                     <span class="fileinput-new">Select image</span>
                     <span class="fileinput-exists">Change</span>
-                    {!! Form::file('image') !!}
+                    <input  type="file" name="image" value="{{ old('image') }}" class="form-control {{ $errors->has('image') ? 'is-invalid' : ' ' }}" >
+                    @if($errors->has('image'))
+                        <div class="invalid-feedback">
+                        <strong>{{ $errors->first('image') }}</strong>
+                        </div>
+                        @endif
                 </span>
                 <a href="#" class="btn btn-default fileinput-exists btn-outline-danger mt-3" data-dismiss="fileinput">Remove</a>
             </div>

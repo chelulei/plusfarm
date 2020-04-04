@@ -22,6 +22,7 @@ class RolesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        // where('name', '!=','farmer')
         $roles = Role::orderBy('id', 'desc')->get();
         return view('roles.index',compact('roles'));
     }

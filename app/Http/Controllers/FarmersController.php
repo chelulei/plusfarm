@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Session;
+use Image;
 class FarmersController extends Controller
 {
     /**
@@ -60,7 +62,31 @@ class FarmersController extends Controller
     public function edit($id)
     {
         //
+      $user = User::findOrFail($id);
+      return view('farmers.edit',compact('user'));
     }
+
+
+      private function handleRequest($request){
+                   $data = $request->all();
+                if($request->hasFile('image')){
+                    $image = $request->file('image');
+                    $fileNameToStore  = rand() . '.' . $image->getClientOriginalExtension();
+                    $destination = $this->uploadPath;
+                    $successUploaded = $image->move($destination,$fileNameToStore);
+                     if ($successUploaded)
+                    {
+                        $extension = $image->getClientOriginalExtension();
+                        $thumbnail = str_replace(".{$extension}", "_thumb.{$extension}",   $fileNameToStore);
+                        Image::make($destination . '/' .   $fileNameToStore)
+                            ->resize(100, 100)
+                            ->save($destination . '/' . $thumbnail);
+                    }
+
+                    $data['image'] =  $fileNameToStore;
+                 }
+                return $data;
+            }
 
     /**
      * Update the specified resource in storage.
@@ -72,6 +98,22 @@ class FarmersController extends Controller
     public function update(Request $request, $id)
     {
         //
+         try {
+        $user = User::findOrFail($id);
+        $oldImage = $user->image;
+        $defaultImage ='default.png';
+        $data=$this->handleRequest($request);
+        $user->update($data);
+
+        $user->assignRole($request->input('roles'));
+        if (($oldImage !== $user->image && $oldImage !== $defaultImage)) {
+            $this->removeImage($oldImage);
+        }
+     } catch (\Exception $e) {
+            Session::flash('error',"Please this are the only images supported Jpg,png,jpg");
+            return redirect()->route('backend.farmers.index');
+        }
+        return redirect()->route('backend.farmers.index')->with('success', 'Farmer updated successfully');
     }
 
     /**
@@ -83,5 +125,15 @@ class FarmersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function removeImage($image)
+    {
+        if ( ! empty($image) )
+        {
+            $imagePath     = $this->uploadPath . '/' . $image;
+            if ( file_exists($imagePath) ) unlink($imagePath);
+
+        }
     }
 }

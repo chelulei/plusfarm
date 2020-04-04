@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use Image;
+use Session;
 class ImageController extends Controller
 {
 
@@ -15,7 +17,6 @@ class ImageController extends Controller
         $this->uploadPath =public_path('images');
     }
 
-
     function upload(Request $request)
     {
      $this->validate($request, [
@@ -24,8 +25,8 @@ class ImageController extends Controller
 
      ]);
 
-
-     $user = User::findOrFail($request->user_id);
+          try {
+       $user = User::findOrFail($request->user_id);
 
         $oldImage = $user->image;
 
@@ -41,11 +42,15 @@ class ImageController extends Controller
 
         }
 
+        } catch (\Exception $e) {
+
+                    Session::flash('error',"Please this are the only images supported Jpg,png,jpg");
+                    return redirect()->route('backend.users.index');
+
+                }
      return back()->with('success', 'Image Uploaded Successfully');
 
-
     }
-
 
     private function handleRequest($request){
 
@@ -59,7 +64,16 @@ class ImageController extends Controller
 
                     $destination = $this->uploadPath;
 
-                    $image->move($destination,$fileNameToStore);
+                  $successUploaded = $image->move($destination,$fileNameToStore);
+                     if ($successUploaded)
+                    {
+
+                        $extension = $image->getClientOriginalExtension();
+                        $thumbnail = str_replace(".{$extension}", "_thumb.{$extension}",   $fileNameToStore);
+                        Image::make($destination . '/' .   $fileNameToStore)
+                            ->resize(100, 100)
+                            ->save($destination . '/' . $thumbnail);
+                    }
 
                     $data['image'] =  $fileNameToStore;
 

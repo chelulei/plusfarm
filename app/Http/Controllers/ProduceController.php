@@ -59,9 +59,8 @@ class ProduceController extends Controller
               $days = Variety::where('id', $request->variety_id)->first()->days;
               $start_date=Carbon::createFromFormat('d/m/y', $request->start_date);
               $input['start_date']=$start_date->toFormattedDateString();
-              $input['end_date'] =Carbon::parse($start_date)->addMonths($days)
+              $input['end_date'] =Carbon::parse($start_date)->addDays($days)
               ->toFormattedDateString();
-
               $farm = Farm::findOrFail($request->farm_id);
         if ($farm->size > $request->size  || $farm->size == $request->size){
             $prod_id = $request->user()->produces()->create($input);
@@ -70,7 +69,6 @@ class ProduceController extends Controller
         }else {
           return back()->with('error','No more Farm for Planting');
         }
-
          if ($farm->save() && $request->farm_mode == 'Inter-Croping'){
             $inter = new Intercrop;
             $inter->produce_id = $prod_id->id;
@@ -128,19 +126,20 @@ class ProduceController extends Controller
     public function update(Request $request, $id)
     {
        $input=$request->all();
+       $days = Variety::where('id', $request->variety_id)->first()->days;
        $size = Produce::where('id', $id)->first()->size;
        Farm::find($request->farm_id)->increment('size', $size );
        $produce = Produce::findOrFail($id);
-
        $start_date=Carbon::createFromFormat('d/m/y', $request->start_date);
        $input['start_date']=$start_date->toFormattedDateString();
-
+        $input['end_date'] =Carbon::parse($start_date)->addDays($days)
+              ->toFormattedDateString();
      if($produce->update($input)){
            $size = Produce::where('id', $id)->first()->size;
            Farm::find($request->farm_id)->decrement('size', $size );
            return redirect("/produces")->with('success','Produce was updated successfully!');
      }else{
-    Session::flash('error',"Something wen't wrong! Please try again");
+     Session::flash('error',"Something wen't wrong! Please try again");
      }
 
     }
@@ -157,12 +156,9 @@ class ProduceController extends Controller
        $ok = $produce->delete();
         if($ok){
             return back()->with('success', 'Produce deleted successfully!');
-
         }else {
             Session::flash('error', 'Some thing is wrong. Please try again');
-
             }
-
     }
 
  function myformAjax($id)

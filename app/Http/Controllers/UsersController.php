@@ -37,10 +37,7 @@ class UsersController extends Controller
      */
     public function create(User $user)
     {
-
-
         $roles = Role::pluck('name','name')->all();
-
         return view('users.create',compact('roles','user'));
     }
 
@@ -52,20 +49,16 @@ class UsersController extends Controller
      */
     public function store(Requests\UserStoreRequest $request)
     {
-        //  try {
-        $data= $this->handleRequest($request);
-        $data['password'] = Hash::make($data['username']);
+         try {
+         $data= $this->handleRequest($request);
+         $data['password'] = Hash::make($data['username']);
          $user = User::create($data);
          $user->assignRole($request->input('roles'));
-
-        // // } catch (\Exception $e) {
-
-        //     Session::flash('error',"Something wen't wrong! Please try again");
-        //     return redirect()->route('backend.users.index');
-
-        // }
+        } catch (\Exception $e) {
+            Session::flash('error',"Please this are the only images supported Jpg,png,jpg");
+            return redirect()->route('backend.users.index');
+        }
         return redirect()->route('backend.users.index')->with('success', 'User created successfully');
-
     }
             private function handleRequest($request){
                    $data = $request->all();
@@ -74,7 +67,6 @@ class UsersController extends Controller
                     $fileNameToStore  = rand() . '.' . $image->getClientOriginalExtension();
                     $destination = $this->uploadPath;
                     $successUploaded = $image->move($destination,$fileNameToStore);
-
                      if ($successUploaded)
                     {
                         $extension = $image->getClientOriginalExtension();
@@ -88,7 +80,6 @@ class UsersController extends Controller
                  }
                 return $data;
             }
-
     /**
      * Display the specified resource.
      *
@@ -100,20 +91,17 @@ class UsersController extends Controller
         // $user = User::findOrFail($id);
         return view('users.show',compact('user'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        // $user = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $roles = Role::pluck('name','name')->all();
-
         $userRole = $user->roles->pluck('name','name')->all();
-
         return view('users.edit',compact('user','roles','userRole'));
     }
 
@@ -127,39 +115,22 @@ class UsersController extends Controller
      */
     public function update(Requests\UserUpdateRequest $request, $id)
     {
-
          try {
         $user = User::findOrFail($id);
-
         $oldImage = $user->image;
-
         $defaultImage ='default.png';
-
         $data=$this->handleRequest($request);
-
         $user->update($data);
-
         DB::table('model_has_roles')->where('model_id',$id)->delete();
-
         $user->assignRole($request->input('roles'));
-
         if (($oldImage !== $user->image && $oldImage !== $defaultImage)) {
-
             $this->removeImage($oldImage);
-
         }
-
-
-
      } catch (\Exception $e) {
-
-            Session::flash('error',"Something wen't wrong! Please try again");
+            Session::flash('error',"Please this are the only images supported Jpg,png,jpg");
             return redirect()->route('backend.users.index');
-
         }
         return redirect()->route('backend.users.index')->with('success', 'User updated successfully');
-
-
     }
 
     /**
@@ -170,7 +141,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-
 
         try{
               $user = User::findOrFail($id);
@@ -187,10 +157,8 @@ class UsersController extends Controller
 
             Session::flash('error',"Something wen't wrong! Please try again");
             return redirect()->route('backend.users.index');
-
         }
         return redirect()->route('backend.users.index')->with('success', 'User deleted successfully');
-
     }
 
     private function removeImage($image)

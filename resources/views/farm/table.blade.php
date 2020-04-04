@@ -18,16 +18,15 @@
                                <td>{{$farm->ownership}}</td>
                                <td>{{$farm->size}}</td>
                               <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
          <a data-toggle="tooltip" data-placement="top" title="Edit"
            href="{{ route('backend.farms.edit',$farm->id)}}" class="btn btn-sm  btn-outline-success">
-           EDIT
                     <i class="fa fa-edit"></i>
                 </a>
             <button tooltip="Delete&nbsp;Farm" data-valid6="{{$farm->id}}"
                 data-toggle="modal" data-target="#deletef" class="btn btn-sm btn-outline-danger">
-                      DELETE
             <i class="fa fa-trash"></i>
-            </button>
+            </button></div>
                              </td>
                              @endforeach
                          </tr>

@@ -3,7 +3,7 @@
 <div class="login-box">
   <div class="login-logo text-center">
      <a href="{{url('/')}}">
-            <img src="{{ asset('/images/icons/logo1.png') }}"  width="" height="" alt="Plusfarm">
+            <img src="{{ asset('/images/icons/logo1.png') }}" class="mx-auto d-block"  width="" height="" alt="Plusfarm">
         </a>
   </div>
   <!-- /.login-logo -->

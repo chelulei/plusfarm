@@ -30,7 +30,9 @@ class HomeController extends Controller
      $farmCount = Farm::where("user_id" ,Auth::user()->id)->count();
      $produceCount = Produce::where("user_id" ,Auth::user()->id)->count();
      $farms = Farm::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
-     $produces = Produce::where("user_id",Auth::user()->id)->orderBy('id', 'desc')->get();
+     $produces = Produce::where("user_id",Auth::user()->id)
+                    ->where("status",0)
+                    ->orderBy('id', 'desc')->get();
         return view("home", compact('produceCount','farms','produces', 'farmCount'));
     }
 }

@@ -18,7 +18,7 @@
         </div>
     </div>
      <div class="form-group row required">
-        {!! Form::label("name","Months",["class"=>"col-form-label col-md-3"]) !!}
+        {!! Form::label("name","Days",["class"=>"col-form-label col-md-3"]) !!}
         <div class="col-md-9">
           {!! Form::number('days', null, ['class' => 'form-control'.($errors->has('days')?" is-invalid":""),'required'=>'']) !!}
              @if($errors->has('days'))

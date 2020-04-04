@@ -13,11 +13,11 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ Auth::user()->image_thumb_url }}"
-          class="img-circle elevation-2" alt="{{ Auth::user()->name }}"  width="150" height="150">
+          <img src="{{ Auth::user()->image_thumb_url}}"
+          class="img-circle elevation-2" alt="{{ Auth::user()->name}}"/>
         </div>
         <div class="info">
-          <a class="d-block">{{ Auth::user()->name }}</a>
+          <a class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -45,7 +45,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-             UserManagement
+             User Management
                 <i class="fas fa-angle-left right"></i>
 
               </p>
@@ -126,6 +126,12 @@
             <a class="nav-link" href="{{ route('backend.blogs.index') }}">
              <i class="nav-icon fas fa-comment"></i>
               <span class="menu-title">Resources</span>
+            </a>
+         </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{{ route('backend.farmers.index') }}">
+             <i class="nav-icon fas fa-users"></i>
+              <span class="menu-title">Farmers</span>
             </a>
          </li>
           <li class="nav-item has-treeview">
