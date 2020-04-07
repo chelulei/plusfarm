@@ -7,12 +7,20 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{route('backend.produces.index')}}">
+                           {{-- @role('farmer') --}}
+                        <a href="{{url()->previous()}}">
                             <button class="btn btn-success btn-sm ">
                                 <i class="fa fa-arrow-left"></i>
                                 BACK
                             </button>
                         </a>
+                         {{-- @endrole --}}
+                          {{-- <a href="{{route('produce', [$produce->user])}}">
+                            <button class="btn btn-success btn-sm ">
+                                <i class="fa fa-arrow-left"></i>
+                                BACK
+                            </button>
+                        </a> --}}
                     </li>
                 </ol>
             </nav>

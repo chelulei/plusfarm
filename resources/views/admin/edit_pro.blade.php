@@ -1,19 +1,20 @@
 @extends('layouts.main')
-   @section('title', 'Plusfarm | Edit produce')
+
+    @section('title', 'Plusfarm | Edit produce')
+
 @section('content')
 <div class="card card border-success">
             <div class="card-header">
-                <strong>Farm Form</strong>
+                <strong>Produce Form</strong>
             </div>
             <div class="card-body card-block">
     {!! Form::model($produce, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.produces.update', $produce->id],
+                  'route'  => ['up_date', $produce->id],
                   'files'  => TRUE
               ]) !!}
-
-                    @include('produce.form')
+                    @include('admin.produce-form')
 
                     {!! Form::close() !!}
                     </div>

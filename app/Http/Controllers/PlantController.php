@@ -12,7 +12,7 @@ class PlantController extends Controller
      protected $uploadPath;
     public function __construct()
     {
-        $this->uploadPath =public_path('images');
+        $this->uploadPath =base_path() . '/public/images';
     }
 
     /**

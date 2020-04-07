@@ -19,24 +19,30 @@
                                <td>{{$produce->variety->name}}</td>
                                <td>
                                  {{Carbon\Carbon::createFromFormat('d/m/y', $produce->start_date)->toFormattedDateString()}}
-                              </td>
+                                </td>
                                <td>{{$produce->end_date}}</td>
                               <td>{{$produce->farm_mode}}</td>
                               <td>{{$produce->size}}</td>
                               <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
+
+                  @can('produce-edit')
                 <a data-toggle="tooltip" data-placement="top" title="Edit"
- href="{{ route('backend.produces.edit',$produce->id)}}" class="btn btn-sm  btn-outline-success">
+ href="{{ route('editpro',$produce->id)}}" class="btn btn-sm  btn-outline-success">
   EDIT
                     <i class="fa fa-edit"></i>
                 </a>
+               @endcan
 
+                 @can('produce-manage')
           <a data-toggle="tooltip" data-placement="top" title="Manage"
                     href="{{route('backend.produces.show' ,$produce->id)}}" class="btn  btn-sm btn-outline-success">
                     Manage
                     <i class="fa fa-cogs"></i>
                     <!-- /.fa fa-edit -->
-                </a></div>
+                </a>
+             @endcan
+              </div>
 
                               </td>
                              @endforeach

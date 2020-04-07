@@ -11,6 +11,7 @@ class Harvest extends Model
             'user_id',
             'produce_id',
             'total_harv',
+            'price',
             'total_inc',
              'details',
             'remarks',

@@ -314,6 +314,7 @@ data-target="#delete" class="btn btn-sm  btn btn-outline-danger">
         <thead>
         <tr>
             <th>Total harvest</th>
+            <th>Price/Kg</th>
             <th>Total Income</th>
              <th>Details</th>
             <th>Remarks</th>
@@ -324,6 +325,7 @@ data-target="#delete" class="btn btn-sm  btn btn-outline-danger">
          @foreach($harvests as $harvest)
         <tr>
             <td>{{$harvest->total_harv}} (Kg)</td>
+            <td>{{$harvest->price}}  (Kshs)</td>
             <td>{{$harvest->total_inc}}  (Kshs)</td>
             <td>{{$harvest->details}}</td>
             <td>{{$harvest->remarks}}</td>

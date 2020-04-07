@@ -58,7 +58,6 @@ class ProduceController extends Controller
               $input = $request->all();
               $days = Variety::where('id', $request->variety_id)->first()->days;
               $start_date=Carbon::createFromFormat('d/m/y', $request->start_date);
-              $input['start_date']=$start_date->toFormattedDateString();
               $input['end_date'] =Carbon::parse($start_date)->addDays($days)
               ->toFormattedDateString();
               $farm = Farm::findOrFail($request->farm_id);
@@ -131,7 +130,6 @@ class ProduceController extends Controller
        Farm::find($request->farm_id)->increment('size', $size );
        $produce = Produce::findOrFail($id);
        $start_date=Carbon::createFromFormat('d/m/y', $request->start_date);
-       $input['start_date']=$start_date->toFormattedDateString();
         $input['end_date'] =Carbon::parse($start_date)->addDays($days)
               ->toFormattedDateString();
      if($produce->update($input)){

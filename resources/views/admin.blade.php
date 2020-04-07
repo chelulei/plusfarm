@@ -10,7 +10,9 @@
                  <strong> {{$farmersCount}} </strong>
                   {{str_plural('farmer',$farmersCount)}}
                 </span>
+                  @can('farmers-list')
                 <a href="{{ route('backend.farmers.index') }}" class="card-link">View Details</a>
+                 @endcan
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -27,7 +29,9 @@
                 <span class="info-box-number">
                   <strong> {{$usersCount}} </strong>
                  {{str_plural('user',$usersCount)}}</span>
+                  @can('users-list')
                    <a href="{{ route('backend.users.index') }}" class="card-link">View Details</a>
+                    @endcan
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -43,7 +47,9 @@
                     <strong> {{$blogsCount}} </strong>
                     {{str_plural('blog',$blogsCount)}}
                 </span>
+                  @can('blogs-list')
                  <a href="{{ route('backend.blogs.index') }}" class="card-link">View Details</a>
+                   @endcan
               </div>
               <!-- /.info-box-content -->
             </div>

@@ -24,6 +24,7 @@ class FarmController extends Controller
         return view('farm.index',compact('farms'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -95,11 +96,11 @@ class FarmController extends Controller
            $data['size'] =  $size3 ;
            $farm->update($data);
          return redirect()->route('backend.farms.index')
-                         ->with('success', "Farm was updated successfully!");
+                         ->with('success', "Farm  updated successfully!");
          }else{
                $farm->update($data);
            return redirect()->route('backend.farms.index')
-                         ->with('success', "Farm was updated successfully!");
+                         ->with('success', "Farm  updated successfully!");
          }
     }
 

@@ -1,16 +1,20 @@
 <div class="form-group">
        <label class="control-label" >Total Harvest (kgs)</label>
- <input id="total_harv" type="number" name="total_harv" value="{{ old('total_harv') }}" class="form-control {{ $errors->has('total_harv') ? 'is-invalid' : ' ' }}"  required>
+ <input id="txt1" type="number" name="total_harv" value="{{ old('total_harv') }}" class="form-control {{ $errors->has('total_harv') ? 'is-invalid' : ' ' }}" onkeyup="sum();" required>
         @if($errors->has('total_harv'))
             <span class="is-invalid">{{ $errors->first('total_harv') }}</span>
         @endif
      </div>
+     <div class="form-group">
+         <label class="control-label" >Price/kg (Kshs)</label>
+         <input id="txt2" type="number" name="price"  class="form-control {{ $errors->has('price') ? 'is-invalid' : ' ' }}" onkeyup="sum();" required>
+        @if($errors->has('price'))
+            <span class="is-invalid">{{ $errors->first('price') }}</span>
+        @endif
+     </div>
    <div class="form-group">
          <label class="control-label" >Total Income (Kshs)</label>
-         <input id="total_inc" type="number" name="total_inc" value="{{ old('total_inc') }}" class="form-control {{ $errors->has('total_inc	') ? 'is-invalid' : ' ' }}"  required>
-        @if($errors->has('total_inc'))
-            <span class="is-invalid">{{ $errors->first('total_inc') }}</span>
-        @endif
+         <input id="txt3" type="number"  value="" class="form-control"  disabled>
      </div>
       <div class="form-group">
             <label class="control-label" >Details</label>
@@ -26,7 +30,7 @@
                      <span class="invalid-feedback">{{ $errors->first('remarks') }}</span>
                  @endif
      </div>
-
+ @include('harvests.script')
 
 
 

@@ -28,15 +28,19 @@
           </td>
           <td>
               <div class="btn-group" role="group" aria-label="Basic example">
+                @can('crops-edit')
                <a data-toggle="tooltip" data-placement="top" title="Edit"
                href="{{ route('backend.plants.edit',$crop->id)}}" class="btn btn-sm  btn-outline-success">
                     <i class="fa fa-edit"></i>
                 </a>
+                @endcan
+                @can('crops-delete')
                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$crop->id}})"
               data-target="#DeleteModal" class="btn   btn-sm  btn-outline-danger">
               DELETE
               <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Delete"></i>
               </a>
+              @endcan
             </div>
           </td>
             @endforeach

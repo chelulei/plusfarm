@@ -1,4 +1,4 @@
-<table id="Data_Table" class="table table-bordered display nowrap" style="width:100%">
+<table id="Data_Table" class="table table-bordered">
     <thead>
     <tr>
         <th>Image</th>
@@ -14,9 +14,18 @@
             <td>{{$user->name}}</td>
              <td>{{$user->created_at->toFormattedDateString() }}</td>
              <td>
-                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.farmers.edit',$user->id)}}" class="btn btn-sm  btn-outline-success">
-                    <i class="fa fa-edit"></i>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                @can('farmers-edit')
+                  <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.farmers.edit',$user->id)}}" class="btn btn-sm  btn-outline-success">
+                 <i class="fa fa-edit"></i>
                 </a>
+                @endcan
+                @can('farmers-delete')
+                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{route('farms',[$user->id])}}" class="btn btn-sm  btn-outline-success">
+                   Farms
+                </a>
+                @endcan
+            </div>
              </td>
         </tr>
     @endforeach

@@ -11,7 +11,7 @@
     <div class="row">
     @foreach($produces as $produce)
         <div class="col-sm-4">
-       <div class="card"  style="width: 300px; height:300px;">
+       <div class="card"  style="width: 315px; height:315px;">
            @if ($produce->plant->image_url)
                 <img src="{{$produce->variety->image_url}}"
                  class="card-img-top"  alt="{{$produce->variety->name}}">
@@ -19,8 +19,9 @@
                 <div class="card-body">
                       <h6 class="info-box-text"></h6>
                      <div class="d-flex justify-content-between">
-                          <h6 class="card-title mb-0 info-box-text">{{$produce->farm->farm_name}}</h6>
-                          <p class="font-weight-semibold mb-0 info-box-text">{{$produce->plant->name}}  |  {{$produce->variety->name}}</p>
+                          <h6 class="card-title mb-0 info-box-text mr-1">{{$produce->farm->farm_name}}</h6>
+                          <p class="font-weight-semibold mb-0 info-box-text">
+                            {{$produce->plant->name}} | {{$produce->variety->name}}</p>
                         </div>
                       <h6 class="font-weight-medium info-box-text">
                         <strong> {{$produce->size}} </strong>

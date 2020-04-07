@@ -14,7 +14,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->uploadPath =public_path('images');
+        $this->uploadPath =  $this->uploadPath =base_path() . '/public/images';
     }
     /**
      * Display a listing of the resource.

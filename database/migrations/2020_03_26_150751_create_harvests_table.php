@@ -18,6 +18,7 @@ class CreateHarvestsTable extends Migration
             $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->unsignedBigInteger('produce_id')->unsigned()->nullable();
             $table->string('total_harv');
+            $table->string('price');
             $table->string('total_inc');
             $table->longText('details')->nullable();
             $table->longText('remarks')->nullable();

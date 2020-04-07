@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
 use Session;
+use Illuminate\Support\Facades\Hash;
 use Image;
+use Spatie\Permission\Models\Role;
 class FarmersController extends Controller
 {
      protected $uploadPath;
@@ -32,9 +32,11 @@ class FarmersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
         //
+          $roles = Role::pluck('name','name')->all();
+        return view('farmers.create',compact('roles','user'));
     }
 
     /**
@@ -46,6 +48,16 @@ class FarmersController extends Controller
     public function store(Request $request)
     {
         //
+          try {
+         $data= $this->handleRequest($request);
+         $data['password'] = Hash::make($data['username']);
+         $user = User::create($data);
+         $user->assignRole($request->input('roles'));
+        } catch (\Exception $e) {
+            Session::flash('error',"Please this are the only images supported Jpg,png,jpg");
+            return redirect()->route('backend.farmers.index');
+        }
+        return redirect()->route('backend.farmers.index')->with('success', 'User created successfully');
     }
 
     /**
@@ -68,8 +80,10 @@ class FarmersController extends Controller
     public function edit($id)
     {
         //
-      $user = User::findOrFail($id);
-      return view('farmers.edit',compact('user'));
+        $user = User::findOrFail($id);
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+        return view('farmers.edit',compact('user','roles','userRole'));
     }
 
 

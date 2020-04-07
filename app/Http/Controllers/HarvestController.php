@@ -37,7 +37,7 @@ class HarvestController extends Controller
     {
         //
          $input = $request->all();
-
+         $input['total_inc']= $request->total_harv * $request->price;
        $ok = $request->user()->harvests()->create($input);
          if ($ok) {
             return back()->with('success', 'Added successfully');
@@ -78,8 +78,7 @@ class HarvestController extends Controller
     public function update(Request $request)
     {
         //
-         //
-          //
+
           $data = $request->all();
          $update = Harvest::findOrFail($request->harv_id);
          $data = $request->all();

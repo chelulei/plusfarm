@@ -47,8 +47,15 @@ Route::get('/profile/{user}/edit', [
     'uses' => 'ProfileController@edit',
     'as'   => 'profile-edit'
 ]);
-Route::any('activate/{id}', 'ActivateController@activate')->name('activate');
-Route::any('deactivate/{id}', 'ActivateController@deactivate')->name('deactivate');
+Route::any('farm/{id}', 'AdminController@farms')->name('farms');
+Route::any('produce/{id}', 'AdminController@produces')->name('produce');
+Route::any('edit/{id}', 'AdminController@edit')->name('edit');
+Route::any('delete/{id}', 'AdminController@delete')->name('delete');
+Route::any('update/{id}', 'AdminController@update')->name('update');
+Route::any('editpro/{id}', 'AdminController@editPro')->name('editpro');
+Route::any('up_date/{id}', 'AdminController@up_date')->name('up_date');
+// Route::any('activate/{id}', 'ActivateController@activate')->name('activate');
+// Route::any('deactivate/{id}', 'ActivateController@deactivate')->name('deactivate');
 Route::resource('/roles', 'RolesController', ['as' => 'backend']);
 Route::resource('/permissions', 'PermissionsController', ['as' => 'backend']);
 Route::get('/count', 'PagesController@getCount');

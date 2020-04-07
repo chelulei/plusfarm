@@ -27,12 +27,12 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-             @role('superadmin')
+            @hasanyrole('superadmin|admin|user|superuser|admin')
              <a href="{{ route('admin') }}" class="nav-link">
                  <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>Dashboard</p>
                 </a>
-                 @endrole
+            @endhasanyrole
                   @role('farmer')
           <a href="{{ route('home') }}" class="nav-link">
                  <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -88,8 +88,8 @@
       </a>
     </li>
        @endrole
-          @role('superadmin')
        <li class="nav-item has-treeview">
+           @can('crop-manage')
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -98,22 +98,26 @@
 
               </p>
             </a>
+             @endcan
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                @can('crops-list')
                 <a href="{{route('backend.plants.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Crops</p>
                 </a>
+                @endcan
               </li>
               <li class="nav-item">
+                 @can('varieties-list')
                 <a href="{{route('backend.seeds.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Varieties</p>
                 </a>
+                @endcan
               </li>
             </ul>
           </li>
-            @endrole
            @role('farmer')
           <li class="nav-item">
           <a class="nav-link" href="{{ route('backend.reports.index') }}">
@@ -121,18 +125,22 @@
               <span class="menu-title">Reports</span>
             </a>
           </li>
-         @endrole
+           @endrole
             <li class="nav-item">
+             @hasanyrole('farmer|superadmin|admin|user|superuser|admin')
             <a class="nav-link" href="{{ route('backend.blogs.index') }}">
              <i class="nav-icon fas fa-comment"></i>
               <span class="menu-title">Resources</span>
             </a>
+              @endrole
          </li>
            <li class="nav-item">
+         @can('farmers-list')
             <a class="nav-link" href="{{ route('backend.farmers.index') }}">
              <i class="nav-icon fas fa-users"></i>
               <span class="menu-title">Farmers</span>
             </a>
+          @endcan
          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

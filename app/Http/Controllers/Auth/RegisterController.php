@@ -73,24 +73,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-         $permissions = [
-            'farms-list',
-            'farms-create',
-            'farms-edit',
-            'farms-delete',
-        ];
-
-
-        foreach ($permissions as $permission) {
-            Permission::firstOrCreate(['name' => $permission]);
-        }
      //Set User Role
        $role = ['name' => 'farmer'];
        $role = Role::firstOrCreate($role);
-        $permission = Permission::get();
-        foreach ($permission as $key => $value) {
-            $role->givePermissionTo($value);
-        }
        $user->assignRole($role);
        return $user;
     }

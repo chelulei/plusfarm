@@ -24,17 +24,19 @@
                             <div class="card-body">
                                 <h5 class="card-title">Whats in your mind?</h5>
                                 <p class="card-text">Write something.</p>
+                                 @can('blogs-create')
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal">
                                         <i class="fa fa-plus"></i>
                                       Create a blog
                                     </button>
+                                @endcan
                             </div>
                         </div>
                     </div>
                   @endrole
                     @if (! $blogs->count())
                         <div class="alert alert-info">
-                            <strong>No record found</strong>
+                            <strong>No blogs found</strong>
                         </div>
                     @else
                         @foreach($blogs as $blog)
@@ -45,17 +47,21 @@
                                     <p class="excert">
                                         {!!$blog->excerpt!!}
                                     </p>
-                                    @role('superadmin')
+
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['backend.blogs.destroy', $blog->slug, 'class' =>'form-delete']]) !!}
                                     @csrf
+                                     @can('blogs-edit')
                                         <a href="{{route('backend.blogs.edit', $blog->slug)}}"
                                             class="btn btn-sm btn-outline-success">Edit</a>
+                                        @endcan
+                                        @can('blogs-delete')
                                         <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-sm btn-outline-danger">
                                             <i class="fa fa-times"></i>
                                             Delete
                                         </button>
+                                         @endcan
                                     {!! Form::close() !!}
-                                   @endrole
+
                                     <p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><i class="fa fa-clock-o"></i> {{$blog->date}}</li>

@@ -11,10 +11,12 @@
     </style>
 @endsection
 @section('content')
+ @can('crops-create')
         <button  type="button" class="btn btn-sm btn-outline-success mb-2"
          data-toggle="modal" data-target="#cropModal">
     <i class="fa fa-plus-circle"></i>Add Crop
 </button>
+@endcan
    @include('partials.messages')
     @if(! $crops->count())
         <div class="alert alert-danger m-2">

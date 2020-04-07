@@ -21,6 +21,10 @@
       {{ Form::hidden('type', 'farmer') }}
     </div>
 
+        <div class="form-group">
+            <strong>Role:</strong>
+            {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
+        </div>
         <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
             {!! Form::label('image') !!}
             <br>
@@ -52,6 +56,6 @@
 
     <div class="form-group">
         <button type="submit" class="btn btn-outline-success btn-sm">{{ $user->exists ? 'Update' : 'Save' }}</button>
-        <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true">Cancel</a>
+        <a href="{{ route('backend.farmers.index') }}" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true">Cancel</a>
     </div>
 </div>

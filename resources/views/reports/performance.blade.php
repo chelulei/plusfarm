@@ -7,6 +7,9 @@
     @include('reports.search')
 <div class="card">
 <div class="card-body" id="printableTable">
+  <div style="float:right;">
+        <img src="{{ asset('/images/icons/logo1.png') }}" class="img-fluid float-sm-right" alt="PlusFarm">
+    </div>
     <small class="">Date: {{$produce->updated_at->toFormattedDateString()}}</small><br>
      <small class="">Plusfarm Kenya Ltd</small><br>
      <small class="font-weight-bolder">PERFORMANCE REPORT</small><br>
@@ -15,7 +18,6 @@
      <strong> {{$produce->size}} </strong>
      {{str_plural('Acre',$produce->size)}}
     </small>
-       <img src="{{ asset('/images/icons/logo1.png') }}" class="float-right" alt="PlusFarm">
      <hr><hr><hr>
      <div class="pl-4 bg-secondary mt-4">
        <h4 class="text-white">{{ Auth::user()->name }}</h4>

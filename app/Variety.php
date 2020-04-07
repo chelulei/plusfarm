@@ -24,7 +24,7 @@ class Variety extends Model
 
         if (!is_null($this->image)) {
 
-            $imagePath = public_path() . "/images/" . $this->image;
+               $imagePath = base_path()  . '/public/images/' . $this->image;
 
             if (file_exists($imagePath))  $imageUrl = asset("images/" . $this->image);
         }
